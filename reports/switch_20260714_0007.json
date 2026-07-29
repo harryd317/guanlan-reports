@@ -1,0 +1,342 @@
+{
+ "as_of": "2026-07-14",
+ "sim_start": "2022-01-01",
+ "bench_mid_pure": {
+  "n": 774,
+  "cum": 575.5947410862809,
+  "maxdd": -787.8451987511249
+ },
+ "bench_mid_gate": {
+  "n": 396,
+  "cum": 1280.2488973794816,
+  "maxdd": -432.52468991339913
+ },
+ "grid": [
+  {
+   "tenure": 5,
+   "confirm": 2,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 2,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 2,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 3,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 3,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 3,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 5,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 5,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 5,
+   "confirm": 5,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 2,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 2,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 2,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 3,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 3,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 3,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 5,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 5,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 10,
+   "confirm": 5,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 2,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 2,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 2,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 3,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 3,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 3,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 5,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 5,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 20,
+   "confirm": 5,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 2,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 2,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 2,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 3,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 3,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 3,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 5,
+   "band": 0.5,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 5,
+   "band": 1.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  },
+  {
+   "tenure": 40,
+   "confirm": 5,
+   "band": 2.0,
+   "n": 396,
+   "cum": 1280.2,
+   "maxdd": -432.5,
+   "switches": 0
+  }
+ ],
+ "center_events": [],
+ "admissible_combos": 0
+}

@@ -1,0 +1,475 @@
+{
+ "as_of": "2026-07-13",
+ "engine_ver": "regime_v1",
+ "oos_start": "2022-01-01",
+ "boot": {
+  "n": 1000,
+  "seed": 42
+ },
+ "dropped_no_label": 0,
+ "oos": {
+  "mid|bear_healthy": {
+   "n": 98,
+   "daily_ret": 0.048734654509926485,
+   "expectancy": 4.874957328171524,
+   "win_rate": 39.795918367346935,
+   "n_segs": 5,
+   "max_seg_share": 0.7226266104671649,
+   "by_year": {
+    "2022": {
+     "n": 18,
+     "pnl": -39.2
+    },
+    "2023": {
+     "n": 9,
+     "pnl": -9.9
+    },
+    "2024": {
+     "n": 59,
+     "pnl": 286.9
+    },
+    "2025": {
+     "n": 12,
+     "pnl": 240.0
+    }
+   },
+   "ex_best_year": 4.894076431406291,
+   "ci": [
+    -2.7309967815622893,
+    12.28128322175071
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": true,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%",
+    "bootstrap下界>0"
+   ]
+  },
+  "mid|bull_healthy": {
+   "n": 239,
+   "daily_ret": 0.0610128241427304,
+   "expectancy": 2.321295439037019,
+   "win_rate": 30.543933054393307,
+   "n_segs": 6,
+   "max_seg_share": 1.2666737716283745,
+   "by_year": {
+    "2022": {
+     "n": 7,
+     "pnl": -17.9
+    },
+    "2023": {
+     "n": 14,
+     "pnl": 119.8
+    },
+    "2024": {
+     "n": 64,
+     "pnl": -240.5
+    },
+    "2025": {
+     "n": 103,
+     "pnl": 557.3
+    },
+    "2026": {
+     "n": 51,
+     "pnl": 136.1
+    }
+   },
+   "ex_best_year": -0.018218715868432572,
+   "ci": [
+    -3.4362771709373066,
+    7.168187140639889
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "mid|bull_stressed": {
+   "n": 6,
+   "daily_ret": -0.11569685434950039,
+   "expectancy": -1.6004731518347555,
+   "win_rate": 33.33333333333333,
+   "n_segs": 1,
+   "max_seg_share": null,
+   "by_year": {
+    "2026": {
+     "n": 6,
+     "pnl": -9.6
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    null,
+    null
+   ],
+   "gates": {
+    "样本≥30": false,
+    "区段≥3": false,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "样本≥30",
+    "区段≥3",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "mid|neutral_healthy": {
+   "n": 53,
+   "daily_ret": 0.09377416479585758,
+   "expectancy": 4.855024683015721,
+   "win_rate": 43.39622641509434,
+   "n_segs": 3,
+   "max_seg_share": 0.7036770201819538,
+   "by_year": {
+    "2023": {
+     "n": 20,
+     "pnl": -83.6
+    },
+    "2025": {
+     "n": 20,
+     "pnl": 286.9
+    },
+    "2026": {
+     "n": 13,
+     "pnl": 54.0
+    }
+   },
+   "ex_best_year": -0.8966697648833363,
+   "ci": [
+    -4.180146130882307,
+    10.656777187946632
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|bear_healthy": {
+   "n": 264,
+   "daily_ret": -0.0670241978338278,
+   "expectancy": -0.5029353632909579,
+   "win_rate": 26.515151515151516,
+   "n_segs": 5,
+   "max_seg_share": null,
+   "by_year": {
+    "2022": {
+     "n": 121,
+     "pnl": -115.6
+    },
+    "2023": {
+     "n": 53,
+     "pnl": -64.1
+    },
+    "2024": {
+     "n": 76,
+     "pnl": -23.0
+    },
+    "2025": {
+     "n": 14,
+     "pnl": 69.9
+    }
+   },
+   "ex_best_year": -0.8108134506361809,
+   "ci": [
+    -1.3605864073227874,
+    0.9657978954515108
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|bull_healthy": {
+   "n": 591,
+   "daily_ret": 0.13989671574741655,
+   "expectancy": 1.0723047755258832,
+   "win_rate": 26.22673434856176,
+   "n_segs": 7,
+   "max_seg_share": 0.9847621035257222,
+   "by_year": {
+    "2022": {
+     "n": 34,
+     "pnl": -52.5
+    },
+    "2023": {
+     "n": 69,
+     "pnl": 25.9
+    },
+    "2024": {
+     "n": 116,
+     "pnl": -50.7
+    },
+    "2025": {
+     "n": 248,
+     "pnl": 547.6
+    },
+    "2026": {
+     "n": 124,
+     "pnl": 163.6
+    }
+   },
+   "ex_best_year": 0.25123352723620734,
+   "ci": [
+    -0.9168273576064164,
+    2.1934166072163506
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": true,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|bull_stressed": {
+   "n": 18,
+   "daily_ret": -0.6085493847817531,
+   "expectancy": -3.4484465137632676,
+   "win_rate": 22.22222222222222,
+   "n_segs": 1,
+   "max_seg_share": null,
+   "by_year": {
+    "2026": {
+     "n": 18,
+     "pnl": -62.1
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    null,
+    null
+   ],
+   "gates": {
+    "样本≥30": false,
+    "区段≥3": false,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "样本≥30",
+    "区段≥3",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|neutral_healthy": {
+   "n": 142,
+   "daily_ret": 0.2118156812891164,
+   "expectancy": 2.432897015370062,
+   "win_rate": 42.25352112676056,
+   "n_segs": 3,
+   "max_seg_share": 0.6743341089622514,
+   "by_year": {
+    "2023": {
+     "n": 36,
+     "pnl": 42.5
+    },
+    "2025": {
+     "n": 88,
+     "pnl": 275.0
+    },
+    "2026": {
+     "n": 18,
+     "pnl": 28.0
+    }
+   },
+   "ex_best_year": 1.3051521198366116,
+   "ci": [
+    1.1793818031593253,
+    3.065304376710814
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": true,
+    "bootstrap下界>0": true
+   },
+   "endorsed": false,
+   "failed": [
+    "单段利润≤50%"
+   ]
+  }
+ },
+ "train": {
+  "mid|bear_healthy": {
+   "n": 42,
+   "daily_ret": -0.016606880822802532,
+   "expectancy": -0.5492132729255408,
+   "win_rate": 28.57142857142857,
+   "n_segs": 2,
+   "max_seg_share": null,
+   "by_year": {
+    "2021": {
+     "n": 42,
+     "pnl": -23.1
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    -8.066834284738423,
+    6.28498764690435
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": false,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "区段≥3",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "mid|bull_healthy": {
+   "n": 6,
+   "daily_ret": -0.1973026639257969,
+   "expectancy": -3.5514479506643446,
+   "win_rate": 16.666666666666664,
+   "n_segs": 3,
+   "max_seg_share": null,
+   "by_year": {
+    "2021": {
+     "n": 6,
+     "pnl": -21.3
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    -8.199232213269228,
+    3.621678380954286
+   ],
+   "gates": {
+    "样本≥30": false,
+    "区段≥3": true,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "样本≥30",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|bear_healthy": {
+   "n": 79,
+   "daily_ret": -0.20756116790480203,
+   "expectancy": -1.3767348352166615,
+   "win_rate": 22.78481012658228,
+   "n_segs": 1,
+   "max_seg_share": null,
+   "by_year": {
+    "2021": {
+     "n": 79,
+     "pnl": -108.8
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    null,
+    null
+   ],
+   "gates": {
+    "样本≥30": true,
+    "区段≥3": false,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "区段≥3",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  },
+  "short|bull_healthy": {
+   "n": 8,
+   "daily_ret": -0.6841827146022753,
+   "expectancy": -3.5919592516619456,
+   "win_rate": 12.5,
+   "n_segs": 1,
+   "max_seg_share": null,
+   "by_year": {
+    "2021": {
+     "n": 8,
+     "pnl": -28.7
+    }
+   },
+   "ex_best_year": null,
+   "ci": [
+    null,
+    null
+   ],
+   "gates": {
+    "样本≥30": false,
+    "区段≥3": false,
+    "单段利润≤50%": false,
+    "剔除最佳年仍>0": false,
+    "bootstrap下界>0": false
+   },
+   "endorsed": false,
+   "failed": [
+    "样本≥30",
+    "区段≥3",
+    "单段利润≤50%",
+    "剔除最佳年仍>0",
+    "bootstrap下界>0"
+   ]
+  }
+ }
+}

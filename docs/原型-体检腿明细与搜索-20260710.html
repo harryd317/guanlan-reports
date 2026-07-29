@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:体检腿明细+首字母搜索(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:24px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+
+/* 搜索框 + 联想下拉 */
+.searchwrap{position:relative;margin-bottom:14px}
+.searchbar{display:flex;gap:8px}
+.searchbar input{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:16px;font-family:inherit;background:var(--card)}
+.searchbar button{border:none;border-radius:12px;padding:12px 22px;font-size:15px;
+  font-weight:600;font-family:inherit;background:var(--blue);color:#fff}
+.sugg{position:absolute;left:0;right:86px;top:52px;background:var(--card);border-radius:12px;
+  box-shadow:0 8px 30px rgba(0,0,0,.15);z-index:10;overflow:hidden}
+.sugg button{display:flex;justify-content:space-between;width:100%;border:none;background:none;
+  padding:12px 14px;font-size:15px;font-family:inherit;cursor:pointer;text-align:left}
+.sugg button:hover,.sugg button.hot{background:#EAF4FF}
+.sugg button .c{color:var(--mut);font-size:13px}
+.sugg .none{padding:12px 14px;color:var(--mut);font-size:13px}
+
+/* 体检卡 + 回放表(腿明细) */
+.checkup{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px}
+.checkup h3{font-size:16px;margin-bottom:8px}
+.statebadge{display:inline-block;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px;
+  background:#F1F3F5;color:var(--mut);border:1px solid var(--line);margin-left:6px}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+table{width:100%;min-width:420px;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--mut);font-size:12px;padding:5px 6px;border-bottom:1px solid var(--line)}
+td{padding:6px;border-bottom:1px solid var(--line)}
+tr.legs td{border-bottom:none;padding-bottom:0}
+tr:last-child td{border-bottom:none}
+.up{color:var(--red);font-weight:600}.dn{color:var(--green);font-weight:600}
+.leglist{background:var(--card2);border-radius:10px;padding:8px 12px;margin:6px 0 8px;font-size:13px;color:#3A3A3C;line-height:1.9}
+.leglist .lg{display:flex;gap:6px;align-items:baseline}
+.leglist .lg::before{content:"↳";color:var(--mut);flex:none}
+.leglist b{font-weight:600}
+.note{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<h1>原型:体检回放腿明细 + 首字母搜索</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7">
+  背景:①您查长川科技时发现"买160.75卖207.22却只赚19.9%"看不懂——那笔中途按 T1 纪律先卖了一半(178.76),
+  表格没把两笔账摊开;②查票必须输6位代码,想支持<b>中文名/拼音首字母</b>(如 cckj)联想。
+</div>
+
+<div class="proto-h">① 搜索框:代码 / 中文名 / 首字母 都能查
+  <small>输入≥2个字符就出联想下拉(候选来自 Tushare 全量名录,实测能拿到拼音缩写);
+  点候选或回车即查。下面的输入框<b>可以试打</b>:试试 cckj、长川、300604、maotai 打错的情况。</small></div>
+
+<div class="searchwrap">
+  <div class="searchbar">
+    <input id="demo-in" placeholder="输代码/名称/首字母,如 600519 或 cckj" autocomplete="off">
+    <button>查一下</button>
+  </div>
+  <div class="sugg" id="demo-sugg" style="display:none"></div>
+</div>
+<div class="note" style="margin:-6px 0 0">
+  规则:纯6位数字=直接查(跟现在一样);其他输入=联想匹配「名称包含 / 首字母前缀 / 代码前缀」,
+  最多显示 8 个候选;回车时若只有一个候选=直接查它;无匹配显示"没找到,试试完整代码"。
+</div>
+
+<div class="proto-h">② 回放表:含减半的交易,主行总账不变 + 子行摊开两笔
+  <small>主行的"盈亏"仍是整笔加权费后(和统计口径一致);新增灰底子行把每一笔卖出摊开,
+  谁在哪天卖了多少、各赚多少,一眼可查。不含减半的交易(如下面第二笔)维持单行不变。</small></div>
+
+<div class="checkup">
+  <h3>长川科技 <span class="num">300604</span><span class="statebadge">已否决</span></h3>
+  <h3 style="margin-top:6px">新规则五年回放</h3>
+  <div class="tablewrap">
+  <table>
+    <tr><th>买入日</th><th>买入价</th><th>卖出日</th><th>卖出价</th><th>盈亏</th><th>出场</th></tr>
+    <tr class="legs">
+      <td class="num">2026-04-27</td><td class="num">160.75</td>
+      <td class="num">2026-06-09</td><td class="num">207.22</td>
+      <td class="num up">+19.9%</td><td>E3(含T1减半)</td>
+    </tr>
+    <tr><td colspan="6" style="padding-top:0">
+      <div class="leglist">
+        <div class="lg"><span><b>半仓</b> 2026-04-29 以 <b class="num">178.76</b> 先卖(T1:涨太急,纪律先落袋一半),这一笔 <b class="up">+11.2%</b></span></div>
+        <div class="lg"><span><b>半仓</b> 2026-06-09 以 <b class="num">207.22</b> 卖出(E3 锁盈),这一笔 <b class="up">+28.9%</b></span></div>
+        <div class="lg"><span>整笔加权,扣费 0.15% = <b class="up">+19.9%</b></span></div>
+      </div>
+    </td></tr>
+    <tr>
+      <td class="num">2024-03-01</td><td class="num">25.47</td>
+      <td class="num">2024-07-26</td><td class="num">32.56</td>
+      <td class="num up">+27.7%</td><td>E3 锁盈</td>
+    </tr>
+  </table>
+  </div>
+  <div class="note">回放数据将随本次改造重新生成(更新到最新交易日,参数仍是冻结的 v5);
+  没减过仓的交易显示不变。</div>
+</div>
+
+<div class="proto-h">③ 改动范围(实现时)
+  <small>回测引擎只加输出列(trim_date/trim_price),判定语义零改动、不碰红线;
+  重跑一次回放生成新CSV;后端 /api/stock_search 新端点 + 名录缓存;前端联想下拉+子行渲染。</small></div>
+
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. 回放表的子行摊法(②那样:主行总账+灰底两笔明细)可以吗?还是想直接拆成两条独立行?</div>
+  <div class="opt">2. 搜索联想的规则(6位数字直查、其余出候选、回车唯一候选直查)可以吗?</div>
+  <div class="opt">3. 重跑回放后数据会更新到最新交易日(现在的CSV停在7月初),新旧笔数可能略有出入——接受吗?</div>
+</div>
+
+<script>
+// 联想下拉演示(静态样例数据,真实现从 /api/stock_search 取)
+const DEMO = [
+  {code:"300604", name:"长川科技", spell:"cckj"},
+  {code:"600519", name:"贵州茅台", spell:"gzmt"},
+  {code:"688120", name:"华海清科", spell:"hhqk"},
+  {code:"002463", name:"沪电股份", spell:"hdgf"},
+  {code:"300308", name:"中际旭创", spell:"zjxc"},
+  {code:"601899", name:"紫金矿业", spell:"zjky"},
+];
+const inp = document.getElementById("demo-in"), box = document.getElementById("demo-sugg");
+inp.addEventListener("input", ()=>{
+  const q = inp.value.trim().toLowerCase();
+  if(q.length < 2 || /^\d{6}$/.test(q)){ box.style.display="none"; return; }
+  const hits = DEMO.filter(s => s.name.includes(q) || s.spell.startsWith(q) || s.code.startsWith(q)).slice(0,8);
+  box.innerHTML = hits.length
+    ? hits.map(s=>`<button>${s.name}<span class="c num">${s.code}</span></button>`).join("")
+    : `<div class="none">没找到,试试完整6位代码</div>`;
+  box.style.display = "block";
+});
+document.addEventListener("click", e=>{ if(!e.target.closest(".searchwrap")) box.style.display="none"; });
+</script>
+</body>
+</html>
