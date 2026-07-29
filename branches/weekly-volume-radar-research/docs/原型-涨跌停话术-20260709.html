@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:涨跌停务实话术(未实现,仅供拍板)</title>
+<style>
+:root{
+  --bg:#F5F5F7; --card:#FFFFFF; --card2:#F5F5F7; --text:#1D1D1F; --mut:#6E6E73;
+  --line:#E5E5EA; --blue:#0A84FF; --amber:#B54708; --red:#E03131; --green:#2F9E44;
+  --radius:16px; --shadow:0 1px 3px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:24px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px;border-left:5px solid var(--line)}
+.card.sell{border-left-color:var(--red)} .card.buy{border-left-color:var(--blue)}
+.kind{font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:4px}
+.sell .kind{color:var(--red)} .buy .kind{color:var(--blue)}
+.title{font-size:19px;font-weight:700;margin-bottom:10px}
+.title .code{color:var(--mut);font-size:13px;font-weight:400}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:15px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.plain{font-size:15px;margin-bottom:12px}
+.howto{font-size:14px;color:var(--mut);margin-bottom:12px}
+.howto b{color:var(--text)}
+.btns{display:flex;gap:10px}
+button.act{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  font-family:inherit;background:var(--card2);color:var(--text)}
+button.act.danger{background:var(--red);color:#fff}
+button.act.main{background:var(--blue);color:#fff}
+
+/* ══ 本原型新增(实现时进 brief/home) ══ */
+/* 跌停预案条:卖出卡里的浅红提示 */
+.limitbar{background:rgba(224,49,49,.06);border:1px solid rgba(224,49,49,.25);
+  border-radius:10px;padding:9px 12px;font-size:13px;color:#B02A2A;margin-bottom:12px;line-height:1.6}
+.limitbar b{color:var(--red)}
+/* 涨停角标:买入卡标题旁 */
+.ztag{display:inline-block;background:rgba(224,49,49,.10);color:var(--red);
+  border:1px solid rgba(224,49,49,.30);border-radius:8px;padding:1px 8px;
+  font-size:12px;font-weight:700;vertical-align:2px;margin-left:6px}
+.zwarn{background:#FFF4E5;border:1px solid #F0C48C;border-radius:10px;
+  padding:9px 12px;font-size:13px;color:#B45708;margin-bottom:12px;line-height:1.6}
+
+/* 原型说明 */
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:30px 0 6px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.anno b{color:#3B3403}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:涨跌停务实话术</h1>
+<div class="sub">A股板制此前在系统里零处理。本件只改<b>话术与标注</b>,判定语义零改动——先把"卖不出/买不进"的预案讲清楚,回测层的板制规则在压轴件(中线回测)里做。</div>
+
+<!-- ═════════ ① 卖出卡 ═════════ -->
+<div class="proto-h">① 卖出卡:每张都带「跌停预案」条
+  <small>不管明天跌不跌停,预案先讲清楚——真跌停那天你不会慌</small></div>
+
+<div class="card sell">
+  <div class="kind">卖 出</div>
+  <div class="title">德业股份 <span class="code">605117</span></div>
+  <div class="facts">
+    <div class="row"><span>怎么了</span><b>收盘 92.10,跌破卖出线 93.90</b></div>
+    <div class="row"><span>怎么做</span><b>明早开盘卖出全部</b></div>
+  </div>
+  <div class="limitbar"><b>跌停预案:</b>若明早一字跌停卖不出——不要挂跌停价追单去排队,收盘后系统会按规则<b>自动重发这张卡</b>,明日继续;连续跌停期间每天照此办理,直到卖出为止。</div>
+  <div class="btns"><button class="act danger">已卖出</button><button class="act">为什么?</button></div>
+</div>
+
+<!-- 当日已跌停的加强版 -->
+<div class="card sell">
+  <div class="kind">卖 出</div>
+  <div class="title">某跌停票 <span class="code">600xxx</span> <span class="ztag">今日跌停</span></div>
+  <div class="facts">
+    <div class="row"><span>怎么了</span><b>收盘 45.00(-10.0%,跌停),跌破卖出线 48.20</b></div>
+    <div class="row"><span>怎么做</span><b>明早集合竞价直接挂卖,勿等反弹</b></div>
+  </div>
+  <div class="limitbar"><b>今天已经跌停:</b>明早大概率低开,9:15 就把单挂进集合竞价,能出多少出多少;别幻想反弹再卖——纪律是先离场,后复盘。</div>
+  <div class="btns"><button class="act danger">已卖出</button><button class="act">为什么?</button></div>
+</div>
+
+<!-- ═════════ ② 买入卡 ═════════ -->
+<div class="proto-h">② 买入卡:当日收盘涨停 → 标「今日涨停」+ 勿追警示
+  <small>涨停日常常恰好满足买点形态,但明早要么买不进、要么高开吃大滑点</small></div>
+
+<div class="card buy">
+  <div class="kind">买 入</div>
+  <div class="title">某涨停票 <span class="code">300xxx</span> <span class="ztag">今日涨停</span></div>
+  <div class="facts">
+    <div class="row"><span>买点</span><b>50.20~55.10 元之间(今收 55.10,+20.0%)</b></div>
+    <div class="row"><span>止损线</span><b>50.20(跌破就卖)</b></div>
+  </div>
+  <div class="zwarn"><b>今天收盘是涨停价:</b>明早大概率高开或一字,<b>不追</b>。等它回落到买点区间(50.20~55.10)再按卡执行;高开超出区间就当没这张卡。</div>
+  <div class="howto"><b>怎么做:</b>回落到买点区间才买 → 回这里点「已买入」</div>
+  <div class="btns"><button class="act main">已买入</button><button class="act">这次不买</button></div>
+</div>
+
+<div class="anno"><b>涨停判定口径(收盘价近似):</b>主板(60/00开头)当日涨幅≥9.8%、创业板/科创板(30/68开头)≥19.8% 视为涨停收盘;跌停同理取负。用收盘涨幅近似而非精确涨停价计算,除权日可能偶误标(低频、只影响提示语,不影响判定),换取实现简单可靠。</div>
+
+<!-- ═════════ 待拍板 ═════════ -->
+<div class="proto-h">③ 待你拍板的 3 个决定</div>
+<div class="ask"><h3>A. 卖出卡跌停预案条:每张都带(如图①上),还是只在「当日已跌停」时才显示?</h3>
+  <div class="opt">我的建议:每张都带——预案是教育,真跌停那天才第一次看见就晚了。嫌占地方可以选"只当日跌停才显示"。</div></div>
+<div class="ask"><h3>B. 涨停买入卡的按钮:保留「已买入」(如图②),还是干脆禁用?</h3>
+  <div class="opt">我的建议:保留——明早若低开回到区间,买入是合规的;系统只警示,不替你决定。</div></div>
+<div class="ask"><h3>C. 阈值 9.8% / 19.8% 的近似口径 OK?</h3></div>
+
+</body>
+</html>

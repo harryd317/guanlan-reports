@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 全站重设计 方案AB「今日驾驶舱」· 20260714</title>
+<style>
+/* ─── 设计令牌:A 的语义色体系 × B 的圆角柔和 ─── */
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --line:#E7E8EC; --txt:#17181C; --mut:#82868F;
+  --blue:#0A6CFF; --blue-bg:#EDF4FF;
+  --up:#D6403A;   /* A股习惯:红=涨 */
+  --down:#1F9D55; /* 绿=跌 */
+  --amber:#B45309; --amber-bg:#FFF7E8; --amber-line:#F2DFB8;
+  --red:#C92A2A;  --red-bg:#FDEEEE;
+  --green:#2F855A;--green-bg:#EAF6EF;
+  --r-lg:20px; --r-md:14px; --r-sm:9px;
+  --shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);
+  font:15px/1.65 -apple-system,"PingFang SC","Helvetica Neue",sans-serif;
+  padding:0 0 90px}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+
+/* ─── 原型说明块(交付物自带,不属于产品UI) ─── */
+.meta{max-width:1060px;margin:18px auto 26px;padding:18px 22px;background:#FBFBFD;
+  border:1px dashed #C9CBD3;border-radius:var(--r-md);font-size:13.5px;color:#55585F}
+.meta h1{font-size:19px;color:var(--txt);margin-bottom:6px}
+.meta b{color:var(--txt)}
+.meta ul{margin:8px 0 0 18px}
+.meta li{margin:3px 0}
+.screen{max-width:1060px;margin:34px auto 10px;padding:0 18px;
+  font-size:13px;font-weight:700;color:var(--mut);letter-spacing:1px}
+
+/* ─── 统一顶栏(方案A:一套导航贯穿全站) ─── */
+.topbar{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topbar .wrap{display:flex;align-items:center;gap:22px;height:54px}
+.brand{font-size:16px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+.brand i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber);
+  margin-right:7px;vertical-align:1px}
+nav{display:flex;gap:4px;flex:1}
+nav a{padding:6px 13px;border-radius:20px;text-decoration:none;color:var(--mut);
+  font-size:14.5px;white-space:nowrap}
+nav a.on{background:var(--txt);color:#fff;font-weight:600}
+nav a:hover:not(.on){background:#EEEFF2;color:var(--txt)}
+.clock{font-size:13px;color:var(--mut);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.clock .badge{background:#EEEFF2;border-radius:6px;padding:2px 8px;font-weight:600;color:#55585F}
+
+/* ─── 红绿灯 Hero(方案B:超大状态卡一眼定调) ─── */
+.hero{margin-top:20px;background:linear-gradient(135deg,#FFF8EC 0%,#FFF3DC 100%);
+  border:1px solid var(--amber-line);border-radius:var(--r-lg);box-shadow:var(--shadow);
+  display:flex;overflow:hidden}
+.hero .main{flex:1.6;padding:26px 30px 22px}
+.hero .side{flex:1;border-left:1px dashed var(--amber-line);padding:22px 26px;
+  display:flex;flex-direction:column;justify-content:center;gap:13px;min-width:250px}
+.hero .k{font-size:12.5px;font-weight:700;color:var(--amber);letter-spacing:2px}
+.hero .state{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 2px}
+.hero .state b{font-size:42px;font-weight:900;letter-spacing:3px;color:var(--amber);line-height:1.2}
+.gatepill{display:inline-flex;align-items:center;gap:7px;background:var(--red-bg);
+  color:var(--red);border:1px solid #F2C9C9;border-radius:22px;padding:5px 15px;
+  font-size:15px;font-weight:800;vertical-align:6px}
+.gatepill i{width:9px;height:9px;border-radius:50%;background:var(--red);display:inline-block}
+.hero .verdict{font-size:16.5px;font-weight:800;color:#17181C;margin-top:10px}
+.hero .plain{font-size:13.5px;color:#6B5A33;margin-top:6px;max-width:520px}
+.hero .plain a{color:var(--amber);font-weight:600}
+.gaterow{margin-top:16px;max-width:520px}
+.gaterow .lbl{display:flex;justify-content:space-between;font-size:12.5px;color:#8A7A50;margin-bottom:5px}
+.gaterow .bar{height:8px;border-radius:5px;background:#F0E4C8;overflow:hidden}
+.gaterow .bar i{display:block;height:100%;width:71%;border-radius:5px;
+  background:linear-gradient(90deg,#E3B04B,#D97706)}
+.hero .side .row{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px}
+.hero .side .row .l{color:#8A7A50}
+.hero .side .row .v{font-weight:700}
+.hero .side .ok{color:var(--green);font-weight:600}
+
+/* ─── 主体双栏(方案A:左待办流 右速览面板) ─── */
+.cols{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;margin-top:18px;align-items:start}
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);
+  padding:20px 22px;margin-bottom:14px}
+h2{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px}
+h2 .cnt{font-size:12.5px;color:var(--mut);font-weight:500}
+h2 .live{font-size:11px;color:var(--green);background:var(--green-bg);
+  padding:1px 8px;border-radius:10px;font-weight:600}
+.sechead{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.sechead a{font-size:13px;color:var(--blue);text-decoration:none;font-weight:600}
+
+/* 待办消息卡(方案B:助理卡片) */
+.msg{border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px;margin-top:12px}
+.msg .kind{font-size:11.5px;font-weight:800;letter-spacing:3px;color:var(--blue)}
+.msg .who{margin:5px 0 3px;font-size:17px;font-weight:800}
+.msg .who .code{font-size:12.5px;color:var(--mut);font-weight:500;margin-left:7px}
+.msg .who a{font-size:12.5px;color:var(--blue);text-decoration:none;float:right;font-weight:600}
+.msg p{font-size:14px;color:#4A4D55;margin-top:4px}
+.donebar{margin-top:13px;background:#F2F3F5;border-radius:var(--r-sm);padding:10px 15px;
+  font-size:13.5px;color:var(--mut);display:flex;justify-content:space-between;cursor:pointer}
+.donebar b{color:#55585F}
+.donebar .arr{transition:.2s}
+.donelist{display:none;background:#F7F8F9;border-radius:0 0 var(--r-sm) var(--r-sm);
+  margin-top:-8px;padding:12px 15px 8px;font-size:13px;color:var(--mut)}
+.donelist .r{padding:5px 0;border-bottom:1px solid #ECEDEF;display:flex;gap:10px}
+.donelist .r:last-child{border:none}
+.donelist .r b{color:#55585F;font-weight:600;min-width:74px}
+.calm{margin-top:14px;text-align:center;font-size:13.5px;color:var(--mut);
+  background:var(--green-bg);border-radius:var(--r-sm);padding:11px}
+.calm b{color:var(--green)}
+
+/* 右栏:等买点/持有 速览 */
+.pool .row{display:flex;align-items:center;gap:10px;padding:9px 2px;
+  border-bottom:1px solid #F1F2F4;font-size:13.5px}
+.pool .row:last-of-type{border:none}
+.pool .name{flex:1;min-width:0}
+.pool .name b{font-size:14px;font-weight:700;display:block;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.pool .name span{font-size:10.5px;color:var(--mut);white-space:nowrap}
+.pool .px{text-align:right;min-width:64px;font-weight:600}
+.pool .px small{display:block;font-size:11.5px;font-weight:600}
+.pool .dist{text-align:right;min-width:70px;font-size:12px;color:var(--mut)}
+.pool .dist b{display:block;font-size:12.5px;color:#55585F}
+.tag-near{font-size:11px;color:var(--amber);background:var(--amber-bg);
+  border-radius:9px;padding:1px 8px;font-weight:700;white-space:nowrap}
+.u{color:var(--up)}.d{color:var(--down)}
+.empty{font-size:13.5px;color:var(--mut);padding:14px 2px 4px}
+.btnrow{display:flex;gap:9px;margin-top:12px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 14px;
+  font-size:13.5px;color:var(--txt);cursor:pointer;font-weight:600}
+.btn.pri{background:var(--txt);border-color:var(--txt);color:#fff}
+.btn:hover{border-color:#C6C8CE}
+
+/* 买入卡示意(门开日) */
+.demo{border:1.5px dashed #D9B77A;border-radius:var(--r-md);margin-top:16px;padding:15px 18px;background:#FFFDF7}
+.demo .demolbl{font-size:12px;font-weight:800;color:var(--amber);letter-spacing:1px;margin-bottom:9px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.facts>div{background:#F7F8F9;border-radius:var(--r-sm);padding:8px 10px}
+.facts .l{font-size:11px;color:var(--mut)}
+.facts .v{font-size:15.5px;font-weight:800;margin-top:1px}
+.howto{font-size:13.5px;color:#4A4D55;background:var(--blue-bg);border-radius:var(--r-sm);padding:9px 12px}
+.pricebar{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap;align-items:center}
+.pricebar input{border:1px solid var(--line);border-radius:9px;padding:7px 10px;width:110px;
+  font-size:14px;font-family:inherit}
+.pricebar .unit{font-size:13px;color:var(--mut)}
+.priv{font-size:11.5px;color:#A8AAB0;margin-top:8px}
+
+/* ─── 次级屏:缩略示意 ─── */
+.thumbgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.thumb h3{font-size:15px;font-weight:800;margin-bottom:9px}
+.thumb h3 small{color:var(--mut);font-weight:500;font-size:12px;margin-left:7px}
+.mini{border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;
+  font-size:12.5px;color:#55585F;margin-top:8px}
+.mini b{font-size:13px}
+.band{display:flex;height:20px;border-radius:5px;overflow:hidden;margin:8px 0 5px}
+.band i{display:block;height:100%}
+.seg{display:flex;gap:6px;margin:2px 0 10px;flex-wrap:wrap}
+.seg span{border:1px solid var(--line);border-radius:16px;padding:3px 12px;font-size:12.5px;color:var(--mut)}
+.seg span.on{background:var(--blue-bg);border-color:#BFD8FF;color:var(--blue);font-weight:700}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.vgrid>div{background:#F7F8F9;border-radius:var(--r-sm);padding:9px 11px}
+.vgrid .l{font-size:11px;color:var(--mut)}
+.vgrid .v{font-size:16px;font-weight:800;margin-top:1px}
+.slots{display:flex;gap:3px;margin-top:7px}
+.slots i{width:12px;height:12px;border-radius:3px;background:#EDEEF1;display:inline-block}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+table.t th{color:var(--mut);font-weight:600;text-align:right;padding:4px 6px;border-bottom:1px solid var(--line)}
+table.t td{padding:5px 6px;border-bottom:1px solid #F1F2F4;text-align:right}
+table.t th:first-child,table.t td:first-child{text-align:left}
+
+/* ─── 底部 Tab(方案B:移动端) ─── */
+.tabbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  padding:7px 8px calc(7px + env(safe-area-inset-bottom))}
+.tabbar .in{display:flex}
+.tabbar a{flex:1;text-align:center;font-size:11px;color:var(--mut);text-decoration:none;line-height:1.25}
+.tabbar a em{display:block;font-style:normal;font-size:20px}
+.tabbar a.on{color:var(--blue);font-weight:700}
+
+/* ─── 响应式 ─── */
+@media (max-width:900px){
+  .cols{grid-template-columns:1fr}
+  .thumbgrid{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+  .hero .side{border-left:none;border-top:1px dashed var(--amber-line)}
+}
+@media (max-width:680px){
+  nav{display:none}
+  .tabbar{display:block}
+  .hero .state b{font-size:34px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .pool .dist{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ 原型说明(不属于产品UI) ══════════ -->
+<div class="meta">
+  <h1>方案AB「今日驾驶舱」= A 的骨架 × B 的心脏</h1>
+  <b>一句话理念:</b>打开 3 秒知道"今天用不用动手"(B 的超大红绿灯),同一屏顺便看全"池子/持仓/环境"(A 的驾驶舱),全站一套导航(A)。
+  <ul>
+    <li><b>取自方案A:</b>统一顶栏导航(今日/股票池/问AI/交易台/策略/设置),消灭简明版·专业版两套世界;桌面双栏——左=今日待办,右=池子与持仓速览,空态不空屏</li>
+    <li><b>取自方案B:</b>超大市况红绿灯卡一眼定调,距开门 2.22% 做成进度条;待办做成助理卡片流;"没事"设计成正向反馈("门关着,今晚不用操作");移动端底部 Tab</li>
+    <li><b>解决的三个现状痛点:</b>①导航分裂(齿轮里找交易台)→顶栏一步直达 ②红字文字墙→数字大字化+进度条 ③空态死气→右栏常驻池子/持仓信息</li>
+    <li><b>数据:</b>全部取自 2026-07-14 真实收盘(冲高有险·门关·距开门2.22%·长电科技研究中·等买点10只);仅池内"华海清科/鹏鼎控股/大族激光/中国动力"四行价格为示意值,已标 ˟</li>
+    <li><b>可交互:</b>「9条复核不用动」灰条可点开;窗口缩窄到手机宽度可看移动端形态(底部Tab)</li>
+    <li><b>07-14 第二稿(按用户+评审意见):</b>hero 增加今日结论句;「距平台」改白话「离买点差」;hero 侧栏与右栏持仓去重;新增 屏1b 盘中形态;示意买入卡标注"不进真实首页"</li>
+  </ul>
+</div>
+
+<div class="screen">屏 1 · 首页「今日」——完整精细稿(拍板主战场)</div>
+
+<!-- ══════════ 统一顶栏 ══════════ -->
+<div class="topbar"><div class="wrap">
+  <div class="brand"><i></i>纪律选股</div>
+  <nav>
+    <a class="on" href="#">今日</a>
+    <a href="#s2">股票池</a>
+    <a href="#s3">问AI</a>
+    <a href="#s4">交易台</a>
+    <a href="#s5">策略</a>
+    <a href="#">设置</a>
+  </nav>
+  <div class="clock"><span class="num">22:30:41</span><span class="badge">已收盘</span><span>明日 9:30 开盘</span></div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ══════════ 红绿灯 Hero ══════════ -->
+  <div class="hero">
+    <div class="main">
+      <div class="k">今日市况 · 7月14日收盘判定</div>
+      <div class="state">
+        <b>冲高有险</b>
+        <span class="gatepill"><i></i>开仓门:关</span>
+      </div>
+      <div class="verdict">→ 今天:不买新票,没有持仓要管,看看就好。</div>
+      <div class="plain">个股先于指数恶化,门关着是对的,零捕获正常——名单仅观察、不开新仓;持仓照常按卖出线管理。<a href="#s5">为什么? →</a></div>
+      <div class="gaterow">
+        <div class="lbl"><span>沪深300 <b class="num">4796.50</b> / 60日均线 <b class="num">4854.42</b></span><span>距开门还差 <b class="num" style="color:var(--amber);font-size:14px">2.22%</b></span></div>
+        <div class="bar"><i></i></div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="row"><span class="l">今天要做的事</span><span class="v">1 件,已备好 ↓</span></div>
+      <div class="row"><span class="l">账户</span><span class="v num">¥500,000</span></div>
+      <div class="row"><span class="l">系统状态</span><span class="ok">✓ 数据新鲜 · 熔断未触发</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ 双栏 ══════════ -->
+  <div class="cols">
+
+    <!-- 左:今日待办(助理卡片流) -->
+    <div>
+      <div class="card">
+        <div class="sechead">
+          <h2>今天有 1 件事 <span class="cnt">都帮您准备好了</span></h2>
+          <a href="#">完整日报 →</a>
+        </div>
+
+        <div class="msg">
+          <div class="kind">新 发 现</div>
+          <div class="who">长电科技<span class="code num">600584</span><a href="#">全景 →</a></div>
+          <p>AI 正在研究这只票……研究完、评分够,会自动进「等买点」名单,到时候再叫您。现在不用做任何事。</p>
+        </div>
+
+        <div class="donebar" onclick="var l=document.getElementById('dl');var a=this.querySelector('.arr');if(l.style.display==='block'){l.style.display='none';a.style.transform=''}else{l.style.display='block';a.style.transform='rotate(180deg)'}">
+          <span><b>9</b> 条复核都说「不用动」,系统已看过</span><span class="arr">▾</span>
+        </div>
+        <div class="donelist" id="dl">
+          <div class="r"><b>拓荆科技</b><span>支持当初买它的理由,不用动</span></div>
+          <div class="r"><b>华海清科</b><span>支持当初买它的理由,不用动</span></div>
+          <div class="r"><b>鹏鼎控股</b><span>支持当初买它的理由,不用动</span></div>
+          <div class="r" style="color:#A8AAB0">…共 9 条,全部为「验证/无关」结论</div>
+        </div>
+
+        <div class="calm"><b>没别的了。</b>门关着,零捕获正常——今晚不用做任何操作,睡个好觉。</div>
+      </div>
+
+      <!-- 买入卡示意(门开日形态,拍板用) -->
+      <div class="card">
+        <div class="demo">
+          <div class="demolbl">▦ 原型示意,不进真实首页 · 门开的日子买入卡才会出现,长这样;门关日首页到上面那条绿色安心条为止</div>
+          <div class="kind" style="font-size:11.5px;font-weight:800;letter-spacing:3px;color:var(--green)">回 踩 到 位 · 可 按 计 划 执 行</div>
+          <div class="who" style="margin:5px 0 3px;font-size:17px;font-weight:800">拓荆科技<span class="code num" style="font-size:12.5px;color:var(--mut);font-weight:500;margin-left:7px">688072</span></div>
+          <div class="facts">
+            <div><div class="l">今收</div><div class="v num">850.01</div></div>
+            <div><div class="l">距平台</div><div class="v num">+0.6%</div></div>
+            <div><div class="l">止损线</div><div class="v num">832.00</div></div>
+            <div><div class="l">单笔风险</div><div class="v num">1%·约¥5,000</div></div>
+          </div>
+          <div class="howto"><b>怎么做:</b>明早若开在止损线上方,按计划买入;跌破 <span class="num">832.00</span> 无条件出。金额按您的风险预算算好了,照抄即可。</div>
+          <div class="pricebar">
+            <button class="btn">📷 截图填单</button>
+            <input placeholder="成交价" value="850.01"><span class="unit">元</span>
+            <input placeholder="买了多少钱"><span class="unit">万</span>
+            <button class="btn pri">买了,记一笔</button>
+          </div>
+          <div class="priv">📷 隐私:截图仅在识别瞬间发给 AI,不落盘不留存 · 记账走四道闸门,预填仅供核对</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右:池子/持仓速览(空态不空屏) -->
+    <div>
+      <div class="card pool">
+        <div class="sechead">
+          <h2>等买点 <span class="cnt">10 只</span> <span class="live">收盘价</span></h2>
+          <a href="#s2">全部 →</a>
+        </div>
+        <div class="row">
+          <div class="name"><b>拓荆科技</b><span class="num">688072 · 21分</span></div>
+          <div class="px num">850.01<small class="u">+0.6%</small></div>
+          <div class="dist"><b class="num">离买点差 0.6%</b>量比 1.60×</div>
+          <span class="tag-near">回踩临近</span>
+        </div>
+        <div class="row">
+          <div class="name"><b>华天科技</b><span class="num">002185</span></div>
+          <div class="px num">25.68<small class="u">+6.4%</small></div>
+          <div class="dist"><b class="num">离买点差 1.5%</b>量比 1.57×</div>
+          <span class="tag-near">回踩临近</span>
+        </div>
+        <div class="row">
+          <div class="name"><b>寒武纪</b><span class="num">688256</span></div>
+          <div class="px num">1411.00<small class="u">+1.5%</small></div>
+          <div class="dist"><b class="num">离买点差 0.0%</b>量比 0.98×</div>
+          <span class="tag-near">回踩临近</span>
+        </div>
+        <div class="row">
+          <div class="name"><b>华海清科</b><span class="num">688120 ˟</span></div>
+          <div class="px num">142.30<small class="d">−0.8%</small></div>
+          <div class="dist"><b class="num">离买点差 3.1%</b>量比 0.84×</div>
+        </div>
+        <div class="row">
+          <div class="name"><b>鹏鼎控股</b><span class="num">002938 ˟</span></div>
+          <div class="px num">38.55<small class="u">+2.1%</small></div>
+          <div class="dist"><b class="num">离买点差 4.7%</b>量比 1.12×</div>
+        </div>
+        <div class="row">
+          <div class="name"><b>大族激光</b><span class="num">002008 ˟</span></div>
+          <div class="px num">31.02<small class="u">+0.9%</small></div>
+          <div class="dist"><b class="num">离买点差 5.2%</b>量比 0.91×</div>
+        </div>
+        <div class="row">
+          <div class="name"><b>中国动力</b><span class="num">600482 ˟</span></div>
+          <div class="px num">27.44<small class="d">−1.2%</small></div>
+          <div class="dist"><b class="num">离买点差 6.0%</b>量比 0.77×</div>
+        </div>
+        <div class="empty" style="padding-top:8px">…还有 3 只 · 盘中每 50 秒自动刷新,临近只提示、<b>等收盘确认</b></div>
+      </div>
+
+      <div class="card">
+        <div class="sechead"><h2>我持有的 <span class="cnt">0 只</span></h2><a href="#s4">交易台 →</a></div>
+        <div class="empty">暂无持仓。第一笔请等门开后照买入卡执行——验证期 0/20 笔,最小仓纪律下单笔止损约伤账户 0.3%。</div>
+        <div class="btnrow">
+          <button class="btn">+ 录入已有持仓</button>
+          <button class="btn">📷 截图批量记账</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 屏1b · 盘中形态 ══════════ -->
+<div class="screen">屏 1b · 首页「今日」盘中形态(9:30–15:00 长这样 · 示意)</div>
+<div class="wrap"><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+              border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px">
+    <div style="font-size:13px;color:var(--mut)">顶栏时钟变化 →</div>
+    <div class="clock"><span class="num">10:42:07</span>
+      <span class="badge" style="background:var(--green-bg);color:var(--green)">盘中</span>
+      <span>15:00 收盘后出今日判定</span></div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,#FFF8EC,#FFF3DC);border:1px solid var(--amber-line);
+              border-radius:var(--r-md);padding:14px 18px;margin-bottom:14px">
+    <div class="k" style="font-size:12px;font-weight:700;color:var(--amber);letter-spacing:2px">
+      市况 · 昨日(7月13日)收盘判定 · 今日判定 15:00 后更新</div>
+    <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:4px">
+      <b style="font-size:26px;font-weight:900;letter-spacing:2px;color:var(--amber)">冲高有险</b>
+      <span class="gatepill" style="font-size:13px;padding:3px 12px"><i></i>开仓门:关</span>
+    </div>
+    <div style="font-size:13.5px;color:#6B5A33;margin-top:6px">
+      盘中价格只是<b>临近提示</b>,不作数——一切以 15:00 收盘确认为准。</div>
+  </div>
+
+  <div class="pool">
+    <div class="sechead"><h2 style="font-size:14.5px">等买点 <span class="cnt">盘中每 50 秒自动刷新</span>
+      <span class="live">现价 10:42</span></h2></div>
+    <div class="row">
+      <div class="name"><b>拓荆科技</b><span class="num">688072</span></div>
+      <div class="px num">848.20<small class="d">−0.2%</small></div>
+      <div class="dist"><b class="num">离买点差 0.4%</b>量比 0.9×</div>
+      <span class="tag-near">临近 · 等收盘确认</span>
+    </div>
+    <div class="row">
+      <div class="name"><b>华天科技</b><span class="num">002185</span></div>
+      <div class="px num">25.41<small class="d">−1.1%</small></div>
+      <div class="dist"><b class="num">离买点差 0.9%</b>量比 0.8×</div>
+      <span class="tag-near">临近 · 等收盘确认</span>
+    </div>
+  </div>
+
+  <div style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px" class="pool">
+    <div class="sechead"><h2 style="font-size:14.5px">我持有的<span class="cnt">(若有持仓,盘中长这样 · 示意)</span></h2></div>
+    <div class="row">
+      <div class="name"><b>某持仓票</b><span class="num">示意 · 成本 96.50</span></div>
+      <div class="px num">101.20<small class="u">+1.3%</small></div>
+      <div style="flex:1.2;min-width:120px">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--mut);margin-bottom:3px">
+          <span>距卖出线</span><b style="color:var(--green)">还有 5.2% · 安全</b></div>
+        <div style="height:6px;border-radius:4px;background:#EDEEF1;overflow:hidden">
+          <i style="display:block;height:100%;width:34%;background:var(--green);border-radius:4px"></i></div>
+      </div>
+      <button class="btn" style="padding:3px 10px;font-size:12px">⋯</button>
+    </div>
+    <div style="font-size:12px;color:var(--mut);margin-top:8px">
+      距离条三档色阶:绿=安全 / 琥珀=注意 / 红=贴近卖出线;⋯ = 行内管理(已卖出记账 / 录错移出);
+      抽屉或输入框开着时,50 秒刷新自动跳过,不会吞掉正在填的内容。</div>
+  </div>
+</div></div>
+
+<!-- ══════════ 次级屏(风格延续性示意) ══════════ -->
+<div class="screen" id="s2">屏 2 · 股票池(简化示意:三个视图收进一页,专业表格在这里)</div>
+<div class="wrap"><div class="thumbgrid">
+  <div class="card thumb">
+    <h3>股票池<small>顶栏第二项 · 收纳原「严选池/盘中回踩监控」</small></h3>
+    <div class="seg"><span class="on">等买点 10</span><span>回踩监控 84</span><span>严选池 253</span></div>
+    <div class="mini"><b>等买点视图</b>=右栏速览的全表:现价/涨跌/距平台/量比/评分/提示,点行进个股全景(七区:现状·K线·AI三段课·档案·大事记·行业深析·追问)</div>
+    <div class="mini"><b>回踩监控 84 只</b>与<b>严选池 253 只</b>保留原专业表格密度,老看板(/pro)入口放本页右上「旧版 →」</div>
+  </div>
+  <div class="card thumb">
+    <h3>操作按钮<small>全站仅两级</small></h3>
+    <div class="mini">主按钮(黑底):记账/确认类 · 次按钮(白底):其他一切;<b>立即重筛</b>放股票池右上,重筛约 3 分钟,进度在顶栏时钟位显示</div>
+    <div class="mini">数据过期时:顶栏时钟变黄底「数据过期 · 立即更新」;熔断触发时:Hero 整卡变红「回撤熔断 · 已停新仓」,恢复入口在设置页——语义照抄现有,只换呈现</div>
+  </div>
+</div></div>
+
+<div class="screen" id="s3">屏 3 · 问AI(简化示意:三分区不变,套新导航与新皮肤)</div>
+<div class="wrap"><div class="card thumb">
+  <div class="seg"><span class="on">📚 我的课堂 · 池子里的票</span><span>🔍 查任意票 · 输代码体检</span><span>💬 随便问 · 行业概念</span></div>
+  <div class="mini"><b>我的课堂:</b>票签一排(拓荆科技·华海清科·鹏鼎控股…)→ 三段白话课文+K线(止损/平台/现价三线标注)+「全景 →」;结构与现版一致,视觉换成本方案的卡片与字阶</div>
+  <div class="mini"><b>查任意票:</b>搜索框带联想(代码/拼音/名称),出体检卡+K线+AI解读+追问,一条龙一屏</div>
+</div></div>
+
+<div class="screen" id="s4">屏 4 · 交易台(简化示意)</div>
+<div class="wrap"><div class="card thumb">
+  <div class="vgrid">
+    <div><div class="l">胜率(0笔)</div><div class="v">—</div></div>
+    <div><div class="l">盈亏比</div><div class="v">—</div></div>
+    <div><div class="l">期望(%/笔)</div><div class="v">—</div></div>
+    <div><div class="l">累计盈亏</div><div class="v">—</div></div>
+  </div>
+  <div style="margin-top:10px;font-size:12.5px;color:var(--mut)">验证期 0/20 笔 · 红=盈 绿=亏 空=未发生 · 回滚线:前20笔胜率&lt;20%回滚</div>
+  <div class="slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="mini" style="margin-top:12px"><b>分区:</b>账户(总额¥500,000·规则v7) / 持仓(纪律仓·场外仓分列,行内🤖AI留走建议) / 统计(仅当前版本v7·全部) / 净值 / 右上「导出复盘包」·「📷 批量截图记账」</div>
+</div></div>
+
+<div class="screen" id="s5">屏 5 · 策略中心(简化示意)</div>
+<div class="wrap"><div class="card thumb">
+  <div style="font-size:12.5px;color:var(--mut)">当前市况 · 2026-07-14 收盘判定 · 15日确认制</div>
+  <div style="font-size:30px;font-weight:900;letter-spacing:2px;color:var(--amber);margin:2px 0 6px">冲高有险</div>
+  <div class="mini">方向=多头 × 风险=恶化 · 已持续 21 个交易日 · 今日原始读数(方向=中性/风险=恶化)与确认标签不一致——是 15 日滞回纪律在防抖,不是数据错了</div>
+  <div class="band"><i style="width:6%;background:#D64545"></i><i style="width:9%;background:#F2A65A"></i><i style="width:13%;background:#BFC7D5"></i><i style="width:22%;background:#4C7A5C"></i><i style="width:7%;background:#8A93A6"></i><i style="width:11%;background:#2F9E44"></i><i style="width:8%;background:#F2A65A"></i><i style="width:12%;background:#BFC7D5"></i><i style="width:12%;background:#2F9E44"></i></div>
+  <div style="font-size:11.5px;color:var(--mut)">历史市况 41 段(2015-01-05 → 今) · 六态色带示意</div>
+  <div class="mini" style="margin-top:10px"><b>本页保留:</b>两轴白话读数 / 🤖 AI 白话解读(每日一条,只解读不判定) / 切换器影子日志(07-13 [冲高有险] keep——无任何卡获背书;只记录不执行,启用等 10-09 评审)</div>
+</div></div>
+
+<!-- ══════════ 移动端底部 Tab(方案B) ══════════ -->
+<div class="tabbar"><div class="in">
+  <a class="on" href="#"><em>◉</em>今日</a>
+  <a href="#s2"><em>▤</em>池子</a>
+  <a href="#s3"><em>✦</em>问AI</a>
+  <a href="#s4"><em>▥</em>我的</a>
+</div></div>
+
+</body>
+</html>

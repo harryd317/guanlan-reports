@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>研究 · 长线方案三年重放 · 20260715</title>
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --line:#E7E8EC; --txt:#17181C; --mut:#82868F;
+  --blue:#0A6CFF; --blue-bg:#EDF4FF;
+  --up:#D6403A; --down:#1F9D55;
+  --amber:#B45309; --amber-bg:#FFF7E8; --amber-line:#F2DFB8;
+  --red:#C92A2A; --red-bg:#FDEEEE;
+  --r-lg:20px; --r-md:14px; --r-sm:9px;
+  --shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.7 -apple-system,"PingFang SC","Helvetica Neue",sans-serif;padding:0 0 70px}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header.page{padding:34px 0 6px}
+header.page h1{font-size:24px;font-weight:900;letter-spacing:.5px}
+header.page .sub{color:var(--mut);font-size:13.5px;margin-top:6px}
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 24px;margin:16px 0}
+h2{font-size:17px;font-weight:800;margin-bottom:10px}
+h2 small{font-size:12.5px;color:var(--mut);font-weight:500;margin-left:8px}
+.hero{background:linear-gradient(135deg,#FFF8EC,#FFF3DC);border:1px solid var(--amber-line)}
+.hero .verdict{font-size:15px;color:#6B5A33;margin-top:4px}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:16px}
+.tile{background:rgba(255,255,255,.75);border:1px solid var(--amber-line);border-radius:var(--r-md);padding:12px 14px}
+.tile .l{font-size:11.5px;color:#8A7A50}
+.tile .v{font-size:21px;font-weight:900;margin-top:2px;letter-spacing:.3px}
+.tile .v.neg{color:var(--down)}
+.tile .s{font-size:11px;color:var(--mut)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rule h3{font-size:14px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.rule p{font-size:13.5px;color:#4A4D55}
+.tablewrap{overflow-x:auto;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:920px}
+th{color:var(--mut);font-weight:600;text-align:right;padding:7px 9px;border-bottom:1.5px solid var(--line);white-space:nowrap;position:sticky;top:0;background:var(--card)}
+td{padding:8px 9px;border-bottom:1px solid #F1F2F4;text-align:right;white-space:nowrap}
+th:nth-child(-n+3),td:nth-child(-n+3){text-align:left}
+tr.yr td{background:#F7F8F9;font-weight:800;text-align:left;font-size:12.5px;letter-spacing:1px;color:#55585F}
+.u{color:var(--up);font-weight:700}.d{color:var(--down);font-weight:700}
+.dd{color:var(--amber);font-weight:600}
+.tag{display:inline-block;font-size:11px;border-radius:9px;padding:1px 8px;font-weight:700;background:#EEEFF2;color:var(--mut)}
+.tag.e1{background:var(--red-bg);color:var(--red)}
+.tag.bb{background:var(--amber-bg);color:var(--amber)}
+.legend{font-size:12px;color:var(--mut);margin-top:10px}
+.lesson{border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;margin-top:10px}
+.lesson b.no{display:inline-block;background:var(--txt);color:#fff;border-radius:8px;font-size:12px;padding:1px 9px;margin-right:8px;vertical-align:1px}
+.lesson p{font-size:13.5px;color:#4A4D55;margin-top:5px}
+.note{background:var(--blue-bg);border:1px solid #BFD8FF;border-radius:var(--r-sm);padding:10px 14px;font-size:13.5px;margin-top:10px}
+.honest{background:#FBFBFD;border:1px dashed #C9CBD3;border-radius:var(--r-md);padding:14px 18px;font-size:13px;color:#55585F}
+details{margin-top:8px;border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 12px}
+summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--blue)}
+details ul{margin:8px 0 4px 18px;font-size:13px;color:#4A4D55}
+details li{margin:4px 0}
+.verify ul{margin:6px 0 0 18px;font-size:13.5px;color:#4A4D55}
+.verify li{margin:4px 0}
+@media (max-width:860px){.tiles{grid-template-columns:repeat(3,1fr)}.rules{grid-template-columns:1fr}}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>长线核心仓方案 · 三年重放</h1>
+  <div class="sub">2023–2025 每年动量前5 × 三档金字塔持有 · 规则先于跑数写死(零马后炮) · 2026-07-15 · 源文档 docs/研究-长线方案三年重放-20260715.md</div>
+</header>
+
+<div class="card hero">
+  <h2>总结论:15 / 15 全部亏损 —— 规则被证伪</h2>
+  <div class="verdict">"挑当下最强的票 + 长线金字塔拿住"在三年重放中全军覆没;<b>+50%加仓档零触发,30周线出场阶段零进入——长线设计从未获得点火机会</b>。独立复核 15 票重算零差异,修正锚定偏差后仍全亏,结论稳健。</div>
+  <div class="tiles">
+    <div class="tile"><div class="l">全亏</div><div class="v neg num">15/15</div><div class="s">三年每年 5 票</div></div>
+    <div class="tile"><div class="l">混合收益均值</div><div class="v neg num">−10.7%</div><div class="s">中位 −10.7%</div></div>
+    <div class="tile"><div class="l">最差单票</div><div class="v neg num">−23.0%</div><div class="s">光启技术</div></div>
+    <div class="tile"><div class="l">对照中线卡</div><div class="v num" style="color:var(--amber)">1.8×</div><div class="s">−160.8 vs −87.3 pp</div></div>
+    <div class="tile"><div class="l">+50%加仓触发</div><div class="v num">0 次</div><div class="s">金字塔未展开</div></div>
+    <div class="tile"><div class="l">平均持有</div><div class="v num">21.7</div><div class="s">交易日</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>预声明规则 <small>跑数之前写死,未事后调整</small></h2>
+  <div class="rules">
+    <div class="rule"><h3>选票(机械)</h3><p>候选池=冻结参数v5历史重放的 459 笔信号(250日新高+RS前15%+业绩闸+回踩entry_A 全链);每年桶内每 code 取首次信号;排序键=<b>信号日向前120交易日涨幅</b>(零前视);每年机械取前 5。</p></div>
+    <div class="rule"><h3>持有(三档金字塔+周线)</h3><p>首仓@回测买点,止损=平台×0.95;浮盈 +20% → 加第二档、出场线上移至保本;+50% → 加第三档,此后只认<b>收盘破30周线</b>;全程收盘口径;混合收益=已建档等额平均。</p></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>三年十五票 · 明细 <small>价格为前复权折算 · 红=盈 绿=亏(A股口径)</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>代码</th><th>信号日</th><th>买点 t1</th><th>加仓 t2</th><th>卖点</th><th>出场</th><th>混合收益</th><th>最大回撤</th><th>中线卡对照</th></tr>
+    <tr class="yr"><td colspan="10">2023 · 五票全部落在 04-07 ~ 04-20 两周内(ChatGPT 引爆的 AI 主题最热段)</td></tr>
+    <tr><td>同花顺</td><td class="num">300033</td><td class="num">04-14</td><td class="num">04-17 @132.31</td><td>—</td><td class="num">04-24 @122.61</td><td><span class="tag e1">E1</span></td><td class="d num">−7.3%</td><td class="dd num">−11.9%</td><td class="d num">−0.9%</td></tr>
+    <tr><td>工业富联</td><td class="num">601138</td><td class="num">04-12</td><td class="num">04-13 @16.90</td><td>—</td><td class="num">05-04 @14.72</td><td><span class="tag e1">E1</span></td><td class="d num">−12.9%</td><td class="dd num">−19.9%</td><td class="d num">−7.0%</td></tr>
+    <tr><td>浪潮信息</td><td class="num">000977</td><td class="num">04-20</td><td class="num">04-21 @41.49</td><td>—</td><td class="num">04-27 @40.00</td><td><span class="tag e1">E1</span></td><td class="d num">−3.6%</td><td class="dd num">−10.0%</td><td class="d num">−3.2%</td></tr>
+    <tr><td>科大讯飞</td><td class="num">002230</td><td class="num">04-07</td><td class="num">04-10 @64.26</td><td class="num">06-14 @81.90</td><td class="num">08-16 @63.84</td><td><span class="tag bb">保本线</span></td><td class="d num">−11.4%</td><td class="dd num">−30.2%</td><td class="d num">−8.9%</td></tr>
+    <tr><td>大华股份</td><td class="num">002236</td><td class="num">04-18</td><td class="num">04-19 @21.82</td><td>—</td><td class="num">04-26 @18.74</td><td><span class="tag e1">E1</span></td><td class="d num">−14.1%</td><td class="dd num">−19.2%</td><td class="d num">−5.8%</td></tr>
+    <tr class="yr"><td colspan="10">2024 · 事件驱动型:4 票集中在 9·24 行情后两个月(β放大),1 票上半年纯α</td></tr>
+    <tr><td>光启技术</td><td class="num">002625</td><td class="num">12-20</td><td class="num">12-23 @44.24</td><td>—</td><td class="num">25-04-07 @34.07</td><td><span class="tag e1">E1</span></td><td class="d num">−23.0%</td><td class="dd num">−29.7%</td><td class="d num">−2.7%</td></tr>
+    <tr><td>永辉超市</td><td class="num">601933</td><td class="num">11-12</td><td class="num">11-13 @5.18</td><td>—</td><td class="num">11-15 @4.59</td><td><span class="tag e1">E1</span></td><td class="d num">−11.4%</td><td class="dd num">−11.4%</td><td class="d num">−11.4%</td></tr>
+    <tr><td>百利天恒</td><td class="num">688506</td><td class="num">05-17</td><td class="num">05-20 @187.12</td><td>—</td><td class="num">07-11 @168.37</td><td><span class="tag e1">E1</span></td><td class="d num">−10.0%</td><td class="dd num">−22.1%</td><td class="d num">−7.2%</td></tr>
+    <tr><td>沪硅产业</td><td class="num">688126</td><td class="num">10-24</td><td class="num">10-25 @24.20</td><td>—</td><td class="num">11-22 @21.34</td><td><span class="tag e1">E1</span></td><td class="d num">−11.8%</td><td class="dd num">−15.0%</td><td class="d num">−6.1%</td></tr>
+    <tr><td>东方财富</td><td class="num">300059</td><td class="num">11-04</td><td class="num">11-05 @24.81</td><td>—</td><td class="num">11-26 @22.81</td><td><span class="tag e1">E1</span></td><td class="d num">−8.1%</td><td class="dd num">−16.2%</td><td class="u num">+3.7%</td></tr>
+    <tr class="yr"><td colspan="10">2025 · 全部在 AI 算力 / 国产半导体主线,120日先涨 1.6~2.6 倍后的公告驱动型新高</td></tr>
+    <tr><td>生益电子</td><td class="num">688183</td><td class="num">11-05</td><td class="num">11-06 @109.34</td><td>—</td><td class="num">11-11 @96.77</td><td><span class="tag e1">E1</span></td><td class="d num">−11.5%</td><td class="dd num">−11.5%</td><td class="d num">−7.7%</td></tr>
+    <tr><td>芯原股份</td><td class="num">688521</td><td class="num">03-11</td><td class="num">03-12 @92.44</td><td>—</td><td class="num">05-23 @84.14</td><td><span class="tag e1">E1</span></td><td class="d num">−9.0%</td><td class="dd num">−23.5%</td><td class="d num">−7.7%</td></tr>
+    <tr><td>大族数控</td><td class="num">301200</td><td class="num">11-06</td><td class="num">11-07 @121.15</td><td>—</td><td class="num">11-19 @112.74</td><td><span class="tag e1">E1</span></td><td class="d num">−6.9%</td><td class="dd num">−7.6%</td><td class="d num">−9.9%</td></tr>
+    <tr><td>巨人网络</td><td class="num">002558</td><td class="num">09-17</td><td class="num">09-18 @44.81</td><td>—</td><td class="num">10-10 @40.74</td><td><span class="tag e1">E1</span></td><td class="d num">−9.1%</td><td class="dd num">−9.7%</td><td class="d num">−6.0%</td></tr>
+    <tr><td>华虹公司</td><td class="num">688347</td><td class="num">10-28</td><td class="num">10-29 @132.11</td><td>—</td><td class="num">10-31 @118.00</td><td><span class="tag e1">E1</span></td><td class="d num">−10.7%</td><td class="dd num">−10.7%</td><td class="d num">−6.5%</td></tr>
+  </table></div>
+  <div class="legend">出场分布:14 票死于 E1 初始止损,1 票保本线;t3 零触发,30周线阶段零进入。加仓列"—"=+20% 档从未触发。科大讯飞整条 t2 轨迹经复核为锚定近似的假象(真收盘口径 t1 当日即 E1),故其明细仅作参考。</div>
+
+  <details><summary>2023 五票 · 选股逻辑速览(只用信号日前公开信息)</summary><ul>
+    <li><b>同花顺</b>:"AI+金融"C端身位预期先行——信号日时公司尚未发布自研大模型,2022年报净利-11.5%,153%涨幅几乎全靠预期;机械信号强、可验证增量事实薄。</li>
+    <li><b>工业富联</b>:五票中证据链最扎实——年报云计算首破2000亿+业绩说明会明确算力第二曲线+2017年即与英伟达合作。</li>
+    <li><b>浪潮信息</b>:"AI服务器全球第一"份额报道在前,但3月初实体清单利空同样公开在先。</li>
+    <li><b>科大讯飞</b>:2月即预告5月大模型产品级发布,催化最硬。</li>
+    <li><b>大华股份</b>:中国移动51亿定增缴款完成(信号日前一周实锤);自研大模型发布在信号日之后,不可引用。</li>
+  </ul></details>
+  <details><summary>2024 五票 · 选股逻辑速览</summary><ul>
+    <li><b>光启技术</b>:珠海航展超材料无人机+20亿框架采购(11月),市值两月330亿→850亿;六代机首飞报道晚于信号日,已排除。</li>
+    <li><b>永辉超市</b>:名创优品63亿入主+胖东来调改店销售数据;三季报仍亏损,纯预期重估票。</li>
+    <li><b>百利天恒</b>:BMS授权首付8亿美元到账+Q1净利50亿扭亏,业绩闸门直接来源,全链公开。</li>
+    <li><b>沪硅产业</b>:公司级叙事最薄(半年报亏损),上涨靠9·24政策组合拳+大基金三期的板块β。</li>
+    <li><b>东方财富</b>:10-08单日成交3.45万亿历史纪录+三季报Q3净利19.9亿,逻辑共识度最高。</li>
+  </ul></details>
+  <details><summary>2025 五票 · 选股逻辑速览</summary><ul>
+    <li><b>生益电子</b>:三季报归母+497%(AI服务器/800G交换机PCB),业绩与叙事双硬。</li>
+    <li><b>芯原股份</b>:在手订单24亿创新高,但2024年报预亏6亿同为信号前公开——订单拐点驱动,非利润驱动。</li>
+    <li><b>大族数控</b>:Q3归母+282%,PCB设备卖铲人,与生益电子同链共振(仅隔一天)。</li>
+    <li><b>巨人网络</b>:新游同时在线破百万,但半年报营收仅+16%,叙事强于兑现,闸门含金量最弱。</li>
+    <li><b>华虹公司</b>:满产108%+华力微收购预案,但当期利润极弱——估值锚是景气拐点。</li>
+  </ul></details>
+</div>
+
+<div class="card verify">
+  <h2>独立对抗复核 <small>独立脚本从原始数据重算,未复用仿真代码</small></h2>
+  <ul>
+    <li>✅ 15/15 逐票重放<b>零差异</b>(t2/t3触发日、出场日价、混合收益、回撤全对账);190 只候选排序键全部独立重算,top5 无一错取、零静默顺延。</li>
+    <li>✅ 价格层无前视(排序键/加仓/周线/出场逐条核过)。</li>
+    <li>⚠️ 保留①:锚定假设"买点≈信号次日收盘"实测偏差达±9%(8/15票&gt;3%)——逐票轨迹是近似;但真收盘反事实重放合计 −155.5pp,<b>15票仍全亏,总结论稳健</b>。</li>
+    <li>⚠️ 保留②:"每年前5"是年末视角(信号日无法预知全年排名)——本实验定位=<b>规则诊断</b>,不是可执行组合回测。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>为什么全灭 · 三条设计教训</h2>
+  <div class="lesson"><b class="no">1</b><b>"动量最强"排序键=专挑抛物线末端(逆向选择)。</b><p>前5的120日涨幅 91%~256%,全是主题最热时刻的最强票;而十例验证里真正的大赢家(长飞 +101% 时捕获、新易盛 2024-10 首捕)从不在极端动量段。涨幅榜牛票名单是年末上帝视角——实时按"谁最强"选,买到的是别人故事的最高潮。</p></div>
+  <div class="lesson"><b class="no">2</b><b>买点离平台越远,止损越贵。</b><p>前5的买点普遍高出平台 3%~20%(光启 +20%),止损却挂平台×0.95——高买点+远止损=单笔 −7%~−23% 的大额亏损,信号后一次正常回踩即打穿。与法证报告"伤害在高位再入"完全同构。</p></div>
+  <div class="lesson"><b class="no">3</b><b>持有方案的成败先于持有环节被选票决定。</b><p>金字塔/周线出场设计得再好,t2 只点火 1 次、t3 零点火——票选错了,长线制度根本没有机会启动。"拿住"的前提是"拿对了入场位置的票"。</p></div>
+  <div class="note"><b>最硬的一课:</b>这 15 票在信号日全部有真实、已公开、事后多数兑现的产业逻辑(逐票时间线考据过),照样三年全灭——<b>逻辑决定该不该拥有,买点决定被甩下车疼不疼,仓位决定会不会被甩死。</b></div>
+</div>
+
+<div class="card">
+  <h2>对提案③(核心仓)的输入</h2>
+  <div class="note" style="margin-top:0">核心仓候选的排序键<b>不应是极端动量</b>。下一轮预声明实验的候选规则(当前无背书):<b>首次捕获 + 距平台 ≤5% + 120日涨幅位于捕获票中位带(约40%~90%)</b>——"趋势确认早期+止损便宜"型,与十例大赢家画像一致。</div>
+  <div class="note">业绩闸门只保证"报表不拖后腿",不保证上涨由业绩驱动(沪硅产业亏损靠板块β过闸、巨人网络叙事强于兑现)——核心仓晋升制若引入"论点含金量"评分,需区分业绩驱动与事件/β驱动。</div>
+</div>
+
+<div class="card honest">
+  <b>诚实边界:</b>单一样本期(2023–2025,含一轮牛市);全程收盘口径无盘中(E1 实际出场可低于止损线);排序键与系统RS同族但非同一实现;候选池含 entry_B 信号未剔除(预声明如此);买卖价为前复权折算值,与盘面价存在复权偏移。<b>本实验证伪的是"动量前5+三档金字塔"这一条具体规则,不证伪"长线核心仓"方向本身</b>——方向的生死由下一轮预声明实验 + 10-09 评审决定。
+</div>
+
+</div>
+</body>
+</html>

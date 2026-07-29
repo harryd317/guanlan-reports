@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:仓位硬闸门(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px;border-left:5px solid var(--blue)}
+.kind{font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:4px;color:var(--blue)}
+.title{font-size:19px;font-weight:700;margin-bottom:10px}
+.title .code{color:var(--mut);font-size:13px;font-weight:400}
+.btns{display:flex;gap:10px}
+button.act{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  font-family:inherit;background:var(--card2);color:var(--text)}
+button.act.main{background:var(--blue);color:#fff}
+/* 新版买入确认条:成交价+金额双框 */
+.pricebar2{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.pricebar2 input{flex:1;min-width:100px;border:1px solid var(--line);border-radius:10px;
+  padding:9px 12px;font-size:15px;font-family:inherit;background:var(--card2)}
+.pricebar2 .unit{color:var(--mut);font-size:13px;flex:none;margin-left:-4px}
+.pricebar2 button{border:none;border-radius:10px;padding:9px 16px;font-size:14px;
+  font-weight:600;font-family:inherit;background:var(--blue);color:#fff}
+.gateok{margin-top:10px;padding:9px 12px;border-radius:10px;background:rgba(47,158,68,.08);
+  border:1px solid rgba(47,158,68,.25);font-size:13px;color:#2B8A3E}
+.gateerr{margin-top:10px;padding:9px 12px;border-radius:10px;background:rgba(224,49,49,.07);
+  border:1px solid rgba(224,49,49,.3);font-size:13px;color:var(--red);line-height:1.6}
+.gateerr b{font-size:14px}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:26px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:仓位硬闸门</h1>
+<div style="color:var(--mut);font-size:14px;margin-bottom:6px">纪律第一次从「建议」变「闸门」:点「已买入」时系统校验 单票≤30%、总仓≤60%(上限=设置页参数,可调),超线拒绝。前提:买入时要多填一个「金额」。</div>
+
+<div class="proto-h">① 新版买入确认条:成交价 + 金额(万)两个框
+  <small>金额顺手带来一个大礼:净值曲线/盈亏统计从此有真实数据(以前金额是空的)</small></div>
+<div class="card">
+  <div class="kind">买 入</div>
+  <div class="title">沪电股份 <span class="code">002463</span></div>
+  <div class="btns"><button class="act main">已买入</button><button class="act">这次不买</button></div>
+  <div class="pricebar2">
+    <input value="129.80" placeholder="成交价">
+    <input value="12" placeholder="买了多少钱"><span class="unit">万</span>
+    <button>确定</button>
+  </div>
+</div>
+
+<div class="proto-h">② 通过:告诉你这笔和总仓各占多少
+  <small>50万账户买12万 → 单票24%(≤30)、总仓24%(≤60),放行</small></div>
+<div class="card">
+  <div class="kind">买 入</div>
+  <div class="title">沪电股份 <span class="code">002463</span></div>
+  <div class="gateok">✓ 已记账:这笔占账户 24%(上限30),总仓 24%(上限60)。止损已挂 122.54。</div>
+</div>
+
+<div class="proto-h">③ 拒绝:红字写明超了哪条线、超多少
+  <small>拒绝后卡片还在,改小金额可以再试;上限在维修间→参数设置里可调</small></div>
+<div class="card">
+  <div class="kind">买 入</div>
+  <div class="title">沪电股份 <span class="code">002463</span></div>
+  <div class="gateerr"><b>没记账:超单票上限。</b>这笔 20万 = 账户的 40%,超过单票上限 30%(你的规矩)。最多还能买 15万;要么减金额,要么去「维修间→参数设置」改上限——改规矩请在冷静时,不要在想买的时候。</div>
+</div>
+<div class="card">
+  <div class="kind">买 入</div>
+  <div class="title">某票 <span class="code">600xxx</span></div>
+  <div class="gateerr"><b>没记账:超总仓上限。</b>已持仓 25万(50%)+这笔 8万 = 58%+16% = 66%,超过总仓上限 60%。最多还能买 5万。</div>
+</div>
+
+<div class="proto-h">④ 兜底两条(文字约定,不另画图)</div>
+<div class="anno">
+  · <b>没填账户总额</b> → 拒绝并引导:"先在 ⚙️ 里填一次账户总额,仓位纪律才能替你把关"(你已填 50万,此条对你暂不触发)<br>
+  · <b>有老持仓没填金额</b> → 总仓算不准时如实说:"另有 N 笔持仓没有金额,总仓按已知部分计算"——不装精确
+</div>
+
+<div class="proto-h">⑤ 待你拍板的 2 个决定</div>
+<div class="ask"><h3>A. 金额必填?</h3>
+  <div class="opt">我的建议:<b>必填</b>——不填金额,仓位闸门和净值曲线都是摆设。嫌麻烦可以默认带出系统建议金额,一键确认。</div></div>
+<div class="ask"><h3>B. 超限处理:硬拒绝(如图③,我的建议)还是「再点一次强行买入」?</h3>
+  <div class="opt">硬拒绝=闸门;强确认=还是建议。真要破例,去维修间改参数(有审计留痕),别给冲动留一键通道。</div></div>
+
+</body>
+</html>

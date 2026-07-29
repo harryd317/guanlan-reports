@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:简明模式瘦身(未实现,仅供拍板)</title>
+<style>
+/* ══ 照搬线上 home.html 样式 ══ */
+:root{
+  --bg:#F5F5F7; --card:#FFFFFF; --card2:#F5F5F7; --text:#1D1D1F; --mut:#6E6E73;
+  --line:#E5E5EA; --blue:#0A84FF; --amber:#B54708; --red:#E03131; --green:#2F9E44;
+  --radius:16px; --shadow:0 1px 3px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:24px;font-weight:700;margin-bottom:2px}
+h2{font-size:17px;font-weight:700;margin:22px 0 10px;display:flex;align-items:center}
+h2 .cnt{font-weight:400;font-size:13px;color:var(--mut)}
+.topbar{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.tab{flex:1;text-align:center;padding:13px 0;border-radius:14px;font-size:17px;font-weight:600;
+  background:var(--card);color:var(--mut);box-shadow:var(--shadow);border:none;font-family:inherit}
+.tab.on{background:var(--blue);color:#fff}
+.gear{flex:none;width:46px;height:46px;border-radius:14px;background:var(--card);border:none;
+  box-shadow:var(--shadow);font-size:20px}
+.clockbar{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:9px 14px;
+  margin-bottom:14px;display:flex;align-items:center;gap:10px;font-size:14px}
+.clockbar .t{font-family:ui-monospace,Menlo,monospace;font-size:19px;font-weight:700}
+.phase{border-radius:8px;padding:2px 10px;font-size:12px;font-weight:700;background:#F1F3F5;color:#6E6E73}
+.clockbar .cd{margin-left:auto;color:var(--mut);font-size:13px}
+.noop{font-size:26px;font-weight:700;margin:34px 0 6px;text-align:center}
+.noop-sub{color:var(--mut);font-size:14px;text-align:center;margin-bottom:8px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px;border-left:5px solid var(--red)}
+.kind{font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:4px;color:var(--red)}
+.title{font-size:19px;font-weight:700;margin-bottom:10px}
+.title .code{color:var(--mut);font-size:13px;font-weight:400}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:15px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.btns{display:flex;gap:10px}
+button.act{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  font-family:inherit;background:var(--card2);color:var(--text)}
+button.act.danger{background:var(--red);color:#fff}
+.pos{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px}
+.pos .row{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.pos .row:last-child{border-bottom:none}
+.light{flex:none;width:12px;height:12px;border-radius:50%}
+.light.ok{background:var(--green)}
+.pos .nm{font-weight:600;flex:none}
+.up{color:var(--red)} .dn{color:var(--green)}
+.sub2{flex-basis:100%;padding-left:22px;font-size:13px;color:var(--mut);display:flex;gap:8px;flex-wrap:wrap;margin-top:-4px}
+.chip{border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600}
+.chip.safe{background:#F1F3F5;color:#6E6E73}
+.pricecol{margin-left:auto;text-align:right;white-space:nowrap}
+.pricecol .p{font-weight:700;font-size:16px}
+.mng{flex:none;width:32px;height:32px;border:none;border-radius:9px;background:var(--card2);color:var(--mut);font-size:17px;font-weight:700}
+
+/* ══ 本原型新增 ══ */
+/* 复核折叠条:不用动的复核信息全收在这一行 */
+.reviewfold{background:var(--card);border-radius:12px;box-shadow:var(--shadow);
+  padding:11px 16px;margin:14px 0;font-size:14px;color:var(--mut);display:flex;gap:8px;align-items:center}
+.reviewfold .n{background:var(--card2);border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600}
+.reviewfold .arrow{margin-left:auto;font-size:12px}
+.reviewfold-open{background:var(--card);border-radius:12px;box-shadow:var(--shadow);
+  padding:4px 16px;margin:-8px 0 14px;font-size:13px;color:var(--mut)}
+.reviewfold-open .r{padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:8px}
+.reviewfold-open .r:last-child{border-bottom:none}
+.reviewfold-open .ok2{color:var(--green);flex:none}
+/* 瘦身齿轮面板 */
+.gearpanel{background:var(--card);border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.18);
+  padding:14px;width:280px;margin:10px 0 10px auto}
+.gearpanel .cap{font-size:12px;color:var(--mut);padding:2px 2px 8px}
+.acctrow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.acctrow input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;
+  font-size:15px;font-family:inherit;background:var(--card2)}
+.acctrow button{border:none;border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;
+  font-family:inherit;background:var(--blue);color:#fff}
+.acctnote{font-size:12px;color:var(--mut);margin-bottom:10px}
+.workshop{border-top:1px solid var(--line);margin-top:8px;padding-top:8px}
+.workshop .head{display:flex;align-items:center;gap:8px;padding:9px 2px;font-size:15px;color:var(--mut);cursor:pointer}
+.workshop a{display:inline-block;padding:7px 12px;border-radius:9px;color:var(--mut);
+  text-decoration:none;font-size:13px;background:var(--card2);margin:3px 4px 3px 0}
+/* 微信消息 mock */
+.wxwrap{background:#EDEDED;border-radius:16px;padding:18px 14px;margin:10px 0}
+.wxmsg{background:#fff;border-radius:10px;padding:12px 14px;font-size:14px;max-width:85%;
+  margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.wxmsg .from{font-size:11px;color:#999;margin-bottom:4px}
+.wxmsg b{display:block;margin-bottom:4px}
+/* 原型说明 */
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:30px 0 6px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.anno b{color:#3B3403}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:简明模式瘦身</h1>
+<div style="color:var(--mut);font-size:14px;margin-bottom:6px">目标:大多数日子打开只看到四个大字;机房的门全部关进「维修间」;最终连打开都不用(微信推送)。</div>
+
+<!-- ═════════ ① 无操作日 ═════════ -->
+<div class="proto-h">① 瘦身后的首页:无操作日(一年里的大多数天)
+  <small>时钟、盘中行情、持有/等买点列表原样保留;变化=复核噪音全部折进一行</small></div>
+
+<div class="topbar"><button class="tab on">今日</button><button class="tab">问AI</button><button class="gear">⚙️</button></div>
+<div class="clockbar"><span class="t num">17:02:45</span><span class="phase">已收盘</span><span class="cd">下个交易日 9:30 开盘</span></div>
+
+<div class="noop">今天无操作</div>
+<div class="noop-sub">没有触发任何纪律信号——空仓也是仓位,拿着不动就是最好的动作。</div>
+
+<div class="reviewfold"><span class="n">6</span>条复核都说「不用动」,系统已看过 <span class="arrow">点开看详情 ▾</span></div>
+
+<h2>我持有的<span class="cnt">(1只)</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light ok"></span><span class="nm">中芯国际 <span class="code">688981</span></span>
+    <span class="pricecol"><span class="p num">97.55</span> <span class="num up">+1.2%</span></span>
+    <button class="mng">⋯</button>
+    <div class="sub2"><span class="chip safe">离卖出线 +11.7%</span><span>卖出线 87.30(锁盈线)</span></div>
+  </div>
+</div>
+
+<div class="anno"><b>变化点:</b>原来的 12 张卡里 10 张是「有情况,该看一眼」点开却说「不用动」——全部收进上面那一行灰条。<b>「今天有N件事」从此只数真正要动手的事</b>(卖出/减半/买入/新机会要不要研究)。</div>
+
+<!-- 折叠条点开的样子 -->
+<div class="reviewfold"><span class="n">6</span>条复核都说「不用动」,系统已看过 <span class="arrow">收起 ▴</span></div>
+<div class="reviewfold-open">
+  <div class="r"><span class="ok2">✓</span>中芯国际:业绩解读——支持当初买它的理由</div>
+  <div class="r"><span class="ok2">✓</span>德业股份:公告解读——与持有逻辑无关</div>
+  <div class="r"><span class="ok2">✓</span>沪电股份:资金流事件——不影响等买点</div>
+</div>
+
+<!-- ═════════ ② 有操作日 ═════════ -->
+<div class="proto-h">② 有操作日:该出手时,首页只有这一张卡
+  <small>信号少≠工具没用,是纪律在替你挡瞎操作</small></div>
+
+<div class="noop" style="font-size:17px;text-align:left;margin:10px 0">今天有 <b style="color:var(--red)">1</b> 件事:</div>
+<div class="card">
+  <div class="kind">卖 出</div>
+  <div class="title">德业股份 <span class="code">605117</span></div>
+  <div class="facts">
+    <div class="row"><span>怎么了</span><b>收盘 92.10,跌破卖出线 93.90</b></div>
+    <div class="row"><span>怎么做</span><b>明早开盘卖出全部</b></div>
+  </div>
+  <div class="btns"><button class="act danger">已卖出</button><button class="act">为什么?</button></div>
+</div>
+
+<!-- ═════════ ③ 齿轮 ═════════ -->
+<div class="proto-h">③ 瘦身后的齿轮:只剩两件事
+  <small>账户总额在这里直接填(填一次不再进来);六个专业页面全部收进「维修间」折叠组</small></div>
+
+<div class="gearpanel">
+  <div class="cap">账户总额(算「买多少」用,只存本机)</div>
+  <div class="acctrow"><input placeholder="如 500000" value="500000"><button>保存</button></div>
+  <div class="acctnote">✓ 已保存。买入卡会按「单笔最多亏2%」帮您算买多少。</div>
+  <div class="workshop">
+    <div class="head">🔧 维修间(日常用不到)▾</div>
+    <div>
+      <a>专业看板</a><a>股票池</a><a>完整日报</a><a>交易台</a><a>参数设置</a><a>历史快照</a>
+    </div>
+  </div>
+</div>
+<div class="anno"><b>变化点:</b>原来齿轮里 6 个页面平铺,现在默认只见「账户总额」;维修间平时收着,点一下才展开。页面一个不删,只是把门关上。首页底部的「完整日报/专业看板/历史快照」三个链接同步撤掉。</div>
+
+<!-- ═════════ ④ 微信推送 ═════════ -->
+<div class="proto-h">④ 每天一条微信:连打开都不用
+  <small>16:35 筛选跑完自动发;半夜补跑的数据不吵你,第二天早上8点再发</small></div>
+
+<div class="wxwrap">
+  <div class="wxmsg"><div class="from">纪律选股 · 周三 16:35</div><b>今天无操作 ✅</b>持有中芯国际安全(离卖出线 +11.7%),等买点的沪电股份还差 10%。</div>
+  <div class="wxmsg"><div class="from">纪律选股 · 周四 16:35</div><b>🔴 今天 1 件事:卖出德业股份</b>收盘 92.10 跌破卖出线 93.90,明早开盘卖出全部。详情打开首页。</div>
+</div>
+<div class="anno"><b>要你做一次的事:</b>在一个企业微信群里加一个「群机器人」,把 webhook 地址贴进 <b>.env</b> 文件(我给你逐步操作说明,两分钟)。钥匙只落本机文件,永不进日志和页面。</div>
+
+<!-- ═════════ 待拍板 ═════════ -->
+<div class="proto-h">⑤ 待你拍板的 4 个决定</div>
+<div class="ask"><h3>A. 复核噪音的去处</h3>
+  <div class="opt">如图折成一行灰条(点开可看)?还是干脆完全不显示?</div></div>
+<div class="ask"><h3>B. 齿轮瘦身</h3>
+  <div class="opt">按图来:账户总额+维修间折叠组,首页底部三个链接撤掉。OK?</div></div>
+<div class="ask"><h3>C. AI 自动研究(每天自动烧 gpt-5.5 给候选写报告)</h3>
+  <div class="opt">你从不看立项报告的话:调高入池门槛(少研究少花钱)/ 干脆停掉(候选只进列表不研究)/ 保持现状。选哪个?</div></div>
+<div class="ask"><h3>D. 推送时段</h3>
+  <div class="opt">正常:16:35 筛完即发;补跑的结果若在 22:00 后才出,压到次日早 8:00 发。OK?</div></div>
+
+</body>
+</html>

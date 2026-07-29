@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:个股体检(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.searchbar{display:flex;gap:8px;margin:14px 0}
+.searchbar input{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:16px;font-family:inherit;background:var(--card)}
+.searchbar button{border:none;border-radius:12px;padding:12px 22px;font-size:15px;
+  font-weight:600;font-family:inherit;background:var(--blue);color:#fff}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px}
+.card h3{font-size:16px;margin-bottom:8px}
+.statebadge{display:inline-block;border-radius:10px;padding:3px 12px;font-weight:700;
+  font-size:14px;background:rgba(47,158,68,.1);color:var(--green);
+  border:1px solid rgba(47,158,68,.3)}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:15px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{text-align:left;color:var(--mut);font-size:12px;padding:5px 6px;border-bottom:1px solid var(--line)}
+td{padding:6px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+.up{color:var(--red);font-weight:600}.dn{color:var(--green);font-weight:600}
+.kline{background:var(--card2);border-radius:12px;height:130px;display:flex;
+  align-items:center;justify-content:center;color:var(--mut);font-size:13px;margin-top:10px}
+.note{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.6}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:24px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:个股体检</h1>
+<div style="color:var(--mut);font-size:14px">放在「问AI」页顶部:输入任意 A 股代码,一眼看到新规则对它的当前判断 + 五年历史回放。</div>
+
+<div class="proto-h">① 入口:问AI页顶部加一个搜索框</div>
+<div class="searchbar">
+  <input placeholder="输入股票代码,如 002463" value="002463">
+  <button>体检</button>
+</div>
+
+<div class="proto-h">② 结果第一块:现在的判断(实时,新规则口径)</div>
+<div class="card">
+  <h3>沪电股份 002463 <span class="statebadge">跟踪中 · 等买点</span></h3>
+  <div class="facts">
+    <div class="row"><span>现价</span><b class="num">129.72(7月9日收盘)</b></div>
+    <div class="row"><span>突破位(平台)</span><b class="num">122.54 · 距平台 +5.9%</b></div>
+    <div class="row"><span>若触发买点</span><b class="num">止损将挂 116.41(平台×0.95)</b></div>
+    <div class="row"><span>状态说明</span><b>回调中(自高点 -4%),等缩量企稳</b></div>
+  </div>
+  <div class="note">RS 相对强度与基本面闸门按当日全池计算,以 16:30 正式筛选为准;这里是"如果现在收盘"的即时判断。不在 800 亿池内的票会如实标注"进不了池,仅供观察"。</div>
+</div>
+
+<div class="proto-h">③ 结果第二块:新规则下的五年历史回放
+  <small>每一笔买卖点、持有天数、出场依据,全部可追溯——就是你刚才在聊天里看到的那张表,搬到网页上</small></div>
+<div class="card">
+  <h3>历史回放(2021 至今,新规则 v5 参数)</h3>
+  <table>
+    <tr><th>买入日</th><th>买入价</th><th>卖出日</th><th>卖出价</th><th>盈亏</th><th>出场</th></tr>
+    <tr><td class="num">2024-03-01</td><td class="num">25.47</td><td class="num">2024-07-26</td><td class="num">32.56</td><td class="up">+27.7%</td><td>E3 锁盈</td></tr>
+  </table>
+  <div class="note">共 1 笔,合计 +27.7%(费后)。回放数据截至 2026-07-03(回测缓存);缓存里没有的票会提示"暂无回放数据"。</div>
+</div>
+
+<div class="proto-h">④ 结果第三块:K线(复用问AI页现成组件,标出买卖点)</div>
+<div class="card"><div class="kline">📈 日K线(lightweight-charts,现成组件)+ 买卖点标记 ▲▼</div></div>
+
+<div class="proto-h">⑤ 待你拍板的 2 个决定</div>
+<div class="ask"><h3>A. 入口放「问AI」页顶部(如图),还是首页齿轮里加一项?</h3>
+  <div class="opt">建议问AI页——它本来就是研究/课堂页,语义一致。</div></div>
+<div class="ask"><h3>B. 体检结果要不要接一句「问AI」?</h3>
+  <div class="opt">体检卡下加一个按钮"就这只票问AI"(复用现有就票追问),把机械判断和 AI 解读串起来。建议加。</div></div>
+
+</body>
+</html>

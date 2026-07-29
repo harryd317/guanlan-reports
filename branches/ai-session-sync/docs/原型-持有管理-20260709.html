@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:持有列表行内管理(未实现,仅供拍板)</title>
+<style>
+/* ══ 照搬线上 home.html 样式,所见即所得 ══ */
+:root{
+  --bg:#F5F5F7; --card:#FFFFFF; --card2:#F5F5F7; --text:#1D1D1F; --mut:#6E6E73;
+  --line:#E5E5EA; --blue:#0A84FF; --amber:#B54708; --red:#E03131; --green:#2F9E44;
+  --radius:16px; --shadow:0 1px 3px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:24px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+h2{font-size:17px;font-weight:700;margin:26px 0 10px;display:flex;align-items:center}
+h2 .cnt{font-weight:400;font-size:13px;color:var(--mut)}
+.livetag{margin-left:auto;font-weight:400;font-size:12px;color:var(--mut);display:inline-flex;align-items:center;gap:5px}
+.livedot{width:8px;height:8px;border-radius:50%;background:#ADB5BD}
+.pos{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px}
+.pos .row{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.pos .row:last-child{border-bottom:none}
+.light{flex:none;width:12px;height:12px;border-radius:50%}
+.light.ok{background:var(--green)} .light.warn{background:#F59F00} .light.bad{background:var(--red)}
+.pos .nm{font-weight:600;flex:none}
+.pos .code{color:var(--mut);font-size:12px;font-weight:400}
+.up{color:var(--red)} .dn{color:var(--green)}
+.sub2{flex-basis:100%;padding-left:22px;font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:-4px}
+.chip{border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+.chip.safe{background:#F1F3F5;color:#6E6E73}
+.pricecol{margin-left:auto;text-align:right;line-height:1.3;white-space:nowrap}
+.pricecol .p{font-weight:700;font-size:16px}
+button.act{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;font-family:inherit;background:var(--card2);color:var(--text)}
+button.act.main{background:var(--blue);color:#fff}
+button.act.danger{background:var(--red);color:#fff}
+
+/* ══ 本原型新增(实现时进 home.html) ══ */
+.mng{flex:none;width:32px;height:32px;border:none;border-radius:9px;background:var(--card2);
+  color:var(--mut);font-size:17px;font-weight:700;cursor:pointer;line-height:1}
+.mngbar{flex-basis:100%;background:var(--card2);border-radius:12px;padding:12px 14px;margin-top:6px}
+.mngbar .tip{font-size:13px;color:var(--mut);margin-bottom:10px}
+.mngbar .tip b{color:var(--text)}
+.mngrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mngrow input{flex:1;min-width:110px;border:1px solid var(--line);border-radius:10px;
+  padding:9px 12px;font-size:15px;font-family:inherit;background:#fff}
+.mnglink{background:none;border:none;color:var(--red);font-size:13px;cursor:pointer;
+  font-family:inherit;padding:8px 0 0;text-decoration:underline}
+.confirm2{margin-top:10px;padding:10px 12px;border:1px solid rgba(224,49,49,.3);
+  background:rgba(224,49,49,.06);border-radius:10px;font-size:13px;color:var(--red)}
+.confirm2 .btns2{margin-top:8px;display:flex;gap:8px}
+
+/* 原型说明样式(不进实现) */
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:30px 0 6px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.anno b{color:#3B3403}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:持有列表行内管理</h1>
+<div class="sub">解决「明明没持有了却删不掉」:每行加一个 ⋯ 按钮,不用再绕去交易台/股票池页。</div>
+
+<div class="proto-h">① 平时的样子:每行右侧多一个 ⋯ 按钮
+  <small>不点它,列表和现在完全一样</small></div>
+
+<h2>我持有的<span class="cnt">(3只)</span><span class="livetag"><span class="livedot"></span>7月8日收盘数据</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light ok"></span><span class="nm">中芯国际 <span class="code">688981</span></span>
+    <span class="pricecol"><span class="p num">97.55</span> <span class="num up">+1.2%</span></span>
+    <button class="mng">⋯</button>
+    <div class="sub2"><span class="chip safe">离卖出线 +11.7%</span><span>卖出线 87.30(锁盈线)</span></div>
+  </div>
+  <div class="row">
+    <span class="light warn"></span><span class="nm">德业股份 <span class="code">605117</span></span>
+    <span class="pricecol"><span class="p num">97.80</span> <span class="num dn">-1.7%</span></span>
+    <button class="mng">⋯</button>
+    <div class="sub2"><span class="chip safe">离卖出线 +4.0%</span><span>卖出线 93.90(保本线)</span></div>
+  </div>
+</div>
+
+<div class="proto-h">② 点开 ⋯ 之后:两条路,各有各的后果
+  <small>灰色抽屉在该行下方展开,再点 ⋯ 收起</small></div>
+
+<h2>我持有的<span class="cnt">(3只)</span><span class="livetag"><span class="livedot"></span>7月8日收盘数据</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light warn"></span><span class="nm">德业股份 <span class="code">605117</span></span>
+    <span class="pricecol"><span class="p num">97.80</span> <span class="num dn">-1.7%</span></span>
+    <button class="mng" style="background:var(--blue);color:#fff">⋯</button>
+    <div class="sub2"><span class="chip safe">离卖出线 +4.0%</span><span>卖出线 93.90(保本线)</span></div>
+    <div class="mngbar">
+      <div class="tip"><b>真的卖掉了?</b>填实际成交价 → 记入账本、算盈亏,并按规则进 20 个交易日冷静期(期间不再推它的买入信号)。</div>
+      <div class="mngrow">
+        <input type="text" inputmode="decimal" placeholder="实际成交价,如 96.50">
+        <button class="act main">已卖出,记账</button>
+      </div>
+      <button class="mnglink">这票是录错的,从没买过 → 直接移出(不记账)</button>
+    </div>
+  </div>
+</div>
+
+<div class="proto-h">③ 点了「直接移出」:红字二次确认,防手滑
+  <small>移出=当这笔持仓从来没存在过,不进账本、不算盈亏、不进冷静期</small></div>
+
+<h2>我持有的<span class="cnt">(3只)</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light warn"></span><span class="nm">德业股份 <span class="code">605117</span></span>
+    <span class="pricecol"><span class="p num">97.80</span> <span class="num dn">-1.7%</span></span>
+    <button class="mng" style="background:var(--blue);color:#fff">⋯</button>
+    <div class="mngbar">
+      <div class="confirm2">确定移出「德业股份」?这会同时删掉交易台里对应的持仓记录,<b>不记盈亏</b>——只适用于录错的情况。真卖掉了请走上面的「已卖出」,不然账本和净值就不准了。
+        <div class="btns2">
+          <button class="act danger">确认移出</button>
+          <button class="act">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="anno"><b>为什么分两条路:</b>这套系统的账本(净值曲线/胜率统计/冷静期规则)全靠持仓记录喂。「已卖出」走正规流程账才对得上;「直接移出」是给录错准备的后门,所以要红字拦一下。两个动作都会在系统日志里留痕,可追溯。</div>
+
+<div class="proto-h">④ 待你拍板的 3 个决定</div>
+<div class="ask">
+  <h3>A. 入口形态</h3>
+  <div class="opt">每行常驻一个小 ⋯ 按钮(如图)。嫌碍眼的话可以换成:整行长按才出现(手机习惯)/只在行尾留窄条热区。</div>
+</div>
+<div class="ask">
+  <h3>B. 「直接移出」红字二次确认</h3>
+  <div class="opt">如图保留?(建议保留——移出不记账,点错一次账就缺一笔)</div>
+</div>
+<div class="ask">
+  <h3>C. 「已卖出」后进 20 个交易日冷静期</h3>
+  <div class="opt">这是现行规则(防止卖了又追)。从这里卖出同样执行,对吧?</div>
+</div>
+
+</body>
+</html>

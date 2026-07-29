@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:个股全景页 v2(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--amber:#B54708;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:24px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+
+/* 页面模拟 */
+.topbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.back{flex:none;width:42px;height:42px;border-radius:12px;background:var(--card);border:none;
+  box-shadow:var(--shadow);font-size:17px;cursor:pointer}
+.pgtitle{font-size:21px;font-weight:700}
+.pgtitle .code{font-size:13px;color:var(--mut);font-weight:400}
+.toc{display:flex;gap:8px;overflow-x:auto;padding:8px 0;position:sticky;top:0;background:var(--bg);z-index:5;margin-bottom:6px}
+.toc a{flex:none;background:var(--card);border-radius:99px;padding:7px 14px;font-size:13px;color:var(--mut);text-decoration:none;box-shadow:var(--shadow);white-space:nowrap}
+.toc a.on{background:var(--blue);color:#fff}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px;scroll-margin-top:56px}
+.card h3{font-size:17px;margin-bottom:4px}
+.src{font-size:11px;color:#B0B0B5;margin-bottom:8px}
+.statebadge{display:inline-block;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px;
+  background:rgba(181,71,8,.08);color:var(--amber);border:1px solid rgba(181,71,8,.3);margin-left:6px;vertical-align:2px}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-top:8px;font-size:14px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.aibox{background:var(--card2);border-radius:12px;padding:10px 14px;margin-top:10px;font-size:13px}
+.aibox .who{font-size:11px;color:var(--mut);margin-bottom:4px}
+.aibadge{display:inline-block;border-radius:10px;padding:1px 10px;font-weight:700;font-size:12px;
+  background:rgba(224,49,49,.09);color:var(--red);border:1px solid rgba(224,49,49,.25);margin-right:6px}
+h4{font-size:15px;margin:12px 0 6px}
+.card p{font-size:14.5px;color:#3A3A3C;margin-bottom:9px}
+.freqbtns{display:flex;gap:8px;margin-bottom:8px}
+.freqbtns button{border:none;border-radius:10px;padding:6px 16px;font-size:13px;font-weight:600;
+  font-family:inherit;background:var(--card2);color:var(--mut);cursor:pointer}
+.freqbtns button.on{background:var(--blue);color:#fff}
+.legend{font-size:12px;color:var(--mut);margin-top:6px}
+.score{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+.score span{background:var(--card2);border-radius:99px;padding:4px 12px;font-size:12.5px;color:var(--mut)}
+.score b{color:var(--text)}
+.bear{background:rgba(224,49,49,.05);border:1px solid rgba(224,49,49,.15);border-radius:12px;padding:12px 14px;font-size:13.5px;margin-top:10px;line-height:1.8}
+.bear b{color:var(--red)}
+.evt{border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:10px 0}
+.evt .t{font-size:12px;color:var(--mut)}
+.evt .t .tag{display:inline-block;border-radius:6px;padding:0 7px;font-size:11px;margin-right:6px;background:var(--card2)}
+.evt .t .tag.ann{color:var(--blue)}
+.evt .t .tag.tech{color:var(--amber)}
+.evt .n{font-size:14px;margin-top:1px}
+.deepbtn{border:none;border-radius:12px;padding:12px 20px;font-size:14.5px;font-weight:600;
+  font-family:inherit;background:var(--blue);color:#fff;cursor:pointer;margin-top:6px}
+.deep{display:none;margin-top:12px;border-top:1px dashed var(--line);padding-top:12px}
+.deep.open{display:block}
+.deep h5{font-size:14px;margin:10px 0 4px;color:var(--text)}
+.deep p{font-size:13.5px}
+.cachetag{font-size:12px;color:var(--green);margin-top:8px}
+.chat{margin-top:6px}
+.msg{margin-bottom:10px;max-width:88%;font-size:14px}
+.msg.user{margin-left:auto;background:var(--blue);color:#fff;border-radius:14px 14px 4px 14px;padding:8px 12px}
+.msg.ai{background:var(--card2);border-radius:14px 14px 14px 4px;padding:10px 12px}
+.msg.ai .who{font-size:11px;color:var(--mut);margin-bottom:3px}
+.chatline{display:flex;gap:8px;margin-top:10px}
+.chatline input{flex:1;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:16px;font-family:inherit;background:var(--card2)}
+.chatline button{border:none;background:var(--blue);color:#fff;border-radius:12px;padding:0 20px;font-size:14px;font-family:inherit}
+.linkdemo{color:var(--blue);text-decoration:underline;cursor:pointer}
+svg text{font-family:inherit}
+</style>
+</head>
+<body>
+
+<h1>原型:个股全景页(细化版)</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7;margin-bottom:6px">
+  下面就是您点开「德业股份」后看到的<b>完整页面</b>,全部用它的真实数据构造
+  (只有 AI 文字是示意,数字都是真的)。每区右上角灰字=数据从哪来。
+  <b>顶部导航、K线切换、行业深析按钮都可以点。</b>
+</div>
+
+<div class="proto-h">入口:全站票名可点(复核卡/持有列表/等买点/买入卡/问AI池条)
+  <small>示例:<span class="linkdemo">德业股份</span> ← 点票名 → 进下面这个页面(/stock/605117)</small></div>
+
+<!-- ═════════ 页面完整模拟 ═════════ -->
+<div class="topbar">
+  <button class="back">←</button>
+  <div class="pgtitle">德业股份 <span class="code num">605117</span></div>
+</div>
+
+<div class="toc" id="toc">
+  <a href="#sec1" class="on">现状</a><a href="#sec2">K线</a><a href="#sec3">三段课</a>
+  <a href="#sec4">深度档案</a><a href="#sec5">大事记</a><a href="#sec6">行业深析</a><a href="#sec7">追问</a>
+</div>
+
+<div class="card" id="sec1">
+  <h3>① 现在什么情况<span class="statebadge">等买点 · 昨日技术否决</span></h3>
+  <div class="src">来源:个股体检接口(实时)+ 池状态,每次打开现算</div>
+  <div class="facts">
+    <div class="row"><span>现价</span><b class="num">86.19(7月9日收盘,当日 -3.8%)</b></div>
+    <div class="row"><span>突破平台(5月27日创的)</span><b class="num">120.70 · 现距平台 -28.6%</b></div>
+    <div class="row"><span>30周生命线</span><b class="num">86.69 · 昨日收盘已跌破</b></div>
+    <div class="row"><span>若重新触发买点,止损挂</span><b class="num">114.67(平台×0.95)</b></div>
+    <div class="row"><span>系统判断</span><b>破生命线,技术否决退回候选</b></div>
+  </div>
+  <div class="aibox">
+    <div class="who">AI 复核意见(今日日报生成,与首页复核卡同一条)</div>
+    <span class="aibadge">建议移出</span>
+    <span style="font-size:13px">业绩预增落地反跌 10.7%,利好出尽+跌破生命线,5月的突破论点已经走完。它若重新突破,系统会再次捕获。</span>
+  </div>
+</div>
+
+<div class="card" id="sec2">
+  <h3>② K线</h3>
+  <div class="src">来源:现有K线组件(日K 344 根/周K,平台价/止损线/入场点全标注)——原型用简笔示意</div>
+  <div class="freqbtns">
+    <button class="on" onclick="freqDemo(this,'日K')">日K</button>
+    <button onclick="freqDemo(this,'周K')">周K</button>
+  </div>
+  <svg viewBox="0 0 600 240" style="width:100%;background:var(--card2);border-radius:12px">
+    <!-- 走势简笔:1月60→3月85→5月27日高点122→7月9日86 -->
+    <polyline points="20,200 80,170 150,150 220,120 300,40 360,75 430,95 500,110 560,132"
+      fill="none" stroke="#1D1D1F" stroke-width="2.5"/>
+    <line x1="20" y1="52" x2="580" y2="52" stroke="#0A84FF" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="24" y="46" font-size="13" fill="#0A84FF">平台价 120.70(5月27日突破)</text>
+    <line x1="20" y1="128" x2="580" y2="128" stroke="#B54708" stroke-width="1.5"/>
+    <text x="24" y="122" font-size="13" fill="#B54708">30周生命线 86.69</text>
+    <circle cx="300" cy="40" r="5" fill="#E03131"/>
+    <text x="310" y="36" font-size="13" fill="#E03131">▲ 放量创250日新高</text>
+    <circle cx="560" cy="132" r="5" fill="#B54708"/>
+    <text x="440" y="160" font-size="13" fill="#B54708">7月9日收盘 86.19 破线 ✕</text>
+  </svg>
+  <div class="legend">蓝虚线=突破平台 · 橙线=30周生命线 · 图上能看到:5月冲顶、6~7月一路回落、昨日破线的全过程</div>
+</div>
+
+<div class="card" id="sec3">
+  <h3>③ AI 三段课(大白话)</h3>
+  <div class="src">来源:/ask 课堂现成课文(每票每日缓存一次),原样嵌入</div>
+  <h4>它是做什么的,行业怎么样</h4>
+  <p>德业股份主业是光伏逆变器和户用储能电池包,大头收入来自海外(欧洲、南非、巴西的户储需求)。
+  注入数据里最新的事件是:上半年净利预增最高 +80%,快赶上去年全年——生意本身在爆发期。
+  但注意 7 月 9 日行业资金面:主力资金单日撤离电力设备板块 74.75 亿,整个板块都在被抽血。</p>
+  <h4>技术面怎么看它</h4>
+  <p>5 月 27 日它放量突破 120.70 的平台、创 250 日新高,那是我们盯上它的原因。
+  但之后没有像教科书那样"缩量回踩企稳",而是一路阴跌,7 月 9 日收 86.19,距平台已经 -28.6%,
+  并且跌穿了 30 周生命线(86.69)。我们规则里,生命线是中线趋势的底线——破了,这波突破行情大概率结束。</p>
+  <h4>基本面怎么看它</h4>
+  <p>矛盾点就在这:业绩预增近八成(硬数据),股价却在利好落地当天跌 7.2%。
+  市场用脚投票说"这个好消息早就涨过了"(去年它涨过一大波)。业绩好≠现在该买,
+  我们的规则只认"突破形态+回踩企稳",现在两个都没有。</p>
+</div>
+
+<div class="card" id="sec4">
+  <h3>④ 深度档案(立项时的研究报告)</h3>
+  <div class="src">来源:论点档案(thesis 表,7月7日立项时 AI 生成)——一直在库里,第一次给界面露出</div>
+  <div class="score">
+    <span>研究总分 <b>26/35</b></span><span>行业景气 <b>5/5</b></span><span>竞争格局 <b>4/5</b></span>
+    <span>业绩趋势 <b>5/5</b></span><span>估值水位 <b>3/5</b></span><span>筹码结构 <b>3/5</b></span>
+    <span>技术形态 <b>4/5</b></span><span>事件催化 <b>2/5</b></span>
+  </div>
+  <h4>多头逻辑(当初为什么看上它)</h4>
+  <p>海外户储需求爆发,公司逆变器+电池包双轮驱动,连续六个季度业绩超预期;
+  南非、巴西等新兴市场渗透率还在低位,出海逻辑有纵深。5月末放量突破年内平台,资金关注度回升。</p>
+  <div class="bear"><b>空头报告(这单会怎么亏,立项时就写好的):</b><br>
+  ① 欧美对中国户储产品政策收紧,出海逻辑受阻(7月7日已有"出海遇暗礁"报道——正在应验);<br>
+  ② 储能赛道打价格战,毛利率见顶回落;<br>
+  ③ 涨幅已大,利好兑现即出货(业绩预增落地反跌——已应验)。</div>
+  <p style="color:var(--mut);font-size:12.5px;margin-top:8px">评分口径 s1 · 立项于 2026-07-07 · 空头路径应验情况由每日事件复核跟踪</p>
+</div>
+
+<div class="card" id="sec5">
+  <h3>⑤ 大事记</h3>
+  <div class="src">来源:事件流(events 表,公告=巨潮/新闻=东财,每日采集)</div>
+  <div class="evt"><div class="t"><span class="tag ann">公告</span>7月9日</div>
+    <div class="n">2026年半年度业绩预增公告(净利同比最高 +80%)</div></div>
+  <div class="evt"><div class="t"><span class="tag tech">技术</span>7月9日</div>
+    <div class="n">技术状态迁移:跟踪中 → 技术否决(收盘 86.19 破30周生命线 86.69)</div></div>
+  <div class="evt"><div class="t"><span class="tag">新闻</span>7月9日</div>
+    <div class="n">海外储能需求爆发,德业半年大赚26亿,背后仍藏三大隐忧</div></div>
+  <div class="evt"><div class="t"><span class="tag">新闻</span>7月8日</div>
+    <div class="n">千亿储能龙头公布最新业绩!二级市场没"给足面子"(当日 -7.2%)</div></div>
+  <div class="evt"><div class="t"><span class="tag">新闻</span>7月7日</div>
+    <div class="n">光伏逆变器出海或再遇"暗礁":欧美限制政策影响几何?</div></div>
+  <div class="evt"><div class="t"><span class="tag ann">公告</span>6月24日</div>
+    <div class="n">全资子公司签署二期投资协议暨对外投资进展</div></div>
+</div>
+
+<div class="card" id="sec6">
+  <h3>⑥ 行业深度解析</h3>
+  <div class="src">来源:新增 AI 端点(结合论点档案+近30日行业事件现场生成)· 每票每日缓存一次,当天再看不重复花钱</div>
+  <button class="deepbtn" id="deepbtn" onclick="openDeep()">📖 生成「光伏逆变器 / 户用储能」行业深析(约半分钟)</button>
+  <div class="deep" id="deep">
+    <div class="cachetag">✓ 已生成(今日缓存)· 2026-07-10 12:50</div>
+    <h5>一、这是个什么行业,钱从哪赚</h5>
+    <p>户用储能=家庭"大充电宝"(光伏板发电→电池存着晚上用),逆变器是里面的"翻译官"(直流转交流)。
+    德业赚的是硬件钱:一套户储系统里逆变器+电池包约占成本六成。核心市场不在国内——欧洲(电价贵)、
+    南非(缺电)、巴西(电网差)才是主战场,所以它本质是家"出海公司"。</p>
+    <h5>二、现在行业处在什么位置</h5>
+    <p>景气度:高位但增速换挡。2024~2025 欧洲能源危机催生的抢装潮已过,行业从"有货就卖爆"进入
+    "拼渠道拼价格"阶段;新兴市场(南非/巴西/东南亚)接棒增长但客单价更低。
+    翻译成人话:蛋糕还在变大,但没以前那么好切了。</p>
+    <h5>三、最要命的变量:政策</h5>
+    <p>7月7日行业新闻已经点破——欧美在酝酿对中国户储产品的限制(安全审查/本土化要求)。
+    对德业这种海外收入占大头的公司,这是悬顶之剑:落地力度决定估值中枢。这也正是它论点档案里
+    空头路径①,现在开始应验。</p>
+    <h5>四、竞争格局:它排第几</h5>
+    <p>逆变器出海三强:阳光电源(大储为主)、锦浪/固德威/德业(户储混战)。德业的差异化在
+    "低成本+新兴市场渠道深",毛利率行业前列;但户储门槛低于大储,价格战风险始终在。</p>
+    <h5>五、对这只票意味着什么</h5>
+    <p>行业逻辑没坏(长期),但短期三个压力叠加:政策悬顶+增速换挡+获利盘兑现——这解释了为什么
+    业绩预增 80% 股价反而跌:市场在给"明年还能不能这么赚"打折。按我们的纪律,行业再好也要等
+    技术形态修复(重新站回生命线/再次突破)才谈得上买点。</p>
+    <p style="color:var(--mut);font-size:12px">依据:论点档案 + 近30日行业事件12条;数字均来自注入数据,没有的信息不编造。</p>
+  </div>
+</div>
+
+<div class="card" id="sec7">
+  <h3>就这只票追问</h3>
+  <div class="src">来源:现有问AI通道(带全景上下文)</div>
+  <div class="chat">
+    <div class="msg user">如果它跌到80我该抄底吗?</div>
+    <div class="msg ai"><div class="who">AI 助教 · 正在聊:德业股份</div>
+    规则不做"抄底"这个动作。它现在既无突破形态也无企稳信号,80 只是个整数,不是任何规则位。
+    真想再碰它:等它重新站回 30 周生命线(86.69)之上、或再次放量突破新平台,系统会自动把它捞回来给您发卡。</div>
+  </div>
+  <div class="chatline"><input placeholder="看完还有疑问,直接问…"><button>发送</button></div>
+</div>
+<!-- ═════════ 页面模拟结束 ═════════ -->
+
+<div class="proto-h">数据来源与花钱的地方(一句话账本)
+  <small>①现状/②K线/⑤大事记=现成接口零AI钱;③三段课=现有课堂缓存(本来就有);
+  ④深度档案=库里躺着的立项报告,免费;⑥行业深析=唯一新增的AI调用,按需生成+当日缓存;
+  ⑦追问=按条计费(现状同款)。</small></div>
+
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. 这个页面(七块内容)和您想的"点开看全部"对上了吗?要删/要加/要调顺序?</div>
+  <div class="opt">2. 行业深析:<b>点按钮生成+当日缓存</b>(推荐,省AI钱)还是每天 16:30 全池自动生成?</div>
+  <div class="opt">3. 入口:全站票名统一可点(推荐),还是先只做复核卡?</div>
+</div>
+
+<script>
+function freqDemo(btn, label){
+  document.querySelectorAll(".freqbtns button").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+}
+function openDeep(){
+  document.getElementById("deep").classList.add("open");
+  document.getElementById("deepbtn").style.display = "none";
+}
+// 锚点导航高亮
+document.querySelectorAll("#toc a").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    document.querySelectorAll("#toc a").forEach(x=>x.classList.remove("on"));
+    a.classList.add("on");
+  });
+});
+</script>
+</body>
+</html>
