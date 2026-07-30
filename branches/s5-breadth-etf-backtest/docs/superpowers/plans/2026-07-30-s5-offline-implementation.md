@@ -2,11 +2,40 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build and test the complete offline S5 research, strategy, simulation, reporting, and immutable-ledger code without downloading ETF data or running the declared 2015—2025 backtest.
+**Goal:** Build and test the complete offline S5 research, strategy,
+simulation, reporting, and immutable-ledger code, then—under the approved
+addendum below—download and validate the frozen ETF dataset without running the
+declared 2015—2025 backtest.
 
 **Architecture:** New `s5_research` and `s5_backtest` packages stay isolated from the production pipeline. All external inputs enter through explicit read-only SQLite adapters or injected test clients; pure strategy/risk functions feed a single-ETF portfolio engine; deterministic metrics, report, and ledger modules consume the engine result. No existing production, S2, S3, EOD, service, or UI module imports S5.
 
 **Tech Stack:** Python 3.11 standard library, SQLite, pandas and numpy already present in `requirements.txt`, `unittest`; zero new dependencies.
+
+## Approved data-correction addendum (2026-07-30)
+
+The user has approved the data download and one data-correctness amendment.
+This addendum supersedes the earlier `fund_daily`-only boundary without changing
+the strategy, parameters, sample split, or single out-of-sample rule.
+Tasks 1—6 below remain the historical offline implementation record; where they
+say that network access is not yet approved, this addendum and Task 7 now
+control.
+
+- Fetch only Tushare `fund_daily` and `fund_adj` for the three frozen ETFs and
+  frozen listing-date-to-2025-12-31 intervals.
+- Treat `fund_daily` as the master calendar. Every daily row must have a factor.
+  Factor-only suspension/conversion dates stay out of the 8+1 table but must be
+  stored in `source_audit` and listed individually in the validation report.
+- Persist the eight approved raw daily fields plus `adj_factor`; retain raw
+  prices and derive adjusted prices at read time as `raw_price * adj_factor`.
+- Use adjusted OHLC for momentum, portfolio equity, and the buy-and-hold
+  benchmark. Never persist a second adjusted-price series.
+- Add a real, approval-ID-locked fetch command that can write only a database
+  named `S5_research.db`. Keep production and T1 databases read-only.
+- After download, audit endpoint/date pairing, coverage, fingerprints, and each
+  historical factor-change date. The audit must show that adjustment removes
+  mechanical ex-distribution jumps from 120-day momentum.
+- Stop after the coverage and adjustment report. Do not execute any declared
+  backtest period.
 
 ## Global Constraints
 
@@ -15,7 +44,9 @@
 - Fixed parameters are exactly: 120 trading-day momentum, strict `> 2%` switch buffer, strict `NH/eligible > 10%` overheat threshold, and a 10-common-trading-day review cadence. No scan, grid, optimizer, or CLI parameter override is allowed.
 - Samples remain 2015—2021 in-sample and 2022—2025 out-of-sample. This plan must not run either sample.
 - The production `market.db` and T1 `S3_research.db` are opened with SQLite `mode=ro`; tests use temporary snapshots. Existing tables, indexes, triggers, and files receive no writes.
-- No ETF network request is permitted. Source code may exercise an injected fake client only. A real-client CLI command remains approval-locked until a separate data approval is recorded.
+- ETF network requests are permitted only through the approved, fixed
+  `fund_daily + fund_adj` download command and approval ID
+  `s5-etf-data-approval-2026-07-30`.
 - The backtest engine may run only against tiny synthetic fixtures in unit tests. It must not open the real ETF dataset or produce declared reports in this phase.
 - No changes to `requirements.txt`, S2, S3, `backtest_mid.py`, `rules*.py`, `regime.py`, `market_data.py`, EOD, production risk, service/API/UI, deployment, or shadow mode.
 - Fee is fixed at 0.15% round trip, represented as 0.075% on each executed buy or sell. ETF orders use 100-share lots.
@@ -433,4 +464,65 @@ git commit -m "docs(s5): submit ETF data approval packet"
 
 - [ ] **Step 7: Stop**
 
-Do not execute a network request, initialize the real `S5_research.db`, load real ETF data, run in-sample, run out-of-sample, create declared result artifacts, seal a real run, merge, deploy, or attach to production. Report the branch state and wait for explicit data approval.
+This was the original offline-phase stop and was satisfied before approval.
+The user has since approved only Task 7 below.
+
+### Task 7: Execute the approved 8+1 ETF data download and validation
+
+**Files:**
+
+- Modify: `s5_research/db.py`
+- Modify: `s5_research/source.py`
+- Modify: `s5_research_cli.py`
+- Modify: `s5_backtest/data.py`
+- Modify: `test_s5_research.py`
+- Modify: `test_s5_backtest.py`
+- Create: `s5_research/audit.py`
+- Create after download: `docs/S5-ETF数据覆盖与复权验收-20260730.md`
+
+- [ ] **Step 1: RED — freeze the two-endpoint boundary and 8+1 schema**
+
+Add tests proving that the approved fetch calls exactly `fund_daily` with the
+eight fields and `fund_adj` with `ts_code,trade_date,adj_factor`; a missing,
+duplicate, non-finite, or non-positive factor for a daily row aborts the whole
+ETF batch. Factor-only rows are preserved as explicit audit exceptions.
+
+- [ ] **Step 2: GREEN — pair and ingest atomically**
+
+Normalize both payloads, require one-to-one date/code keys, calculate a
+canonical combined row hash, and persist raw OHLC plus `adj_factor` only in a
+database whose basename is exactly `S5_research.db`.
+
+- [ ] **Step 3: RED/GREEN — make every price consumer adjusted**
+
+Add independent fixtures with a factor change. Prove the loader keeps raw
+columns for audit but exposes `open/high/low/close` as
+`raw_value * adj_factor`; prove 120-day momentum and engine/benchmark prices
+consume those adjusted columns.
+
+- [ ] **Step 4: RED/GREEN — add deterministic coverage and ex-distribution audit**
+
+Audit each endpoint's date coverage, common calendar, 120-day maturity,
+per-ETF/full SHA-256, factor-change events, raw versus adjusted daily return,
+and raw versus adjusted 120-day momentum jump.
+
+- [ ] **Step 5: Add the approval-ID-locked real fetch command**
+
+The command has fixed codes, listing dates, end date, endpoint names, and field
+lists. It accepts only the sidecar path, token-file path, read-only breadth
+database path, and report path. It has no parameter, code, date, endpoint, or
+field overrides.
+
+- [ ] **Step 6: Record immutable boundaries and download once**
+
+Record SHA-256 for `market.db`, T1 `S3_research.db`, requirements, and retained
+S3 artifacts. Execute the command once. If any fetch, pairing, coverage, or
+factor check fails, roll back and stop with no partial rows.
+
+- [ ] **Step 7: Write and verify the data report, then stop**
+
+Report actual ranges, counts, duplicates, invalids, coverage, missing dates,
+factor-change evidence, fingerprints, and before/after production hashes.
+Run all S5 and relevant regression tests. Do not call the S5 backtest engine,
+write a period result, seal a run, merge, deploy, connect production, or start
+shadow mode.
