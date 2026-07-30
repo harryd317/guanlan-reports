@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 策略中心极简版 · 20260716</title>
+<style>
+:root{--bg:#F4F5F7;--card:#FFF;--line:#E7E8EC;--txt:#17181C;--mut:#82868F;
+--blue:#0A6CFF;--amber:#B45309;--amber-bg:#FFF7E8;--amber-line:#F2DFB8;
+--green:#2F855A;--green-bg:#EAF6EF;--red:#C92A2A;
+--r-lg:20px;--r-sm:9px;--shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.75 -apple-system,"PingFang SC",sans-serif;padding:0 0 70px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px}
+.meta{max-width:680px;margin:16px auto 6px;padding:12px 18px;background:#FBFBFD;border:1px dashed #C9CBD3;border-radius:12px;font-size:13px;color:#55585F}
+.screen{max-width:680px;margin:22px auto 6px;padding:0 18px;font-size:12.5px;font-weight:700;color:var(--mut);letter-spacing:1px}
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 22px;margin-bottom:14px}
+h2{font-size:17px;font-weight:800;margin-bottom:10px}
+h2 small{font-size:11.5px;color:var(--mut);font-weight:500;margin-left:8px}
+.rows{font-size:14px}
+.rows .r{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid #F4F5F7}
+.rows .r:last-child{border:none}
+.rows .k{flex:none;width:52px;font-weight:800;color:var(--blue)}
+.rows .v b{color:var(--txt)}
+.rows .v{color:#4A4D55}
+.today{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:var(--r-sm);
+  padding:10px 14px;margin-top:12px;font-size:14px;color:#6B5A33}
+.today b{color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:8px 6px;border-bottom:1px solid #F4F5F7}
+tr:last-child td{border:none}
+td.st{text-align:right;white-space:nowrap;font-weight:600}
+td .old{font-size:11px;color:#B8BBC2;margin-left:6px;font-weight:400}
+tr.div td{padding:10px 6px 4px;border:none;font-size:12px;color:var(--mut);font-weight:700}
+.foot{font-size:12px;color:var(--mut);margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="meta"><b>原型 · 极简版(两张卡,加进策略中心顶部)</b> —— 上一版嫌复杂,砍掉:长段落/命名规则说明/导读三行/徽章示意屏(徽章直接做,不用原型说明)。</div>
+
+<div class="screen">卡 1 · 现在的策略是什么</div>
+<div class="wrap"><div class="card">
+  <h2>📖 现在的策略 <small>数值实时读参数 · v7</small></h2>
+  <div class="rows">
+    <div class="r"><span class="k">是谁</span><span class="v">只有一个现役:<b>S2 · 顺势中线</b>——系统自动选票、给买卖点,你只照卡执行</span></div>
+    <div class="r"><span class="k">选票</span><span class="v">创250日新高 + 涨势强过85%的票 + 业绩不拖后腿 → 自动进「等买点」</span></div>
+    <div class="r"><span class="k">买</span><span class="v">大盘门开(现在<b style="color:var(--red)">关,差2.2%</b>)+ 回踩到位 → 买入卡给价、给止损、给金额</span></div>
+    <div class="r"><span class="k">卖</span><span class="v">四条线自动盯:<b>止损</b>(破平台)/<b>减半</b>(到目标)/<b>锁盈</b>(回撤18%)/<b>破周线</b></span></div>
+    <div class="r"><span class="k">保命</span><span class="v">最小仓(单笔最多伤0.3%)· 账户回撤8%全停 · 单行业≤30%</span></div>
+  </div>
+  <div class="today"><b>今天要做的事:没有。</b>门关着,开门系统会推送叫你。</div>
+</div></div>
+
+<div class="screen">卡 2 · 策略阵容</div>
+<div class="wrap"><div class="card">
+  <h2>🎖 阵容 <small>上场靠成绩单,S号终身制</small></h2>
+  <table>
+    <tr><td><b>S2 · 顺势中线</b><span class="old">原:中线卡</span></td><td class="st" style="color:var(--green)">🟢 上场中</td></tr>
+    <tr><td><b>S2-2 · 骑牛留仓</b><span class="old">赚了收⅓,留⅔骑大牛</span></td><td class="st" style="color:var(--amber)">🟡 考试中 · 10-09放榜</td></tr>
+    <tr><td><b>S2-1 · 深蹲买点</b><span class="old">原:entry_B</span></td><td class="st" style="color:var(--mut)">⏸ 停职 · 10-09再审</td></tr>
+    <tr><td><b>S1 · 短线突破</b><span class="old">原:短线卡</span></td><td class="st" style="color:var(--mut)">⚪ 退役待命</td></tr>
+    <tr><td><b>S3 · 防守慢牛</b><span class="old">原:防守卡</span></td><td class="st" style="color:var(--mut)">⚫ 阵亡 · 检讨在档</td></tr>
+    <tr class="div"><td colspan="2">机制(裁判,不买卖,只管谁能上场)</td></tr>
+    <tr><td><b>大盘红绿灯</b><span class="old">原:开仓门</span></td><td class="st" style="color:var(--green)">🟢 生效中</td></tr>
+    <tr><td><b>换将调度员</b><span class="old">原:P4切换器</span></td><td class="st" style="color:var(--amber)">🟡 见习 · 只记录</td></tr>
+  </table>
+  <div class="foot">点任何一行看它的战绩与判例。2026 年还可新立项 1 张策略卡。</div>
+</div></div>
+
+<div class="meta">此外:市况卡/影子日志/证据链等既有卡片<b>只在右上角加一枚小徽章</b>(仪表盘/影子/判例库),其余照旧。首页右栏加一行「策略说明 →」链接进本页。</div>
+
+</body>
+</html>

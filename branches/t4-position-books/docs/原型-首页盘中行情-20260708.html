@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:首页盘中实时行情(未实现,仅供拍板)</title>
+<style>
+/* ══ 以下样式原封照搬线上 home.html,保证所见即所得 ══ */
+:root{
+  --bg:#F5F5F7; --card:#FFFFFF; --card2:#F5F5F7; --text:#1D1D1F; --mut:#6E6E73;
+  --line:#E5E5EA; --blue:#0A84FF; --amber:#B54708; --red:#E03131; --green:#2F9E44;
+  --radius:16px; --shadow:0 1px 3px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:24px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+h2{font-size:17px;font-weight:700;margin:26px 0 10px}
+h2 .cnt{font-weight:400;font-size:13px;color:var(--mut)}
+.pos{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px}
+.pos .row{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.pos .row:last-child{border-bottom:none}
+.light{flex:none;width:12px;height:12px;border-radius:50%}
+.light.ok{background:var(--green)} .light.warn{background:#F59F00} .light.bad{background:var(--red)}
+.pos .nm{font-weight:600;flex:none}
+.pos .code{color:var(--mut);font-size:12px;font-weight:400}
+.up{color:var(--red)} .dn{color:var(--green)}
+
+/* ══ 以下是本原型新增的部分(实现时会进 home.html) ══ */
+/* 盘中/收盘 状态徽标:挂在 h2 标题右侧 */
+.livetag{margin-left:auto;font-weight:400;font-size:12px;color:var(--mut);display:inline-flex;align-items:center;gap:5px}
+.livedot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.livedot.off{background:#ADB5BD;animation:none}
+/* 每行第二行:距离信息 */
+.sub2{flex-basis:100%;padding-left:22px;font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:-4px}
+.chip{border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+.chip.safe{background:#F1F3F5;color:#6E6E73}
+.chip.near{background:#FFF4E5;color:#B45708;border:1px solid #F0C48C}
+.chip.brk{background:rgba(224,49,49,.10);color:var(--red);border:1px solid rgba(224,49,49,.30)}
+.chip.exdiv{background:#EDF2FF;color:#3B5BDB;border:1px solid #BAC8FF}
+.pricecol{margin-left:auto;text-align:right;line-height:1.3}
+.pricecol .p{font-weight:700;font-size:16px}
+.pricecol .c{font-size:13px}
+.disclaim{font-size:12px;color:var(--mut);margin:8px 2px 0}
+
+/* 消息卡(照搬 home.html,示例卡用) */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px;border-left:5px solid var(--line)}
+.card.buy{border-left-color:var(--blue)}
+.kind{font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:4px}
+.buy .kind{color:var(--blue)}
+.title{font-size:19px;font-weight:700;margin-bottom:10px}
+.title .code{color:var(--mut);font-size:13px;font-weight:400}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:15px}
+.facts b{font-size:17px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.facts .row span:last-child,.facts .row b{text-align:right}
+.howto{font-size:14px;color:var(--mut)}
+
+/* 时间表(顶栏下方常驻,sticky 跟随滚动) */
+.clockbar{position:sticky;top:0;z-index:8;background:var(--card);border-radius:12px;
+  box-shadow:var(--shadow);padding:9px 14px;margin-bottom:14px;display:flex;
+  align-items:center;gap:10px;font-size:14px}
+.clockbar .t{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:19px;
+  font-weight:700;font-variant-numeric:tabular-nums}
+.phase{border-radius:8px;padding:2px 10px;font-size:12px;font-weight:700}
+.phase.open{background:rgba(47,158,68,.12);color:var(--green)}
+.phase.break{background:#FFF4E5;color:#B45708}
+.phase.closed{background:#F1F3F5;color:#6E6E73}
+.clockbar .cd{margin-left:auto;color:var(--mut);font-size:13px}
+
+/* 消息卡里的盘中现价行(facts 区最后一行,浅蓝背景与收盘数字区分) */
+.facts .row.live{background:#EDF6FF;border-radius:8px;padding:5px 8px;margin-top:4px}
+.facts .row.live span:first-child{color:#0A84FF;font-weight:600}
+
+/* ══ 原型页自己的说明用样式(不会进实现) ══ */
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:30px 0 6px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.anno b{color:#3B3403}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:首页盘中实时行情</h1>
+<div class="sub">未写一行实现代码,先拍板。改动只落在「持有中的 / 等买点的」两个列表;消息卡、纪律判定完全不动。</div>
+
+<!-- ═══════════════ 状态一 ═══════════════ -->
+<div class="proto-h">① 盘中的样子(交易时段 9:28~15:02)
+  <small>现价每 50 秒自动刷新(复用 /pro 的新浪源+40秒缓存,零新增请求压力);页面不开就零请求</small></div>
+
+<!-- 新增:时间表(常驻顶部,跟随滚动;时间每秒跳动) -->
+<div class="clockbar">
+  <span class="t">14:32:05</span>
+  <span class="phase open">盘中</span>
+  <span class="cd">距收盘还有 28 分钟</span>
+</div>
+<div class="anno"><b>新增·时间表:</b>常驻页面顶部、滚动时钉住;北京时间每秒跳动;右侧自动切换——盘中显示「距收盘还有X」,午休显示「13:00 开盘」,收盘后显示「已收盘 · 明日9:30开盘」,周末/节假日显示「非交易日」。</div>
+
+<!-- 新增:消息卡上的盘中现价行(以买入卡为例;卖出/减半卡同样式) -->
+<div class="card buy">
+  <div class="kind">买入机会</div>
+  <div class="title">沪电股份 <span class="code">002463</span></div>
+  <div class="facts">
+    <div class="row"><span>买点</span><b>122.54~129.72 元之间(今收 129.72)</b></div>
+    <div class="row"><span>止损线</span><b>122.54(跌破就卖)</b></div>
+    <div class="row live"><span>现在(盘中)</span><b class="num">135.20 <span class="up">+4.2%</span> · 离买点还有 +10.3%</b></div>
+  </div>
+  <div class="howto">明早在买点附近买入 → 回这里点「已买入」</div>
+</div>
+<div class="anno"><b>新增·卡片盘中价:</b>facts 区末尾追加一行浅蓝底的「现在(盘中)」,与收盘数字视觉区分,直接给出离买点/离卖出线的距离;收盘后这一行自动消失,卡片回到纯收盘口径。</div>
+
+<h2>持有中的<span class="cnt">(3只)</span>
+  <span class="livetag"><span class="livedot"></span>盘中 14:32:05 · 50秒自动刷新</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light ok"></span><span class="nm">中芯国际 <span class="code">688981</span></span>
+    <span class="pricecol"><span class="p num">98.40</span> <span class="c num up">+2.1%</span></span>
+    <div class="sub2"><span class="chip safe">离卖出线 +12.6%</span><span>卖出线 87.30(锁盈线)</span></div>
+  </div>
+  <div class="row">
+    <span class="light warn"></span><span class="nm">德业股份 <span class="code">605117</span></span>
+    <span class="pricecol"><span class="p num">96.10</span> <span class="c num dn">-3.4%</span></span>
+    <div class="sub2"><span class="chip near">⚠ 离卖出线只剩 +2.3%</span><span>卖出线 93.90(保本线)</span></div>
+  </div>
+  <div class="row">
+    <span class="light bad"></span><span class="nm">华海清科 <span class="code">688120</span></span>
+    <span class="pricecol"><span class="p num">141.10</span> <span class="c num dn">-5.2%</span></span>
+    <div class="sub2"><span class="chip brk">盘中在卖出线下 1.8% · 等收盘确认</span><span>卖出线 143.70(止损线)</span></div>
+  </div>
+</div>
+
+<h2>等买点的<span class="cnt">(2只)</span>
+  <span class="livetag"><span class="livedot"></span>盘中 14:32:05</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light warn"></span><span class="nm">沪电股份 <span class="code">002463</span></span>
+    <span class="pricecol"><span class="p num">135.20</span> <span class="c num up">+4.2%</span></span>
+    <div class="sub2"><span class="chip safe">离买点还有 +10.3%</span><span>买点 122.54 · 等浅回踩</span></div>
+  </div>
+  <div class="row">
+    <span class="light warn"></span><span class="nm">大族激光 <span class="code">002008</span></span>
+    <span class="pricecol"><span class="p num">33.90</span> <span class="c num dn">-1.5%</span></span>
+    <div class="sub2"><span class="chip near">回踩临近:离买点 +1.9% · 等收盘确认</span><span class="chip exdiv">除权已折算</span><span>买点 33.26</span></div>
+  </div>
+</div>
+<div class="disclaim">盘中数字仅供观察;买、卖的判定一律以收盘数据为准(纪律铁律,措辞永远是「临近/等确认」,不说「已触发」)。</div>
+
+<div class="anno"><b>要点:</b>① 红点呼吸灯+时间戳=数字是活的;② 每行第二行是新增的「距离条」——持有票看<b>离卖出线还剩多少</b>,等买点票看<b>离买点还有多远</b>;③ 三档颜色:灰=安全(&gt;3%)、琥珀=临近(0~3%)、红=盘中已在线下(只说"等收盘确认");④ 隔夜除权自动折算并标蓝签(复用 /pro 现成逻辑,不会整天错报)。</div>
+
+<!-- ═══════════════ 状态二 ═══════════════ -->
+<div class="proto-h">② 收盘后的样子
+  <small>徽标变灰、时间戳换成"收盘数据",数字回到收盘价——与现在唯一的区别是多了距离条</small></div>
+
+<h2>持有中的<span class="cnt">(3只)</span>
+  <span class="livetag"><span class="livedot off"></span>7月8日收盘数据</span></h2>
+<div class="pos">
+  <div class="row">
+    <span class="light ok"></span><span class="nm">中芯国际 <span class="code">688981</span></span>
+    <span class="pricecol"><span class="p num">97.55</span> <span class="c num up">+1.2%</span></span>
+    <div class="sub2"><span class="chip safe">离卖出线 +11.7%</span><span>卖出线 87.30(锁盈线)</span></div>
+  </div>
+  <div class="row">
+    <span class="light warn"></span><span class="nm">德业股份 <span class="code">605117</span></span>
+    <span class="pricecol"><span class="p num">97.80</span> <span class="c num dn">-1.7%</span></span>
+    <div class="sub2"><span class="chip near">⚠ 离卖出线只剩 +4.0%</span><span>卖出线 93.90(保本线)</span></div>
+  </div>
+  <div class="row">
+    <span class="light bad"></span><span class="nm">华海清科 <span class="code">688120</span></span>
+    <span class="pricecol"><span class="p num">144.20</span> <span class="c num dn">-3.1%</span></span>
+    <div class="sub2"><span class="chip near">⚠ 离卖出线只剩 +0.3%</span><span>卖出线 143.70(止损线)</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 状态三 ═══════════════ -->
+<div class="proto-h">③ 异常态(不另画图,文字约定)
+  <small>全部沿用 /pro 盘中监控的成熟处理,不发明新逻辑</small></div>
+<div class="anno">
+  · 行情超过 3 分钟没更新 → 徽标变黄字「行情 3 分钟未更新」,数字保留最后一次<br>
+  · 某只票拿不到行情 → 该行现价显示「—」,距离条隐藏,其余行照常<br>
+  · 节假日/新浪返回旧日期 → 自动整体退回②收盘态,零请求零报错<br>
+  · 午间休市 → 显示上午最后一口价,徽标「午间休市 11:30」
+</div>
+
+<!-- ═══════════════ 待拍板 ═══════════════ -->
+<div class="proto-h">④ 待你拍板的 4 个决定</div>
+<div class="ask">
+  <h3>A. 距离条的算法口径</h3>
+  <div class="opt">持有票:现价相对卖出线的溢价 =(现价÷卖出线−1),显示「离卖出线 +X%」——X 越小越危险。</div>
+  <div class="opt">等买点票:现价相对买点的溢价,显示「离买点还有 +X%」——回踩到 0~3% 算临近。</div>
+</div>
+<div class="ask">
+  <h3>B. 临近阈值与颜色</h3>
+  <div class="opt">灰 &gt;3% / 琥珀 0~3% / 红 &lt;0(线下)。阈值 3% 与 /pro 盘中监控现有口径一致。要改数字吗?</div>
+</div>
+<div class="ask">
+  <h3>C. 消息卡盘中价 —— 已拍板:加 ✓</h3>
+  <div class="opt">样式见①里的示例卡:facts 区末尾一行浅蓝底「现在(盘中)」,全部卡类(买/卖/减半)统一;收盘后自动消失。</div>
+</div>
+<div class="ask">
+  <h3>D. 刷新节奏 —— 已拍板:50 秒 ✓</h3>
+  <div class="opt">与 /pro 一致,后端 40 秒缓存,一轮只打新浪一个请求;时间表的秒针是本地跳动,不耗网络。</div>
+</div>
+<div class="ask">
+  <h3>E. 时间表(新增,待确认)</h3>
+  <div class="opt">样式见①顶部:大号秒级时钟 + 交易阶段徽章(盘中·绿/午休·橙/已收盘·灰)+ 右侧倒计时,常驻吸顶。</div>
+  <div class="opt">要确认的:这个信息量够吗?还是要更简(只报时间)/更繁(加上距 16:30 自动筛选的倒计时)?</div>
+</div>
+
+</body>
+</html>
