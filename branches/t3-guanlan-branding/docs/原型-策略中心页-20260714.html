@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 策略中心页 /strategy · 20260714</title>
+<style>
+:root{--bg:#F5F5F7;--card:#fff;--line:#E5E5EA;--txt:#1D1D1F;--mut:#86868B;
+      --blue:#0A84FF;--red:#FF3B30;--green:#2F9E44;--am:#B45309;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.65 -apple-system,"PingFang SC",sans-serif;
+     max-width:760px;margin:0 auto;padding:20px 14px 60px}
+h1{font-size:20px;margin:6px 0 2px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+h2{font-size:16px;margin:0 0 10px}
+.screen{margin:26px 0 8px;font-size:14px;color:var(--mut);font-weight:600}
+.card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:12px;
+      box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.big{font-size:34px;font-weight:800;letter-spacing:2px}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:20px}
+.mu{color:var(--mut)}.sm{font-size:12.5px}
+.axis{display:flex;gap:10px;margin-top:12px}
+.axis>div{flex:1;background:#F8F9FB;border:1px solid var(--line);border-radius:10px;padding:12px}
+.axis b{font-size:13px}
+.aibox{background:#F8F9FB;border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px;font-size:13.5px}
+.band{display:flex;height:26px;border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.band>i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--mut)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:3px;vertical-align:-1px}
+.c1{background:#D64545}.c2{background:#F2A65A}.c3{background:#BFC7D5}
+.c4{background:#8A93A6}.c5{background:#4C7A5C}.c6{background:#2F9E44}
+.decision{background:#FFFBEB;border:1px solid #F5E1A4;border-radius:12px;padding:14px 16px;margin:10px 0}
+.decision b{display:block;margin-bottom:4px}
+.gray{background:#F2F2F4;border-radius:8px;padding:8px 12px;font-size:13px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<h1>策略中心页 /strategy · 原型</h1>
+<div class="sub">2026-07-14 · 依据设计§5.4 · regime_v1 已过全部验收闸门,页面只展示不切换(P4 冻结至 10-09 评审)。
+以下数字全部是<b>昨日真实判定</b>,不是编的。</div>
+
+<div class="screen">屏1 · /strategy 市况仪表盘</div>
+<div class="card">
+<div class="mu sm">当前市况(2026-07-13 收盘判定 · regime_v1)</div>
+<div class="big" style="color:var(--am)">冲高有险</div>
+<div class="mu sm" style="margin-top:2px">结构态:bull_stressed(方向=多头 × 风险=恶化) · 已持续 3 个交易日</div>
+<div class="axis">
+  <div><b>📈 方向轴:多头</b>
+    <div class="sm mu" style="margin-top:6px">沪深300 收 4695.38,在 60 日均线上方 +1.8%;
+    均线本身仍在向上(10日斜率 +1.2%)。按纪律:还没破均线,不算转向。</div></div>
+  <div><b>🌡 风险轴:恶化(0.78 > 上阈 0.75)</b>
+    <div class="sm mu" style="margin-top:6px">波动率处于近两年 87% 高位;
+    昨日 801 涨 4683 跌;20日新低 2569 只 vs 新高 157 只。三项都在报警。</div></div>
+</div>
+<div class="aibox"><b>🤖 AI 白话解读(每日缓存一次,只解读不判定):</b><br>
+"大盘价格还站在趋势线上,但市场内部已经先撤了——下跌家数和新低数都是恐慌级别。
+这种'指数没跌透、个股先崩'的组合,历史上要么快速修复要么补跌。你的开仓门现在
+关着(沪深300 跌破60日线判据也已触发),零捕获是纪律在起作用,不是系统坏了。"</div>
+<div style="margin-top:12px"><b class="sm">历史市况带状图(2015 → 今,叠沪深300走势线)</b>
+<div class="band">
+  <i class="c6" style="width:6%"></i><i class="c1" style="width:8%"></i><i class="c4" style="width:10%"></i>
+  <i class="c3" style="width:7%"></i><i class="c5" style="width:5%"></i><i class="c4" style="width:12%"></i>
+  <i class="c6" style="width:14%"></i><i class="c2" style="width:4%"></i><i class="c4" style="width:9%"></i>
+  <i class="c1" style="width:3%"></i><i class="c6" style="width:16%"></i><i class="c2" style="width:6%"></i>
+</div>
+<div class="legend"><span><i class="c6"></i>上行趋势市</span><span><i class="c2"></i>冲高有险</span>
+<span><i class="c3"></i>平静震荡</span><span><i class="c4"></i>阴跌熊市</span>
+<span><i class="c1"></i>恐慌下跌</span><span><i class="c5"></i>高波震荡</span></div>
+<div class="mu sm">点带状图任意段 → 显示该段起止/持续天数/期间沪深300涨跌。</div></div>
+<div class="mu sm" style="margin-top:10px">底部固定说明:市况只影响"由哪张规则卡产生候选"的<b>研究结论展示</b>;
+自动切换冻结至 2026-10-09 评审,当前一切买卖仍由现行纪律卡决定。引擎 regime_v1,判定历史 2799 天可回放。</div>
+</div>
+
+<div class="screen">屏2 · 首页接入(开仓门灰条旁一句话)</div>
+<div class="card">
+<div class="gray">🔴 大盘关门:沪深300 4695 &lt; 60日均线 4784,不追新
+<span style="color:var(--am)">· 市况:冲高有险——个股先于指数恶化,开仓门关着是对的,零捕获正常 →</span></div>
+<div class="mu sm" style="margin-top:8px">点「→」进 /strategy 看全貌。这一句是治"空窗期手痒"的核心交付:
+门关的日子告诉你<b>为什么关是对的</b>。文案由市况标签查表生成(六态各一句,机械层,零AI依赖)。</div>
+</div>
+
+<div class="screen">屏3 · 日报标注行</div>
+<div class="card">
+<div class="sm">📋 2026-07-13 日报头部新增一行(机械层,不改判定逻辑):</div>
+<div class="gray" style="margin-top:6px">市况:冲高有险(bull_stressed · 第3天) | 方向:多头 | 风险:恶化 0.78</div>
+</div>
+
+<div class="screen">待拍板(三个问题)</div>
+<div class="decision"><b>Q1 六个市况的白话名,这套行吗?(可逐个改字)</b>
+bull_healthy=<b>上行趋势市</b> / bull_stressed=<b>冲高有险</b> / neutral_healthy=<b>平静震荡</b> /
+neutral_stressed=<b>高波震荡</b> / bear_healthy=<b>阴跌熊市</b> / bear_stressed=<b>恐慌下跌</b>。
+(设计允许合并到4~6个;我建议6个全保留不合并——每个都有独立含义,合并丢信息。)</div>
+<div class="decision"><b>Q2 历史带状图的形态?</b>
+A=色带+沪深300折线叠加(信息全,实现约多半天) B=纯色带+点击看详情(轻,先上)。建议 B 先上,A 进待办。</div>
+<div class="decision"><b>Q3 AI 白话解读用哪个引擎?</b>
+建议 DeepSeek(便宜,每日一次缓存,只解读不判定);解读失败页面照常显示机械读数(降级不留白)。</div>
+
+</body>
+</html>

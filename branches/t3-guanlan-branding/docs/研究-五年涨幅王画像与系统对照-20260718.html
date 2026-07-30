@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>研究 · 五年涨幅王画像与系统对照 · 20260718</title>
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --line:#E7E8EC; --txt:#17181C; --mut:#82868F;
+  --blue:#0A6CFF; --blue-bg:#EDF4FF;
+  --up:#D6403A; --down:#1F9D55;
+  --amber:#B45309; --amber-bg:#FFF7E8; --amber-line:#F2DFB8;
+  --red:#C92A2A; --red-bg:#FDEEEE;
+  --purple:#7048E8; --purple-bg:#F3F0FF;
+  --r-lg:20px; --r-md:14px; --r-sm:9px;
+  --shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.7 -apple-system,"PingFang SC","Helvetica Neue",sans-serif;padding:0 0 70px}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+header.page{padding:34px 0 6px}
+header.page h1{font-size:24px;font-weight:900;letter-spacing:.5px}
+header.page .sub{color:var(--mut);font-size:13.5px;margin-top:6px}
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 24px;margin:16px 0}
+h2{font-size:17px;font-weight:800;margin-bottom:10px}
+h2 small{font-size:12.5px;color:var(--mut);font-weight:500;margin-left:8px}
+.hero{background:linear-gradient(135deg,#FFF8EC,#FFF3DC);border:1px solid var(--amber-line)}
+.hero .verdict{font-size:15px;color:#6B5A33;margin-top:4px;font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.tile{background:rgba(255,255,255,.75);border:1px solid var(--amber-line);border-radius:var(--r-md);padding:12px 14px}
+.tile .l{font-size:11.5px;color:#8A7A50}
+.tile .v{font-size:20px;font-weight:900;margin-top:2px;letter-spacing:.3px}
+.tile .s{font-size:11px;color:var(--mut)}
+.tablewrap{overflow-x:auto;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:880px}
+th{color:var(--mut);font-weight:600;text-align:left;padding:7px 9px;border-bottom:1.5px solid var(--line);white-space:nowrap;background:var(--card)}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.up{color:var(--up);font-weight:800}
+.dn{color:var(--down);font-weight:800}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.bA{background:var(--purple-bg);color:var(--purple)}
+.bB{background:var(--amber-bg);color:var(--amber)}
+.bC{background:var(--blue-bg);color:var(--blue)}
+.stk{font-weight:800}
+.stk .code{font-size:11.5px;color:var(--mut);font-weight:500;margin-left:4px}
+.note{font-size:12.5px;color:var(--mut);margin-top:8px}
+.species{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px}
+.sp{border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.sp h3{font-size:14px;font-weight:800;margin-bottom:6px}
+.sp p{font-size:13px;color:#4A4D55}
+.sp.a{background:var(--purple-bg)} .sp.a h3{color:var(--purple)}
+.sp.b{background:var(--amber-bg)} .sp.b h3{color:var(--amber)}
+.sp.c{background:var(--blue-bg)} .sp.c h3{color:var(--blue)}
+.think li{margin:10px 0 10px 20px;font-size:14px}
+.think b{color:var(--blue)}
+.blood{background:var(--red-bg);border:1px solid #F3C8C8}
+.blood h2{color:var(--red)}
+.gray{background:#FAFAFB}
+.gray li{color:#5A5E66;font-size:13px;margin:6px 0 6px 20px}
+.kv{font-size:13.5px;color:#4A4D55;margin-top:4px}
+@media(max-width:760px){.tiles{grid-template-columns:1fr 1fr}.species{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>研究 · 五年涨幅王画像与系统对照</h1>
+  <div class="sub">2026-07-18 · 数据:market.db 全市场日线(后复权)× bt_universe 500亿猎场 × 459笔冻结重放 · 口径:剔当年新股/北交所,302132=300114 去重 · 脚本 scratch_analysis_20260718/</div>
+</header>
+
+<div class="card hero">
+  <h2>一句话判决</h2>
+  <div class="verdict">这套系统天生不猎妖,猎的是每年那一两只大市值产业核心——过去它的病是"打中了含不住",阶梯留仓(36格审判当选变体)就是补这一刀。</div>
+  <div class="tiles">
+    <div class="tile"><div class="l">五年涨幅王</div><div class="v num">25 只</div><div class="s">每年前5,沪深口径</div></div>
+    <div class="tile"><div class="l">当年在500亿猎场内</div><div class="v num">仅 3 只</div><div class="s">旭创 · 寒武纪 · 胜宏</div></div>
+    <div class="tile"><div class="l">寒武纪 2024</div><div class="v num"><span class="up">+388%</span> / +14.5pp</div><div class="s">全程涨幅 vs 系统实吃</div></div>
+    <div class="tile"><div class="l">胜宏科技 2025</div><div class="v num"><span class="up">+586%</span> / −0.1pp</div><div class="s">四进四出≈零</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>物种分类<small>涨幅王是三种动物,系统只该猎其中一种</small></h2>
+  <div class="species">
+    <div class="sp a"><h3>A · 题材连板妖股</h3><p>九安、圣龙、捷荣、高新发展、汇金、西安饮食。突发事件→一字连板,<b>不给第二买点</b>;启动市值 30~200 亿。买不进、拿不住、不可重复——利润是幻影。</p></div>
+    <div class="sp b"><h3>B · 借壳/重组重估</h3><p>上纬、天普、宇顺、亚振、绿康、中航电测。一纸公告改变公司性质,中航电测 <b>26 天走完全年 +503%</b>。公告不可预测,启动前市值 30 亿级。</p></div>
+    <div class="sp c"><h3>C · 产业趋势核心股</h3><p>湖北宜化、联创、寒武纪、胜宏、旭创、正丹…… 真实供需/技术变革,<b>主升 150~220 个交易日(7~10个月)</b>,有平台-回调-再突破节奏——纪律系统的正经猎物。</p></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>2021<small>碳中和元年:新能源上游+涨价</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>年涨幅</th><th>物种</th><th>板块</th><th>逻辑(概念)</th><th>催化与主升</th><th>买点</th><th>卖点</th></tr>
+    <tr><td class="stk">湖北宜化<span class="code">000422</span></td><td class="num up">+566%</td><td><span class="badge bC">C 核心</span></td><td>磷化工</td><td>磷化工+磷酸铁锂前驱体,化工品涨价</td><td>锂电需求爆发,主升 186 日</td><td class="num">01-14(约80亿)</td><td class="num">10-27</td></tr>
+    <tr><td class="stk">联创股份<span class="code">300343</span></td><td class="num up">+489%</td><td><span class="badge bC">C 核心</span></td><td>氟化工</td><td>PVDF 锂电粘结剂稀缺涨价</td><td>PVDF 价格数倍,168 日</td><td class="num">01-13(约40亿)</td><td class="num">09-22</td></tr>
+    <tr><td class="stk">森特股份<span class="code">603098</span></td><td class="num up">+471%</td><td><span class="badge bC">C 核心</span></td><td>建筑光伏</td><td>BIPV 光伏建筑一体化</td><td>3月隆基入股,197 日</td><td class="num">01-13</td><td class="num">11-09</td></tr>
+    <tr><td class="stk">江特电机<span class="code">002176</span></td><td class="num up">+457%</td><td><span class="badge bC">C 核心</span></td><td>锂资源</td><td>锂云母提锂,碳酸锂涨价</td><td>锂价主升,170 日</td><td class="num">01-04</td><td class="num">09-14</td></tr>
+    <tr><td class="stk">九安医疗<span class="code">002432</span></td><td class="num up">+441%</td><td><span class="badge bA">A 妖</span></td><td>医疗器械</td><td>新冠抗原 FDA EUA+美国政府大单</td><td>11月一纸授权,45 日连板</td><td class="num">10-28(约70亿)</td><td class="num">跨年至 2022-04</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>2022<small>熊市:困境反转+新技术 0→1 妖股</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>年涨幅</th><th>物种</th><th>板块</th><th>逻辑(概念)</th><th>催化与主升</th><th>买点</th><th>卖点</th></tr>
+    <tr><td class="stk">绿康生化<span class="code">002868</span></td><td class="num up">+381%</td><td><span class="badge bB">B 壳</span></td><td>兽药壳</td><td>拟购光伏膜资产=跨界借壳预期</td><td>重组公告,152 日</td><td class="num">04-26(约30亿)</td><td class="num">12-15</td></tr>
+    <tr><td class="stk">西安饮食<span class="code">000721</span></td><td class="num up">+329%</td><td><span class="badge bA">A 妖</span></td><td>餐饮</td><td>疫后复苏+预制菜,困境反转</td><td>防疫转向预期,164 日</td><td class="num">04-28</td><td class="num">12-28</td></tr>
+    <tr><td class="stk">宝明科技<span class="code">002992</span></td><td class="num up">+314%</td><td><span class="badge bC">C 核心</span></td><td>锂电材料</td><td>复合铜箔集流体 0→1</td><td>产业化订单预期,144 日</td><td class="num">04-26</td><td class="num">11-28</td></tr>
+    <tr><td class="stk">人人乐<span class="code">002336</span></td><td class="num up">+275%</td><td><span class="badge bA">A 妖</span></td><td>商超</td><td>国资+保供复苏(后 2024 退市)</td><td>阴涨 238 日</td><td class="num">01-07</td><td class="num">12-30</td></tr>
+    <tr><td class="stk">传艺科技<span class="code">002866</span></td><td class="num up">+267%</td><td><span class="badge bC">C 核心</span></td><td>钠电</td><td>钠离子电池 0→1 产业化</td><td>中试线投产,149 日</td><td class="num">04-26</td><td class="num">12-05</td></tr>
+  </table></div>
+  <div class="note">四只票的年内低点集中在 4-26 / 4-28 —— 上海疫情恐慌底,大盘血点。</div>
+</div>
+
+<div class="card">
+  <h2>2023<small>AI 元年 + 华为回归</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>年涨幅</th><th>物种</th><th>板块</th><th>逻辑(概念)</th><th>催化与主升</th><th>买点</th><th>卖点</th></tr>
+    <tr><td class="stk">联特科技<span class="code">301205</span></td><td class="num up">+398%</td><td><span class="badge bC">C 核心</span></td><td>光模块</td><td>AI 算力 400G/800G</td><td>ChatGPT 军备赛,112 日</td><td class="num">01-11</td><td class="num">07-03</td></tr>
+    <tr><td class="stk">圣龙股份<span class="code">603178</span></td><td class="num up">+385%</td><td><span class="badge bA">A 妖</span></td><td>汽车零部件</td><td>华为智选车(赛力斯)油泵</td><td>Mate60+问界M7,主段 9-10 月连板</td><td class="num">04-25</td><td class="num">12-26</td></tr>
+    <tr><td class="stk">捷荣技术<span class="code">002855</span></td><td class="num up">+377%</td><td><span class="badge bA">A 妖</span></td><td>消费电子</td><td>华为手机精密结构件</td><td>Mate60 回归,8 月底连板</td><td class="num">主段 08-31 起</td><td class="num">10-09</td></tr>
+    <tr><td class="stk">高新发展<span class="code">000628</span></td><td class="num up">+346%</td><td><span class="badge bA">A 妖</span></td><td>算力国资</td><td>成都国资+华鲲振宇(昇腾)</td><td>Q4 算力国产化,10 月连板</td><td class="num">主段 10 月</td><td class="num">12-01</td></tr>
+    <tr><td class="stk">中航电测<span class="code">300114</span></td><td class="num up">+327%</td><td><span class="badge bB">B 壳</span></td><td>军工</td><td>成飞集团整体注入</td><td>1 月公告,26 日 +503% 后全年横盘</td><td class="num">01-10</td><td class="num">03-08</td></tr>
+  </table></div>
+  <div class="note">第 6~8 名参考:石药创新 +321%(创新药)、<b>中际旭创 +318%</b>(光模块,猎场内核心股,主升 103 日)——系统 2023 年却零捕获,见下方对照。</div>
+</div>
+
+<div class="card">
+  <h2>2024<small>国产算力 + 涨价 + 9·24 行情</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>年涨幅</th><th>物种</th><th>板块</th><th>逻辑(概念)</th><th>催化与主升</th><th>买点</th><th>卖点</th></tr>
+    <tr><td class="stk">寒武纪<span class="code">688256</span></td><td class="num up">+388%</td><td><span class="badge bC">C 核心</span></td><td>AI 芯片</td><td>国产算力替代(英伟达受限)</td><td>禁售升级+9·24,216 日</td><td class="num">02-05(723亿)</td><td class="num">12-30</td></tr>
+    <tr><td class="stk">汇金科技<span class="code">300561</span></td><td class="num up">+368%</td><td><span class="badge bA">A 妖</span></td><td>金融 IT</td><td>华为鸿蒙+金融信创</td><td>9·24 流动性,主段 Q4 连板</td><td class="num">02-07</td><td class="num">12-12</td></tr>
+    <tr><td class="stk">正丹股份<span class="code">300641</span></td><td class="num up">+347%</td><td><span class="badge bC">C 核心</span></td><td>精细化工</td><td>TMA 全球供给独占涨价</td><td>2 月涨价函,73 日 +1052% 后腰斩</td><td class="num">02-07(约80亿)</td><td class="num">06-12</td></tr>
+    <tr><td class="stk">罗博特科<span class="code">300757</span></td><td class="num up">+288%</td><td><span class="badge bC">C 核心</span></td><td>半导体设备</td><td>CPO/硅光设备(收购 ficonTEC)</td><td>AI 硬件+并购过会,180 日</td><td class="num">02-05</td><td class="num">11-08</td></tr>
+    <tr><td class="stk">万丰奥威<span class="code">002085</span></td><td class="num up">+288%</td><td><span class="badge bC">C 核心</span></td><td>低空经济</td><td>eVTOL(钻石飞机)政策元年</td><td>两会写入报告,197 日</td><td class="num">01-09</td><td class="num">11-06</td></tr>
+  </table></div>
+  <div class="note">四只票的年内低点集中在 2-05 / 2-07 —— 微盘股流动性危机底,又是大盘血点。第 6 名参考:宗申动力 +283%(低空动力)。</div>
+</div>
+
+<div class="card">
+  <h2>2025<small>机器人 + 算力牛市(妖股奇观年)</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>股票</th><th>年涨幅</th><th>物种</th><th>板块</th><th>逻辑(概念)</th><th>催化与主升</th><th>买点</th><th>卖点</th></tr>
+    <tr><td class="stk">上纬新材<span class="code">688585</span></td><td class="num up">+1820%</td><td><span class="badge bB">B 壳</span></td><td>壳→机器人</td><td>智元机器人(稚晖君)入主借壳</td><td>7 月公告 N 连板,爆发段约 30 日</td><td class="num">01-13(约30亿)</td><td class="num">12-29</td></tr>
+    <tr><td class="stk">天普股份<span class="code">605255</span></td><td class="num up">+1645%</td><td><span class="badge bB">B 壳</span></td><td>汽车管路壳</td><td>实控人变更+资本运作(细节存疑)</td><td>连板筹码游戏,212 日</td><td class="num">01-06</td><td class="num">12-30</td></tr>
+    <tr><td class="stk">宇顺电子<span class="code">002289</span></td><td class="num up">+719%</td><td><span class="badge bB">B 壳</span></td><td>壳→算力</td><td>收购数据中心资产(IDC)+摘帽</td><td>重组公告,171 日</td><td class="num">01-09</td><td class="num">09-26</td></tr>
+    <tr><td class="stk">亚振家居<span class="code">603389</span></td><td class="num up">+637%</td><td><span class="badge bB">B 壳</span></td><td>家居壳</td><td>实控人变更/跨界预期(细节存疑)</td><td>4-07 关税恐慌底起,118 日</td><td class="num">04-07</td><td class="num">11-11</td></tr>
+    <tr><td class="stk">胜宏科技<span class="code">300476</span></td><td class="num up">+586%</td><td><span class="badge bC">C 核心</span></td><td>AI PCB</td><td>英伟达 GB200/300 高多层板,业绩季度翻倍</td><td>DeepSeek 后算力重估,171 日</td><td class="num">01-03(699亿)</td><td class="num">09-16</td></tr>
+  </table></div>
+  <div class="note">第 6~8 名参考:飞沃科技 +582%(机器人丝杠)、菲林格尔 +569%(壳妖)、<b>鼎泰高科 +567%</b>(PCB 钻针,2025Q4 进猎场,系统 2026 接力吃到 +38.9% 持有中)。低点集中在 1 月初与 4-07 关税暴跌底——再次是大盘血点。</div>
+</div>
+
+<div class="card">
+  <h2>系统对照<small>459 笔冻结重放 × 500 亿猎场——残酷但诚实</small></h2>
+  <div class="kv">25 只中当年在猎场内的只有 <b>3 只</b>:中际旭创(2023,1184亿)、寒武纪(2024,723→2747亿)、胜宏科技(2025,699→2503亿)。其余 22 只启动时 30~300 亿,结构性在场外。</div>
+  <div class="tablewrap"><table style="min-width:780px">
+    <tr><th>股票</th><th>上榜年全程</th><th>系统实际战绩</th><th>诊断</th></tr>
+    <tr><td class="stk">寒武纪</td><td class="num up">2024 +388%</td><td class="num">6 笔合计 +79.5pp;<b>2024 年内仅 +14.5pp</b></td><td>E3/E1 反复打出,吃鱼身没吃到鱼尾</td></tr>
+    <tr><td class="stk">胜宏科技</td><td class="num up">2025 +586%</td><td class="num">4 笔合计 <b>−0.1pp</b>(+20.7 / −13.2 / +7.2 / −14.8)</td><td>首笔止盈后,高位三次追入全被震出</td></tr>
+    <tr><td class="stk">中际旭创</td><td class="num up">2023 +318%</td><td class="num">2023 <b>零捕获</b>;2026-02 一笔 +83.9% 持有 5 个月</td><td>2023 回调带内有再突破日却被量能/周线等条件拦截(非"回调不到位",最深回调−49.9%;拦截点待重放定位);11i 新参数下拿住了</td></tr>
+    <tr><td class="stk">罗博特科</td><td class="num up">2024 +288%</td><td class="num">2026 年 2 笔全亏(−6.5 / −17.1)</td><td>昨日妖股长大进池,均值回归——第二年魔咒</td></tr>
+    <tr><td class="stk">鼎泰高科</td><td class="num up">2025 +567%</td><td class="num">2026 年 2 笔 +43.9pp(+38.9 持有中)</td><td>C 类猎物长大进猎场,系统接力吃第二段(正面案例)</td></tr>
+  </table></div>
+</div>
+
+<div class="card blood">
+  <h2>血点定律<small>本研究最硬的副产品</small></h2>
+  <p style="font-size:14px">25 只涨幅王的年内启动低点高度集中在<b>大盘恐慌底</b>:2022 年四只全在 4-26/28(上海疫情底),2024 年四只全在 2-05/07(微盘股流动性危机),2025 年集中在 1 月初与 4-07(对等关税暴跌底)。<b>涨幅王的买点 = 市场的血点</b>——"起飞前必震荡"的全市场版。制度含义:恐慌底门关着不接刀是对的,<b>门重开后的第一个月是核心股起飞高发窗</b>(胜宏 2025-02-18 被系统买入,正是 1 月恐慌后门重开期)。当下风险分 0.89、门关着——按此定律,该做的是把子弹留到门重开那天。</p>
+</div>
+
+<div class="card">
+  <h2>深入思考<small>结合系统的五条</small></h2>
+  <ol class="think">
+    <li><b>不要用 A/B 类的涨幅给系统记罪。</b>连板妖与借壳的利润是"幻影利润":买不进(一字板)、拿不住(开板即巅峰)、不可重复(公告不可预测)。系统对它们沉默是特性,不是缺陷。</li>
+    <li><b>C 类核心股每年都有,大行情年必有 500 亿+ 的</b>(2023 旭创、2024 寒武纪、2025 胜宏)。猎场没问题——问题在"抓到了拿不住":病灶三处 = E3 锁盈触发太早、高位追入被 E1 震出、无留仓机制吃主升后段。</li>
+    <li><b>36 格审判(留⅔+dd25)正是治这个病的药,本研究是其最强实证注脚。</b>核心股主升 7~10 个月,系统中位持有 26 天——留仓制度把持有周期从"周"级拉向"月季"级,才匹配猎物节奏。</li>
+    <li><b>第二年魔咒:别碰去年的涨幅王。</b>罗博特科 2026 两笔全亏、九安 2022-04 后连续腰斩、正丹下半年腰斩。长线画像"首捕"项在此再获一层数据意义。</li>
+    <li><b>市值门槛 500 维持不动。</b>降到 300 也够不着妖股(启动时 30~100 亿),只会放进小盘噪音;全部回测背书在 500 口径——证据在哪,猎场在哪(同日市值门槛研究同款结论)。</li>
+  </ol>
+</div>
+
+<div class="card gray">
+  <h2>诚实边界</h2>
+  <ul>
+    <li>板块/概念/催化为领域知识归因,非数据库字段;天普股份、亚振家居两只壳妖细节把握不足,已标注存疑;</li>
+    <li>"买点"为后视镜口径(年内低点),不可执行;可执行买点只能来自系统信号,两者不可混谈;</li>
+    <li>妖股"不可收割"论基于形态结构(一字板无第二买点),属机制论证非回测证明;</li>
+    <li>榜首物种有幸存者偏差——2025 年真正的产业核心(新易盛、中际旭创等)多在第 10~30 名,它们才是系统主粮仓;本研究聚焦榜首,不代表猎物全景;</li>
+    <li>md 版同名同目录;可复现脚本:scratch_analysis_20260718/yearly_top.py + cross_check.py。</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

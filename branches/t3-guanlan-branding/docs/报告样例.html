@@ -1,0 +1,56 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>选股报告 2026-07-03</title><style>
+:root{--bg:#0D1117;--card:#151B25;--card2:#1C2432;--line:#2A3444;--text:#E9E5DB;
+--mut:#8C96A7;--red:#E5484D;--green:#2FAF74;--amber:#E0A83E;--blue:#6CA0F6}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+padding:16px;max-width:760px;margin:0 auto;line-height:1.5}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:16px;letter-spacing:2px;margin-bottom:2px}
+.sub{color:var(--mut);font-size:12px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h2{font-size:14px;margin-bottom:10px}
+.gate{display:flex;gap:8px;align-items:center;font-size:13px}
+.dot{width:9px;height:9px;border-radius:50%}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--mut);font-weight:400;font-size:11px;padding:4px 6px;border-bottom:1px solid var(--line)}
+td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.up{color:var(--red)}.dn{color:var(--green)}.mu{color:var(--mut)}.am{color:var(--amber)}
+.tag{display:inline-block;font-size:11px;border:1px solid var(--line);color:var(--mut);
+border-radius:99px;padding:1px 8px;margin-left:6px}
+.empty{color:var(--mut);font-size:12px}
+.foot{color:var(--mut);font-size:11px;line-height:1.7;margin-top:16px}
+.focusrow td:first-child{border-left:2px solid var(--red);padding-left:8px}
+</style></head><body>
+<h1>纪律选股器</h1>
+<div class="sub">2026-07-03 · 股票池 312 只(市值≥500亿,剔ST) · 耗时 186s</div>
+
+<div class="card"><div class="gate"><span class="dot" style="background:var(--red)"></span>沪深300 4180 ≥ MA60 4052 · 开仓门:开</div></div>
+
+<div class="card"><h2>① 明日重点关注 · 回踩到位 <span class="tag">2 只</span></h2>
+<table><tr><th>股票</th><th>收盘</th><th>平台价=止损位</th><th>距突破</th><th>今日量比</th><th>突破日</th></tr><tr class='focusrow'><td><b>招商银行</b> <span class='mu num'>600036</span></td><td class='num'>41.85</td><td class='num mu'>40.90</td><td class='num'>+2.3%</td><td class='num mu'>0.72×</td><td class='mu'>06-24 · 第6天</td></tr><tr class='focusrow'><td><b>紫金矿业</b> <span class='mu num'>601899</span></td><td class='num'>22.10</td><td class='num mu'>21.60</td><td class='num'>+2.3%</td><td class='num mu'>0.85×</td><td class='mu'>06-26 · 第4天</td></tr></table>
+<div class='mu' style='font-size:11px;margin-top:8px'>入场前人工二审:①分时/K线形态确认止跌 ②两只票不做同一个故事 ③用纪律台算仓位,先看'若止损账户亏几个点'。</div>
+</div>
+
+<div class="card"><h2>② 今日新突破 · 进观察池 <span class="tag">1 只</span></h2>
+<table><tr><th>股票</th><th>收盘</th><th>平台价</th><th>突破量比</th><th>动作</th></tr><tr><td><b>长江电力</b> <span class='mu num'>600900</span></td><td class='num'>31.20</td><td class='num mu'>30.55</td><td class='num'>1.9×</td><td class='mu'>今日突破,不追,等回踩</td></tr></table>
+</div>
+
+<div class="card"><h2>③ 观察池跟踪中 <span class="tag">2 只</span></h2>
+<table><tr><th>股票</th><th>收盘</th><th>距突破</th><th>离入场差什么</th></tr><tr><td>美的集团 <span class='mu num'>000333</span></td><td class='num'>82.40</td><td class='num'>+4.2%</td><td class='mu'>回踩中但今日量 1.3×均量,未缩量</td></tr><tr><td>宁德时代 <span class='mu num'>300750</span></td><td class='num'>312.00</td><td class='num'>+4.7%</td><td class='mu'>尚未回踩</td></tr></table>
+</div>
+
+<div class="card"><h2>④ 今日否决 <span class="tag">2 只</span></h2>
+<table><tr><th>股票</th><th>否决原因</th></tr><tr><td class='mu'>隆基绿能 <span class='num'>601012</span></td><td class='am'>回调放量:2026-07-01 下跌日量 1.6×均量</td></tr><tr><td class='mu'>贵州茅台 <span class='num'>600519</span></td><td class='am'>距突破 +17% &gt; 15%,只看不追</td></tr></table>
+</div>
+
+<div class='card'><h2>⑤ 持仓出场提醒 <span class='tag'>positions.csv</span></h2><table><tr><th>持仓</th><th>规则5检查</th></tr><tr><td>紫金矿业 <span class='mu num'>601899</span></td><td><span class='mu'>正常,无触发</span></td></tr><tr><td>比亚迪 <span class='mu num'>002594</span></td><td><span class='am'>收盘 228.50 破 MA20(233.10) → 趋势离场提醒</span></td></tr></table></div>
+
+<div class="foot">
+一句话摘要:开仓门开;重点关注:招商银行、紫金矿业。<br>
+参数:60日新高 · 突破量≥1.5× · 追高线15% · 回调放量否决1.3× · 跟踪20日 · 大盘MA60过滤<br>
+本报告是候选清单,不是买入指令。终判流程:报告 → Claude二层判断 → 你拍板 → 纪律台记账。数据源为公开接口,以券商行情为准。
+</div>
+</body></html>
