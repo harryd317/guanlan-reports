@@ -1,0 +1,47 @@
+{
+  "artifact_hashes": {
+    "s5_backtest_2015_2025.md": "401876885142e6f02b30bb9010ba9ebe1b07c11a975c670d9fec91d68c0d600c",
+    "s5_equity_curve.csv": "2aed42179db19d8f86110489f9f8f7def8614e0eb240173be25045b794117574",
+    "s5_rebalance_events.csv": "680d4c31552c9ce70ffd5bdc48407de11451128018c58dec9603088203cc605a",
+    "s5_yearly_metrics.csv": "cf73053cb890b4b0455b023e4d106e959fd9566df9fd6f2a26aa73d157105c0b"
+  },
+  "audited_noncommon_dates": [
+    {
+      "adj_factor": 1.0,
+      "reason": "fund_adj_only_no_fund_daily",
+      "trade_date": "2021-02-08",
+      "ts_code": "159915.SZ"
+    },
+    {
+      "adj_factor": 1.0,
+      "reason": "fund_adj_only_no_fund_daily",
+      "trade_date": "2015-04-13",
+      "ts_code": "510500.SH"
+    },
+    {
+      "adj_factor": 1.0,
+      "reason": "fund_adj_only_no_fund_daily",
+      "trade_date": "2015-04-14",
+      "ts_code": "510500.SH"
+    }
+  ],
+  "code_hash": "dffac8ddbb4b5228a97c5f66c46f10ff733d06ec8597c7a2a80a7d1c185d53b7",
+  "component_hashes": {
+    "adj_only_audit": "d1e5098a635c7e8e70d40094b69a72dd9b547f0e74a62933d6d4936f7870996e",
+    "breadth_daily": "0b0c5540b20440d4dd086b59ffa4f8f7311ef7d55c7bfc956fa7e5f6b643f7b1",
+    "etf_8_plus_1": "b29eca6114b2b87f630d867cde4595cb407c2ef02c6a933b3ebe49d4a208787d",
+    "regime_history": "1ac993376878870a9bce47139a2eb7391a8272bb82050dcf41a34cfc8a063db8",
+    "runtime_code": "dffac8ddbb4b5228a97c5f66c46f10ff733d06ec8597c7a2a80a7d1c185d53b7"
+  },
+  "config_hash": "ad562638ecb44d16d5203511177fe8831cdeb72fa87a6679b1d0114086a9cbf7",
+  "input_hash": "c15e20b4432bb648db57010b404d8739943da65b0ed33e6b6a397391a5d6d00e",
+  "out_of_sample_runs": 1,
+  "period_hashes": {
+    "in_sample": "6278d7a85143ade1da9d5a3bfd57ee80312d03b6482e84b90476252f787ab59a",
+    "out_of_sample": "ec26128cfc9d2723f87c63ce5daa6d368fda4b56b545d2fbc6609b522e03f223"
+  },
+  "predeclaration_id": "s5-breadth-timing-etf-2026-07-29",
+  "root_hash": "af99b7f5c971cc20d0c741ccc5ff9d39f4360fffc5b78efcd81fa4b063c4fec3",
+  "run_id": "ffc353a5-3d53-4122-8bca-a41ba9567118",
+  "status": "sealed"
+}
