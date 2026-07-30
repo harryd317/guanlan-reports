@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:策略中心(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--amber:#B54708;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:680px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:26px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:6px 0 6px 14px}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px}
+.card .kind{font-size:12px;font-weight:700;letter-spacing:4px;margin-bottom:6px;color:var(--blue)}
+.card h3{font-size:19px;margin-bottom:4px}
+.card p{font-size:15px;color:#3A3A3C;margin-bottom:10px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.card button{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;font-family:inherit;background:var(--card2);color:var(--text)}
+.card button.main{background:var(--blue);color:#fff}
+.card button.danger{background:rgba(224,49,49,.08);color:var(--red)}
+
+/* 灰条/红条(首页 banner) */
+.gbar{background:#F2F2F4;border:1px solid var(--line);color:#3A3A3C;border-radius:10px;
+  padding:10px 14px;font-size:14px;margin-bottom:10px;line-height:1.7}
+.gbar b{font-weight:700}
+.rbar{background:#FFF0F0;border:1px solid rgba(224,49,49,.35);color:var(--red);border-radius:10px;
+  padding:10px 14px;font-size:14px;margin-bottom:10px;line-height:1.7}
+
+/* 市况徽章 */
+.rg{display:inline-block;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px}
+.rg.bull{background:rgba(224,49,49,.09);color:var(--red);border:1px solid rgba(224,49,49,.25)}
+.rg.chop{background:#FFF4E6;color:var(--amber);border:1px solid #F5D9B0}
+.rg.bear{background:rgba(47,158,68,.09);color:var(--green);border:1px solid rgba(47,158,68,.25)}
+.rg.na{background:var(--card2);color:var(--mut);border:1px solid var(--line)}
+
+/* 仪表盘 */
+.bignow{font-size:26px;font-weight:800;margin:2px 0 2px}
+.bignow .days{font-size:14px;color:var(--mut);font-weight:400;margin-left:8px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{background:var(--card2);border-radius:10px;padding:6px 12px;font-size:13px;color:#3A3A3C}
+.chip b{font-weight:700}
+.chip .ok{color:var(--red);font-weight:700}
+.chip .bad{color:var(--green);font-weight:700}
+.aibox{background:var(--card2);border-radius:12px;padding:12px 14px;margin-top:10px}
+.aibox .who{font-size:12px;color:var(--mut);margin-bottom:6px}
+.aibox .why{font-size:14px;color:#3A3A3C}
+
+/* 历史带状图 */
+.bandwrap{margin-top:12px}
+.band{display:flex;height:18px;border-radius:6px;overflow:hidden}
+.band div{height:100%}
+.b-bull{background:#F5B5B5}.b-chop{background:#F2D8AC}.b-bear{background:#BBDDC1}
+.bandlbl{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);margin-top:4px}
+.legend{font-size:12px;color:var(--mut);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 4px 0 10px;vertical-align:-1px}
+
+/* 表格 */
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--mut);font-weight:400;font-size:11px;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.gray{color:#AEAEB2;font-size:12px}
+.pos{color:var(--red);font-weight:700}.neg{color:var(--green);font-weight:700}
+.sub{font-size:11px;color:var(--mut);font-weight:400}
+.hint{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<h1>原型:策略中心(最终形态样板)</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7">
+  四屏样板:①首页市况条 ②切换建议卡(P4) ③策略中心页(P2起) ④P0三处可见改动。
+  <b>所有数字均为示例</b>,用于拍板信息布局与话术风格,不是真实判定。
+</div>
+
+<div class="proto-h">① 首页:开仓门灰条升级为「市况条」<small>位置不变(消息卡上方)。今天这种零捕获的日子,它替系统把话说清楚——这就是治手痒的那句话。</small></div>
+<div class="gbar">
+  <span class="rg bear">阴跌熊市</span>&nbsp;<b>第 23 天</b> · 主策略:<b>防守(空仓等待)</b><br>
+  沪深300 在 MA60 下方 3.1%,全市场宽度恶化(涨 1834 / 跌 3390)。
+  开仓门<b>关</b>——今天零捕获<b>属正常</b>,历史同类空窗 30~122 个交易日。持有票照常按卖出线管理。
+</div>
+<div class="gbar">
+  <span class="rg bull">上行趋势市</span>&nbsp;<b>第 5 天</b> · 主策略:<b>中线卡 v0.2</b><br>
+  沪深300 站上 MA60 且斜率转正,宽度健康(20日新高 412 家)。开仓门<b>开</b>,今日新信号 2 条,见下方消息卡。
+</div>
+
+<div class="proto-h">② 切换建议卡(P4,10月评审后上线)<small>市况翻转确认后出卡,样式复用复核卡。附背书数字+反事实承诺;建议卡阶段您点了才切,人机一致率高+整机回测达标后升级全自动(变成"已切换"通知)。</small></div>
+<div class="card" style="border-left:5px solid var(--blue)">
+  <div class="kind">策略切换</div>
+  <h3>建议:防守 → 中线卡 v0.2</h3>
+  <p>市况已转<span class="rg bull">上行趋势市</span>(连续 3 日确认,Schmitt 上阈值)。
+  中线卡在此市况的背书:费后日均 <b class="num">+0.11%</b>(bootstrap 置信下界 <b class="num">+0.03%</b>,
+  样本 217 笔 / 5 个独立区段,剔除最佳年份仍为正)。</p>
+  <div class="aibox">
+    <div class="who">纪律条款</div>
+    <div class="why">切换只影响新开仓,现有持仓仍按原策略管到平仓;最短任期 20 交易日;
+    本次切换将记录反事实(若不切,防守同期成绩),季度复盘对账。</div>
+  </div>
+  <div class="btnrow">
+    <button class="main">照建议办:切换到中线卡</button>
+    <button>不同意,维持防守</button>
+  </div>
+</div>
+
+<div class="proto-h">③ 策略中心页 /strategy(P2 上线仪表盘,P3 起挂矩阵)<small>五个区块:市况仪表盘 → 历史带状图 → 主策略卡 → 背书矩阵 → 切换流水。P2 阶段只有前三块+空矩阵占位。</small></div>
+
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">市况仪表盘</div>
+  <div class="bignow"><span class="rg bear" style="font-size:20px;padding:4px 16px">阴跌熊市</span><span class="days">第 23 天 · 引擎 regime_v1 · 数据源 Tushare</span></div>
+  <div class="facts">
+    <span class="chip">方向:<b class="bad">空头</b> · 沪深300 <span class="num">3842</span> 在 MA60(<span class="num">3965</span>)下方 3.1%,斜率 -0.4%/20日</span>
+    <span class="chip">波动:<b>低位</b> · 20日已实现波动 14%(近500日 38 分位)</span>
+    <span class="chip">宽度:<b class="bad">恶化</b> · 涨跌家数 1834/3390 · 20日新低占比 11%</span>
+    <span class="chip">活跃度:两市成交 <span class="num">1.42</span> 万亿,20日趋势 ↓12%</span>
+  </div>
+  <div class="aibox">
+    <div class="who">AI 白话解读(只解读,不参与判定)</div>
+    <div class="why">指数在生命线下方阴跌,跌家数是涨家数近两倍,但波动不高——是"阴跌"不是"崩盘"。
+    这种市况里中线卡历史上不赚钱,防守空仓是背书数据给的答案,不是胆小。</div>
+  </div>
+  <div class="bandwrap">
+    <div class="band">
+      <div class="b-chop" style="width:14%"></div><div class="b-bull" style="width:22%"></div>
+      <div class="b-chop" style="width:10%"></div><div class="b-bear" style="width:12%"></div>
+      <div class="b-bull" style="width:26%"></div><div class="b-chop" style="width:9%"></div>
+      <div class="b-bear" style="width:7%"></div>
+    </div>
+    <div class="bandlbl"><span>2025-01</span><span>2025-07</span><span>2026-01</span><span>2026-07</span></div>
+    <div class="legend">历史市况带状图:<i class="b-bull"></i>上行趋势市 <i class="b-chop"></i>高波震荡 <i class="b-bear"></i>阴跌熊市(点带状图任一段可看当日因子读数回放)</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">当前主策略</div>
+  <h3>防守(空仓等待) <span class="sub">上任 2026-06-09 · 任期第 23 个交易日</span></h3>
+  <p style="margin-bottom:6px">信号管道并行常开:中线卡今日扫描 0 信号 · 短线卡 0 信号 · 各策略池照常滚动,切换随时热机。</p>
+  <div class="hint">账户风控(压在所有策略之上):回撤熔断 -8%(当前 -1.2%)✓ · 行业集中度上限 30%(当前最高:AI算力链 22%)✓</div>
+</div>
+
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">策略 × 市况 背书矩阵</div>
+  <div class="tablewrap">
+  <table>
+    <tr><th>策略</th><th>上行趋势市</th><th>高波震荡</th><th>阴跌熊市</th></tr>
+    <tr>
+      <td><b>中线卡 v0.2</b><div class="sub">中线 · 波段</div></td>
+      <td><span class="pos num">+0.11%/日</span><div class="sub">下界+0.03 · 217笔/5段 ✓合格</div></td>
+      <td class="gray">背书不足<div class="sub">单区段利润占比 68%&gt;50%</div></td>
+      <td><span class="neg num">-0.05%/日</span><div class="sub">无资格(期望为负)</div></td>
+    </tr>
+    <tr>
+      <td><b>短线卡 v0.1</b><div class="sub">短线 · 数日</div></td>
+      <td class="gray">背书不足<div class="sub">样本 14 笔 &lt;30</div></td>
+      <td><span class="pos num">+0.09%/日</span><div class="sub">下界+0.01 · 41笔/4段 ✓合格</div></td>
+      <td class="gray">背书不足<div class="sub">区段数 2 &lt;3</div></td>
+    </tr>
+    <tr>
+      <td><b>防守</b><div class="sub">空仓+货基</div></td>
+      <td class="gray">—</td>
+      <td class="gray">—</td>
+      <td><b>默认当班</b><div class="sub">该市况无合格策略时兜底</div></td>
+    </tr>
+  </table>
+  </div>
+  <div class="hint">准入五重门槛:样本≥30 · ≥3个不相邻区段 · 单区段利润≤50% · 剔除最佳年份仍&gt;0 · bootstrap置信下界&gt;0。
+  灰格="没有证据",不是"不行"——攒够证据自动点亮。成绩为分类器样本外段(2022~),训练段仅参考。</div>
+</div>
+
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">切换流水(含反事实对账)</div>
+  <div class="tablewrap">
+  <table>
+    <tr><th>日期</th><th>切换</th><th>依据</th><th>触发</th><th>反事实:若不切</th></tr>
+    <tr><td class="num">2026-06-09</td><td>中线卡→防守</td><td>转阴跌熊市</td><td>建议卡·您确认</td><td>中线卡同期 <span class="neg num">-2.8%</span>,切对了 ✓</td></tr>
+    <tr><td class="num">2026-04-13</td><td>防守→中线卡</td><td>转上行趋势市</td><td>建议卡·您确认</td><td>防守同期 <span class="num">+0.4%</span> vs 实际 <span class="pos num">+3.2%</span> ✓</td></tr>
+    <tr><td class="num">2026-02-02</td><td>中线卡→防守</td><td>转高波震荡</td><td>建议卡·您否决</td><td class="gray">未切,持中线卡同期 -0.9%(否决代价追踪中)</td></tr>
+  </table>
+  </div>
+  <div class="hint">季度复盘:切换决策累计 alpha 为负 → 自动退回单策略模式(熔断)。年切换上限 4 次。</div>
+</div>
+
+<div class="proto-h">④ P0 三处可见改动(即刻开工的部分)<small>熔断红条 / 买入卡话术诚实化 / 行业集中度拒绝。全是"堵死输法"的活。</small></div>
+
+<div class="rbar"><b>⛔ 账户熔断:</b>账户自高点回撤 -8.3%,已触发熔断——停止一切新开仓,持有票照常按卖出线管理。
+恢复开仓需在设置页人工确认并留痕。</div>
+
+<div class="card" style="border-left:5px solid var(--blue)">
+  <div class="kind">买入</div>
+  <h3>德业股份 <span class="sub num">605117</span></h3>
+  <p>买点 <b class="num">92.40</b>,计划止损 <b class="num">87.78</b>(-5.0%)。
+  <b>话术诚实化:</b>止损是计划值,<span style="color:var(--amber)">跳空可能击穿(历史同类最深 -19%)</span>;
+  验证期单笔风险按账户 1% 倒算,建议买入 <b class="num">21,700</b> 元。</p>
+  <div class="aibox">
+    <div class="who">行业集中度检查(P0 新增)</div>
+    <div class="why">德业股份属「电力设备」:当前行业敞口 8% → 买入后 17%(上限 30%)✓ 放行。</div>
+  </div>
+  <div class="btnrow"><button class="main">已买入,记一笔</button><button>今天不买</button></div>
+</div>
+
+<div class="card" style="border-left:5px solid var(--red)">
+  <div class="kind" style="color:var(--red)">买入被拦</div>
+  <h3>某算力股 <span class="sub num">300XXX</span></h3>
+  <p><b>行业集中度硬闸:</b>「AI算力链」当前敞口 24%,买入后将达 <b>38%</b>,超 30% 上限——
+  这票<b>不进</b>。池内 7/9 只已是同链条,再加仓等于一注押一个板块。拒绝已留痕,若其他算力持仓平仓释放额度,系统会重新提示。</p>
+  <div class="btnrow"><button disabled>买入(已禁用)</button><button>知道了</button></div>
+</div>
+
+<div class="proto-h">⑤ 上线节奏(拍板后按此推进)<small>P0 即刻(几天):三件事+库迁移 → P1(约一周):策略插件化重构,界面无感 → P2(约两周):市况仪表盘上线(①③屏,只展示不切换) → 展示期攒实绩 → P3(9月):背书矩阵报告 → 10-09 评审 → P4:切换建议卡(②屏) → 达标升全自动 → P5:新策略上架。</small></div>
+
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. <b>首页市况条(①)</b>:位置(消息卡上方)、白话风格("零捕获属正常"这类话术)可以吗?</div>
+  <div class="opt">2. <b>切换建议卡(②)</b>:「照建议办」+「不同意」两键,附背书数字+纪律条款,可以吗?</div>
+  <div class="opt">3. <b>策略中心页(③)</b>:五个区块的信息量——刚好 / 太密想砍(砍哪块) / 还想加什么?</div>
+  <div class="opt">4. <b>P0 话术(④)</b>:熔断红条、"跳空可能击穿"、集中度拒绝的措辞,可以吗?</div>
+</div>
+
+</body>
+</html>
