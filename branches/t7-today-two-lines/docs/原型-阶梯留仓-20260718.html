@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 阶梯留仓六触点 · 20260718</title>
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --line:#E7E8EC; --txt:#17181C; --mut:#82868F;
+  --blue:#0A6CFF; --blue-bg:#EDF4FF;
+  --up:#D6403A; --down:#1F9D55;
+  --amber:#B45309; --amber-bg:#FFF7E8; --amber-line:#F2DFB8;
+  --red:#C92A2A; --red-bg:#FDEEEE;
+  --green:#2F855A; --green-bg:#EAF6EF;
+  --r-lg:20px; --r-md:14px; --r-sm:9px;
+  --shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05);
+  --card2:#F5F6F8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);line-height:1.65;font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;padding:0 0 80px}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header.page{padding:30px 0 4px}
+header.page h1{font-size:23px;font-weight:900}
+header.page .sub{color:var(--mut);font-size:13px;margin-top:4px}
+.screen{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 24px;margin:18px 0}
+.screen>h2{font-size:16px;font-weight:800;margin-bottom:4px}
+.screen>h2 .no{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;align-items:center;justify-content:center;margin-right:6px;vertical-align:-3px}
+.screen>.where{font-size:12.5px;color:var(--mut);margin-bottom:14px}
+.note{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:var(--r-md);padding:10px 14px;font-size:13px;color:#6B5A33;margin-top:14px;line-height:1.7}
+.note b{color:var(--amber)}
+/* ── 复刻生产卡片 ── */
+.card{background:var(--card2);border-radius:var(--r-md);border-left:4px solid var(--red);padding:14px 16px;max-width:560px}
+.card.ladder{border-left-color:var(--amber)}
+.card .kind{font-size:12.5px;font-weight:800;color:var(--red);letter-spacing:1px}
+.card.ladder .kind{color:var(--amber)}
+.card h3{font-size:17px;font-weight:800;margin:4px 0 8px}
+.badge{display:inline-block;border-radius:8px;padding:1px 8px;font-size:12px;font-weight:700;vertical-align:2px;margin-left:6px}
+.badge.lock{background:var(--green-bg);color:var(--green);border:1px solid #BFE3CC}
+.badge.rump{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-line)}
+.facts{font-size:14px;margin:8px 0}
+.facts .frow{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.facts .frow:last-child{border-bottom:none}
+.facts .frow span:first-child{color:var(--mut)}
+.facts .frow b{font-weight:700}
+.howto{background:#fff;border-radius:10px;padding:9px 12px;font-size:13.5px;margin:10px 0;line-height:1.7}
+.learnbox{background:var(--blue-bg);border-radius:10px;padding:9px 12px;font-size:13px;color:#274690;margin:10px 0;line-height:1.7}
+.actrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+button.act{border:none;border-radius:11px;padding:10px 18px;font-size:14.5px;font-weight:700;font-family:inherit;cursor:pointer}
+button.act.primary{background:var(--blue);color:#fff}
+button.act.secondary{background:#fff;color:var(--txt);border:1.5px solid var(--line)}
+button.act.ghost{background:none;color:var(--mut);text-decoration:underline;font-weight:400;font-size:13px}
+/* ── 持有行复刻 ── */
+.pos{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:4px 16px;max-width:620px}
+.pos .row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.pos .row:last-child{border-bottom:none}
+.light{flex:none;width:12px;height:12px;border-radius:50%}
+.light.ok{background:var(--green)} .light.warn{background:#F59F00} .light.bad{background:var(--red)}
+.pos .nm{font-weight:600;flex:none}
+.pricecol{margin-left:auto;text-align:right;line-height:1.3;white-space:nowrap}
+.pricecol .p{font-weight:700;font-size:16px}
+.up{color:var(--up)}
+.mng{flex:none;width:30px;height:30px;border:none;border-radius:9px;background:var(--card2);color:var(--mut);font-size:16px;font-weight:700;line-height:1}
+.sub2{flex-basis:100%;padding-left:22px;font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:-4px;padding-bottom:8px}
+.chip{border-radius:8px;padding:1px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+.chip.safe{background:#F1F3F5;color:#6E6E73}
+.chip.near{background:#FFF4E5;color:#B45708;border:1px solid #F0C48C}
+.chip.brk{background:rgba(224,49,49,.10);color:var(--red);border:1px solid rgba(224,49,49,.30)}
+.phone{width:375px;border:1px solid var(--line);border-radius:18px;padding:10px 12px;background:var(--bg);flex:none}
+.phone .cap{font-size:11.5px;color:var(--mut);text-align:center;margin-bottom:8px}
+.phone .pos{padding:2px 10px;max-width:none}
+.duo{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.duo .desk{flex:1;min-width:420px}
+.duo .desk .cap{font-size:11.5px;color:var(--mut);margin-bottom:8px}
+/* 日报行复刻 */
+.dcard{background:var(--card2);border-radius:var(--r-md);padding:12px 16px;max-width:620px;font-size:14px}
+.dcard .h{font-weight:800;margin-bottom:4px}
+.dcard .cond{line-height:1.7}
+.dcard .kl{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.dcard .kl .k{background:#fff;border:1px solid var(--line);border-radius:9px;padding:4px 10px;font-size:12.5px}
+.dcard .kl .k b{display:block;font-size:13.5px}
+/* 推送样文 */
+.push{max-width:420px;background:#1C1C1E;color:#F2F2F7;border-radius:16px;padding:12px 16px;font-size:13.5px;line-height:1.7;margin:8px 0}
+.push .app{font-size:11px;color:#98989F;display:flex;justify-content:space-between;margin-bottom:4px}
+.push b{color:#fff}
+/* 表格 */
+table{border-collapse:collapse;font-size:13px;min-width:640px}
+th{color:var(--mut);font-weight:600;text-align:left;padding:6px 10px;border-bottom:1.5px solid var(--line);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tw{overflow-x:auto}
+@media(max-width:760px){.duo .desk{min-width:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>原型 · 阶梯留仓六触点</h1>
+  <div class="sub">2026-07-18 · 方案 v2 §7.3 拍板件 · 演示数据=胜宏科技真实反事实(买入 55.39,峰值 344.76,清仓线 258.57)· 拍板范围:话术/布局/按钮;机械口径已由方案钉死不在此议</div>
+</header>
+
+<!-- 屏1 卖⅓卡 -->
+<div class="screen">
+  <h2><span class="no">1</span>卖⅓卡(E3 触发 + 够格)</h2>
+  <div class="where">出现位置:首页今日待办卡流 · 触发条件:出场判定首条命中 E3 且此仓浮盈峰值曾达 +30%</div>
+  <div class="card ladder">
+    <div class="kind">止盈 · 阶梯留仓</div>
+    <h3>胜宏科技 涨得到位了,先收⅓<span class="badge lock">锁盈</span></h3>
+    <div class="facts">
+      <div class="frow"><span>怎么回事</span><b>从最高点回落超 18%,触发止盈信号</b></div>
+      <div class="frow"><span>这笔的战绩</span><b class="num up">最高浮盈曾达 +64.6%,现在 +48.2%</b></div>
+      <div class="frow"><span>为什么不全卖</span><b>浮盈超 30% 的票适用留仓规则(历史回测背书)</b></div>
+      <div class="frow"><span>留下的⅔怎么管</span><b class="num">新清仓线 = 此后最高收盘 × 0.75,收盘跌破才全卖</b></div>
+    </div>
+    <div class="howto">📋 明早开盘:卖出约 <b class="num">16,600 元</b>(现有仓位的⅓)落袋,其余⅔继续持有。</div>
+    <div class="learnbox">⚠️ 要想清楚再点:留仓期间<b>原来的止损线不再看</b>——它只认一条线(最高点回撤 25%),中途震荡跌破老止损也不会卖。这是用已落袋的利润,给剩下的仓买"拿得住"的门票。</div>
+    <div class="actrow">
+      <button class="act primary">已卖⅓,留⅔继续</button>
+      <button class="act secondary">不留仓,已全部卖出</button>
+    </div>
+  </div>
+  <div class="note"><b>话术要点(2026-07-18 拍板版):</b>①「锁盈」徽章,不叫止损;②<b>双按钮并列同尺寸(用户拍板)</b>=在券商实际怎么卖了就点哪个,账目不失真;③"原止损线不再看"必须讲透(方案§8 心理差异);④不够格的仓照旧出老的全卖卡,此卡不出现。</div>
+</div>
+
+<!-- 屏2 清仓卡 -->
+<div class="screen">
+  <h2><span class="no">2</span>留仓清仓卡(收盘跌破清仓线)</h2>
+  <div class="where">出现位置:首页今日待办卡流 · 触发条件:留仓期收盘 ≤ 峰值×0.75</div>
+  <div class="card">
+    <div class="kind">留仓触线</div>
+    <h3>胜宏科技 留仓触线,该全部收账了<span class="badge lock">锁盈</span></h3>
+    <div class="facts">
+      <div class="frow"><span>怎么回事</span><b>昨收 <span class="num">256.70</span>,跌破清仓线 <span class="num">258.57</span>(最高收盘 344.76 回撤 25%)</b></div>
+      <div class="frow"><span>这笔的全旅程</span><b class="num up">2 月买入 55.39 → 峰值 +522% → 留仓 6.2 个月</b></div>
+      <div class="frow"><span>已经收回</span><b>⅓ 已在 4 月落袋(+20.7%)</b></div>
+    </div>
+    <div class="howto">📋 明早开盘:剩余⅔<b>全部卖出</b>。卖出后此票进入 20 个交易日冷却期。</div>
+    <div class="learnbox">💡 这不是止损,是收割的最后一步——这笔留仓从止盈线上方一路多吃了一大段,触线离场是把赚到的全部装进口袋。回落 25% 是留仓规则的固定预算,花完就走,不留恋。</div>
+    <div class="actrow">
+      <button class="act primary">已卖出,记账</button>
+    </div>
+  </div>
+  <div class="note"><b>话术要点:</b>①标题/课文全部走"锁盈/收割"语系,严禁出现"跌破止损线"与止损课文案(审查抓的张冠李戴);②跳空低开时套用现有涨跌停/跳空话术(实际成交价可能低于线位)。</div>
+</div>
+
+<!-- 屏3 持有卡留仓态 -->
+<div class="screen">
+  <h2><span class="no">3</span>首页持有卡 · 留仓态(每天盘中 50 秒刷新)</h2>
+  <div class="where">出现位置:首页右栏持有列表 · 这是"以日计反馈"的主触点</div>
+  <div class="duo">
+    <div class="desk">
+      <div class="cap">桌面端(修复 flex-wrap 后:距离条独占一行,不再挤压溢出)</div>
+      <div class="pos">
+        <div class="row">
+          <span class="light ok"></span><span class="nm">胜宏科技</span><span class="badge rump">留⅔</span>
+          <span class="pricecol"><span class="p num">312.40</span><br><span class="num up" style="font-size:12.5px">总浮盈 +463%</span></span>
+          <button class="mng">⋯</button>
+          <div class="sub2"><span class="chip safe">离清仓线 +20.8%</span><span>清仓线 <b class="num">258.57</b> · 已落袋⅓ · 峰值 <b class="num">344.76</b></span></div>
+        </div>
+        <div class="row">
+          <span class="light warn"></span><span class="nm">示例票B</span><span class="badge rump">留⅔</span>
+          <span class="pricecol"><span class="p num">98.20</span><br><span class="num up" style="font-size:12.5px">总浮盈 +41%</span></span>
+          <button class="mng">⋯</button>
+          <div class="sub2"><span class="chip near">⚠ 离清仓线只剩 +2.4%</span><span>清仓线 <b class="num">95.90</b> · 已落袋⅓ · 峰值 <b class="num">127.86</b></span></div>
+        </div>
+        <div class="row">
+          <span class="light bad"></span><span class="nm">示例票C</span><span class="badge rump">留⅔</span>
+          <span class="pricecol"><span class="p num">71.30</span><br><span class="num up" style="font-size:12.5px">总浮盈 +28%</span></span>
+          <button class="mng">⋯</button>
+          <div class="sub2"><span class="chip brk">盘中在清仓线下 1.9% · 等收盘确认</span><span>清仓线 <b class="num">72.70</b> · 已落袋⅓</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="cap">手机 375px(同一结构自动折行,修复后不再横向溢出)</div>
+      <div class="pos">
+        <div class="row">
+          <span class="light ok"></span><span class="nm">胜宏科技</span><span class="badge rump">留⅔</span>
+          <span class="pricecol"><span class="p num">312.40</span><br><span class="num up" style="font-size:12px">+463%</span></span>
+          <button class="mng">⋯</button>
+          <div class="sub2"><span class="chip safe">离清仓线 +20.8%</span><span>清仓线 <b class="num">258.57</b> · 已落袋⅓</span></div>
+        </div>
+        <div class="row">
+          <span class="light warn"></span><span class="nm">T1已减半示例</span><span class="badge rump">留⅔</span>
+          <span class="pricecol"><span class="p num">45.10</span><br><span class="num up" style="font-size:12px">+55%</span></span>
+          <button class="mng">⋯</button>
+          <div class="sub2"><span class="chip near">⚠ 离清仓线只剩 +2.9%</span><span>清仓线 <b class="num">43.80</b> · <b>已落袋约⅔(含此前减半)</b></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="note"><b>要点:</b>①距离条三档色阶与话术全部复用现有机制,只换线;②盘中分母=<b>截至昨收的峰值</b>,当日盘中新高不抬线(铁律6);③T1 已减半的仓,落袋进度按<b>原始仓口径</b>说"已落袋约⅔(含此前减半)",不许低报;④「留⅔」徽章标识留仓态;⑤桌面持有行从单行变两行(距离条独占一行)是本次布局修复的可见变化,双端一并拍板。</div>
+</div>
+
+<!-- 屏4 日报留仓行 -->
+<div class="screen">
+  <h2><span class="no">4</span>日报 · 留仓行(每交易日 16:30,无事也报数)</h2>
+  <div class="where">出现位置:/daily 持仓板块</div>
+  <div class="dcard">
+    <div class="h">胜宏科技(300476)<span class="badge rump">留⅔</span></div>
+    <div class="cond">继续持有。清仓线 <b class="num">258.57</b>(现价距它 <b class="num">−17.2%</b> 的缓冲)· 留仓期最高收盘 <b class="num">344.76</b> · 已落袋⅓。收盘跌破清仓线才卖,其余什么都不用做。</div>
+    <div class="kl">
+      <div class="k">清仓线<b class="num">258.57</b></div>
+      <div class="k">距清仓线<b class="num">+20.8%</b></div>
+      <div class="k">留仓峰值<b class="num">344.76</b></div>
+      <div class="k">已落袋<b>⅓</b></div>
+    </div>
+  </div>
+  <div class="dcard" style="margin-top:10px">
+    <div class="h">停牌示例票(000000)<span class="badge rump">留⅔</span></div>
+    <div class="cond">今日停牌,按最后收盘展示,清仓判定顺延。<span style="color:var(--mut)">不需要你做任何事。</span></div>
+  </div>
+  <div class="note"><b>要点:</b>①留仓行<b>只显示清仓线四格</b>,原止损/周MA30/锁盈线全部压掉不渲染(三线让位);②停牌=正常状态顺延,不出"修数据"卡;③前端 daily.html 与后端字段同批接通(lock_line 前车之鉴)。</div>
+</div>
+
+<!-- 屏5 推送样文 -->
+<div class="screen">
+  <h2><span class="no">5</span>微信推送 · 两条样文</h2>
+  <div class="where">Server酱通道 · 收盘后发,深夜(22:00~8:00)压制次日 8 点补投</div>
+  <div class="push">
+    <div class="app"><span>纪律选股</span><span>16:35</span></div>
+    <b>⚠️ 留仓临近清仓线</b><br>
+    胜宏科技(留⅔):今收 264.20,距清仓线 258.57 只剩 +2.2%。收盘跌破才卖,明天留意今日卡。
+  </div>
+  <div class="push">
+    <div class="app"><span>纪律选股</span><span>16:35</span></div>
+    <b>今天无操作</b><br>
+    持有 2 笔一切正常。留仓摘要 —— 胜宏科技:距清仓线 +20.8% · 峰值 344.76;示例票B:距清仓线 +8.1%。
+  </div>
+  <div class="note"><b>要点:</b>①临近推送(≤3%)独立去重,深夜哨兵补跑场景压制并次日补投;②<b>无事的日子推送也带一行留仓摘要</b>——数月留仓期推送端不静默,"每天跟随"落到实处;③卖⅓卡/清仓卡当天的推送正文与首页卡话术同源(不再出现"执行清仓"误导全卖)。</div>
+</div>
+
+<!-- 屏6 策略页台账 -->
+<div class="screen">
+  <h2><span class="no">6</span>策略页 · 阶梯台账(真实 vs 影子对照)</h2>
+  <div class="where">/strategy 台账卡 · 每天收盘后更新</div>
+  <div class="tw">
+  <table>
+    <tr><th>票</th><th>解锁日</th><th>状态</th><th>留仓峰值</th><th>清仓线</th><th>距清仓线</th><th>已落袋</th><th>假如当初全卖(对照)</th></tr>
+    <tr><td>胜宏科技<span class="badge rump">真实</span></td><td class="num">2025-04-07</td><td>留⅔持有中</td><td class="num">344.76</td><td class="num">258.57</td><td class="num up">+20.8%</td><td>⅓(+20.7%)</td><td class="num">全卖只得 +20.7%,留仓已多赚 +116pp</td></tr>
+    <tr><td>示例票B<span class="badge rump">真实</span></td><td class="num">2026-06-20</td><td>留⅔持有中</td><td class="num">127.86</td><td class="num">95.90</td><td class="num up">+2.4%</td><td>⅓(+31.0%)</td><td class="num">对照攒数中</td></tr>
+    <tr><td style="color:var(--mut)">历史影子行(50%口径)</td><td class="num" style="color:var(--mut)">2026-07-02</td><td style="color:var(--mut)">影子跟踪</td><td class="num" style="color:var(--mut)">—</td><td class="num" style="color:var(--mut)">—</td><td style="color:var(--mut)">—</td><td style="color:var(--mut)">—</td><td style="color:var(--mut)">四变体假想推进(评审材料)</td></tr>
+  </table>
+  </div>
+  <div class="note"><b>要点:</b>①表头全白话(留仓峰值/清仓线/距清仓线/已落袋),内部键名不上界面;②"假如当初全卖"一列=base 反事实对照,留仓价值每天可见;③影子行灰显分层(50 口径历史行与 30 口径新行标注)。</div>
+</div>
+
+<div class="screen" style="background:var(--green-bg);border:1px solid #BFE3CC">
+  <h2 style="color:var(--green)">拍板记录(2026-07-18,用户三答,原型定稿)</h2>
+  <ol style="margin-left:20px;font-size:14.5px;line-height:2">
+    <li>卖⅓卡次选项 → <b>并列大按钮</b>(已改稿);</li>
+    <li>持有卡徽章 → <b>「留⅔」</b>维持;</li>
+    <li>无事日推送留仓摘要 → <b>要</b>,维持现稿。</li>
+  </ol>
+</div>
+
+</div>
+</body>
+</html>
