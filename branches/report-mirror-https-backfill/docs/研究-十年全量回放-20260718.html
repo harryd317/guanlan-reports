@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>研究 · 十年全量回放 · 20260718</title>
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --line:#E7E8EC; --txt:#17181C; --mut:#82868F;
+  --blue:#0A6CFF; --blue-bg:#EDF4FF;
+  --up:#D6403A; --down:#1F9D55;
+  --amber:#B45309; --amber-bg:#FFF7E8; --amber-line:#F2DFB8;
+  --red:#C92A2A; --red-bg:#FDEEEE;
+  --green:#2F855A; --green-bg:#EAF6EF;
+  --r-lg:20px; --r-md:14px;
+  --shadow:0 1px 2px rgba(20,22,30,.04),0 6px 18px rgba(20,22,30,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.7 -apple-system,"PingFang SC","Helvetica Neue",sans-serif;padding:0 0 70px}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+header.page{padding:34px 0 6px}
+header.page h1{font-size:24px;font-weight:900;letter-spacing:.5px}
+header.page .sub{color:var(--mut);font-size:13.5px;margin-top:6px}
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 24px;margin:16px 0}
+h2{font-size:17px;font-weight:800;margin-bottom:10px}
+h2 small{font-size:12.5px;color:var(--mut);font-weight:500;margin-left:8px}
+.hero{background:linear-gradient(135deg,#FFF8EC,#FFF3DC);border:1px solid var(--amber-line)}
+.hero .verdict{font-size:15px;color:#6B5A33;margin-top:4px;font-weight:600;line-height:1.8}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.tile{background:rgba(255,255,255,.75);border:1px solid var(--amber-line);border-radius:var(--r-md);padding:12px 14px}
+.tile .l{font-size:11.5px;color:#8A7A50}
+.tile .v{font-size:20px;font-weight:900;margin-top:2px}
+.tile .s{font-size:11px;color:var(--mut)}
+.tablewrap{overflow-x:auto;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+th{color:var(--mut);font-weight:600;text-align:left;padding:7px 9px;border-bottom:1.5px solid var(--line);white-space:nowrap;background:var(--card)}
+td{padding:7px 9px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+.up{color:var(--up);font-weight:800}
+.dn{color:var(--down);font-weight:800}
+tr.loss td{background:#F4FBF7}
+tr.star td{background:#FFF9F0}
+.note{font-size:12.5px;color:var(--mut);margin-top:8px}
+.blood{background:var(--red-bg);border:1px solid #F3C8C8}
+.blood h2{color:var(--red)}
+.quiet{background:var(--blue-bg);border:1px solid #BFD6FF}
+.quiet h2{color:var(--blue)}
+.big3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
+.bignum{background:rgba(255,255,255,.8);border:1px solid #BFD6FF;border-radius:var(--r-md);padding:14px 16px;text-align:center}
+.bignum .v{font-size:30px;font-weight:900;color:var(--blue)}
+.bignum .l{font-size:12.5px;color:#3B5BDB;margin-top:2px}
+.gray{background:#FAFAFB}
+.gray li{color:#5A5E66;font-size:13px;margin:6px 0 6px 20px}
+.think li{margin:10px 0 10px 20px;font-size:14px}
+.think b{color:var(--blue)}
+.warn{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:10px;padding:10px 14px;font-size:13.5px;color:#6B5A33;margin:10px 0;line-height:1.7}
+@media(max-width:760px){.tiles{grid-template-columns:1fr 1fr}.big3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>研究 · 十年全量回放(2015→2026)</h1>
+  <div class="sub">2026-07-18 · 冻结 v9/11i 引擎一行不改重放十二个市场性格 · 独立复核=可信(7笔三方数据源手工复算全过)· 与459笔基线对账通过 · 市值口径全程500亿 · 存档 scratch_backtest_10y/</div>
+</header>
+
+<div class="card hero">
+  <h2>一句话判决</h2>
+  <div class="verdict">系统在从未见过的七个年份(2015股灾/2016熔断/2017/2019-20结构牛…)整体赚钱,"盈利全靠2025"的旧担忧在十年样本上不成立;门是保险不是提款机;阶梯首次样本外检验闸门全过但成色降级;"天天看没动静"被量化证明是十年常态。</div>
+  <div class="tiles">
+    <div class="tile"><div class="l">十年期望</div><div class="v num up">+4.94%/笔</div><div class="s">866 笔费后(5年窗 +2.80)</div></div>
+    <div class="tile"><div class="l">剔除最佳年 2025</div><div class="v num up">仍 +3194pp</div><div class="s">5年窗剔除后仅 +154——质变</div></div>
+    <div class="tile"><div class="l">十年门开日占比</div><div class="v num">54.4%</div><div class="s">81% 的交易日零新买入</div></div>
+    <div class="tile"><div class="l">当前这轮门关</div><div class="v num">12 天=18.2 分位</div><div class="s">33 轮里 27 轮比它长</div></div>
+  </div>
+</div>
+
+<div class="card quiet">
+  <h2>"没动静"专章<small>你的原始问题:天天看没动静,是不是坏了?——答案:没坏,这是十年重复过的常态</small></h2>
+  <div class="big3">
+    <div class="bignum"><div class="v num">81.1%</div><div class="l">十年交易日里零新买入的占比(每5天约1天才买)</div></div>
+    <div class="bignum"><div class="v num">47/142</div><div class="l">整月一笔不买的月份(其中37个月是"有信号但门关"的纪律性空窗)</div></div>
+    <div class="bignum"><div class="v num">226 天</div><div class="l">最长门关段(2018年,大半年没买过一只票)</div></div>
+  </div>
+  <div class="tablewrap"><table style="min-width:640px">
+    <tr><th>指标</th><th>十年统计</th><th>当前状态(07-18)</th></tr>
+    <tr><td>门关段时长</td><td class="num">中位 40 自然日 · P90 121 天 · 最长 226 天(2018)/177 天(2023)/148 天(2022)</td><td class="num"><b>12 天,历史 18.2 分位</b>——才走中位段的三成</td></tr>
+    <tr><td>买入信号间隔(门开口径)</td><td class="num">中位仅 3 天(信号扎堆来)· 最长 234 天(2018)· 两百天级空窗每 2~3 年一次</td><td class="num">已等 15 天(92.5 分位)</td></tr>
+    <tr><td>全市场形态(门关也算)</td><td class="num">中位 3 天 · 最长 143 天</td><td class="num"><b>只等了 4 天(58.9 分位)</b>=形态机器正常,是门在拦</td></tr>
+  </table></div>
+  <div class="warn">白话读法:信号来的时候扎堆来(中位隔 3 天),不来的时候一断几个月——肥尾系统的产出天生是脉冲式的。历史上最长的三次空窗(2018、2022、2023下半年)事后看空仓全是对的(同期不设门的对照亏 -177、-322pp)。判断系统坏没坏,看 16:30 快照新不新鲜,不看今天有没有卡。门重开时会主动推送。</div>
+</div>
+
+<div class="card">
+  <h2>十年总成绩<small>2014-10 入场起点 → 2026-07,费后双边 0.15%,门开纪律口径</small></h2>
+  <div class="tablewrap"><table style="min-width:560px">
+    <tr><th>指标</th><th>数值</th><th>指标</th><th>数值</th></tr>
+    <tr><td>已平仓笔数</td><td class="num">866</td><td>胜率</td><td class="num">36.0%</td></tr>
+    <tr><td>均盈 / 均亏</td><td class="num"><span class="up">+26.13%</span> / <span class="dn">−7.00%</span>(盈亏比 3.74)</td><td><b>期望</b></td><td class="num up"><b>+4.94%/笔</b></td></tr>
+    <tr><td>累计(单利等额)</td><td class="num up">+4278.0pp</td><td>最大回撤</td><td class="num dn">−541.6pp</td></tr>
+    <tr><td>中位持有</td><td class="num">27 天</td><td>entry_B 十年产量</td><td class="num">仅 1 笔(参数过苛再添证据)</td></tr>
+  </table></div>
+  <h2 style="margin-top:18px">年度分解<small>绿底=亏损年(3个),橙底=最佳年</small></h2>
+  <div class="tablewrap"><table>
+    <tr><th>年</th><th>笔数</th><th>胜率%</th><th>累计pp</th><th>门开天数%</th><th>一句话</th></tr>
+    <tr><td class="num">2014 Q4</td><td class="num">25</td><td class="num">72.0</td><td class="num up">+741.5</td><td class="num">—</td><td>全面牛引燃段(极端条件不外推)</td></tr>
+    <tr><td class="num">2015</td><td class="num">74</td><td class="num">28.4</td><td class="num up">+227.4</td><td class="num">66.4</td><td><b>股灾年整体为正</b>:上半年吃肉,门6月底关躲过二次股灾</td></tr>
+    <tr><td class="num">2016</td><td class="num">16</td><td class="num">25.0</td><td class="num up">+171.9</td><td class="num">57.0</td><td>熔断年:1~4月零买入,少而正</td></tr>
+    <tr><td class="num">2017</td><td class="num">76</td><td class="num">40.8</td><td class="num up">+587.3</td><td class="num">83.6</td><td>蓝筹结构牛,500亿猎场正对口</td></tr>
+    <tr class="loss"><td class="num">2018</td><td class="num">16</td><td class="num">12.5</td><td class="num dn">−73.1</td><td class="num">14.4</td><td>单边熊:门几乎全年关,亏但受控(不设门 −177)</td></tr>
+    <tr><td class="num">2019</td><td class="num">66</td><td class="num">31.8</td><td class="num up">+317.2</td><td class="num">70.9</td><td>结构牛起步</td></tr>
+    <tr><td class="num">2020</td><td class="num">118</td><td class="num">43.2</td><td class="num up">+873.6</td><td class="num">76.5</td><td>结构牛主升,十年第三大年</td></tr>
+    <tr class="loss"><td class="num">2021</td><td class="num">64</td><td class="num">25.0</td><td class="num dn">−154.2</td><td class="num">38.7</td><td>抱团崩塌后震荡,门反例年(不设门 +32)</td></tr>
+    <tr class="loss"><td class="num">2022</td><td class="num">25</td><td class="num">24.0</td><td class="num dn">−57.2</td><td class="num">26.9</td><td>完整熊年,门砍掉大部分出血(不设门 −322)</td></tr>
+    <tr><td class="num">2023</td><td class="num">43</td><td class="num">25.6</td><td class="num up">+30.8</td><td class="num">27.3</td><td>阴跌年勉强打平</td></tr>
+    <tr><td class="num">2024</td><td class="num">123</td><td class="num">26.8</td><td class="num up">+47.5</td><td class="num">57.9</td><td>微利,9·24 后门重开</td></tr>
+    <tr class="star"><td class="num">2025</td><td class="num">135</td><td class="num">43.0</td><td class="num up">+1084.2</td><td class="num">69.5</td><td>十年最佳年</td></tr>
+    <tr><td class="num">2026 半年</td><td class="num">85</td><td class="num">47.1</td><td class="num up">+481.0</td><td class="num">71.3</td><td>延续强势</td></tr>
+  </table></div>
+  <div class="warn"><b>单点依赖质变</b>:剔除 2025 后其余年份仍合计 <b class="num">+3194pp</b>(再剔 2014Q4 引燃段仍 +2452pp)。对照:五年窗剔除 2025 只剩 +154pp——"盈利全靠 2025"的旧结论在十年样本上<b>不成立</b>,正期望有跨周期分布。13 个年段 10 正 3 负。</div>
+</div>
+
+<div class="card">
+  <h2>门开 vs 门关<small>同引擎同池同参数,唯一变量=开仓门</small></h2>
+  <div class="tablewrap"><table style="min-width:560px">
+    <tr><th>指标</th><th>门开(纪律)</th><th>门关(对照)</th><th>读法</th></tr>
+    <tr><td>期望/笔</td><td class="num up"><b>+4.94%</b></td><td class="num">+4.41%</td><td>单笔质量门开更高</td></tr>
+    <tr><td>累计</td><td class="num">+4278pp(866笔)</td><td class="num">+5009pp(1135笔)</td><td>总量门关高,但要多下269笔+扛更深回撤</td></tr>
+    <tr><td>最大回撤</td><td class="num"><b>−541.6pp</b></td><td class="num dn">−608.3pp</td><td>门开浅 67pp</td></tr>
+    <tr><td>熊年赔付端</td><td class="num">2018 −73 / 2022 −57</td><td class="num dn">2018 −177 / 2022 −322</td><td><b>三个下行年门合计少亏约 420pp</b></td></tr>
+    <tr><td>牛年保费端</td><td colspan="2" class="num">2020 少赚 417 / 2025 少赚 331 / 2023 少赚 163</td><td>保险费,年年要交</td></tr>
+    <tr><td>反例</td><td colspan="2" class="num">2021:门开 −154 vs 门关 +32</td><td>十年唯一"开着更亏"的年份</td></tr>
+  </table></div>
+  <div class="note">被门拦掉的 269 笔平均仅 +2.7%/笔——门拦掉的是低质量批次,不是负期望批次。在真实资金有限、回撤致命的前提下,期望与回撤才是可执行口径:<b>十年数据支持留门</b>。</div>
+</div>
+
+<div class="card blood">
+  <h2>阶梯留仓十年检验<small>留⅔+回撤25%清仓——它第一次见到 2014→2020,好坏都如实报</small></h2>
+  <div class="tablewrap"><table style="min-width:600px">
+    <tr><th>指标</th><th>十年全量</th><th>36格冻结(5年窗)</th></tr>
+    <tr><td>增益(保守/浮盈计价)</td><td class="num up">+235.8pp / +298.0pp</td><td class="num">+542.5 / +749.9</td></tr>
+    <tr><td><b>剔除最佳年 2025</b></td><td class="num dn"><b>−72.4pp(转负)</b></td><td class="num up">+234.2</td></tr>
+    <tr><td>2022 熊年 / 最差单笔</td><td class="num">+4.6 / −30.9</td><td class="num">+4.5 / −30.9</td></tr>
+    <tr><td>对基线相对增益</td><td class="num">+5.5%</td><td class="num">+44%</td></tr>
+    <tr><td>五道预声明闸门</td><td colspan="2"><b>十年复检全部通过</b>(G1~G5 全在线内)——入场券十年成立,但成色从"稳定增强"降级为"预算内的彩票持有成本"</td></tr>
+  </table></div>
+  <div class="warn" style="background:#FDEEEE;border-left-color:var(--red);color:#7A2E2E"><b>必须直视的风险画像:2021 抱团崩塌年单年 −262.6pp</b>(28 笔更差:7 笔更好)——高浮盈票留⅔正好撞上 2021-02 崩塌,回撤 25% 才认输。阶梯的本质是<b>做多牛尾延续性的杠杆</b>:趋势延续年赚(2015 +130/2025 +308/2026 +96),崩塌年大出血。现行闸门没约束"崩塌年"(G3 只钉了 2022)——已列入 10-09 评审,建议增设第六闸门。另:端点敏感,07-15~17 三天就回吐 48.8pp,留⅔的波动就是这个量级(本周你已体感过)。</div>
+</div>
+
+<div class="card">
+  <h2>给 10-09 评审的三条输入</h2>
+  <ol class="think">
+    <li><b>系统本体十年成立</b>:样本外年份整体赚钱、剔除 2025 仍 +3194pp、门的熊年裁剪跨周期复现——验证期最小仓纪律的数据背书从 5 年加厚到 10 年;</li>
+    <li><b>阶梯带着降级成色进评审</b>:闸门全过但"剔除最佳年仍大正"不复现,2021 型崩塌年无闸门约束;已启用的生产变体,其真实台账届时与本画像对照读;</li>
+    <li><b>空窗常态的量化证明可进产品话术</b>:47/142 月零买入、门开日 54.4%、两百天级空窗每 2~3 年一次——首页定心文案可引用。</li>
+  </ol>
+</div>
+
+<div class="card gray">
+  <h2>诚实边界(七条)</h2>
+  <ul>
+    <li>2015~2020 池的 ST 剔除用当前名称近似(当年真实 ST 状态不可完全复现,量级有限);</li>
+    <li>基本面闸门按"全过"=结果是技术面+RS 的<b>上界口径</b>(与 459 基线同性质,纵向可比;RS 纯价格不受业绩数据缺失影响);</li>
+    <li>2014Q4 胜率 72% 是全面牛引燃段极端条件,不外推;2015 千股跌停期跌停顺延存在乐观偏差(仅 7 笔);</li>
+    <li>Tushare 修数造成个位 pp 精度噪声,结论看量级与方向;</li>
+    <li>阶梯段为高置信复刻(原 36 格脚本已灭失,复现残差 ≤0.4pp)而非原脚本重跑;rump 端点敏感;</li>
+    <li>单利等额、资金无限假设:累计 pp 不可直译为账户收益率,<b>期望/笔与回撤是推荐读数</b>;</li>
+    <li>md 版同名同目录;可复现脚本与数据在 scratch_backtest_10y/(其中 bt_cache_10y.db 是 459 基线唯一可复现源,勿删)。</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -12,6 +12,8 @@
 
 ## 全局约束
 
+- 2026-07-31 数据裁决：`forecast` 作为加法筛选“三选一”中的可选证据跳过，
+  不阻塞测量；报告必须披露无按历史时点可复现取数路径。以后补充须另交数据审批。
 - 只允许新增 `s6_measurement/`、`s6_measurement_cli.py`、
   `test_s6_measurement.py` 和 S6 文档；不得修改任何既有业务文件或依赖文件。
 - 新数据仅限已批准的 Tushare `income`、`forecast`、`daily_basic` 和批准字段；
