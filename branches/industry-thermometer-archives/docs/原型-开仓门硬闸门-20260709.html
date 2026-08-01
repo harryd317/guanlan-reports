@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:开仓门硬闸门(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.gate-closed{background:rgba(224,49,49,.08);border-radius:var(--radius);padding:12px 16px;
+  margin-bottom:14px;font-size:14px;font-weight:600;color:#E03131;border:1px solid rgba(224,49,49,.2)}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:14px;border-left:5px solid var(--blue)}
+.kind{font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:4px;color:var(--blue)}
+.title{font-size:19px;font-weight:700;margin-bottom:10px}
+.title .code{color:var(--mut);font-size:13px;font-weight:400}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:15px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.howto{font-size:14px;color:var(--mut);margin-bottom:12px}
+.btns{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button.act{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  font-family:inherit;background:var(--card2);color:var(--text)}
+button.act.main{background:var(--blue);color:#fff}
+/* 门关降级态 */
+.card.gated{opacity:.62;border-left-color:#ADB5BD}
+.card.gated .kind{color:#868E96}
+.gatetag{display:inline-block;background:#F1F3F5;color:#6E6E73;border:1px solid var(--line);
+  border-radius:8px;padding:1px 8px;font-size:12px;font-weight:700;vertical-align:2px;margin-left:6px}
+.gatenote{background:#F1F3F5;border-radius:10px;padding:9px 12px;font-size:13px;
+  color:var(--mut);margin-bottom:12px;line-height:1.6}
+.gatenote b{color:var(--text)}
+.violate{background:none;border:none;color:var(--red);font-size:12px;cursor:pointer;
+  font-family:inherit;text-decoration:underline;padding:6px 0 0}
+/* 缓冲带对照表 */
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;
+  overflow:hidden;box-shadow:var(--shadow);font-size:13px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--card2);color:var(--mut);font-weight:600}
+tr:last-child td{border-bottom:none}
+.o{color:var(--green);font-weight:700}.c{color:var(--red);font-weight:700}
+.flip{background:#FFF9DB}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:26px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+</style>
+</head>
+<body>
+
+<h1>原型:开仓门硬闸门</h1>
+<div style="color:var(--mut);font-size:14px;margin-bottom:6px">两件事:①门关时买入卡灰化降级,不再和红条打架;②门加 ±1% 缓冲带,不再一天开一天关。判定语义零改动。</div>
+
+<div class="proto-h">现状(自相矛盾的)</div>
+<div class="gate-closed">🔴 大盘关门:沪深300 4756 &lt; 60日均线 4846,不追新</div>
+<div class="card">
+  <div class="kind">买 入</div>
+  <div class="title">沪电股份 <span class="code">002463</span></div>
+  <div class="howto"><b>怎么做:</b>明早在买点附近买入 → 回这里点「已买入」</div>
+  <div class="btns"><button class="act main">已买入</button><button class="act">这次不买</button></div>
+</div>
+
+<div class="proto-h">① 改后·门关时:买入卡灰化,只记录不执行
+  <small>信号照常记录;哪天门开了、买点还有效,卡片自动恢复彩色可执行</small></div>
+<div class="gate-closed">🔴 大盘关门:沪深300 4756 &lt; 60日均线 4846,只卖不买</div>
+<div class="card gated">
+  <div class="kind">买 入(观望)</div>
+  <div class="title">沪电股份 <span class="code">002463</span> <span class="gatetag">大盘关门 · 不执行</span></div>
+  <div class="facts">
+    <div class="row"><span>买点</span><b>122.54~129.72 元之间</b></div>
+    <div class="row"><span>止损线</span><b>122.54</b></div>
+  </div>
+  <div class="gatenote"><b>按您的规则第4条:大盘关门期间不开新仓。</b>这张卡只是记录——买点已出现,系统会每天盯着;等大盘站回均线上方(门开),它若仍有效会自动变回可执行的买入卡。</div>
+  <div class="btns">
+    <button class="act">知道了</button>
+    <button class="violate">我没忍住已经买了 → 违规记账(留痕)</button>
+  </div>
+</div>
+
+<div class="proto-h">② 缓冲带(±1% 滞回):贴线不再抽风
+  <small>开着的门,收盘跌到均线下 1% 才关;关着的门,收盘站上均线上 1% 才开。翻转当天留审计日志</small></div>
+<table>
+  <tr><th>日期</th><th>收盘 vs 60日线</th><th>旧逻辑(单日)</th><th>新逻辑(±1%滞回)</th></tr>
+  <tr><td>7月3日</td><td class="num">+0.18%</td><td class="o">开</td><td class="o">开</td></tr>
+  <tr><td>7月6日</td><td class="num">+0.04%</td><td class="o">开</td><td class="o">开</td></tr>
+  <tr class="flip"><td>7月7日</td><td class="num">-1.05%</td><td class="c">关</td><td class="c">关(跌破-1%,翻转留痕)</td></tr>
+  <tr><td>7月8日</td><td class="num">-1.9%</td><td class="c">关</td><td class="c">关</td></tr>
+  <tr class="flip"><td>假设某日</td><td class="num">+0.3%</td><td class="o">开 ← 抽风!</td><td class="c">仍关(不到+1%不开)</td></tr>
+  <tr><td>假设次日</td><td class="num">+1.2%</td><td class="o">开</td><td class="o">开(站稳+1%,翻转留痕)</td></tr>
+</table>
+<div class="anno"><b>要点:</b>前四行是最近的真实行情(7月6日 +0.04% 开门、次日就关的抽风已实际发生);后两行演示新逻辑怎么防抖——反弹不足 1% 不轻易重开,省掉"开一天又关"的假信号。带宽 1% 是起点,11g 回测会验证并可调。</div>
+
+<div class="proto-h">③ 待你拍板的 3 个决定</div>
+<div class="ask"><h3>A. 门关时买入卡的形态:如图①灰化+「知道了」?</h3>
+  <div class="opt">保留一个红字小口子「我没忍住已经买了→违规记账」——真买了账本不能装瞎,但每次都留违规审计痕(和仓位闸门的 force_buy 同一本账)。要不要这个小口子?</div></div>
+<div class="ask"><h3>B. 缓冲带宽度 ±1%?</h3>
+  <div class="opt">可选 0.5%(灵敏)/ 1%(默认建议)/ 2%(迟钝)。做成设置页参数,回测后可再调。</div></div>
+<div class="ask"><h3>C. 门状态翻转要不要发一条微信?</h3>
+  <div class="opt">门开/门关是全局大事(决定能不能买新票),建议翻转当天推送一条;渠道配好前先只记日志。</div></div>
+
+</body>
+</html>

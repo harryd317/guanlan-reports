@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:标题日期表达(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--text:#1D1D1F;--mut:#6E6E73;--red:#E03131;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:24px;font-weight:700;margin-bottom:2px}
+h1 .dsub{font-size:14px;font-weight:400;color:var(--mut)}
+.updline{color:var(--mut);font-size:13px;margin-bottom:12px}
+.gate-closed{background:rgba(224,49,49,.08);border-radius:var(--radius);padding:12px 16px;
+  margin-bottom:14px;font-size:14px;font-weight:600;color:#E03131;border:1px solid rgba(224,49,49,.2)}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:26px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px}
+.anno{background:#FFF9DB;border:1px solid #F5E1A4;border-radius:10px;padding:10px 14px;font-size:13px;color:#5F5410;margin:10px 0}
+</style>
+</head>
+<body>
+
+<h1 style="font-size:20px">原型:标题日期怎么表达才不吓人</h1>
+<div style="color:var(--mut);font-size:14px;margin-bottom:6px">背景:7月9日上午打开首页,标题是「7月8日」——数据没错(今天的要等16:30收盘才有),但表达像页面坏了。</div>
+
+<div class="proto-h">现状(引起误会的)</div>
+<h1>7月8日</h1>
+<div class="gate-closed">🔴 大盘关门:沪深300 4756 &lt; 60日均线 4843,不追新</div>
+
+<div class="proto-h">① 盘中的样子(数据日≠今天时)
+  <small>标题写明是收盘数据,副标题告诉你今天的什么时候来</small></div>
+<h1>7月8日<span class="dsub">收盘数据</span></h1>
+<div class="updline">今天(7月9日)的筛选将在 16:30 收盘后自动更新</div>
+<div class="gate-closed">🔴 大盘关门(7月8日收盘判):沪深300 4756 &lt; 60日均线 4843,不追新</div>
+
+<div class="proto-h">② 今天数据到位后的样子(16:30后)
+  <small>副标题自动消失,一切如常</small></div>
+<h1>7月9日<span class="dsub">收盘数据</span></h1>
+<div class="gate-closed">🔴 大盘关门:沪深300 47xx &lt; 60日均线 48xx,不追新</div>
+
+<div class="anno"><b>三处改动:</b>①标题后缀「收盘数据」常驻(两个字说清数据口径);②数据日≠今天时,标题下加一行灰字预告更新时间(16:30后自动消失);③大盘关门红条在数据日≠今天时注明「(X月X日收盘判)」。与过期黄条不冲突:黄条管"该有的没有"(真故障),这行灰字管"还没到点"(正常态)。</div>
+
+</body>
+</html>

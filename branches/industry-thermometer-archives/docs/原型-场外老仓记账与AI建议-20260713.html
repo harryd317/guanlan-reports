@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 场外老仓记账与AI建议 · 20260713</title>
+<style>
+:root{--bg:#F5F5F7;--card:#fff;--line:#E5E5EA;--txt:#1D1D1F;--mut:#86868B;
+      --blue:#0A84FF;--red:#FF3B30;--green:#2F9E44;--am:#B45309;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.65 -apple-system,"PingFang SC",sans-serif;
+     max-width:760px;margin:0 auto;padding:20px 14px 60px}
+h1{font-size:20px;margin:6px 0 2px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+h2{font-size:16px;margin:0 0 10px}
+.screen{margin:26px 0 8px;font-size:14px;color:var(--mut);font-weight:600}
+.card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:12px;
+      box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:20px;
+     border:1px solid transparent}
+.tag.out{background:#FFF4E6;color:var(--am)}
+.tag.ok{background:rgba(47,158,68,.09);color:var(--green)}
+.tag.manual{background:#EEF2FF;color:#4338CA}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:var(--mut);font-weight:500;text-align:left;padding:6px 6px;border-bottom:1px solid var(--line)}
+td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.num{font-variant-numeric:tabular-nums}
+.up{color:var(--red)}.dn{color:var(--green)}
+button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:9px;
+       padding:6px 14px;cursor:pointer}
+button.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+button.small{font-size:12.5px;padding:3px 10px}
+.mut{color:var(--mut)}.sm{font-size:12.5px}
+.err{color:var(--red);font-size:12.5px}
+.hint{font-size:12.5px;color:var(--mut);margin-top:8px;line-height:1.7}
+.badge{display:inline-block;font-weight:700;padding:2px 10px;border-radius:8px;font-size:13px}
+.badge.leave{background:#FFF1F0;color:var(--red)}
+.badge.keep{background:rgba(47,158,68,.1);color:var(--green)}
+.aibox{background:#F8F9FB;border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px}
+.decision{background:#FFFBEB;border:1px solid #F5E1A4;border-radius:12px;padding:14px 16px;margin:10px 0}
+.decision b{display:block;margin-bottom:4px}
+ul,ol{padding-left:20px}
+li{margin:4px 0}
+.divider{border:none;border-top:1px dashed var(--line);margin:14px 0}
+.grp{font-size:13px;font-weight:600;color:var(--mut);margin:12px 0 6px}
+</style>
+</head>
+<body>
+
+<h1>场外老仓记账与 AI 建议 · 原型</h1>
+<div class="sub">2026-07-13 · 依据用户拍板方向变更:"池外票也要可以入账,以前的操作也要给建议"(取代 07-12「老账老办法只读」收紧)</div>
+
+<div class="card" style="background:#EEF2FF">
+<h2>一句话设计</h2>
+给系统加一本「场外账」:场外票打 <span class="tag manual">manual 策略标</span>,
+引擎不接管(不发止损/孤儿提醒)、纪律统计不掺(验证期/胜率/净值照旧纯净)、
+但<b>风控敞口计入</b>(行业闸/总仓位终于看见你的真实家底);
+AI 建议两条线——持有老仓出「留/走」建议卡,已平仓历史出一次性复盘报告。
+</div>
+
+<div class="screen">屏1 · 截图记账卡(改):场外行可勾,入「场外账」</div>
+<div class="card">
+<h2>📷 截图记账</h2>
+<table>
+<tr><th>选</th><th>方向</th><th>股票</th><th>成交价</th><th>数量</th><th>日期</th><th>交叉校验</th></tr>
+<tr><td><input type="checkbox" checked></td><td class="up">买入</td>
+    <td>维峰电子 <span class="mut num">301328</span></td>
+    <td class="num">72.341</td><td class="num">4000</td><td>今天</td>
+    <td><span class="tag out">场外票 · 入「场外账」(不进纪律统计)</span></td></tr>
+<tr><td><input type="checkbox" checked></td><td class="dn">卖出</td>
+    <td>长川科技 <span class="mut num">300604</span></td>
+    <td class="num">355.08</td><td class="num">900</td><td>今天</td>
+    <td><span class="tag out">场外票 · 卖出配对已录老仓,只记盈亏</span></td></tr>
+<tr><td><input type="checkbox"></td><td class="up">买入</td>
+    <td>厦门钨业 <span class="mut num">600549</span></td>
+    <td class="num">58.90</td><td class="num">1000</td><td>今天</td>
+    <td><span class="tag ok">等买点票 ✓ 走四道闸门</span></td></tr>
+</table>
+<div style="margin-top:10px"><button class="primary">确认入账 3 笔(池内 1 · 场外 2)</button>
+<button>全部放弃</button></div>
+<div class="hint">变化点:①池外行 checkbox 解锁,标签由"仅展示"改为"入场外账";
+②确认按钮分账走:池内票照旧走 /api/brief/act 四道闸门;场外票走新的场外账通道
+(纯记账,不过开仓门/仓位闸——它是既成事实的补录,拦了=逼你不记账);
+③买入场外票=建场外持仓;卖出场外票=先找已录场外仓配对平仓,找不到给人话提示"先补录买入那笔"。</div>
+</div>
+
+<div class="screen">屏2 · 交易台持仓卡(改):纪律仓/场外仓分区</div>
+<div class="card">
+<h2>持仓 <span class="tag ok">纪律仓 0 笔</span> <span class="tag manual">场外仓 1 笔</span></h2>
+<div class="grp">▍纪律仓(系统规则管理,进验证期统计)</div>
+<div class="mut sm">暂无。买入等买点票后出现在这里,由中线规则管止损与卖出线。</div>
+<hr class="divider">
+<div class="grp">▍场外仓(老账,manual 策略:系统只跟行情,不下指令)</div>
+<table>
+<tr><th>股票</th><th>成本/现价</th><th>数量</th><th>浮动盈亏</th><th>操作</th></tr>
+<tr><td>维峰电子<br><span class="mut num sm">301328</span></td>
+    <td class="num">72.34 / 67.17</td><td class="num">4000</td>
+    <td class="num dn">-20,684(-7.2%)</td>
+    <td><button class="small">🤖 AI建议</button> <button class="small">卖出记账</button>
+        <button class="small">提醒线</button></td></tr>
+</table>
+<div class="hint">①场外仓不出止损卡/孤儿仓提醒——只有你自设「提醒线」才提示(纯价格线,盘中提示一次);
+②浮动盈亏用现有盘中行情通道,收盘后用收盘价;③「卖出记账」=记盈亏进场外账,不进冷静期;
+④账户风控:场外仓市值计入行业集中度与总仓位敞口——以后买池内票,闸门按真实敞口把关(修盲区)。</div>
+</div>
+
+<div class="screen">屏3 · AI 建议(持有老仓):留/走建议卡</div>
+<div class="card">
+<h2>维峰电子 · AI 建议 <span class="badge leave">建议:考虑离场</span></h2>
+<div class="aibox">
+<b>机械事实(体检引擎,零AI):</b>
+<div class="sm">现价 67.17,较你的成本 72.34 亏 7.2%;股价跌破 20 日线;120 日相对强度弱于市场 62% 的票;当前不满足中线卡任何入场条件。</div>
+<hr class="divider">
+<b>AI 白话建议(review_verdict 同款引擎):</b>
+<div class="sm">"这只票你拿着的理由如果是基本面,注意它最近没有业绩预告支撑;从走势看属于阴跌无承接。
+按纪律系统的标准它进不了观察池。如果当初没有明确的持有逻辑,越涨越该走,越跌越不该补。"</div>
+</div>
+<div style="margin-top:10px"><button class="small">照建议办:卖出记账</button>
+<button class="small">不同意,继续拿着</button> <button class="small">查全景 →</button></div>
+<div class="hint">建议只是参考,不自动执行(红线7:执行确认永远是你的按钮);
+点「查全景」直达现有 /stock/301328 七区全景页(它本来就支持任意票)。
+生成成本:按需点击生成,每票每日缓存(同行业深析先例)。</div>
+</div>
+
+<div class="screen">屏4 · AI 复盘报告(已平仓历史操作)</div>
+<div class="card">
+<h2>📋 复盘我的历史操作 <button class="small" style="float:right">生成报告</button></h2>
+<div class="aibox">
+<b>数据范围:</b><span class="sm">场外账里已录的平仓交易(随补录增多,报告可重新生成)</span>
+<hr class="divider">
+<b>逐笔点评(示例):</b>
+<ul class="sm">
+<li><b>中国长城 07-XX 买 19.99 → 卖 19.78(同量5700)</b>:当日一进一出,亏 -1.05% + 双边费用。
+典型情绪单:没有预设买点与止损就进场,当天被洗出来。</li>
+<li><b>长川科技 买 320.19×400 → 卖 355.08×900</b>:卖出量大于这笔买入量,说明老底仓一起卖了。
++10.9% 落袋是对的,但从你的持仓页看卖后又接回,来回交易增加成本。</li>
+<li><b>中船特气 卖 332.80×317</b>:成本 265.54 之上落袋?——若是,+25% 是这批操作里唯一的
+纪律型止盈;若是补录错位,请核对。</li>
+</ul>
+<hr class="divider">
+<b>三条教训(AI 提炼,对照纪律规则):</b>
+<ol class="sm">
+<li>没有入场标准 → 系统的等买点机制就是替你把这道关;</li>
+<li>没有止损预设 → 亏损单拿成"长期投资"(维峰电子 -7.2% 无止损线);</li>
+<li>频繁进出 → 费用侵蚀,统计上你的赢单持有天数远短于亏单。</li>
+</ol>
+</div>
+<div class="hint">报告落在「问AI」页或日报附录,每次生成留档可回看;喂给 AI 的是结构化交易列表(代码/方向/价/量/日期),不含截图。</div>
+</div>
+
+<div class="screen">统计隔离(不动现有任何口径)</div>
+<div class="card">
+<ul class="sm">
+<li><b>验证期 0/20、胜率、期望值、净值曲线:只算纪律账</b>(strategy ∈ short/mid),一笔场外账都不掺;</li>
+<li>场外账单独小结:总盈亏一个数 + 交易列表,放交易台「场外账」折叠区;</li>
+<li>行业集中度/总仓位敞口:<b>计入场外仓</b>(风控看真实家底,这是把老仓录进来的最大收益之一);</li>
+<li>快照/日报/推送等下游 payload 键集零变化(场外数据走独立键,不碰冻结契约)。</li>
+</ul>
+</div>
+
+<div class="screen">待拍板(三个问题)</div>
+<div class="decision"><b>Q1 场外仓计入风控敞口,同意吗?</b>
+建议:计入(行业闸 30% 与总仓 60% 按真实敞口算)。代价:你现在 81.9% 实盘仓位录入后,
+系统会立刻显示总仓超线——这是诚实,不是故障;纪律仓额度会因此变小。</div>
+<div class="decision"><b>Q2 AI 建议两条线都要吗?</b>
+①持有老仓「留/走」建议卡(按需生成,每日缓存);②历史操作复盘报告(手动点生成)。
+建议:都要,第一批先做①,②紧随其后(同一引擎,提示词不同)。</div>
+<div class="decision"><b>Q3 场外卖出记账,不进冷静期、不占用20笔验证期名额,同意吗?</b>
+建议:同意(冷静期是纪律仓的止损纪律;老账只求完整与教训)。</div>
+
+</body>
+</html>

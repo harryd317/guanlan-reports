@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:截图识别记账(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--amber:#B54708;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:680px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:26px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:6px 0 6px 14px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.card .kind{font-size:12px;font-weight:700;letter-spacing:4px;margin-bottom:6px;color:var(--blue)}
+.card h3{font-size:19px;margin-bottom:4px}
+.card p{font-size:15px;color:#3A3A3C;margin-bottom:10px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.card button{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;font-family:inherit;background:var(--card2);color:var(--text)}
+.card button.main{background:var(--blue);color:#fff}
+.pricebar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--card2);
+  border-radius:12px;padding:10px 12px;margin:10px 0}
+.pricebar input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:15px;width:110px;font-family:inherit}
+.pricebar .unit{color:var(--mut);font-size:13px}
+.camera{border:1px dashed var(--blue);background:rgba(10,132,255,.06);color:var(--blue);
+  border-radius:10px;padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer}
+.filled{background:#FFF9DB!important;border-color:#F5D9B0!important}
+.srcnote{font-size:12px;color:var(--amber);width:100%}
+.privacy{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.7}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--mut);font-weight:400;font-size:11px;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.ok{color:var(--green);font-weight:700}.warn{color:var(--amber);font-weight:700}.bad{color:var(--red);font-weight:700}
+.tag{display:inline-block;border-radius:8px;padding:1px 8px;font-size:11px}
+.tag.y{background:#FFF4E6;color:var(--amber)}
+.tag.g{background:rgba(47,158,68,.09);color:var(--green)}
+.hint{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.7}
+.upload{border:2px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--mut);font-size:14px;background:var(--card2)}
+.upload b{color:var(--blue)}
+.gbar{background:#FFF9DB;border:1px solid #F5E1A4;color:var(--amber);border-radius:10px;padding:9px 14px;font-size:13px;margin:10px 0}
+</style>
+</head>
+<body>
+
+<h1>原型:截图识别记账</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7">
+  痛点:手动录成交太烦。方案:传券商截图 → AI 识别 → <b>预填表单逐字段核对</b> → 确认才落库。
+  <b>识别结果绝不直接写库</b>(成交价错一位,验证期成本就脏了)。所有数字均为示例。
+</div>
+
+<div class="proto-h">① 首页记账流:输入条旁加📷,拍照代替手打<small>买入/卖出卡点「已买入/已卖出」弹出的输入条,加一个「截图填单」按钮。识别完自动填进原有输入框并变黄提示核对——落库仍走原按钮、原四道闸门。</small></div>
+<div class="card" style="border-left:5px solid var(--blue)">
+  <div class="kind">买入</div>
+  <h3>维峰电子 <span class="num" style="font-size:13px;color:var(--mut)">688097</span></h3>
+  <p>买点 71.80~72.60,计划止损 68.21(-5.0%)。建议买入 <b class="num">25,000</b> 元。</p>
+  <div class="pricebar">
+    <span class="camera">📷 截图填单</span>
+    <input class="filled num" value="72.347" title="成交价">
+    <input class="filled num" value="28.9" title="金额"><span class="unit">万</span>
+    <span class="srcnote">⚠ 以上两项来自截图识别(华西证券·成交页),请核对后再点确认;识别价 72.347 在当日区间 70.53~74.30 内 ✓</span>
+  </div>
+  <div class="btnrow"><button class="main">已买入,记一笔</button><button>清空手填</button></div>
+  <div class="privacy">隐私:截图将发送给 AI 引擎识别(当前:OpenAI 视觉通道)。建议截「成交回报页」,别截资产总览。</div>
+</div>
+
+<div class="proto-h">② 交易台:独立「截图记账」入口(多笔批量)<small>成交页一张图常有多笔,识别成列表逐笔勾选;每笔先过交叉校验(池状态/价格区间/方向),黄条的多看一眼再确认。</small></div>
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">截图记账</div>
+  <div class="upload">📷 <b>点击上传</b> 或拖入券商成交页截图(支持多张)<br><span style="font-size:12px">识别中会显示进度;识别失败自动退回手工表单,绝不装死</span></div>
+  <div class="tablewrap" style="margin-top:12px">
+  <table>
+    <tr><th>选</th><th>方向</th><th>股票</th><th>成交价</th><th>数量</th><th>金额</th><th>交叉校验</th></tr>
+    <tr><td>☑</td><td class="ok">买入</td><td>维峰电子 <span class="num">688097</span></td><td class="num">72.347</td><td class="num">4000</td><td class="num">28.94万</td><td><span class="tag g">✓ 等买点票,价在当日区间</span></td></tr>
+    <tr><td>☑</td><td class="bad">卖出</td><td>长川科技 <span class="num">300604</span></td><td class="num">352.31</td><td class="num">300</td><td class="num">10.57万</td><td><span class="tag y">⚠ 系统无此持仓——将按「场外老仓」记账,不进池</span></td></tr>
+    <tr><td>☐</td><td class="ok">买入</td><td>某某股份 <span class="num">600XXX</span></td><td class="num">15.20</td><td class="num">1000</td><td class="num">1.52万</td><td><span class="tag y">⚠ 池外票+非系统信号——默认不勾,勾选则记 strategy=unknown 留痕</span></td></tr>
+  </table>
+  </div>
+  <div class="btnrow" style="margin-top:12px"><button class="main">确认入账 2 笔</button><button>全部放弃</button></div>
+  <div class="hint">识别不确定的字段(模糊/遮挡)会标红空出来让你手补,绝不瞎猜;每笔入账走现有记账链路(熔断/开仓门/行业闸/仓位闸照常把关,拦下会说人话)。</div>
+</div>
+
+<div class="proto-h">③ 持仓页截图 → 存量核对模式<small>持仓页没有逐笔明细(只有均价),所以不直接记账——用来「对账」:截图持仓 vs 系统持仓,差异列出来,一键跳补录/修正。</small></div>
+<div class="card">
+  <div class="kind" style="letter-spacing:2px">持仓核对</div>
+  <div class="tablewrap">
+  <table>
+    <tr><th>股票</th><th>截图(券商实际)</th><th>系统记录</th><th>结论</th></tr>
+    <tr><td>维峰电子</td><td class="num">4000股 均价72.32</td><td class="num">4000股 成本72.347</td><td class="ok">✓ 一致</td></tr>
+    <tr><td>长川科技</td><td class="num">300股 均价377.53</td><td>—</td><td class="warn">⚠ 系统无此仓 → <u>按老仓补录(unknown)</u> 或忽略</td></tr>
+    <tr><td>中船特气</td><td class="num">318股 均价325.97</td><td>—</td><td class="warn">⚠ 系统无此仓 → 同上</td></tr>
+  </table>
+  </div>
+  <div class="hint">「老账老办法、新账新规矩」的拍板不变:老仓默认<b>忽略</b>,补录是显式选择(记 strategy=unknown,永不进背书矩阵);核对结果只展示不自动改库。</div>
+</div>
+
+<div class="proto-h">④ 降级与隐私<small>AI 引擎不可用/识别失败时的样子——照全站惯例:说明原因,退回手工,绝不静默。</small></div>
+<div class="gbar">📷 识别失败(引擎超时):请手动填写,或稍后重试。你的截图未被保存。</div>
+<div class="privacy" style="margin:6px 0 0 2px">
+  隐私边界(写进页面常驻提示):①截图只在识别瞬间发给 AI 引擎,系统不留存图片文件;②识别走你已配置的引擎(DeepSeek 文本引擎不收图,实现时实测 OpenAI/智谱视觉通道,报告写明用了哪家);③建议只截成交/持仓区域,裁掉总资产数字。
+</div>
+
+<div class="proto-h">⑤ 实现要点(拍板后执行)<small>后端 /api/ocr_trade:图片→base64→视觉模型→限定 JSON schema(方向/代码/名称/价格/数量/金额/日期,不许自由发挥)→逐笔交叉校验(池状态/当日价格区间/涨跌停)→前端预填。多笔/多图支持;ai_usage 记账;识别失败退手工。工期一天级,不碰判定引擎,测试照 TP 惯例。</small></div>
+
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. <b>核心流程</b>:识别→预填→人工确认才落库(绝不自动入账),可以吗?</div>
+  <div class="opt">2. <b>池外票/老仓</b>:默认不勾选,勾了按 strategy=unknown 留痕入账(不进池不进背书),符合"老账老办法"吗?</div>
+  <div class="opt">3. <b>持仓核对模式(③)</b>:第一期一起做,还是先做①②(成交识别),核对模式第二批?</div>
+  <div class="opt">4. <b>隐私提示</b>:④的三条边界文案可以吗?</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "phase": "before",
+  "sha256": {
+    "copy_market": "e1b23a7fe7eb64f0814cbf992050a282eba9b968f433be4e821da6c349371b69",
+    "copy_s3": "84ace0c2c9470353b43e74e655d8ade219728dea07d5611e5961156aef2ec1e7",
+    "copy_screener": "67ee3c716d888fd57d7b3feeb1dfa3af2e5ba448f6b19179ebd01b79d1c97704",
+    "production_market": "cbd061c495ef334afdda1de79249e929c4ba056bb4198f48942869585e781cad",
+    "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac",
+    "production_s3": "882562e8d0ee16517b7d5308770fc390b1310dbdc256edcbb79cd91a909d673e",
+    "production_screener": "01506181ce74155a76a3eab3085c8b7198563ea47555e8f5f1cce59cb534ea08"
+  }
+}

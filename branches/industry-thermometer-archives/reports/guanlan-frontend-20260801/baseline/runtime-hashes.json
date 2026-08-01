@@ -1,0 +1,10 @@
+{
+  "phase": "baseline",
+  "schema": "guanlan-runtime-hashes/v1",
+  "sha256": {
+    "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac",
+    "s3": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b",
+    "screener": "d3c201779835a7b65fdff70dbf25c0ab84e824786e7367f39d34f56410ecfac1"
+  }
+}
