@@ -1,0 +1,26 @@
+{
+  "stage": "after-immediate-rollback-restart",
+  "captured_at": "2026-08-01T02:42:14+08:00",
+  "rollback_commit": "8d96e39282fbb89ef23cfa1243024964cf27ca58",
+  "production_pid": 45869,
+  "health": {
+    "ok": true,
+    "match": true,
+    "rule_version": 10,
+    "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+    "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424"
+  },
+  "files": [
+    {"path": "~/Library/LaunchAgents/com.rui.stock-screener.web.plist", "bytes": 1049, "sha256": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac"},
+    {"path": "S3_research.db", "bytes": 135168, "sha256": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b"},
+    {"path": "bt_cache.db", "bytes": 92753920, "sha256": "d8679bfe45aa350d272b24bb3120a78f4b722a6948a148973bb8899bb78ef47e"},
+    {"path": "market.db", "bytes": 2212179968, "sha256": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1"},
+    {"path": "market.db-shm", "bytes": 32768, "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"},
+    {"path": "market.db-wal", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path": "screener.db", "bytes": 2596864, "sha256": "ece7a893cbd61fb788da7b6850630524caef877b62d1e2fd4cf1ddf15076b8b9"},
+    {"path": "screener.db-shm", "bytes": 32768, "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"},
+    {"path": "screener.db-wal", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+  ],
+  "database_restored": false,
+  "note": "The repeat deployment and rollback target are the same source commit. No database file was overwritten or restored."
+}

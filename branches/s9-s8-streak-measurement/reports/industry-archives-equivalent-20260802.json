@@ -1,0 +1,149 @@
+{
+  "task": "industry-thermometer-and-archives",
+  "date": "2026-08-02",
+  "branch": "codex/industry-thermometer-archives",
+  "implementation_head": "1e1176bd98dda57cb1c786dfbafa28570508163b",
+  "main_merge_head": "00e3ef636f9bb813756d250178c23dc8f3c16e19",
+  "scope": "display-only",
+  "archive_source": {
+    "source": "~/Downloads/产业档案-存储与算力硬件链.md",
+    "sha256": "2cdbfbc6b0f0c2bb5c1c1c154ec307ee6e1dfbc972c371db41cc2e7120cfc50e",
+    "byte_identical": true,
+    "parsed_industries": ["半导体", "存储与算力硬件"]
+  },
+  "equivalent_environment": {
+    "label": "com.rui.stock-screener.web.industry-archives-final",
+    "port": 19788,
+    "working_directory": "feature-worktree",
+    "start_script": "start.sh",
+    "health": {
+      "ok": true,
+      "match": true,
+      "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+      "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424"
+    },
+    "write_probe_status": 403,
+    "stopped_after_acceptance": true
+  },
+  "production_deployment": {
+    "launch_agent": "com.rui.stock-screener.web",
+    "restart_script": "restart.sh",
+    "plist_unchanged": true,
+    "health": {
+      "ok": true,
+      "match": true,
+      "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+      "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+      "rule_version": 10
+    },
+    "sha256_before_after": {
+      "production_plist": ["93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac", "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac"],
+      "production_screener": ["ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370", "ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370"],
+      "production_market": ["a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1", "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1"],
+      "production_s3": ["90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54", "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54"]
+    },
+    "visual": {
+      "desktop": {"viewport": [1440, 900], "document_scroll": [1440, 900], "reader_rect": [744, 700]},
+      "mobile": {"viewport": [390, 844], "document_scroll": [390, 844], "archive_grid": "366px"},
+      "reader_title": "产业档案 · 存储与算力硬件链",
+      "markdown_tables": 3,
+      "headings": 14,
+      "console_errors": 0
+    }
+  },
+  "thermometer": {
+    "formula_version": "industry-thermometer-v1",
+    "data_date": "2025-12-31",
+    "industries_total": 134,
+    "industries_complete": 131,
+    "volume_ranked_industries": 131,
+    "rs_eligible_stocks": 5409,
+    "heat_counts": {
+      "cold": 20,
+      "warm": 83,
+      "hot": 23,
+      "scorching": 5,
+      "unknown": 3
+    }
+  },
+  "readonly_sha256": {
+    "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac",
+    "production_screener": "ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370",
+    "production_market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "production_s3": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54",
+    "copy_screener": "94c99dbfaaeaa507362d95837cdd7ee2b9c7f403adfca45d690706582f5894ff",
+    "copy_market": "4ee29aa68fdc116bec07de56a1b258eab3437e87568aadfa1f2d84d46bd9ca1c",
+    "copy_s3": "5f292ef743043bd1c21a4de82e936c4c0b967e6db36692e511b01c8ef20236a3",
+    "full_t1": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5",
+    "before_after_equal": true
+  },
+  "post_acceptance_audit": {
+    "production_s3_before_sha256": "9752050d5071e1fcfa3bc51aa5147053bdff19f898f787fcc4fd4356dc2a0a34",
+    "production_s3_after_sha256": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54",
+    "backup_sha256": "33f91e20c2315c308cbfd81c3dbd8e53863376f10565029116cc50888aac59a2",
+    "logical_diff": "job_runs id=8 rejected test record plus sqlite_sequence 7 to 8; no other logical differences",
+    "record_started_at": "2026-08-01T17:59:46.726261+00:00",
+    "cause": "A prior diagnostic test_web.py run from the main worktree wrote its rejected test audit record to the production-side S3_research.db.",
+    "remediation_status": "Authorized exact cleanup complete: id=8 removed, sqlite_sequence reset from 8 to 7, quick_check ok, post-cleanup logical dump equals the pre-contamination snapshot."
+  },
+  "visual_acceptance": {
+    "console_errors": 0,
+    "desktop": {
+      "viewport": [1440, 900],
+      "document_scroll": [1440, 900],
+      "named_industry_pills": 134
+    },
+    "mobile": {
+      "viewport": [390, 844],
+      "document_scroll": [390, 844],
+      "archive_layout_columns": 1
+    },
+    "filter": {
+      "industry": "半导体",
+      "archive_count": 1
+    },
+    "markdown_tables": 6,
+    "original_archive": {
+      "desktop_viewport": [1440, 900],
+      "mobile_viewport": [390, 844],
+      "desktop_document_scroll": [1440, 900],
+      "mobile_document_scroll": [390, 844],
+      "markdown_tables": 3,
+      "headings": 14,
+      "console_errors": 0,
+      "mobile_layout_columns": 1
+    },
+    "stock_match": {
+      "code": "002156",
+      "name": "通富微电",
+      "link_visible": true,
+      "deep_link_pass": true
+    },
+    "stock_no_match": {
+      "code": "002008",
+      "name": "大族激光",
+      "link_hidden": true
+    }
+  },
+  "screenshots": [
+    {"file": "产业档案-桌面.jpg", "size": [1440, 900], "sha256": "6649942f530b8cfdcdd9932daf7d10f756129c7572848b9f1201deccf4489f64"},
+    {"file": "产业档案-手机.jpg", "size": [390, 844], "sha256": "b9bb5c2f688126133025cb70e07d0fa795b0f786c4aaf822ed48f2dd4ca3abf2"},
+    {"file": "产业档案-半导体过滤-桌面.jpg", "size": [1440, 900], "sha256": "3ce7682728505707aa0aa5cb4afb7b9e3249324e8936f94b5d19eb4f22ea5deb"},
+    {"file": "产业档案-表格阅读-桌面.jpg", "size": [1440, 900], "sha256": "28ff348914176615a7022cc38badca5fee20cd92c9ba0e6a6e0d1f9bb0a224b7"},
+    {"file": "个股产业档案入口-桌面.jpg", "size": [1440, 900], "sha256": "290b830ced7dc3f25bc2375f12429ecf35f38f4e1e9538628aa088a9f3685915"},
+    {"file": "个股产业档案入口-手机.jpg", "size": [390, 844], "sha256": "66a98bd70267a7e4803fcff5b536f18379957dda59f4c3a10343cec32c97c67a"},
+    {"file": "产业档案-原文-等效-桌面.jpg", "size": [1440, 900], "sha256": "6b38b85ed7a6cf67ccc24bb51f9ffeab26226da56c9e2078bb38b695cbe11e65"},
+    {"file": "产业档案-原文-等效-手机.jpg", "size": [390, 844], "sha256": "a8bb3dcde618a4c0b6883da84fc3155cb5e9363e7db6b515ec28b62d4e17309e"},
+    {"file": "产业档案-原文-生产-桌面.jpg", "size": [1440, 900], "sha256": "5ce3b1a1afeb7b4a845d9a4f17ab7a6676fcfa79f3b2e301365eeba72bdc0baf"},
+    {"file": "产业档案-原文-生产-手机.jpg", "size": [390, 844], "sha256": "2f558b1c6f97c8d2e419d2cb2b7a658e6452f7e901d61792389e2d8be4bd7826"}
+  ],
+  "tests": {
+    "focused": "54/54",
+    "test_rules": "8/8",
+    "test_rules_mid": "20/20",
+    "test_web": "838/838",
+    "test_regime": "6/6",
+    "javascript_syntax": "2/2"
+  },
+  "unmet_items": []
+}

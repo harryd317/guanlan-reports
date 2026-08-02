@@ -1,0 +1,126 @@
+{
+  "deployment_date": "2026-08-02",
+  "status": "pass",
+  "scope": "industry thermometer production closure",
+  "deployed_merge_commit": "3a09cf019c09f242a31792fcab989fc0791c9c60",
+  "service": {
+    "launch_agent": "com.rui.stock-screener.web",
+    "state": "running",
+    "pid": 39103,
+    "listener": "127.0.0.1:8787",
+    "listener_process_count": 1,
+    "health_ok": true,
+    "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+    "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+    "fingerprint_match": true
+  },
+  "routing": {
+    "legacy_static_url_status": 404
+  },
+  "thermometer": {
+    "ok": true,
+    "data_date": "2026-07-31",
+    "latest_trade_date": "2026-07-31",
+    "is_stale": false,
+    "industry_count": 134,
+    "heat_counts": {
+      "cold": 21,
+      "warm": 103,
+      "hot": 2,
+      "scorching": 5,
+      "unknown": 3
+    },
+    "archive_first_markdown_h1_count": 0
+  },
+  "launch_agent_environment": {
+    "dedicated_sidecar_configured": true,
+    "research_read_path_is_sidecar": true,
+    "market_path_is_production_market": true,
+    "plist_sha256_before": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac",
+    "plist_sha256_after": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc"
+  },
+  "database_hashes": {
+    "frozen_t1_before": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5",
+    "frozen_t1_after": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5",
+    "market_before": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "market_after": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "screener_before": "5506b509f717a5e69b7214ce5de8a8c9ee1dc4c0732bcc727d0bd707aff911d4",
+    "screener_after": "5506b509f717a5e69b7214ce5de8a8c9ee1dc4c0732bcc727d0bd707aff911d4",
+    "s3_main_before": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54",
+    "s3_main_after": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54",
+    "sidecar_after": "4be79ecb364a76469eb011af735b52bee455e8c4fb9922296be0e143c2c1d338"
+  },
+  "tests": {
+    "focused": "91/91",
+    "required_repository_gates": "875/875",
+    "code_review_critical_or_important_remaining": 0
+  },
+  "visual_evidence": [
+    {
+      "page": "industry-thermometer",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "client_height": 900,
+        "scroll_width": 1440,
+        "scroll_height": 900,
+        "key_rect": {
+          "x": 242,
+          "y": 96,
+          "width": 1016,
+          "height": 774
+        }
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "docs/screenshots/industry-thermometer-production/20260802/温度计-生产-桌面.jpg",
+      "screenshot_sha256": "d2e2b3acf2d968d9a8e8dd48409e470435016441b2dac2b1c8078fe2f7ec2899",
+      "console_errors": [],
+      "four_heat_classes_visible": true,
+      "data_date_visible": true
+    },
+    {
+      "page": "industry-thermometer",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "client_height": 844,
+        "scroll_width": 390,
+        "scroll_height": 844,
+        "key_rect": {
+          "x": 12,
+          "y": 97,
+          "width": 366,
+          "height": 736
+        }
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "docs/screenshots/industry-thermometer-production/20260802/温度计-生产-手机.jpg",
+      "screenshot_sha256": "c9f5695f0076027d55e80c625233fc22a8f0ae836daf26823037e73d799401f4",
+      "console_errors": [],
+      "four_heat_classes_visible": true,
+      "data_date_visible": true
+    }
+  ]
+}
