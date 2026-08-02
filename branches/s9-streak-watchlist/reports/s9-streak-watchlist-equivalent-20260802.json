@@ -1,8 +1,8 @@
 {
   "acceptance": "pass",
   "branch": "codex/s9-streak-watchlist",
-  "captured_at": "2026-08-02T23:31:38+08:00",
-  "source_commit": "b8e161fe4494ffedce4471a604ed36466e75446c",
+  "captured_at": "2026-08-02T23:39:15+08:00",
+  "source_commit": "1a6857b12391149a0906faf7658788b3c6d443bb",
   "environment": {
     "background_jobs": "disabled",
     "database_open_mode": "read_only",
@@ -122,8 +122,8 @@
   "tests": {
     "compileall": "pass",
     "diff_check": "pass",
-    "focused_and_equivalent": "114/114",
+    "focused_and_equivalent": "115/115",
     "legacy_web": "838/838",
-    "total": "952/952"
+    "total": "953/953"
   }
 }
