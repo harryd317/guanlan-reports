@@ -1,0 +1,124 @@
+{
+  "acceptance": "pass",
+  "captured_at": "2026-08-02T23:45:24+08:00",
+  "deployment": {
+    "feature_commit": "d58e122",
+    "health": {
+      "fingerprint_boot": "f89907d0e550edcacc2042a9b50c55250aba67c8",
+      "fingerprint_disk": "f89907d0e550edcacc2042a9b50c55250aba67c8",
+      "match": true,
+      "ok": true
+    },
+    "launch_agent": {
+      "label": "com.rui.stock-screener.web",
+      "pid": 63451,
+      "plist_modified": false,
+      "runs": 3,
+      "start_script": "start.sh",
+      "working_directory": "screener"
+    },
+    "main_before": "ab15bc6840b9ae0faa4bf72047d8800d78f9d1c2",
+    "main_merge": "00b9bf9727f0b3b78af71de63c4c83257dd7a3cd",
+    "restart_script": "restart.sh",
+    "rollback_triggered": false
+  },
+  "hashes": {
+    "before_and_after_deployment": {
+      "S8_research.db": "668a65a2cbd7e1dcaf939ce18556b5551d80b6a0dac77735b8ac93bf9bcffe94",
+      "industry_thermometer_sidecar.db": "3d1b7e5f19d432d732ab9c65d04d33d9922b47d97a1d78bd1db02d0319eea671",
+      "market.db": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+      "plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+      "screener.db": "354737ff29fea274ceeeb487bd4812d5e563e12d77f312d2a1d8883cedfd8e19"
+    }
+  },
+  "runtime": {
+    "api": {
+      "count": 124,
+      "data_date": "2026-07-31",
+      "formula_version": "s8-streak-watchlist-v1.0",
+      "ok": true,
+      "read_only": true
+    },
+    "forbidden_streak_action_present": false,
+    "logic_card_count": 3,
+    "required_copy_present": true
+  },
+  "screenshots": [
+    {
+      "console_errors": [],
+      "device": "desktop",
+      "dom": {
+        "client_height": 900,
+        "client_width": 1440,
+        "key_rect": {"height": 388.5, "width": 1016, "x": 242, "y": 204.5},
+        "row_count": 124,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "height": 900,
+      "page": "today",
+      "path": "docs/screenshots/s9-streak-watchlist/20260802/阶段一-生产-今天-桌面.jpg",
+      "sha256": "33bafbb1c8c700f30d16d47f12bf8405929451bf9b6be0468189b0c74d3f393f",
+      "width": 1440
+    },
+    {
+      "console_errors": [],
+      "device": "mobile",
+      "dom": {
+        "client_height": 844,
+        "client_width": 390,
+        "key_rect": {"height": 352.5, "width": 366, "x": 12, "y": 185},
+        "row_count": 124,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "height": 844,
+      "page": "today",
+      "path": "docs/screenshots/s9-streak-watchlist/20260802/阶段一-生产-今天-手机.jpg",
+      "sha256": "571ff0decc7f60e907e3f6cbd557e7122af3aa7c56f871607c1bac5c8a9a0b99",
+      "width": 390
+    },
+    {
+      "console_errors": [],
+      "device": "desktop",
+      "dom": {
+        "card_count": 3,
+        "client_height": 900,
+        "client_width": 1440,
+        "key_rect": {"height": 774, "width": 1016, "x": 242, "y": 96},
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "height": 900,
+      "page": "pool_logic",
+      "path": "docs/screenshots/s9-streak-watchlist/20260802/阶段一-生产-选股逻辑-桌面.jpg",
+      "sha256": "dc915de1d55c62cf5613a18b12fee34c1b4a845198151f21df994ff5b6d7ddd6",
+      "width": 1440
+    },
+    {
+      "console_errors": [],
+      "device": "mobile",
+      "dom": {
+        "card_count": 3,
+        "client_height": 844,
+        "client_width": 390,
+        "inter_card_gaps": [8, 8],
+        "key_rect": {"height": 736, "width": 366, "x": 12, "y": 97},
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "height": 844,
+      "page": "pool_logic",
+      "path": "docs/screenshots/s9-streak-watchlist/20260802/阶段一-生产-选股逻辑-手机.jpg",
+      "sha256": "1ab5aa98e77218cf1726aef578ac02edca8a3fdb3fa135c838b3107711214aac",
+      "width": 390
+    }
+  ],
+  "tests_after_merge": {
+    "compileall": "pass",
+    "diff_check": "pass",
+    "focused_and_equivalent": "115/115",
+    "legacy_web": "838/838",
+    "total": "953/953"
+  }
+}
