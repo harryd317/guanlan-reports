@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 全站重设计 · 20260714</title>
+<style>
+:root{--bg:#F5F5F7;--card:#fff;--line:#E5E5EA;--txt:#1D1D1F;--mut:#86868B;--blue:#0A84FF;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.65 -apple-system,"PingFang SC",sans-serif;
+     max-width:760px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:22px;margin:6px 0 4px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:20px}
+a.plan{display:block;background:var(--card);border-radius:14px;padding:18px;margin-bottom:14px;
+       box-shadow:0 1px 3px rgba(0,0,0,.05);text-decoration:none;color:var(--txt);border:2px solid transparent}
+a.plan:hover{border-color:var(--blue)}
+a.plan b{font-size:17px}
+a.plan .tag{display:inline-block;font-size:12px;color:var(--mut);margin-left:8px}
+a.plan .rec{display:inline-block;font-size:12px;color:#fff;background:var(--blue);border-radius:10px;
+            padding:1px 10px;margin-left:8px;font-weight:600}
+a.plan p{color:var(--mut);font-size:13.5px;margin-top:6px}
+.note{background:#FFFBEB;border:1px solid #F5E1A4;border-radius:12px;padding:12px 16px;font-size:13.5px;margin-top:18px;color:#6B5A33}
+</style>
+</head>
+<body>
+<h1>选股器全站重设计 · 原型</h1>
+<div class="sub">2026-07-14 · 数据全部取自当日真实收盘(冲高有险 · 门关 · 距开门2.22%)</div>
+
+<a class="plan" href="原型-全站重设计-方案AB-今日驾驶舱-20260714.html">
+  <b>方案AB · 今日驾驶舱</b><span class="tag">A 的骨架 × B 的心脏</span><span class="rec">用户指定方向</span>
+  <p>统一顶栏导航(方案A)+ 超大市况红绿灯卡与助理卡片流(方案B):打开 3 秒知道"今天用不用动手",同一屏看全池子/持仓/环境;移动端底部 Tab。首页为完整精细稿,股票池/问AI/交易台/策略中心为风格延续示意。</p>
+</a>
+
+<div class="note">独立的方案A(纯驾驶舱·Material风)/ 方案B(纯今日一件事·iOS风)/ 方案C(终端Lite·专业密度风)三份单独稿未生成(生成过程被中断);如需对比再叫 Claude 补。</div>
+</body>
+</html>

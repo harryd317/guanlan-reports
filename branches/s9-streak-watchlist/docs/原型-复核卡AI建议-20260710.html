@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:复核卡带AI建议(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--amber:#B54708;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:24px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+
+/* 消息卡(照 home.html 复核卡样式) */
+.card{background:var(--card);border-left:5px solid var(--amber);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.card .kind{font-size:12px;font-weight:700;color:var(--amber);letter-spacing:4px;margin-bottom:6px}
+.card h3{font-size:19px;margin-bottom:2px}
+.card h3 .code{font-size:13px;color:var(--mut);font-weight:400}
+.card .head2{font-size:16px;font-weight:700;margin:8px 0 6px}
+.card p{font-size:15px;color:#3A3A3C;margin-bottom:10px}
+.card .howto{font-size:14px;margin-bottom:12px}
+.card .howto b{color:var(--text)}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.card button{border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;font-family:inherit;background:var(--card2);color:var(--text)}
+.card button.main{background:var(--blue);color:#fff}
+.card button.danger{background:rgba(224,49,49,.08);color:var(--red)}
+
+/* AI 建议区(新) */
+.aibox{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.aibox .who{font-size:12px;color:var(--mut);margin-bottom:6px}
+.aibadge{display:inline-block;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px;
+  margin-right:6px}
+.aibadge.remove{background:rgba(224,49,49,.09);color:var(--red);border:1px solid rgba(224,49,49,.25)}
+.aibadge.keep{background:rgba(47,158,68,.09);color:var(--green);border:1px solid rgba(47,158,68,.25)}
+.aibox .why{font-size:14px;color:#3A3A3C;margin-top:8px}
+.aibox.na{color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+
+<h1>原型:复核卡直接给 AI 建议</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7">
+  您的反馈:复核卡说"给个结论",但没告诉您 AI 怎么看——"看过了"之后无从判断。
+  改法:每张复核卡生成时让 AI 就地表态(<b>建议移出 / 建议保留</b>二选一+白话理由),
+  您要么一键照办,要么否决保留。终判仍在您,但不再是空白裁决。
+</div>
+
+<div class="proto-h">① 现状(改前)<small>只有机械层事实,没有任何倾向,按钮只有"看过了"。</small></div>
+<div class="card">
+  <div class="kind">复核</div>
+  <h3>德业股份 <span class="code num">605117</span></h3>
+  <div class="head2">德业股份 有情况,该看一眼了</div>
+  <p>技术否决:收盘 86.19 破30周生命线(86.69),退回候选。复核是否移出观察池,48小时内给结论。</p>
+  <div class="howto"><b>怎么做:</b><span style="color:var(--mut)">看一眼详情,给个结论(继续持有/研究/移出)</span></div>
+  <div class="btnrow"><button>看过了</button></div>
+</div>
+
+<div class="proto-h">② 新版(建议移出的例子)<small>机械层事实一字不动;下面加 AI 建议区(结论徽章+两句白话理由,引用真实数字);按钮变成「照建议办」+「不同意,保留」。</small></div>
+<div class="card">
+  <div class="kind">复核</div>
+  <h3>德业股份 <span class="code num">605117</span></h3>
+  <div class="head2">德业股份 有情况,该看一眼了</div>
+  <p>技术否决:收盘 86.19 破30周生命线(86.69),退回候选。</p>
+  <div class="aibox">
+    <div class="who">AI 复核意见(仅供参考,拍板在您)</div>
+    <span class="aibadge remove">建议移出</span>
+    <div class="why">收盘跌破 30 周生命线且距 5 月平台 92.4 已回落 6.7%,当初"平台突破"的买入理由不再成立;
+    观察池位置有限,建议让位给新候选。它若重新突破,系统会再次捕获,不会错过。</div>
+  </div>
+  <div class="howto"><b>怎么做:</b>同意就点左边一键移出;不同意点右边继续留在观察池。</div>
+  <div class="btnrow">
+    <button class="danger">照建议办:移出观察池</button>
+    <button>不同意,继续观察</button>
+  </div>
+</div>
+
+<div class="proto-h">③ 新版(建议保留的例子)<small>AI 也可能不同意机械层:破线但缩量、论点未伤,就会建议保留——按钮跟着建议变。</small></div>
+<div class="card">
+  <div class="kind">复核</div>
+  <h3>某某股份 <span class="code num">600XXX</span></h3>
+  <div class="head2">某某股份 有情况,该看一眼了</div>
+  <p>技术否决:收盘 45.10 破30周生命线(45.55),退回候选。</p>
+  <div class="aibox">
+    <div class="who">AI 复核意见(仅供参考,拍板在您)</div>
+    <span class="aibadge keep">建议保留</span>
+    <div class="why">破线幅度仅 1%,当日缩量(量比 0.6),更像洗盘而非趋势走坏;
+    行业事件(6/28 中标公告)对论点是加分项。建议保留观察,连续 3 日收在线下再移。</div>
+  </div>
+  <div class="howto"><b>怎么做:</b>同意就点左边继续留着;想直接清掉点右边移出。</div>
+  <div class="btnrow">
+    <button class="main">照建议办:继续观察</button>
+    <button class="danger">不同意,移出</button>
+  </div>
+</div>
+
+<div class="proto-h">④ AI 不可用时(降级)<small>引擎没配/超额时不装死:显示原因,退回现状按钮,机械层照常。</small></div>
+<div class="card">
+  <div class="kind">复核</div>
+  <h3>德业股份 <span class="code num">605117</span></h3>
+  <div class="head2">德业股份 有情况,该看一眼了</div>
+  <p>技术否决:收盘 86.19 破30周生命线(86.69),退回候选。</p>
+  <div class="aibox na">AI 复核意见未生成(引擎不可用),请按上面事实自行拍板。</div>
+  <div class="btnrow">
+    <button class="danger">移出观察池</button>
+    <button>继续观察</button>
+  </div>
+</div>
+
+<div class="proto-h">⑤ 实现要点(拍板后执行)
+  <small>生成时机=16:30 日报生成时,对每张带票复核卡调一次 AI(通常0~2张/日,引擎不可用整批降级);
+  AI 输出限定二选一枚举(remove/keep)+理由,不许自由发挥;「照建议办:移出」走现有池状态接口并留痕
+  (user_actions+events),移出票重新突破会被系统再次捕获;事件削弱类复核卡同样补建议动作。</small></div>
+
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. 按钮方案:<b>「照建议办」一键执行 + 「不同意」反向操作</b>(如②③)可以吗?还是只显示建议、操作仍去池页手动?</div>
+  <div class="opt">2. AI 建议限定「移出/保留」二选一(不给"再研究"之类的骑墙选项),可以吗?</div>
+  <div class="opt">3. 覆盖范围:所有带票复核卡(技术否决+事件削弱+候选待立项)都给建议;修数据类提醒不给(没得建议)。可以吗?</div>
+</div>
+
+</body>
+</html>
