@@ -1,0 +1,73 @@
+{
+  "date": "2026-07-31",
+  "remote": "https://github.com/harryd317/guanlan-reports.git",
+  "credential_policy": {
+    "type": "fine-grained-personal-access-token",
+    "resource_owner": "harryd317",
+    "repositories": [
+      "guanlan-reports"
+    ],
+    "repository_permissions": {
+      "contents": "read-and-write",
+      "metadata": "required-read-only"
+    },
+    "account_permissions": 0,
+    "expiration_days": 30,
+    "storage": "osxkeychain",
+    "use_http_path": true
+  },
+  "push_probe": {
+    "commit": "13dc96b1acb12178ec437e7ef855a2343a4d90d8",
+    "mode": "dry-run",
+    "result": "accepted",
+    "remote_mutated": false
+  },
+  "backfill": {
+    "codex_branches": {
+      "count": 13,
+      "copied_files": 1888,
+      "mirror_commit": "044947a3fac7e29b98c83f86eaf504e1eaa57168"
+    },
+    "main": {
+      "copied_files": 166,
+      "source_commit": "574e79c4d6d852602a7c7e01d8e3b9b318c12a54",
+      "mirror_commit": "36b76e5c5877178fad831dea91464d640850ef1f"
+    },
+    "total_copied_files": 2054,
+    "blocked_findings": 0
+  },
+  "first_fresh_clone": {
+    "head": "36b76e5c5877178fad831dea91464d640850ef1f",
+    "tracked_files": 2203,
+    "worktree_clean": true,
+    "required_paths_present": 8,
+    "t7_acceptance_jpeg_count": 10,
+    "blocked_findings": 0,
+    "allowed_synthetic_findings": 41,
+    "root_reports_directory_present": false,
+    "root_reports_directory_resolution": "this verification report makes the final mirror directory non-empty"
+  },
+  "required_path_sha256": {
+    "AGENTS.md": "f06a16191f729b1d1047b1e9b500a66ba24a471be10d68a1227da0b9cc194a73",
+    "branches/t7-today-two-lines/AGENTS.md": "f06a16191f729b1d1047b1e9b500a66ba24a471be10d68a1227da0b9cc194a73",
+    "branches/t7-today-two-lines/docs/superpowers/specs/2026-07-31-t7-production-equivalent-remediation-design.md": "bfad6a974a166f75f3b05e9a68688617ad996af1ca0e0abcb3c2aab732aee5a0",
+    "branches/t7-today-two-lines/docs/事件记录-T7部署回滚-20260731.md": "b5b2b8b792667af5dab969a47f07fb82eeabf258eb3ca2385abc18861223f594",
+    "branches/t7-today-two-lines/docs/验收-T7-生产等效环境修复-20260731.md": "a684148c5c852cde51c89917c107e4896c51661c760aa7e6ba4ad73cb4fd6ee7",
+    "branches/s6-screen-measurement/AGENTS.md": "4d0db96c7a756d0c03b59a1dddca12110d1595f26f5b0758c29a998563292cf4",
+    "branches/s6-screen-measurement/docs/测量报告-S6-初筛有效性-20260731.md": "56200fa802c8fbf7d7d68d26d6436bf1082962b7aed21b7260dc4eb4126a50ed",
+    "branches/s6-screen-measurement/docs/验收-S6-初筛有效性测量-20260731.md": "05ba413ff9e7adeb3a96cec074239ed1469cd0c9f756f8845821636bf0b0a765"
+  },
+  "t7_acceptance_jpeg_sha256": {
+    "今天-手机.jpg": "5f5d1435b568a764582e11574786eb919a6053bcb6a230e79cb3688fa9eff662",
+    "今天-桌面.jpg": "5fdad32646a0874e47e559a81dc375251ba0355da25d8ffe0c8192eea30cfef6",
+    "工程模式-手机.jpg": "5e57f8c797d884f3be317d20f83b2a26490d2f0c2640a9aa638ddab9918af233",
+    "工程模式-桌面.jpg": "1cda7e17e0d6ad7b8c99ab1c9bede18912924f72325fc2848eddf971f6dba5ce",
+    "我的-手机.jpg": "d95191fd776bc103e0627f82c68d1a1cf0c730433abbe26e3ce21728ab2b7db4",
+    "我的-桌面.jpg": "acf530d2aa0c049ff910471fd8f9f6671192913c4900ecc58adcddae08963c5d",
+    "股票池-手机.jpg": "01fe968c56da80655c544ab6a20943d8f0a60b206e757da134689b361b634668",
+    "股票池-桌面.jpg": "09db72a039d542cc5ee3dda4276e5f3f89c33565cab185066dd291b59ddd4046",
+    "设置-手机.jpg": "a98ec081dbc977f3049a01d50e8270576d5d265e05c3102df985c292f43c797a",
+    "设置-桌面.jpg": "fdea59911f3bcc1ecc8a596ace30a444406a1fd6ecd2967cca2b84bc50e33199"
+  },
+  "production_changed": false
+}

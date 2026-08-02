@@ -1,0 +1,36 @@
+Industry thermometer production closure test evidence
+Date: 2026-08-02 Asia/Shanghai
+Branch: codex/industry-thermometer-production-closure
+
+Focused suite:
+- Command: .venv/bin/python -m unittest test_industry_thermometer_snapshot.py test_s3_live_sources.py test_industry_thermometer_sidecar_script.py test_industry_archives.py test_s3_research.py test_guanlan_frontend_contract.py -q
+- Result: PASS, 88/88
+
+Repository-required production gates (AGENTS.md):
+- .venv/bin/python test_rules.py: PASS, 8/8
+- .venv/bin/python test_rules_mid.py: PASS, 20/20
+- .venv/bin/python test_web.py: PASS, 838/838
+- .venv/bin/python test_regime.py: PASS, 6/6
+- Required-gate total: PASS, 872/872
+
+Worktree-only fixture dependencies linked read-only from the main checkout:
+- reports/golden_p1_mid_before.json
+  SHA-256: 3b0e71d76f4defabdd121266b21ac332bf821b767c8d6fa4d2a8865c283eb1cb
+- reports/backtest_mid_trades_v5params.csv
+  SHA-256: 6ce1907ffa1b7ff4670fcd837727f6aac59f94f485c440dccb48baffb4c15fff
+
+Discovery note:
+- `python -m unittest discover` is not a supported repository gate: it imports script-style
+  `test_rules_mid.py`, `test_regime.py`, and `test_web.py` as unittest modules and also runs
+  retired `test_s3_ui.py` contracts that require the old engineering/S3 frontend. The new
+  frontend specification explicitly removes those interface elements. The scripts pass when
+  run through the repository-required entry points listed above.
+
+API source evidence versus pre-task main checkout e681305:
+- Changed API function: api_industry_thermometer (GET /api/industry-thermometer)
+- Current function SHA-256: 5f19fabaccf4544aa4be686a2df7cdc4da6831fa38a5f0841ff671d85c011a07
+- All other /api/* function source hashes: unchanged
+
+Static and syntax checks:
+- git diff --check: PASS
+- py_compile for new and modified production modules: PASS

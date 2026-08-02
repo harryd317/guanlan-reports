@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-31T06:17:51.218Z",
+  "environment": {
+    "label": "com.rui.stock-screener.web.t7-equivalent",
+    "port": 18787,
+    "launch_mode": "cloned-production-launch-agent",
+    "database_mode": "read-only-consistent-copies"
+  },
+  "capture_contract": {
+    "mode": "viewport",
+    "desktop": {
+      "width": 1440,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    },
+    "full_page_forbidden": true
+  },
+  "entries": [
+    {
+      "page": "今天",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=desktop-today#today",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "client_width": 1440,
+        "hash": "#today",
+        "inner_height": 900,
+        "inner_width": 1440,
+        "key_rect": {
+          "height": 772,
+          "width": 1104,
+          "x": 288,
+          "y": 111.34375
+        },
+        "scroll_height": 900,
+        "scroll_width": 1440,
+        "visible_headings": [
+          "今天",
+          "投机线",
+          "投资线"
+        ]
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "今天-桌面.jpg",
+      "bytes": 39734,
+      "sha256": "5fdad32646a0874e47e559a81dc375251ba0355da25d8ffe0c8192eea30cfef6"
+    },
+    {
+      "page": "股票池",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=desktop-pool#pool",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "client_width": 1440,
+        "hash": "#pool",
+        "inner_height": 900,
+        "inner_width": 1440,
+        "key_rect": {
+          "height": 751.125,
+          "width": 1104,
+          "x": 288,
+          "y": 111.34375
+        },
+        "scroll_height": 952,
+        "scroll_width": 1440,
+        "visible_headings": [
+          "股票池"
+        ]
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "股票池-桌面.jpg",
+      "bytes": 49369,
+      "sha256": "09db72a039d542cc5ee3dda4276e5f3f89c33565cab185066dd291b59ddd4046"
+    },
+    {
+      "page": "我的",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=desktop-me#me",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "client_width": 1440,
+        "hash": "#me",
+        "inner_height": 900,
+        "inner_width": 1440,
+        "key_rect": {
+          "height": 705.0859375,
+          "width": 1104,
+          "x": 288,
+          "y": 111.34375
+        },
+        "scroll_height": 906,
+        "scroll_width": 1440,
+        "visible_headings": [
+          "我的",
+          "投机仓",
+          "投资仓",
+          "风控",
+          "违规处置",
+          "账户统计",
+          "实盘验证"
+        ]
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "我的-桌面.jpg",
+      "bytes": 43233,
+      "sha256": "acf530d2aa0c049ff910471fd8f9f6671192913c4900ecc58adcddae08963c5d"
+    },
+    {
+      "page": "工程模式",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=desktop-engineering-v2#me",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "client_width": 1440,
+        "hash": "#me",
+        "inner_height": 900,
+        "inner_width": 1440,
+        "key_rect": {
+          "height": 282.140625,
+          "width": 1104,
+          "x": 288,
+          "y": 527.6796875
+        },
+        "scroll_height": 1124,
+        "scroll_width": 1440,
+        "visible_headings": [
+          "我的",
+          "投机仓",
+          "投资仓",
+          "风控",
+          "违规处置",
+          "账户统计",
+          "实盘验证"
+        ]
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "工程模式-桌面.jpg",
+      "bytes": 54419,
+      "sha256": "1cda7e17e0d6ad7b8c99ab1c9bede18912924f72325fc2848eddf971f6dba5ce"
+    },
+    {
+      "page": "设置",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/settings?t7accept=desktop-settings",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "client_width": 1440,
+        "hash": "",
+        "inner_height": 900,
+        "inner_width": 1440,
+        "key_rect": {
+          "height": 182.390625,
+          "width": 864,
+          "x": 288,
+          "y": 136.1953125
+        },
+        "scroll_height": 900,
+        "scroll_width": 1440,
+        "visible_headings": [
+          "设置",
+          "股息率",
+          "AI 引擎状态 key 只显示是否配置,内容永不上前端",
+          "策略参数 11 项 选股规则的数值阈值",
+          "仓位纪律 11 项 仓位与风控上限",
+          "运行参数 7 项 调度与数据源行为",
+          "变更历史 13 条\n    「已驳回」= 提案被红线或人工拦下,未生效",
+          "维修间"
+        ]
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "设置-桌面.jpg",
+      "bytes": 18994,
+      "sha256": "fdea59911f3bcc1ecc8a596ace30a444406a1fd6ecd2967cca2b84bc50e33199"
+    },
+    {
+      "page": "今天",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=mobile-today#today",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "client_width": 390,
+        "hash": "#today",
+        "inner_height": 844,
+        "inner_width": 390,
+        "key_rect": {
+          "height": 746,
+          "width": 362,
+          "x": 14,
+          "y": 89.34375
+        },
+        "scroll_height": 844,
+        "scroll_width": 390,
+        "visible_headings": [
+          "今天",
+          "投机线",
+          "投资线"
+        ]
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "今天-手机.jpg",
+      "bytes": 26935,
+      "sha256": "5f5d1435b568a764582e11574786eb919a6053bcb6a230e79cb3688fa9eff662"
+    },
+    {
+      "page": "股票池",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=mobile-pool#pool",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "client_width": 390,
+        "hash": "#pool",
+        "inner_height": 844,
+        "inner_width": 390,
+        "key_rect": {
+          "height": 744.5234375,
+          "width": 358,
+          "x": 16,
+          "y": 97.34375
+        },
+        "scroll_height": 942,
+        "scroll_width": 390,
+        "visible_headings": [
+          "股票池"
+        ]
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "股票池-手机.jpg",
+      "bytes": 29496,
+      "sha256": "01fe968c56da80655c544ab6a20943d8f0a60b206e757da134689b361b634668"
+    },
+    {
+      "page": "我的",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=mobile-me#me",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "client_width": 390,
+        "hash": "#me",
+        "inner_height": 844,
+        "inner_width": 390,
+        "key_rect": {
+          "height": 1041.546875,
+          "width": 358,
+          "x": 16,
+          "y": 97.34375
+        },
+        "scroll_height": 1239,
+        "scroll_width": 390,
+        "visible_headings": [
+          "我的",
+          "投机仓",
+          "投资仓",
+          "风控",
+          "违规处置",
+          "账户统计",
+          "实盘验证"
+        ]
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "我的-手机.jpg",
+      "bytes": 21248,
+      "sha256": "d95191fd776bc103e0627f82c68d1a1cf0c730433abbe26e3ce21728ab2b7db4"
+    },
+    {
+      "page": "工程模式",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/?t7accept=mobile-engineering#me",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "client_width": 390,
+        "hash": "#me",
+        "inner_height": 844,
+        "inner_width": 390,
+        "key_rect": {
+          "height": 432.3359375,
+          "width": 358,
+          "x": 16,
+          "y": 311.640625
+        },
+        "scroll_height": 1606,
+        "scroll_width": 390,
+        "visible_headings": [
+          "我的",
+          "投机仓",
+          "投资仓",
+          "风控",
+          "违规处置",
+          "账户统计",
+          "实盘验证"
+        ]
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "工程模式-手机.jpg",
+      "bytes": 23568,
+      "sha256": "5e57f8c797d884f3be317d20f83b2a26490d2f0c2640a9aa638ddab9918af233"
+    },
+    {
+      "page": "设置",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:18787/settings?t7accept=mobile-settings",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "client_width": 390,
+        "hash": "",
+        "inner_height": 844,
+        "inner_width": 390,
+        "key_rect": {
+          "height": 225.390625,
+          "width": 366,
+          "x": 12,
+          "y": 119.3984375
+        },
+        "scroll_height": 844,
+        "scroll_width": 390,
+        "visible_headings": [
+          "设置",
+          "股息率",
+          "AI 引擎状态 key 只显示是否配置,内容永不上前端",
+          "策略参数 11 项 选股规则的数值阈值",
+          "仓位纪律 11 项 仓位与风控上限",
+          "运行参数 7 项 调度与数据源行为",
+          "变更历史 13 条\n    「已驳回」= 提案被红线或人工拦下,未生效",
+          "维修间"
+        ]
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "设置-手机.jpg",
+      "bytes": 13046,
+      "sha256": "a98ec081dbc977f3049a01d50e8270576d5d265e05c3102df985c292f43c797a"
+    }
+  ],
+  "diagnostics": [
+    {
+      "file": "diagnostic/手机-我的-fullPage-挤压.jpg",
+      "sha256": "d444e34cb60c13034941bb2d6e0ba86d3b7944a5e538f06b9f963562c3461b0f"
+    },
+    {
+      "file": "diagnostic/手机-我的-普通视口-正常.jpg",
+      "sha256": "d51d29e81473615bc3be9df7aeb702a80702dcb959d780a0defe42b7272501b8"
+    },
+    {
+      "file": "diagnostic/桌面-今天-fullPage-空白.jpg",
+      "sha256": "74874029fe6851b13c5186382046b4d6f0dbf5cf61eb9222bf74b6575d4d1f14"
+    },
+    {
+      "file": "diagnostic/桌面-今天-普通视口-正常.jpg",
+      "sha256": "2823df6b383a653a249edc17f592457ace1b266b21c7bec9d749da39436a3ede"
+    }
+  ]
+}
