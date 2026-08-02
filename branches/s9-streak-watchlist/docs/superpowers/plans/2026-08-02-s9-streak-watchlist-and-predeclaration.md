@@ -31,11 +31,10 @@
 - 修改：`service.py`
 - 修改：`test_s8_research.py`
 - 修改：`test_guanlan_frontend_contract.py`
-- 修改：`reports/guanlan-frontend-20260801/baseline/api-source-manifest.json`
 
 1. 写失败测试，要求注册 `GET /api/s8/streak-watchlist`，并验证路由无 POST/写操作。
 2. 在服务中调用读模型；异常经现有 `_fail` 返回真实空态。
-3. 更新获批展示 API 基线清单，不改既有 API 源哈希。
+3. 将新 GET 路由加入相对既有基线的允许新增项；历史基线清单和既有 API 源哈希保持不变。
 4. 运行 S8 与前端 API 合同测试至通过。
 
 ## Task 3：实现三卡与今天页名单
