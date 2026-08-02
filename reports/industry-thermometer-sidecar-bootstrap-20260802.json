@@ -1,0 +1,46 @@
+{
+  "bootstrap_date": "2026-08-02",
+  "status": "pass",
+  "write_boundary": "new independent industry_thermometer_sidecar.db only",
+  "requested_range": {
+    "start": "2026-01-01",
+    "end": "2026-07-31"
+  },
+  "validated_trade_date_coverage": {
+    "first_trade_date": "2026-01-05",
+    "last_trade_date": "2026-07-31",
+    "trade_dates": 139,
+    "daily_vol_rows": 763301,
+    "sw_index_daily_rows": 17236,
+    "published_industries_per_trade_date": 124,
+    "validation": "exact per-date match against production market_daily"
+  },
+  "derived_tables": {
+    "breadth_daily": 139,
+    "cluster_daily": 18626,
+    "cluster_members_daily": 584309
+  },
+  "snapshot": {
+    "trade_date": "2026-07-31",
+    "formula_version": "industry-thermometer-v1",
+    "generated_at": "2026-08-02T06:02:08.695684+00:00",
+    "source_sidecar_sha256_before_snapshot_write": "8ad790080a6ce9f8308712dc1074e1d1cc460b9a6871505e6f8a842ce806d920"
+  },
+  "hashes": {
+    "frozen_t1_before": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5",
+    "frozen_t1_after": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5",
+    "installed_sidecar": "4be79ecb364a76469eb011af735b52bee455e8c4fb9922296be0e143c2c1d338",
+    "market_before": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "market_after": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "screener_before": "5506b509f717a5e69b7214ce5de8a8c9ee1dc4c0732bcc727d0bd707aff911d4",
+    "screener_after": "5506b509f717a5e69b7214ce5de8a8c9ee1dc4c0732bcc727d0bd707aff911d4",
+    "s3_main_before": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54",
+    "s3_main_after": "90312194780c8e443102cfe4bde9d1a69c6363f4300ef6f7182b816624ff3d54"
+  },
+  "guards": {
+    "missing_dedicated_path_fails_closed": true,
+    "s3_research_named_target_rejected": true,
+    "checkpoint_revalidates_full_range": true,
+    "quota_or_missing_fields_has_no_fallback": true
+  }
+}
