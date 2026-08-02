@@ -2,7 +2,7 @@
   "chain_note": "本账本哈希由公开 Git 镜像提交固定，避免文件自哈希循环。",
   "core_artifact_sha256": {
     "docs/测量报告-S9-S8池连阳尾盘信号-20260802.md": "aa1bc7fa316d9d91f89140775dbf9f1600b3d9ee96b3c349e72282e33003f699",
-    "docs/验收-S9-S8池连阳尾盘信号测量-20260802.md": "2835b0dfc76cf40af9fa2117887c34b7c9673ddd99cf51d628abeb8acb72948b",
+    "docs/验收-S9-S8池连阳尾盘信号测量-20260802.md": "2b5acce1d4c6eb4ea3e640e7172670c7889f2b86abd7fc3dfaa865a579865f60",
     "reports/s9-s8-streak-measurements-20260802.csv": "6fda64d7551551b024efb3493e64a4a4604346399493a5d7b0d9248dcc9ea7c3",
     "reports/s9-s8-streak-qualification-20260802.csv": "c5c647cafa432b4e8d6ef4034a29a2ea1103f0e57287e351b359972b77e87c35",
     "reports/s9-s8-streak-run-manifest-20260802.json": "06b3c9218668248058e52e861f6a8ff3e27e84753ca0aa3cf74ea0db86019e0e",
