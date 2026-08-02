@@ -1,0 +1,822 @@
+{
+  "entries": [
+    {
+      "end_line": 987,
+      "function": "api_account",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/account"
+      ],
+      "sha256": "bf8f9c620f56ac63a6e0082b1e4aded6fa58dc405b64a3a5313c74f4ce7a45d6",
+      "start_line": 979
+    },
+    {
+      "end_line": 775,
+      "function": "api_ai_status",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/ai/status"
+      ],
+      "sha256": "2f9492cb351ec44ede2501fe6696e413317e09816d464c2b6e2a84a83e2564e2",
+      "start_line": 769
+    },
+    {
+      "end_line": 2151,
+      "function": "api_brief",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/brief"
+      ],
+      "sha256": "116b0df799ec2e44c92b44782f99d4bcba3789426f6f8a60efc3d20e5360c0a7",
+      "start_line": 2121
+    },
+    {
+      "end_line": 2653,
+      "function": "api_brief_act",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/brief/act"
+      ],
+      "sha256": "2cb345f72c405316ff25c210406770c57de79388205688c98066641f3e92e17d",
+      "start_line": 2580
+    },
+    {
+      "end_line": 1000,
+      "function": "api_cb_reset",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/circuit_breaker/reset"
+      ],
+      "sha256": "661dfea6b51234762c0c85bd55fe6c9ef88f58d869859f607d9ba3e11ea2656c",
+      "start_line": 990
+    },
+    {
+      "end_line": 705,
+      "function": "api_context_text",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/context_text"
+      ],
+      "sha256": "ed6fdfc07479ce268bb63154773c5dc550f7b41915a1babf69f521f7bbea488a",
+      "start_line": 694
+    },
+    {
+      "end_line": 1977,
+      "function": "api_daily_get",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/daily/{date}"
+      ],
+      "sha256": "0c68cde189ae518dbe392f7b18c126924cdb4c56766c8b3ff735e35c67cc45eb",
+      "start_line": 1968
+    },
+    {
+      "end_line": 1927,
+      "function": "api_daily_latest",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/daily/latest"
+      ],
+      "sha256": "97041e54d5242d4fb703004ab8367487eb257cf73e851d04eb364569bea8c842",
+      "start_line": 1917
+    },
+    {
+      "end_line": 1936,
+      "function": "api_daily_list",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/daily/list"
+      ],
+      "sha256": "d716d7d0e2a31d0172d2155bf23a7d67de8fbbec3f1967b40cb516723c51545a",
+      "start_line": 1930
+    },
+    {
+      "end_line": 1965,
+      "function": "api_daily_regenerate",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/daily/regenerate"
+      ],
+      "sha256": "59baada9328ebdca778167598fa4341680db8a7b5e15fc245c6f85c8a823dd27",
+      "start_line": 1944
+    },
+    {
+      "end_line": 1941,
+      "function": "api_daily_status",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/daily/status"
+      ],
+      "sha256": "33abb0751fc48162e9614fdf3ff720535d7b713e6d826e47f4fe43e9231cbeaf",
+      "start_line": 1939
+    },
+    {
+      "end_line": 594,
+      "function": "api_dashboard",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/dashboard"
+      ],
+      "sha256": "7fbdf8dafdf0145dd26e11c14c646d3e80d129c1fe7e22051c486c51613ee3ea",
+      "start_line": 580
+    },
+    {
+      "end_line": 615,
+      "function": "api_eod_trigger",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/eod_trigger"
+      ],
+      "sha256": "d16da6e24b118866070a0036424f33738f115399842c7ec57e6593f565183e56",
+      "start_line": 607
+    },
+    {
+      "end_line": 1873,
+      "function": "api_events",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/events/{code}"
+      ],
+      "sha256": "33a0892c201eae928db69fbd5b29052df97d96bd0ab9f01b96417294bcf6b1d6",
+      "start_line": 1867
+    },
+    {
+      "end_line": 524,
+      "function": "api_health",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/health"
+      ],
+      "sha256": "e4040b2196ab48b6b27aef01eb734d258687c3a57462d43d7a21a837955aa430",
+      "start_line": 513
+    },
+    {
+      "end_line": 1131,
+      "function": "api_import_positions_csv",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/import/positions_csv"
+      ],
+      "sha256": "2efdf5c55fb760affce410e9275b7059729cca74d0ce9407657fefd4daae82f2",
+      "start_line": 1094
+    },
+    {
+      "end_line": 1198,
+      "function": "api_import_trades_json",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/import/trades_json"
+      ],
+      "sha256": "de40a998c9acbe78bb433502835dd38d00363a7f0dd7251cafb0bdc0c11101ae",
+      "start_line": 1154
+    },
+    {
+      "end_line": 1726,
+      "function": "api_industry_deep",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/industry_deep/{code}"
+      ],
+      "sha256": "329bf8de4fcc0c163d724a9e449b165d6ccd704d61792bd37bf3c61a0e0583c3",
+      "start_line": 1685
+    },
+    {
+      "end_line": 627,
+      "function": "api_intraday",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/intraday"
+      ],
+      "sha256": "c66948a8705d48277188d2f5182d431658ce014a13bc9225b08395c12df8e977",
+      "start_line": 623
+    },
+    {
+      "end_line": 577,
+      "function": "api_ladder_shadow",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/ladder_shadow"
+      ],
+      "sha256": "89356fd6c1d799f3f862126a0444947c53aef3229747587b82193e754cfed5a4",
+      "start_line": 538
+    },
+    {
+      "end_line": 1903,
+      "function": "api_lesson",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/lesson/{code}"
+      ],
+      "sha256": "8544e73d1d1632e67470527e7f2640a6a40aff545046e90e8d3cbb782b825b51",
+      "start_line": 1879
+    },
+    {
+      "end_line": 1267,
+      "function": "api_memory_append",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/memory/append"
+      ],
+      "sha256": "2e2159adb69572104663992da90f179292b12deff1d455b1264b1d1fbeb405b0",
+      "start_line": 1251
+    },
+    {
+      "end_line": 1248,
+      "function": "api_memory_get",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/memory"
+      ],
+      "sha256": "de5bb35527185fcb181236443f760b0a56f8bbd5f47f8abff2738b4c788f4cde",
+      "start_line": 1245
+    },
+    {
+      "end_line": 3273,
+      "function": "api_ocr_trade",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/ocr_trade"
+      ],
+      "sha256": "3cc96f6152179159448c2f7aea9a8c283dc10e769543a82debc8973de51ae0c3",
+      "start_line": 3243
+    },
+    {
+      "end_line": 3143,
+      "function": "api_outside_act",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/outside/act"
+      ],
+      "sha256": "a1348e4234b026817a5e8cc766e3e8524968e5078d928b0cdd52fc0904c985d3",
+      "start_line": 3061
+    },
+    {
+      "end_line": 3208,
+      "function": "api_outside_advice",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/outside/advice/{code}"
+      ],
+      "sha256": "6fafa7e9f8a491c8b08650c77a96cb9261c15a78b2dae443c77a9773511fa172",
+      "start_line": 3177
+    },
+    {
+      "end_line": 3152,
+      "function": "api_outside_list",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/outside/list"
+      ],
+      "sha256": "c42b3d5d296dd60e0b2afd97010ae7ec95e32bcdcb8bb1950bee90e32733e0b8",
+      "start_line": 3146
+    },
+    {
+      "end_line": 3240,
+      "function": "api_outside_review",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/outside/review"
+      ],
+      "sha256": "e12962152d4ed82794048b48dc15cd64c37440476c8adb1744be148a2990adb4",
+      "start_line": 3211
+    },
+    {
+      "end_line": 1363,
+      "function": "api_pool_bootstrap",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/pool/bootstrap"
+      ],
+      "sha256": "b74b0642590cea43b3ae07f8d1018209537be8fd3a5c2f89f181c0aaa6119a41",
+      "start_line": 1339
+    },
+    {
+      "end_line": 1336,
+      "function": "api_pool_bootstrap_status",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/pool/bootstrap"
+      ],
+      "sha256": "118bd4d38e820da4906a49cdca49c9c3f3b647c93bf02225a9822879171ab8b0",
+      "start_line": 1334
+    },
+    {
+      "end_line": 1835,
+      "function": "api_pool_detail",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/pool/{code}"
+      ],
+      "sha256": "709c6b893ce0eb9a23ccc54d4831793e2a1dbb70147d5bb4e41aa41bfde4581e",
+      "start_line": 1800
+    },
+    {
+      "end_line": 1481,
+      "function": "api_pool_list",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/pool"
+      ],
+      "sha256": "fb47ac824e6db9ce8fa5c393dbf03b408a99a8e3534a6acece7a7184f4dc25f6",
+      "start_line": 1450
+    },
+    {
+      "end_line": 1391,
+      "function": "api_pool_stats",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/pool/stats"
+      ],
+      "sha256": "82b20d4a63dd2befa9f21c0fcde1f6cfe7faac178a3d6324ebcb7cc01a395eb8",
+      "start_line": 1377
+    },
+    {
+      "end_line": 1565,
+      "function": "api_pool_transition",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/pool/{pool_id}/transition"
+      ],
+      "sha256": "02cabdc36b42d24931d196bcd97de5a8a5307dd6e76c2157dbed59b58c81a331",
+      "start_line": 1559
+    },
+    {
+      "end_line": 1091,
+      "function": "api_portfolio_discipline",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/portfolio/{pid}/discipline"
+      ],
+      "sha256": "aa2b7fa43f720b41c2f5eeafb983e945af8decce2d7c3abdaeaeacee134921fb",
+      "start_line": 1082
+    },
+    {
+      "end_line": 1041,
+      "function": "api_position_add",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/positions"
+      ],
+      "sha256": "872457f81f40fd7f35cec2e071142709366460aa95a9016c495875d4fadadddc",
+      "start_line": 1003
+    },
+    {
+      "end_line": 1079,
+      "function": "api_position_close",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/positions/{pid}/close"
+      ],
+      "sha256": "5a91fe13200abb823cc96a7e2e060be01445b22d57d844f384d03a0ea9104b2a",
+      "start_line": 1069
+    },
+    {
+      "end_line": 1066,
+      "function": "api_position_delete",
+      "methods": [
+        "DELETE"
+      ],
+      "paths": [
+        "/api/positions/{pid}"
+      ],
+      "sha256": "7da467b64b0f9dc77e50dd16a86fc5f12e4c53c6b210edb3e06920c3cd8064b4",
+      "start_line": 1058
+    },
+    {
+      "end_line": 1055,
+      "function": "api_position_update",
+      "methods": [
+        "PUT"
+      ],
+      "paths": [
+        "/api/positions/{pid}"
+      ],
+      "sha256": "51ec7eaccad8a306ed7a0c3d7ba3b99481af615f83c2bfd82637f7e92d7cbcd7",
+      "start_line": 1044
+    },
+    {
+      "end_line": 806,
+      "function": "api_push_quiet",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/push_quiet"
+      ],
+      "sha256": "d0826374c729a0544d021fdbe89d183177ed39aa17937e461f32e12509ef8d14",
+      "start_line": 801
+    },
+    {
+      "end_line": 2938,
+      "function": "api_reaffirm_act",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/reaffirm/act"
+      ],
+      "sha256": "646eb6510b1962375a3eb81a4ead41d249fd7c030d56ec94bdd0750bf1770af0",
+      "start_line": 2853
+    },
+    {
+      "end_line": 2843,
+      "function": "api_reaffirm_get",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/reaffirm/{code}"
+      ],
+      "sha256": "b5a384a5dbe626f5312ddb28330c0304a5535d3076218d35905cc523f785ff2f",
+      "start_line": 2798
+    },
+    {
+      "end_line": 510,
+      "function": "api_regime_ai",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/regime/ai"
+      ],
+      "sha256": "1bbed0a7d4273aca17ea4417cefd825d57b94afe346440b3ef1ed8927b12c8ba",
+      "start_line": 486
+    },
+    {
+      "end_line": 440,
+      "function": "api_regime_current",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/regime/current"
+      ],
+      "sha256": "f86b42c9675d1c8bba62b0b19fb49d3ba0530687c5c03e7dd7408972a3a94824",
+      "start_line": 430
+    },
+    {
+      "end_line": 483,
+      "function": "api_regime_history",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/regime/history"
+      ],
+      "sha256": "fbd0a7f6ff985a899491a069fb720a183c4020327f82731c7e8e88b9341049be",
+      "start_line": 475
+    },
+    {
+      "end_line": 604,
+      "function": "api_rescan",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/rescan"
+      ],
+      "sha256": "6d504ee39804b581dc8206102e336ad8dc1c716b094d5cafc0fda0a6d1d7d158",
+      "start_line": 597
+    },
+    {
+      "end_line": 647,
+      "function": "api_review_chat",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/review/chat"
+      ],
+      "sha256": "9e1768e09bb4c44b268b3d6a101cd4d27c54f0b9470df0e4cc4e14fbe58f930d",
+      "start_line": 642
+    },
+    {
+      "end_line": 691,
+      "function": "api_review_outside",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/review/outside/{code}"
+      ],
+      "sha256": "64f3e181373e2b8d5f536b6cd6812e080754f106bc17a851c560c452420f5da6",
+      "start_line": 681
+    },
+    {
+      "end_line": 2027,
+      "function": "api_review_pack",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/review_pack"
+      ],
+      "sha256": "ed4c096c60c6df9108656841d603229d37891ca4967bc6723e141cf8970c76e0",
+      "start_line": 1980
+    },
+    {
+      "end_line": 674,
+      "function": "api_review_stock",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/review/stock/{code}"
+      ],
+      "sha256": "986f9be3cef606d57224fa78231fe7a22a295e0b834d94975fdba18cc490171f",
+      "start_line": 661
+    },
+    {
+      "end_line": 639,
+      "function": "api_review_today",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/review/today"
+      ],
+      "sha256": "11be9df79d8d8b2b9c4ceeacf1e8151deeb9ab0701030f404409ab9ab3ddeedd",
+      "start_line": 636
+    },
+    {
+      "end_line": 1236,
+      "function": "api_rule_proposal",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/rule_proposal"
+      ],
+      "sha256": "7ebe1448d1879758f1a9a0a15349ff10e1187fcc38c4f6094336c42cd7a128fd",
+      "start_line": 1211
+    },
+    {
+      "end_line": 472,
+      "function": "api_s3_clusters",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/s3/clusters"
+      ],
+      "sha256": "3b275271003eb24694c162ca4557f8fe99b62590c98e74129bd649f2309786ae",
+      "start_line": 454
+    },
+    {
+      "end_line": 451,
+      "function": "api_s3_summary",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/s3/summary"
+      ],
+      "sha256": "b3b0251771d008c46b589eb7a8e0bcfe8ce239dd403e75ced0092ac1339f7ff7",
+      "start_line": 443
+    },
+    {
+      "end_line": 620,
+      "function": "api_scan_status",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/scan_status"
+      ],
+      "sha256": "f1340ffe836366346a4a48dbec2ff962a7dc974a73bfae6df894fc8063434f90",
+      "start_line": 618
+    },
+    {
+      "end_line": 766,
+      "function": "api_settings_get",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/settings"
+      ],
+      "sha256": "219bef5f629e776f8403945fedd9d1141d2ef382ca895244aaee239e0db745ad",
+      "start_line": 744
+    },
+    {
+      "end_line": 785,
+      "function": "api_settings_put",
+      "methods": [
+        "PUT"
+      ],
+      "paths": [
+        "/api/settings"
+      ],
+      "sha256": "557e32627329acf5cbf7aeadbf312e4472ead01a6186f650bcb9f816e69912d6",
+      "start_line": 778
+    },
+    {
+      "end_line": 794,
+      "function": "api_settings_reset",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/settings/reset"
+      ],
+      "sha256": "9d6c73ed344a9d78abef035e95c02cfccbb60755972a65df7e04681ba6f0cec1",
+      "start_line": 788
+    },
+    {
+      "end_line": 821,
+      "function": "api_snapshot",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/snapshot/{date}"
+      ],
+      "sha256": "3bdf436b62b52308e638a5f5a3f54174005b2e0e191360c416f4c4c874e4d36b",
+      "start_line": 815
+    },
+    {
+      "end_line": 812,
+      "function": "api_snapshot_dates",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/snapshot_dates"
+      ],
+      "sha256": "fa3f8ba034941ef8042176acc70d8aa5986cbd0114546b9e8d5aec2cc8740d1d",
+      "start_line": 809
+    },
+    {
+      "end_line": 1797,
+      "function": "api_stock_chart",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/stock/{code}/chart"
+      ],
+      "sha256": "bfbe0309ebd57eccec8758781212d9e68c29a759851ed027bc0e48f9b9b6d19d",
+      "start_line": 1769
+    },
+    {
+      "end_line": 1682,
+      "function": "api_stock_search",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/stock_search"
+      ],
+      "sha256": "3f6d8bfbba4eac64e59144094831009a0dc40d535581a4201798d431d33df27b",
+      "start_line": 1663
+    },
+    {
+      "end_line": 1766,
+      "function": "api_stock_test",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/stock_test/{code}"
+      ],
+      "sha256": "5d9b6ae5651d4ca2c9d97719f61ed5b8bc3239eac3734c1cf31d2a27ff426cde",
+      "start_line": 1729
+    },
+    {
+      "end_line": 394,
+      "function": "api_strategy_now",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/strategy_now"
+      ],
+      "sha256": "5a179b51fb431bb757cc4c3b7ae15d4b51eaa71a63eb57d0aefb476e6f78de8c",
+      "start_line": 347
+    },
+    {
+      "end_line": 535,
+      "function": "api_switcher_shadow",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/switcher/shadow"
+      ],
+      "sha256": "0966561cf5f1d9248a54fb7ded32386160f36f4a109ac537815d1108c6916c0a",
+      "start_line": 527
+    },
+    {
+      "end_line": 1587,
+      "function": "api_thesis_generate",
+      "methods": [
+        "POST"
+      ],
+      "paths": [
+        "/api/pool/{pool_id}/thesis"
+      ],
+      "sha256": "b1453df6e6e95696364a6f0ac57b35d298e30b3b85a0a6b45d63f4f840b0d7ff",
+      "start_line": 1576
+    },
+    {
+      "end_line": 1573,
+      "function": "api_thesis_get",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/pool/{pool_id}/thesis"
+      ],
+      "sha256": "1b3cc1783bfa0d8a53a587657f0e744a992fa22135bfb231bbb020aa6d782982",
+      "start_line": 1568
+    },
+    {
+      "end_line": 976,
+      "function": "api_trade_overview",
+      "methods": [
+        "GET"
+      ],
+      "paths": [
+        "/api/trade/overview"
+      ],
+      "sha256": "094cd161b38f5a19b3640562c2cd9eb66c8c4a3339b5f908b198327dd035ad3d",
+      "start_line": 936
+    }
+  ],
+  "entry_count": 68,
+  "schema": "guanlan-api-source-manifest/v1"
+}

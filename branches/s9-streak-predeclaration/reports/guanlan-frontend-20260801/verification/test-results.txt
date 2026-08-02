@@ -1,0 +1,35 @@
+观澜新前端最终验证记录
+日期: 2026-08-01 (Asia/Shanghai)
+
+1. 聚焦前端与交付测试
+命令: .venv/bin/python -m unittest -v test_guanlan_frontend_contract.py test_guanlan_frontend.py test_branding.py test_portfolio_books.py test_production_equivalent.py test_report_mirror_sync.py
+结果: PASS，107/107，exit 0
+测试运行时间: 6.320 秒
+
+2. 仓库规定回归命令（逐字执行）
+开始: 2026-08-01T15:13:36+0800
+命令: .venv/bin/python test_rules.py && .venv/bin/python test_rules_mid.py && .venv/bin/python test_web.py && .venv/bin/python test_regime.py
+结果: PASS，exit 0
+  - test_rules.py: 8/8
+  - test_rules_mid.py: 20/20
+  - test_web.py: 838/838
+  - test_regime.py: 6/6
+合计: 872/872
+末段运行日志最后时间: 2026-08-01 15:30 (Asia/Shanghai)
+终端退出码复核时间: 2026-08-01T17:51:29+0800
+说明: test_web.py 中“筛选失败”日志来自预期的异常路径夹具；该段最终为 838/838。
+
+3. 生产等效视觉与交互
+结果: PASS
+  - 1440x900: 今天/股票池/个股详情/我的 4/4
+  - 390x844: 今天/股票池/个股详情/我的 4/4
+  - 8/8 均为普通 viewport 截图，像素尺寸精确
+  - 8/8 scrollWidth <= clientWidth 且 scrollHeight <= innerHeight
+  - 8/8 控制台错误为空
+  - 股票池 002156 -> 详情 -> 返回: PASS
+  - 权益 503000 -> 504000 -> 刷新读回 504000: PASS
+
+4. 不可变边界
+结果: PASS
+  - /api/* 函数源码清单: 68/68 未变
+  - 生产 LaunchAgent 与三数据库 SHA-256: 与基线一致

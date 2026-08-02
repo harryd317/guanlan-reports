@@ -1,0 +1,467 @@
+{
+  "captured_at": "2026-07-31T21:16:59+08:00",
+  "environment": {
+    "url": "http://127.0.0.1:8787",
+    "launch_agent": "com.rui.stock-screener.web",
+    "working_directory": "~/云慧养/zmu_gitee/screener",
+    "production_pid": 35752,
+    "main_commit": "230daa6cf78837d14a961d3c4fb4d426b2cd7f2b"
+  },
+  "capture_contract": {
+    "mode": "viewport",
+    "full_page_forbidden": true,
+    "desktop": {
+      "width": 1440,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    },
+    "format": "jpeg"
+  },
+  "entries": [
+    {
+      "page": "今天",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=desktop-today#today",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "scroll_height": 1930,
+        "scroll_y": 0,
+        "hash": "#today",
+        "loading": false,
+        "key_rect": {
+          "x": 288,
+          "y": 111.34375,
+          "width": 1104,
+          "height": 1729.15625
+        },
+        "visible_headings": [
+          "今天",
+          "7月31日 · 今天有 1 件事",
+          "实盘验证期",
+          "持仓 · 0",
+          "等买点 · 8"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "今天-桌面.jpg",
+      "bytes": 88507,
+      "sha256": "ebc2da16899bca4d29a399576524b451b829ab16103f3ff0e917ed6fc3f22595"
+    },
+    {
+      "page": "股票池",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=desktop-pool#pool",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "scroll_height": 1567,
+        "scroll_y": 0,
+        "hash": "#pool",
+        "loading": false,
+        "key_rect": {
+          "x": 288,
+          "y": 111.34375,
+          "width": 1104,
+          "height": 1342.3671875
+        },
+        "visible_headings": [
+          "股票池"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "股票池-桌面.jpg",
+      "bytes": 56936,
+      "sha256": "99f06b029864d043f9695d0762a947921e1b2e63fb2c92a0fee912399ac8a4eb"
+    },
+    {
+      "page": "我的",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=desktop-me#me",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "scroll_height": 900,
+        "scroll_y": 0,
+        "hash": "#me",
+        "loading": false,
+        "key_rect": {
+          "x": 288,
+          "y": 111.34375,
+          "width": 1104,
+          "height": 587.96875
+        },
+        "visible_headings": [
+          "我的",
+          "已平仓统计",
+          "实盘验证期",
+          "风控护栏",
+          "工程模式 · 维修间"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "我的-桌面.jpg",
+      "bytes": 54741,
+      "sha256": "b3d047a394dfb6b66958abf1f3d994727dd6f2899c1cf866b12f83babe0aa552"
+    },
+    {
+      "page": "工程模式",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=desktop-engineering#me",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "scroll_height": 900,
+        "scroll_y": 0,
+        "hash": "#me",
+        "loading": false,
+        "key_rect": {
+          "x": 850,
+          "y": 497.984375,
+          "width": 542,
+          "height": 243.890625
+        },
+        "visible_headings": [
+          "我的",
+          "已平仓统计",
+          "实盘验证期",
+          "风控护栏",
+          "工程模式 · 维修间"
+        ],
+        "engineering_links": [
+          "池子管理",
+          "完整日报",
+          "交易台",
+          "问 AI",
+          "策略说明与回测",
+          "设置",
+          "历史快照"
+        ],
+        "console_logs": []
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "工程模式-桌面.jpg",
+      "bytes": 68476,
+      "sha256": "2f46280a23184f98cab5453914941960e1fb4da54b9646c8d423953ae4913e14"
+    },
+    {
+      "page": "设置",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/settings?t7prod=desktop-settings",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dom": {
+        "inner_width": 1440,
+        "inner_height": 900,
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "scroll_height": 4157,
+        "scroll_y": 0,
+        "hash": "",
+        "loading": false,
+        "key_rect": {
+          "x": 288,
+          "y": 726.4609375,
+          "width": 864,
+          "height": 1877.203125
+        },
+        "visible_headings": [
+          "设置",
+          "AI 引擎状态",
+          "策略参数",
+          "仓位纪律",
+          "运行参数",
+          "变更历史",
+          "维修间"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 1440,
+        "height": 900,
+        "format": "jpeg"
+      },
+      "file": "设置-桌面.jpg",
+      "bytes": 69880,
+      "sha256": "5deb5c5fc38ffb08f930eb49f6ba4dd4b9b6639d07d2c137b9f656eb41f25b67"
+    },
+    {
+      "page": "今天",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=mobile-today#today",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "scroll_width": 390,
+        "scroll_height": 2854,
+        "scroll_y": 0,
+        "hash": "#today",
+        "loading": false,
+        "key_rect": {
+          "x": 16,
+          "y": 97.34375,
+          "width": 358,
+          "height": 2656.734375
+        },
+        "visible_headings": [
+          "今天",
+          "7月31日 · 今天有 1 件事",
+          "实盘验证期",
+          "持仓 · 0",
+          "等买点 · 8"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "今天-手机.jpg",
+      "bytes": 36144,
+      "sha256": "18272327d4bf17ffb84f1ac90bfc5edd0146a788ff454289a0758b83f16d1c64"
+    },
+    {
+      "page": "股票池",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=mobile-pool#pool",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "scroll_width": 390,
+        "scroll_height": 2111,
+        "scroll_y": 0,
+        "hash": "#pool",
+        "loading": false,
+        "key_rect": {
+          "x": 16,
+          "y": 97.34375,
+          "width": 358,
+          "height": 1890.1796875
+        },
+        "visible_headings": [
+          "股票池"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "股票池-手机.jpg",
+      "bytes": 26579,
+      "sha256": "f7e3ea3b86dd95b4011648b19ecc5fd276286e8481c2ccd7957a30191a93185f"
+    },
+    {
+      "page": "我的",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=mobile-me#me",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "scroll_width": 390,
+        "scroll_height": 1291,
+        "scroll_y": 0,
+        "hash": "#me",
+        "loading": false,
+        "key_rect": {
+          "x": 16,
+          "y": 97.34375,
+          "width": 358,
+          "height": 1093.515625
+        },
+        "visible_headings": [
+          "我的",
+          "已平仓统计",
+          "实盘验证期",
+          "风控护栏",
+          "工程模式 · 维修间"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "我的-手机.jpg",
+      "bytes": 25479,
+      "sha256": "7dce2081390306a34560c6ee958b2114a0801e2a61585ee40d2e52b71c63fe51"
+    },
+    {
+      "page": "工程模式",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?t7prod=mobile-engineering#me",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "scroll_width": 390,
+        "scroll_height": 1445,
+        "scroll_y": 447,
+        "hash": "#me",
+        "loading": false,
+        "key_rect": {
+          "x": 16,
+          "y": 560.859375,
+          "width": 358,
+          "height": 268.640625
+        },
+        "visible_headings": [
+          "我的",
+          "已平仓统计",
+          "实盘验证期",
+          "风控护栏",
+          "工程模式 · 维修间"
+        ],
+        "engineering_links": [
+          "池子管理",
+          "完整日报",
+          "交易台",
+          "问 AI",
+          "策略说明与回测",
+          "设置",
+          "历史快照"
+        ],
+        "console_logs": []
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "工程模式-手机.jpg",
+      "bytes": 35796,
+      "sha256": "3deb160995d09984e69f25d756af98ec7a3193e049a4fa2cc3a8976339806bfc"
+    },
+    {
+      "page": "设置",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/settings?t7prod=mobile-settings",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dom": {
+        "inner_width": 390,
+        "inner_height": 844,
+        "client_width": 390,
+        "scroll_width": 390,
+        "scroll_height": 8299,
+        "scroll_y": 0,
+        "hash": "",
+        "loading": false,
+        "key_rect": {
+          "x": 12,
+          "y": 875.234375,
+          "width": 366,
+          "height": 4322.8515625
+        },
+        "visible_headings": [
+          "设置",
+          "AI 引擎状态",
+          "策略参数",
+          "仓位纪律",
+          "运行参数",
+          "变更历史",
+          "维修间"
+        ],
+        "engineering_links": [],
+        "console_logs": []
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "format": "jpeg"
+      },
+      "file": "设置-手机.jpg",
+      "bytes": 38980,
+      "sha256": "5a904b730db9db9e9c69ee7a0f7f1105008cc7330d6691864224d09414682657"
+    }
+  ]
+}
