@@ -1,0 +1,20 @@
+{
+  "chain_note": "本账本哈希由公开 Git 镜像提交固定，避免文件自哈希循环。",
+  "core_artifact_sha256": {
+    "docs/测量报告-S9-S8池连阳尾盘信号-20260802.md": "aa1bc7fa316d9d91f89140775dbf9f1600b3d9ee96b3c349e72282e33003f699",
+    "docs/验收-S9-S8池连阳尾盘信号测量-20260802.md": "2835b0dfc76cf40af9fa2117887c34b7c9673ddd99cf51d628abeb8acb72948b",
+    "reports/s9-s8-streak-measurements-20260802.csv": "6fda64d7551551b024efb3493e64a4a4604346399493a5d7b0d9248dcc9ea7c3",
+    "reports/s9-s8-streak-qualification-20260802.csv": "c5c647cafa432b4e8d6ef4034a29a2ea1103f0e57287e351b359972b77e87c35",
+    "reports/s9-s8-streak-run-manifest-20260802.json": "06b3c9218668248058e52e861f6a8ff3e27e84753ca0aa3cf74ea0db86019e0e",
+    "reports/s9-s8-streak-source-coverage-20260802.json": "c58244cfd690877a2d745e55be61b47bd32406d0601fe87e21d10bf4c4ee81b3"
+  },
+  "input_hashes": {
+    "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "s6": "11d7340643ceba58f88ffaf3c66c7403a6f8f16334019f06c09ea9cf0f02f731",
+    "sidecar": "3d1b7e5f19d432d732ab9c65d04d33d9922b47d97a1d78bd1db02d0319eea671",
+    "t1": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5"
+  },
+  "predeclaration_commit": "7ebec30611a42e445f96ce7150a2c1f13b58c16a",
+  "predeclaration_sha256": "1f39ebf491490c5a2194ef88bb678d2677fab3ad6fefda2caff753b4efc00856",
+  "run_id": "s9-20260802T161857-7578c0a3"
+}

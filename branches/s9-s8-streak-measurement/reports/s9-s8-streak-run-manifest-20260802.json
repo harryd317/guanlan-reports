@@ -1,0 +1,162 @@
+{
+  "command": {
+    "market_db": "market.db",
+    "research_db": "S9_measurement.local.db",
+    "s6_db": "S6_research.db",
+    "sidecar_db": "industry_thermometer_sidecar.db",
+    "t1_db": "S3_research.db"
+  },
+  "completed_at": "2026-08-02T16:23:38.763655+00:00",
+  "config_fingerprint": "0fe47081097dad602c706534bc0e307b4d155cc7b874f0c545202f4846d8dd69",
+  "conservation": {
+    "annual_statistics_352": true,
+    "integrity_ok": true,
+    "observation_equals_s6": true,
+    "qualification_results_32": true,
+    "returns_equal_cohorts_times_four": true,
+    "s8_subset_violations_zero": true
+  },
+  "input_hashes_after": {
+    "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "s6": "11d7340643ceba58f88ffaf3c66c7403a6f8f16334019f06c09ea9cf0f02f731",
+    "sidecar": "3d1b7e5f19d432d732ab9c65d04d33d9922b47d97a1d78bd1db02d0319eea671",
+    "t1": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5"
+  },
+  "input_hashes_before": {
+    "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "s6": "11d7340643ceba58f88ffaf3c66c7403a6f8f16334019f06c09ea9cf0f02f731",
+    "sidecar": "3d1b7e5f19d432d732ab9c65d04d33d9922b47d97a1d78bd1db02d0319eea671",
+    "t1": "111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5"
+  },
+  "input_hashes_unchanged": true,
+  "integrity_check": "ok",
+  "machine_artifact_sha256": {
+    "reports/s9-s8-streak-measurements-20260802.csv": "6fda64d7551551b024efb3493e64a4a4604346399493a5d7b0d9248dcc9ea7c3",
+    "reports/s9-s8-streak-qualification-20260802.csv": "c5c647cafa432b4e8d6ef4034a29a2ea1103f0e57287e351b359972b77e87c35",
+    "reports/s9-s8-streak-source-coverage-20260802.json": "c58244cfd690877a2d745e55be61b47bd32406d0601fe87e21d10bf4c4ee81b3"
+  },
+  "missing_years_by_cell": {
+    "s7_control|2|gt_1_5|T+1": [
+      2015
+    ],
+    "s7_control|2|gt_1_5|T+10": [
+      2015
+    ],
+    "s7_control|2|gt_1_5|T+3": [
+      2015
+    ],
+    "s7_control|2|gt_1_5|T+5": [
+      2015
+    ],
+    "s7_control|2|le_1_5|T+1": [
+      2015
+    ],
+    "s7_control|2|le_1_5|T+10": [
+      2015
+    ],
+    "s7_control|2|le_1_5|T+3": [
+      2015
+    ],
+    "s7_control|2|le_1_5|T+5": [
+      2015
+    ],
+    "s7_control|3|gt_1_5|T+1": [
+      2015
+    ],
+    "s7_control|3|gt_1_5|T+10": [
+      2015
+    ],
+    "s7_control|3|gt_1_5|T+3": [
+      2015
+    ],
+    "s7_control|3|gt_1_5|T+5": [
+      2015
+    ],
+    "s7_control|3|le_1_5|T+1": [
+      2015
+    ],
+    "s7_control|3|le_1_5|T+10": [
+      2015
+    ],
+    "s7_control|3|le_1_5|T+3": [
+      2015
+    ],
+    "s7_control|3|le_1_5|T+5": [
+      2015
+    ],
+    "s8_pool|2|gt_1_5|T+1": [
+      2015
+    ],
+    "s8_pool|2|gt_1_5|T+10": [
+      2015
+    ],
+    "s8_pool|2|gt_1_5|T+3": [
+      2015
+    ],
+    "s8_pool|2|gt_1_5|T+5": [
+      2015
+    ],
+    "s8_pool|2|le_1_5|T+1": [
+      2015
+    ],
+    "s8_pool|2|le_1_5|T+10": [
+      2015
+    ],
+    "s8_pool|2|le_1_5|T+3": [
+      2015
+    ],
+    "s8_pool|2|le_1_5|T+5": [
+      2015
+    ],
+    "s8_pool|3|gt_1_5|T+1": [
+      2015
+    ],
+    "s8_pool|3|gt_1_5|T+10": [
+      2015
+    ],
+    "s8_pool|3|gt_1_5|T+3": [
+      2015
+    ],
+    "s8_pool|3|gt_1_5|T+5": [
+      2015
+    ],
+    "s8_pool|3|le_1_5|T+1": [
+      2015
+    ],
+    "s8_pool|3|le_1_5|T+10": [
+      2015
+    ],
+    "s8_pool|3|le_1_5|T+3": [
+      2015
+    ],
+    "s8_pool|3|le_1_5|T+5": [
+      2015
+    ]
+  },
+  "predeclaration": {
+    "commit": "7ebec30611a42e445f96ce7150a2c1f13b58c16a",
+    "sha256": "1f39ebf491490c5a2194ef88bb678d2677fab3ad6fefda2caff753b4efc00856"
+  },
+  "qualification_rows": 32,
+  "run_id": "s9-20260802T161857-7578c0a3",
+  "started_at": "2026-08-02T16:18:57.859676+00:00",
+  "status": "complete",
+  "stored_table_counts": {
+    "annual_statistics": 352,
+    "observation_audit": 1072733,
+    "qualification_results": 32,
+    "return_measurements": 122220,
+    "signal_cohorts": 30555,
+    "source_coverage": 7,
+    "temperature_daily": 33232
+  },
+  "table_counts": {
+    "annual_statistics": 352,
+    "observation_audit": 1072733,
+    "qualification_results": 32,
+    "return_measurements": 122220,
+    "signal_cohorts": 30555,
+    "source_coverage": 7,
+    "temperature_daily": 33232
+  }
+}
