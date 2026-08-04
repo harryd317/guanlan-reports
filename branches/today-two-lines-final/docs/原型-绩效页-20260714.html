@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型 · 绩效页 /performance · 20260714</title>
+<style>
+:root{--bg:#F5F5F7;--card:#fff;--line:#E5E5EA;--txt:#1D1D1F;--mut:#86868B;
+      --blue:#0A84FF;--red:#FF3B30;--green:#2F9E44;--am:#B45309;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.65 -apple-system,"PingFang SC",sans-serif;
+     max-width:760px;margin:0 auto;padding:20px 14px 60px}
+h1{font-size:20px;margin:6px 0 2px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+h2{font-size:16px;margin:0 0 10px}
+.card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:12px;
+      box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.mu{color:var(--mut)}.sm{font-size:12.5px}
+.grid20{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}
+.grid20 i{width:24px;height:24px;border-radius:5px;border:1px solid var(--line);display:block}
+.grid20 .w{background:#FFD9D9;border-color:#F5B5B5}
+.grid20 .l{background:#D9F2E1;border-color:#B5E0C4}
+.bignums{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0}
+.bignums .b .v{font-size:24px;font-weight:700}
+.bignums .b .k{font-size:12px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
+.decision{background:#FFFBEB;border:1px solid #F5E1A4;border-radius:12px;padding:14px 16px;margin:10px 0}
+.rollline{background:#FFF1F0;border:1px solid #F5B5B5;border-radius:10px;padding:10px 12px;font-size:13px}
+</style>
+</head>
+<body>
+<h1>绩效页 /performance · 原型</h1>
+<div class="sub">2026-07-14 · 实盘验证期的仪表盘。数据源=纪律账 trades(现成),场外账零掺入;
+首笔实盘前显示空态引导。示例数字为虚构演示。</div>
+
+<div class="card">
+<h2>验证期进度 <span class="mu sm">(最早20笔平仓,规则6)</span></h2>
+<div class="grid20">
+  <i class="w" title="第1笔 +4.2%"></i><i class="l" title="第2笔 -1.1%"></i><i class="w"></i>
+  <i class="l"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i>
+  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+<div class="sm mu">5/20 笔 · 红=盈 绿=亏 空=未发生(色语与交易台统计区一致)</div>
+<div class="bignums">
+  <div class="b"><div class="v">60%</div><div class="k">胜率(5笔)</div></div>
+  <div class="b"><div class="v">+1.24%</div><div class="k">期望/笔(费前口径同交易台)</div></div>
+  <div class="b"><div class="v">+3.1%</div><div class="k">累计盈亏(占账户)</div></div>
+  <div class="b"><div class="v" style="color:var(--green)">15笔</div><div class="k">距解锁评估(期望为正→50/80)</div></div>
+</div>
+<div class="rollline">🛑 回滚线监控:前20笔胜率 &lt;20% 触发回滚(25/0/0)。当前 5 笔胜 3,
+最坏路径推演:后续 15 笔全亏 → 终局胜率 15%(3/20),<b>数学上仍可能触线——
+逐笔清单每行都标注"这笔之后最坏还剩多少安全边际"。</b></div>
+</div>
+
+<div class="card">
+<h2>逐笔清单</h2>
+<table>
+<tr><th>#</th><th>股票</th><th>入场日→出场日</th><th>信号</th><th>盈亏</th><th>出场原因</th><th>市况(入场时)</th></tr>
+<tr><td>1</td><td>厦门钨业</td><td>07-15→07-28</td><td>entry_A</td><td style="color:var(--red)">+4.2%</td><td>E3锁盈</td><td>平静震荡</td></tr>
+<tr><td>2</td><td>鹏鼎控股</td><td>07-18→07-22</td><td>entry_A</td><td style="color:var(--green)">−1.1%</td><td>E1止损</td><td>平静震荡</td></tr>
+<tr><td colspan="7" class="mu sm">…每笔可点开:买卖依据卡回放+一句话复盘(平仓时填的)+这笔的教训归档</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>空态(首笔实盘前)</h2>
+<div class="mu">"验证期还没有开张。第一笔请照首页买入卡执行——最小仓 60/30/30,
+单笔风险 1%,一笔止损约伤账户 0.3%。20 笔的学费上限是锁死的,潜在收益没有对称上限。"
+<br>(把 07-13 深夜给用户的信心话术固化成产品文案)</div>
+</div>
+
+<div class="decision"><b>拍板问题(就一个):入口放哪?</b>
+A=交易台顶部加「验证期」分区(与统计卡合并,不新建页);
+B=独立 /performance 页+首页顶部进度点(5/20)链接过去。
+建议 A——验证期数据与交易台统计本是同源,少一个页面少一次跳转;20格进度已在
+交易台统计卡存在,升级它即可(加回滚线监控/逐笔市况列/空态文案/安全边际推演)。</div>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>观澜 · 今日</title>
+<style>
+:root{
+  --bg:#F6F4EF;--card:#FFFDFA;--line:#E9E3D7;--line2:#F0EBE0;
+  --ink:#2B2620;--sub:#7D7468;--faint:#A79D8F;
+  --tc:#C96A4A;--tc-bg:#F7E7DE;--tc-deep:#B14E2E;
+  --sage:#5F7F5E;--sage-bg:#E6EDE2;
+  --amber:#B98A45;--amber-bg:#F5EBDA;
+  --serif:"Tiempos Text",Georgia,"Songti SC","STSong",serif;
+  --sans:"Inter",-apple-system,"PingFang SC","Noto Sans SC",sans-serif;
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);display:flex;overflow:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,.serif{font-family:var(--serif)}
+button{font-family:inherit}
+
+/* ---------- 侧栏 ---------- */
+.side{width:200px;flex-shrink:0;padding:34px 18px;display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.brand{margin-bottom:40px;padding:0 6px}
+.brand h2{font-size:26px;font-weight:600;letter-spacing:1px}
+.brand span{font-size:11px;color:var(--faint);letter-spacing:2px;display:block;margin-top:6px}
+.nav{display:flex;align-items:center;gap:10px;padding:9px 12px;border:none;background:none;font-size:14px;color:var(--sub);cursor:pointer;border-radius:10px;text-align:left;width:100%}
+.nav .dot{width:5px;height:5px;border-radius:50%;background:transparent}
+.nav.on{color:var(--tc-deep);font-weight:600;background:var(--tc-bg)}
+.nav.on .dot{background:var(--tc)}
+.nav .c{margin-left:auto;font-size:11px;color:var(--faint)}
+.side .foot{margin-top:auto;font-size:11px;color:var(--faint);padding:0 6px;display:flex;align-items:center;gap:7px}
+.side .foot i{width:6px;height:6px;border-radius:50%;background:var(--sage)}
+
+/* ---------- 主区 ---------- */
+.main{flex:1;padding:34px 44px;max-width:1100px;overflow:hidden}
+.top{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.top h1{font-size:30px;font-weight:600}
+.top .d{font-size:13px;color:var(--sub)}
+.top .r{margin-left:auto;font-size:12px;color:var(--faint)}
+
+/* ---------- 大卡 ---------- */
+.heroes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;position:relative}
+.hero::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px}
+.hero.warn::before{background:var(--tc)}
+.hero.calm::before{background:var(--sage)}
+.hero .k{font-size:12px;color:var(--sub);letter-spacing:.5px}
+.hero .v{font-family:var(--serif);font-size:40px;font-weight:600;margin-top:8px}
+.hero.warn .v{color:var(--tc-deep)}
+.hero.calm .v{color:var(--sage);font-size:32px}
+.hero .s{font-size:13px;color:var(--sub);margin-top:10px;line-height:1.6}
+
+/* ---------- 卡片 ---------- */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 22px}
+.card h3{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.8px;margin-bottom:4px}
+.card h3 .n{margin-left:auto;color:var(--sub);letter-spacing:0}
+.line{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line2);font-size:14px}
+.line:first-of-type{border-top:none}
+.line .nm{font-weight:600;white-space:nowrap}
+.line .rs{color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.line .acts{margin-left:auto;display:flex;gap:8px;flex-shrink:0}
+.btn{border:1px solid transparent;cursor:pointer;font-size:13px;font-weight:600;padding:7px 16px;border-radius:99px;background:none}
+.btn.p{background:var(--tc);color:#FFF8F4}
+.btn.g{border-color:var(--line);color:var(--sub)}
+.btn.g:hover{border-color:var(--faint)}
+.num{font-variant-numeric:tabular-nums}
+.near{color:var(--tc-deep);font-weight:600}
+.far{color:var(--faint)}
+
+/* ---------- 股票池 ---------- */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11px;letter-spacing:1px;color:var(--faint);text-align:left;padding:10px 18px;font-weight:500;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line2);font-size:14px;vertical-align:middle}
+.tbl tbody tr{cursor:pointer;transition:background .12s}
+.tbl tbody tr:hover{background:#FBF7EF}
+.tbl .nm b{font-weight:600}
+.tbl .nm span{font-size:11.5px;color:var(--faint);margin-left:8px}
+.st{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px}
+.st.b{background:var(--tc-bg);color:var(--tc-deep)}
+.st.o{background:var(--amber-bg);color:var(--amber)}
+.st.g{background:var(--line2);color:var(--sub)}
+
+/* ---------- 个股详情 ---------- */
+.back{border:none;background:none;color:var(--tc-deep);font-size:14px;font-weight:600;cursor:pointer;padding:0;margin-bottom:18px}
+.dgrid{display:grid;grid-template-columns:5fr 7fr;gap:18px}
+.price-hero{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 26px}
+.price-hero .p{font-family:var(--serif);font-size:44px;font-weight:600}
+.price-hero .chg{font-size:13px;margin-top:4px}
+.price-hero .chg.up{color:var(--tc-deep)}.price-hero .chg.dn{color:var(--sage)}
+.ladder{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--sage) 0%,var(--line) 35%,var(--tc) 65%,var(--line) 100%);margin:26px 0 14px}
+.ladder .cur{position:absolute;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--ink);transform:translateX(-50%)}
+.ladder-marks{display:flex;justify-content:space-between;font-size:11.5px;color:var(--sub)}
+.ladder-marks b{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+.kv{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.kv:first-of-type{border-top:none}
+.kv .k{color:var(--sub)}.kv .v{font-weight:600;font-variant-numeric:tabular-nums}
+.steps{display:flex;align-items:center;margin-top:6px}
+.step{flex:1;text-align:center;position:relative}
+.step::before{content:"";position:absolute;top:5px;left:-50%;width:100%;height:1px;background:var(--line)}
+.step:first-child::before{display:none}
+.step .d{width:9px;height:9px;border-radius:50%;background:var(--line);margin:0 auto;position:relative;z-index:1}
+.step.done .d{background:var(--tc)}
+.step.done::before{background:var(--tc)}
+.step .t{font-size:10.5px;color:var(--faint);margin-top:7px}
+.step.cur .t{color:var(--tc-deep);font-weight:600}
+.basis{margin-top:16px;padding:14px 18px;background:var(--line2);border-radius:12px;font-size:13px;color:var(--sub);line-height:1.7}
+
+/* ---------- 我的 ---------- */
+.eq{cursor:pointer;border-radius:10px;display:inline-block;padding:2px 6px;margin-left:-6px}
+.eq:hover{background:var(--line2)}
+.eqHint{font-size:10.5px;color:var(--faint);border:1px dashed var(--line);padding:3px 9px;border-radius:99px;margin-left:10px}
+input.eqIn{font-family:var(--serif);font-size:36px;font-weight:600;border:none;border-bottom:2px solid var(--tc);outline:none;background:transparent;width:230px;font-variant-numeric:tabular-nums;color:var(--tc-deep)}
+.bar{height:5px;border-radius:3px;background:var(--line2);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;width:0%;background:var(--tc)}
+.note{font-size:12px;color:var(--faint);margin-top:8px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 22px}
+.mini .k{font-size:12px;color:var(--faint);letter-spacing:.5px}
+.mini .v{font-family:var(--serif);font-size:24px;font-weight:600;margin-top:6px;font-variant-numeric:tabular-nums}
+
+@media (max-width:860px){
+  body{overflow:auto}
+  .side{display:none}
+  .main{padding:14px 14px;overflow:visible}
+  .top{margin-bottom:16px}
+  .heroes,.row,.dgrid{grid-template-columns:1fr;gap:12px}
+  .row{margin-top:12px}
+  .hero{padding:16px 20px}
+  .hero .v{font-size:30px}
+  .hero.calm .v{font-size:26px}
+  .card{padding:12px 16px}
+  .mtabs{position:sticky;top:0;background:var(--bg);display:flex;gap:6px;padding:4px 0 12px;z-index:5}
+  .mtabs .nav{width:auto}
+}
+.mtabs{display:none}
+@media (max-width:860px){.mtabs{display:flex}}
+.subtabs{display:flex;gap:6px}
+.subtab{border:1px solid var(--line);background:none;color:var(--sub);font-size:13px;font-weight:600;padding:6px 15px;border-radius:99px;cursor:pointer}
+.subtab.on{background:var(--tc-bg);color:var(--tc-deep);border-color:transparent}
+.logic{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.lg{font-size:13.5px;color:var(--sub);line-height:1.55;display:flex;gap:10px}
+.lg b{color:var(--ink);font-weight:600;min-width:44px;flex-shrink:0}
+.arch{display:grid;grid-template-columns:290px 1fr;gap:18px}
+.archItem{padding:12px 12px;border-radius:12px;cursor:pointer;border:1px solid transparent}
+.archItem:hover{background:#FBF7EF}
+.archItem.on{background:var(--tc-bg);border-color:transparent}
+.archItem .t{font-size:13.5px;font-weight:600}
+.archItem .m{font-size:11px;color:var(--faint);margin-top:4px}
+.archRead{padding:22px 28px;max-height:640px;overflow:auto}
+.archRead h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.archRead .meta{font-size:11.5px;color:var(--faint);margin-bottom:18px;display:flex;gap:12px}
+.archRead h4{font-family:var(--serif);font-size:16px;color:var(--tc-deep);margin:20px 0 8px}
+.archRead p{font-size:13.5px;color:var(--sub);line-height:1.8;margin:6px 0}
+.archRead .kv2{display:flex;gap:10px;font-size:13px;padding:7px 0;border-top:1px solid var(--line2);color:var(--sub)}
+.archRead .kv2 b{color:var(--ink);min-width:120px;flex-shrink:0;font-weight:600}
+@media (max-width:860px){.arch{grid-template-columns:1fr}.archRead{max-height:none}}
+
+/* ---------- 今天页 S8 产业级卡 ---------- */
+.indStrip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.indChip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:border-color .15s}
+.indChip:hover{border-color:var(--tc)}
+.indChip .nm{font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+.indChip .st{margin-top:8px}
+.indChip .q{font-size:11px;color:var(--faint);margin-top:6px}
+@media (max-width:860px){.indStrip{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- 档案库首页 ---------- */
+.libGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.libCard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;cursor:pointer;transition:border-color .15s;display:flex;flex-direction:column;gap:8px}
+.libCard:hover{border-color:var(--tc)}
+.libCard .t{font-family:var(--serif);font-size:17px;font-weight:600}
+.libCard .one{font-size:12.5px;color:var(--sub);line-height:1.6}
+.libCard .ft{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--faint)}
+.libCard.grey{background:transparent;border-style:dashed;cursor:pointer}
+.libCard.grey .t{color:var(--sub)}
+.libCard .prog{display:flex;gap:5px;margin-top:4px}
+.libCard .prog i{flex:1;height:3px;border-radius:3px;background:var(--line2)}
+.libCard .prog i.done{background:var(--amber)}
+@media (max-width:860px){.libGrid{grid-template-columns:1fr}}
+
+/* ---------- 行业档案页 ---------- */
+.indHead{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;margin-bottom:16px}
+.indHead .tt{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.indHead .tt h1{font-size:24px}
+.indHead .one{font-size:13px;color:var(--sub);line-height:1.7;margin-top:10px}
+.outline{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.olItem{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;color:var(--sub)}
+.olItem b{display:block;font-size:13px;color:var(--ink);margin-bottom:4px}
+@media (max-width:860px){.outline{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <div class="brand"><h2>观澜</h2><span>GUANLAN</span></div>
+  <button class="nav on" data-v="today"><span class="dot"></span>今天</button>
+  <button class="nav" data-v="pool"><span class="dot"></span>股票池 <span class="c">9</span></button>
+  <button class="nav" data-v="me"><span class="dot"></span>我的</button>
+  <div class="foot"><i></i>快照正常 · 7月31日</div>
+</aside>
+
+<main class="main">
+  <div class="mtabs">
+    <button class="nav on" data-v="today">今天</button>
+    <button class="nav" data-v="pool">股票池</button>
+    <button class="nav" data-v="me">我的</button>
+  </div>
+
+  <!-- ===== 今天 ===== -->
+  <section id="v-today">
+    <div class="top">
+      <h1>今天</h1>
+      <span class="d" id="clock" style="font-variant-numeric:tabular-nums;font-weight:600">--:--:--</span>
+      <span class="st o" id="mktBadge">非交易日</span>
+      <span class="r">数据日 7月31日</span>
+    </div>
+
+    <div class="heroes">
+      <div class="hero warn">
+        <div class="k">投机线 · 开仓门 / 市况 冲高有险</div>
+        <div class="v">关</div>
+        <div class="s">第 26 天 · 沪深300 距60日线 −6.2%<br>十年里这种等待中位 40 天，安静是常态</div>
+      </div>
+      <div class="hero calm">
+        <div class="k">投资线 · 红利低波 512890 · 股息率 4.4%</div>
+        <div class="v">¥0</div>
+        <div class="s">待建仓 · 共 5 批<br>下次：周三 8月5日 · 第 1 批 · 1.4 万</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <h3>待处理 <span class="n">1</span></h3>
+        <div class="line" id="task1">
+          <span class="nm">大族激光</span>
+          <span class="rs">跌破 30 周线 → 建议移出</span>
+          <span class="acts">
+            <button class="btn p" onclick="done('task1','已移出 ✓')">移出</button>
+            <button class="btn g" onclick="done('task1','已留下 ✓')">留下</button>
+          </span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>等买点 <span class="n">最近</span></h3>
+        <div class="line" onclick="goStock('中际旭创','300308','通信设备 · 光模块','452.30','+1.8%','up','−2.1%',72,'430.00','388.50',6)">
+          <span class="nm">中际旭创</span>
+          <span class="rs">通信设备 · 光模块</span>
+          <span class="acts num near">−2.1%</span>
+        </div>
+        <div class="line" onclick="goStock('宁德时代','300750','电力设备 · 电池','268.45','−0.6%','dn','−6.5%',45,'252.00','231.80',0)">
+          <span class="nm">宁德时代</span>
+          <span class="rs">电力设备 · 电池</span>
+          <span class="acts num far">−6.5%</span>
+        </div>
+        <div class="line" onclick="goStock('中国船舶','600150','国防军工 · 船舶','38.92','+0.9%','up','−6.6%',58,'36.50','33.20',4)">
+          <span class="nm">中国船舶</span>
+          <span class="rs">国防军工 · 船舶</span>
+          <span class="acts num far">−6.6%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card" style="grid-column:1/-1">
+        <div class="line" style="border:none;padding:5px 0">
+          <span class="nm" style="font-size:13px;color:var(--sub)">广度</span>
+          <span class="rs num">NH <b>142</b> · NL <b>44</b> · 净新高 <b class="near">+707</b></span>
+          <span class="acts" style="font-size:12px;color:var(--faint)">截至 7月31日收盘</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card" style="grid-column:1/-1">
+        <h3>S8 关注 · 产业级 <span class="n">行业升温 · 档案建成后推送个股</span></h3>
+        <div class="indStrip" style="margin-top:10px">
+          <div class="indChip" onclick="goIndustry('fishery')">
+            <div class="nm">渔业</div>
+            <span class="st o">温</span>
+            <div class="q">排队 2/6 · 待建档 ›</div>
+          </div>
+          <div class="indChip" onclick="goIndustry('animal')">
+            <div class="nm">动物保健Ⅱ</div>
+            <span class="st o">温</span>
+            <div class="q">排队 3/6 · 待建档 ›</div>
+          </div>
+          <div class="indChip" onclick="goIndustry('steel')">
+            <div class="nm">普钢</div>
+            <span class="st o">温</span>
+            <div class="q">排队 4/6 · 待建档 ›</div>
+          </div>
+          <div class="indChip" onclick="goIndustry('cement')">
+            <div class="nm">水泥</div>
+            <span class="st o">温</span>
+            <div class="q">排队 5/6 · 待建档 ›</div>
+          </div>
+          <div class="indChip" onclick="goIndustry('citybank')">
+            <div class="nm">城商行Ⅱ</div>
+            <span class="st o">温</span>
+            <div class="q">排队 6/6 · 待建档 ›</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 股票池 ===== -->
+  <section id="v-pool" hidden>
+    <div class="top">
+      <h1>股票池</h1>
+      <div class="subtabs">
+        <button class="subtab on" id="tabList" onclick="poolTab('list')">名单</button>
+        <button class="subtab" id="tabLogic" onclick="poolTab('logic')">选股逻辑</button>
+        <button class="subtab" id="tabArchive" onclick="poolTab('archive')">产业档案</button>
+      </div>
+    </div>
+    <div id="poolList">
+    <div class="card" style="padding:6px 4px">
+      <table class="tbl">
+        <thead><tr><th>股票</th><th>状态</th><th>现价</th><th>距买点</th><th>板块</th></tr></thead>
+        <tbody>
+          <tr onclick="goStock('中际旭创','300308','通信设备 · 光模块','452.30','+1.8%','up','−2.1%',72,'430.00','388.50',6)"><td class="nm"><b>中际旭创</b><span>300308</span></td><td><span class="st b">等买点</span></td><td class="num">452.30</td><td class="num near">−2.1%</td><td><span class="st g">集群 6家新高</span></td></tr>
+          <tr onclick="goStock('宁德时代','300750','电力设备 · 电池','268.45','−0.6%','dn','−6.5%',45,'252.00','231.80',0)"><td class="nm"><b>宁德时代</b><span>300750</span></td><td><span class="st b">等买点</span></td><td class="num">268.45</td><td class="num">−6.5%</td><td></td></tr>
+          <tr onclick="goStock('中国船舶','600150','国防军工 · 船舶','38.92','+0.9%','up','−6.6%',58,'36.50','33.20',4)"><td class="nm"><b>中国船舶</b><span>600150</span></td><td><span class="st b">等买点</span></td><td class="num">38.92</td><td class="num">−6.6%</td><td><span class="st g">集群 4家新高</span></td></tr>
+          <tr onclick="goStock('北方华创','002371','半导体设备','342.10','+0.2%','up','−7.6%',52,'318.00','289.40',5)"><td class="nm"><b>北方华创</b><span>002371</span></td><td><span class="st b">等买点</span></td><td class="num">342.10</td><td class="num">−7.6%</td><td><span class="st g">集群 5家新高</span></td></tr>
+          <tr onclick="goStock('贵州茅台','600519','食品饮料 · 白酒','1468.00','−1.1%','dn','−8.7%',38,'1350.00','1248.00',0)"><td class="nm"><b>贵州茅台</b><span>600519</span></td><td><span class="st b">等买点</span></td><td class="num">1468.00</td><td class="num">−8.7%</td><td></td></tr>
+          <tr onclick="goStock('海光信息','688041','芯片','152.35','+3.2%','up','−10.4%',30,'138.00','124.60',5)"><td class="nm"><b>海光信息</b><span>688041</span></td><td><span class="st b">等买点</span></td><td class="num">152.35</td><td class="num">−10.4%</td><td><span class="st g">集群 5家新高</span></td></tr>
+          <tr onclick="goStock('恒瑞医药','600276','创新药','62.80','+0.4%','up','−12.1%',24,'56.00','51.30',0)"><td class="nm"><b>恒瑞医药</b><span>600276</span></td><td><span class="st b">等买点</span></td><td class="num">62.80</td><td class="num">−12.1%</td><td></td></tr>
+          <tr onclick="goStock('工业富联','601138','服务器','24.15','−0.3%','dn','−12.3%',20,'21.50','19.60',4)"><td class="nm"><b>工业富联</b><span>601138</span></td><td><span class="st b">等买点</span></td><td class="num">24.15</td><td class="num">−12.3%</td><td><span class="st g">集群 4家新高</span></td></tr>
+          <tr onclick="goStock('大族激光','002008','专用机械','84.51','−6.9%','dn','退回候选',15,'90.90','81.20',0)"><td class="nm"><b>大族激光</b><span>002008</span></td><td><span class="st o">复核中</span></td><td class="num">84.51</td><td class="num far">退回候选</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div id="poolLogic" hidden>
+      <div class="heroes" style="margin-top:0">
+        <div class="hero warn">
+          <div class="k">投机线 · 选股逻辑 <span class="st b" style="float:right">运行中</span></div>
+          <div class="logic">
+            <div class="lg"><b>池子</b>市值 ≥500亿 · 日均成交 ≥3亿 · 非ST · 上市满1年</div>
+            <div class="lg"><b>信号</b>收盘创 250日新高 + 相对强度前 15%</div>
+            <div class="lg"><b>确认</b>板块集群：10日内 ≥3 家同板块新高</div>
+            <div class="lg"><b>买点</b>浅回踩 ≤2.5×ATR · 深回调 4-7×ATR 放量重上平台 · 不追高</div>
+            <div class="lg"><b>止损</b>平台价 −2×ATR · 单笔风险 = 账户 1%</div>
+            <div class="lg"><b>出场</b>吊灯：最高收盘 −3×ATR · 浮盈 2.5R 卖 1/3 留 2/3</div>
+            <div class="lg"><b>门</b>广度门开才买 · 沪深300 定仓位档</div>
+          </div>
+        </div>
+        <div class="hero calm">
+          <div class="k">投资线 · 选股逻辑 <span class="st g" style="float:right">待建仓</span></div>
+          <div class="logic">
+            <div class="lg"><b>标的</b>红利低波 ETF 512890（高分红 · 低波动 · 央国企为主）</div>
+            <div class="lg"><b>建仓</b>每周三 1.4万 × 5批 · 沪深300 单日跌超 2% 当周加倍</div>
+            <div class="lg"><b>卖出</b>股息率 &lt;4% 减半 · 跌了不卖 · 分红到账再买入</div>
+            <div class="lg"><b>纪律</b>每月 1 号看一次 · 不看价格看股息率</div>
+            <div class="lg"><b>下次</b>周三 8月5日 · 第 1 批 · 1.4 万</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="poolArchive" hidden>
+      <div class="libGrid" id="libGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== 个股详情 ===== -->
+  <section id="v-stock" hidden>
+    <button class="back" onclick="go('pool')">← 股票池</button>
+    <div class="top">
+      <h1 id="sName">中际旭创</h1>
+      <span class="d" id="sCode">300308 · 通信设备 · 光模块</span>
+      <span class="r"><span class="st b" id="sState">等买点</span></span>
+    </div>
+    <div class="dgrid">
+      <div class="price-hero">
+        <div class="p" id="sPrice">452.30</div>
+        <div class="chg up" id="sChg">+1.8% · 收盘确认信号为准</div>
+        <div class="ladder"><div class="cur" id="sCur" style="left:72%"></div></div>
+        <div class="ladder-marks">
+          <span>止损 <b id="sStop">388.50</b></span>
+          <span>买点 <b id="sBuy">430.00</b></span>
+          <span>现价</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>关键数字</h3>
+        <div class="kv"><span class="k">距买点</span><span class="v near" id="sDist">−2.1%</span></div>
+        <div class="kv"><span class="k">若买入 · 计划风险</span><span class="v">¥5,000（账户 1%）</span></div>
+        <div class="kv"><span class="k">相对强度</span><span class="v">前 8%</span></div>
+        <div class="kv"><span class="k">板块联动</span><span class="v" id="sCluster">6 家新高</span></div>
+        <div class="kv"><span class="k">产业档案</span><span class="v"><a href="javascript:void(0)" onclick="goArch('storage')" style="color:var(--tc-deep);font-weight:600;text-decoration:none">存储与算力硬件链 ›</a></span></div>
+        <h3 style="margin-top:14px">状态</h3>
+        <div class="steps" id="sSteps">
+          <div class="step done"><div class="d"></div><div class="t">候选</div></div>
+          <div class="step done"><div class="d"></div><div class="t">研究中</div></div>
+          <div class="step done cur"><div class="d"></div><div class="t">等买点</div></div>
+          <div class="step"><div class="d"></div><div class="t">持有</div></div>
+          <div class="step"><div class="d"></div><div class="t">移出</div></div>
+        </div>
+        <div class="basis" id="sBasis">依据：250日新高 + 相对强度前15% + 板块6家同步新高。等待回踩买点区内放量企稳，不到不买。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 行业档案页 ===== -->
+  <section id="v-industry" hidden>
+    <button class="back" id="indBack" onclick="indBackFn()">← 返回</button>
+    <div id="indBody"></div>
+  </section>
+
+  <!-- ===== 我的 ===== -->
+  <section id="v-me" hidden>
+    <div class="top"><h1>我的</h1><span class="d">账户权益 · 直接录入</span></div>
+    <div class="heroes">
+      <div class="hero calm" style="grid-column:1/-1">
+        <div class="k">账户权益 <span class="eqHint">点击金额直接修改</span></div>
+        <div class="eq" id="eqWrap" onclick="eqEdit()"><span class="v" id="eqVal">¥500,000</span></div>
+        <div class="s">当前回撤 0.0% · 熔断线 −8% · 未触发</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mini">
+        <div class="k">投机仓</div>
+        <div class="v">0 笔 · ¥0</div>
+        <div class="note">标签买入时选定，之后不可改</div>
+      </div>
+      <div class="mini">
+        <div class="k">投资仓</div>
+        <div class="v">0 笔 · ¥0</div>
+        <div class="note">待建仓 · 周三 8月5日 第 1 批</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mini" style="grid-column:1/-1">
+        <div class="k">实盘验证期</div>
+        <div class="v">0 / 20 笔平仓</div>
+        <div class="bar"><i></i></div>
+        <div class="note">攒满 20 笔前，仓位上限与规则冻结</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const views=['today','pool','stock','me','industry'];
+function go(v){
+  views.forEach(x=>document.getElementById('v-'+x).hidden=x!==v);
+  document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('on',n.dataset.v===v||((v==='stock'||v==='industry')&&n.dataset.v==='pool'&&_indFrom!=='today')));
+}
+document.querySelectorAll('.nav').forEach(n=>n.onclick=()=>go(n.dataset.v));
+function poolTab(t){
+  document.getElementById('poolList').hidden=t!=='list';
+  document.getElementById('poolLogic').hidden=t!=='logic';
+  document.getElementById('poolArchive').hidden=t!=='archive';
+  document.getElementById('tabList').classList.toggle('on',t==='list');
+  document.getElementById('tabLogic').classList.toggle('on',t==='logic');
+  document.getElementById('tabArchive').classList.toggle('on',t==='archive');
+  if(t==='archive')renderLib();
+}
+const archives=[
+ {id:'bull5',title:'五年涨幅王画像',ind:'全市场 · 2021-2025',date:'2026-07-18',sections:[
+   {h:'产业利润地图',body:'三种动物瓜分涨幅榜：题材连板妖股（游资筹码游戏，30-90天）、借壳重组重估（一纸公告改命）、产业趋势核心股（真实供需变革，主升150-220天）。只有第三种给纪律系统留门。'},
+   {h:'赢家复盘',kv:[
+     ['联特科技','+398% · 光模块 · ChatGPT算力军备'],
+     ['寒武纪','+388% · AI芯片 · 国产算力替代'],
+     ['胜宏科技','+586% · AI PCB · 业绩季度翻倍'],
+     ['中际旭创','+318% · 光模块 · 猎场内核心股'],
+     ['上纬新材','+1820% · 借壳 → 机器人(妖)']]},
+   {h:'血点定律',body:'25只涨幅王的启动低点高度集中在大盘恐慌底：2022-04上海疫情底、2024-02微盘股危机底、2025-01与04-07关税暴跌底。涨幅王的买点=市场的血点。'},
+   {h:'潜在受益者',body:'产业核心股长大进入500亿猎场后的第二段（鼎泰高科模式 +43.9pp）；恐慌停血、门重开后的第一批信号（胜宏模式）。'}]},
+ {id:'storage',title:'存储与算力硬件链',ind:'半导体 · 存储/PCB/光模块',date:'2026-08-01',sections:[
+   {h:'产业利润地图',body:'利润最浓的一棒在原厂（长鑫/三星/海力士，上行期毛利50-90%）；其次是内存接口芯片（澜起，高壁垒高毛利）；设备材料赚资本开支的钱；模组厂赚库存周期价差，最像牌桌。'},
+   {h:'赢家复盘',kv:[
+     ['中际旭创','光模块 · 2023+318% · AI算力军备'],
+     ['新易盛','光模块 · 2025年主线 · 800G放量'],
+     ['胜宏科技','AI PCB · 2025+586% · 英伟达GB200核心'],
+     ['鼎泰高科','PCB钻针 · 2025+567% · 长大进猎场后系统吃第二段']]},
+   {h:'潜在受益者',body:'长鑫上市后的国产链：设备（北方华创/中微/拓荆）、材料（雅克/安集/鼎龙）、封测（长电/通富/深科技沛顿）。大基金三期3440亿七成投设备材料。'},
+   {h:'风险备忘',body:'存储是间歇性喷泉：涨两年跌两年。2023年三巨头合计亏超200亿美元，2026年海力士单季营业利润率72%。周期顶的利润要打折看。'}]},
+ {id:'pig',title:'猪产业链',ind:'农业 · 种猪/仔猪',date:'待写',sections:[
+   {h:'产业利润地图',body:'链条：种猪繁育→仔猪→饲料/动保→育肥→屠宰。利润最浓的是"双阴/四阴"种猪与仔猪环节（高健康度溢价30-50元/头），育肥端周期性最强、利润最薄。'},
+   {h:'关键指标',kv:[
+     ['PSY','32+ 为头部水平（元海目标）'],
+     ['料肉比','2.3 为头部水平'],
+     ['四阴溢价','30-50元/头'],
+     ['周期','猪周期约4年一轮，血点在产能出清尾段']]},
+   {h:'潜在受益者',body:'轻资产租赁模式（租闲置种猪场）+整建制团队。跟踪：四阴仔猪采购意向落地、PSY实绩、租赁场点评分体系。'}]}
+];
+/* ---------- 档案库 ---------- */
+const libQueue=[
+ {id:'pig',title:'猪产业链',ind:'农业 · 种猪/仔猪',pos:'待终审',step:3,temp:'g',tempName:'冷',one:'你的主场档案：初稿已成型，等终审入库'},
+ {id:'fishery',title:'渔业',ind:'农林牧渔 · 渔业',pos:'排队 2/6',step:1,temp:'o',tempName:'温',one:'温度计转温触发的建档任务，研究排期中'},
+ {id:'animal',title:'动物保健Ⅱ',ind:'农林牧渔 · 动保',pos:'排队 3/6',step:1,temp:'o',tempName:'温',one:'猪产业链相邻环节，可与猪档案合并研究'},
+ {id:'steel',title:'普钢',ind:'钢铁',pos:'排队 4/6',step:1,temp:'o',tempName:'温',one:'温度计转温触发的建档任务'},
+ {id:'cement',title:'水泥',ind:'建筑材料',pos:'排队 5/6',step:1,temp:'o',tempName:'温',one:'温度计转温触发的建档任务'},
+ {id:'citybank',title:'城商行Ⅱ',ind:'银行',pos:'排队 6/6',step:1,temp:'o',tempName:'温',one:'温度计转温触发的建档任务'}
+];
+const libPublished=[
+ {id:'storage',title:'存储与算力硬件链',ind:'半导体 · 存储/PCB/光模块',date:'2026-08-01',temp:'b',tempName:'热',one:'利润退却到稀缺环节：原厂与接口芯片吃肉，模组厂赚库存周期价差'},
+ {id:'bull5',title:'五年涨幅王画像',ind:'全市场 · 2021-2025 研究',date:'2026-07-18',temp:'g',tempName:'—',one:'25只涨幅王三种动物；血点定律：买点=市场的恐慌底'}
+];
+function renderLib(){
+  const pub=libPublished.map(a=>
+    `<div class="libCard" onclick="goIndustry('${a.id}','lib')">
+      <div class="t">${a.title}</div>
+      <div class="one">${a.one}</div>
+      <div class="ft"><span class="st ${a.temp}">${a.tempName}</span><span>${a.ind}</span><span style="margin-left:auto">更新 ${a.date}</span></div>
+    </div>`).join('');
+  const que=libQueue.map(a=>
+    `<div class="libCard grey" onclick="goIndustry('${a.id}','lib')">
+      <div class="t">${a.title}</div>
+      <div class="one">${a.one}</div>
+      <div class="prog"><i class="${a.step>=1?'done':''}"></i><i class="${a.step>=2?'done':''}"></i><i class="${a.step>=3?'done':''}"></i><i></i></div>
+      <div class="ft"><span class="st ${a.temp}">${a.tempName}</span><span>${a.pos}</span><span style="margin-left:auto">研究流程 ›</span></div>
+    </div>`).join('');
+  document.getElementById('libGrid').innerHTML=pub+que;
+}
+/* ---------- 行业页 ---------- */
+let _indFrom='pool';
+const indOutline=[
+ ['① 温度计读数','四灯状态 · 数据日期'],
+ ['② 产业是什么','链条结构 · 利润地图'],
+ ['③ 周期与位置','关键指标现值与阈值'],
+ ['④ 资金逻辑','驱动因素 · 证伪信号'],
+ ['⑤ 核心股票 ≤5','生意档案 · 随身三问'],
+ ['⑥ 风险与诚实边界','写明"我们不知道什么"'],
+ ['⑦ 证据与来源','全部数据带日期']
+];
+const indPreview={
+ fishery:{name:'渔业',temp:'温',st:'o',pos:'排队 2/6 · 机器骨架工序',
+  note:'本行业无市值≥500亿个股，即使档案建成，S8个股推送预期长期为空——档案价值在学习，不在信号。',
+  list:[['国联水产','300094','~52亿','+4.2%'],['大湖股份','600257','~34亿','+2.8%'],['中水渔业','000798','~41亿','+6.1%'],['好当家','600467','~28亿','+1.9%'],['开创国际','600097','~24亿','+3.3%']]},
+ animal:{name:'动物保健Ⅱ',temp:'温',st:'o',pos:'排队 3/6 · 与猪档案合并研究',
+  note:'猪产业链相邻环节：疫苗兽药利润跟着猪周期走，你口述猪档案时可一并覆盖。',
+  list:[['中牧股份','600195','~155亿','+2.1%'],['生物股份','600201','~128亿','+3.6%'],['瑞普生物','300119','~98亿','+1.4%'],['普莱柯','603566','~72亿','+2.9%'],['科前生物','688526','~85亿','+0.8%']]},
+ steel:{name:'普钢',temp:'温',st:'o',pos:'排队 4/6',note:'',
+  list:[['宝钢股份','600019','~1450亿','+1.2%'],['华菱钢铁','000932','~420亿','+2.4%'],['南钢股份','600282','~310亿','+1.8%']]},
+ cement:{name:'水泥',temp:'温',st:'o',pos:'排队 5/6',note:'',
+  list:[['海螺水泥','600585','~1280亿','+0.9%'],['华新水泥','600801','~390亿','+1.6%'],['天山股份','000877','~480亿','+1.1%']]},
+ citybank:{name:'城商行Ⅱ',temp:'温',st:'o',pos:'排队 6/6',note:'',
+  list:[['江苏银行','600919','~1650亿','+0.6%'],['宁波银行','002142','~1580亿','+0.4%'],['南京银行','601009','~1050亿','+0.8%']]}
+};
+function goIndustry(id,from){
+  _indFrom=from||'today';
+  const pub=archives.find(x=>x.id===id);
+  const meta=libPublished.find(x=>x.id===id)||libQueue.find(x=>x.id===id);
+  let html='';
+  if(pub){
+    html=`<div class="indHead"><div class="tt"><h1>${pub.title}</h1>
+      <span class="st ${meta?meta.temp:'g'}">${meta?meta.tempName+'档':'—'}</span>
+      <span style="font-size:12px;color:var(--faint)">已发布 · 更新 ${pub.date}</span></div>
+      <div class="one">${meta?meta.one:''}</div></div>
+      <div class="card archRead" style="max-height:none">`+
+      pub.sections.map(s=>{
+        let inner='';
+        if(s.body)inner+=`<p>${s.body}</p>`;
+        if(s.kv)inner+=s.kv.map(([k,v])=>`<div class="kv2"><b>${k}</b><span>${v}</span></div>`).join('');
+        return `<h4>${s.h}</h4>${inner}`;
+      }).join('')+`</div>`;
+  }else{
+    const p=indPreview[id]||{name:meta?meta.title:'',temp:'温',st:'o',pos:meta?meta.pos:'',note:'',list:[]};
+    html=`<div class="indHead"><div class="tt"><h1>${p.name}</h1>
+      <span class="st ${p.st}">${p.temp}</span>
+      <span class="st g">研究进行中</span>
+      <span style="font-size:12px;color:var(--faint)">${p.pos}</span></div>
+      <div class="one">行业升温已确认（温度计 ${p.temp}档）。按 S8 规则：产业档案建成前不推个股——档案正在按深度研究规格撰写，建成后本页即为档案正文。</div></div>
+      <div class="card" style="margin-bottom:16px">
+        <h3>档案大纲 · 规格v2（七节，缺节不入库）</h3>
+        <div class="outline" style="margin-top:10px">`+
+        indOutline.map(([t,d])=>`<div class="olItem"><b>${t}</b>${d}</div>`).join('')+
+        `</div></div>
+      <div class="card">
+        <h3>行业速览 · 市值前列（原始数据按市值排序，未经档案审核，非核心股推荐）</h3>
+        ${p.note?`<p style="font-size:12.5px;color:var(--amber);margin:8px 0">${p.note}</p>`:''}`+
+        p.list.map(([n,c,m,ch])=>`<div class="line"><span class="nm">${n} <span style="color:var(--faint);font-size:12px">${c}</span></span><span class="rs num">${m}</span><span class="acts num">${ch}</span></div>`).join('')+
+      `</div>`;
+  }
+  document.getElementById('indBody').innerHTML=html;
+  document.getElementById('indBack').textContent=_indFrom==='lib'?'← 产业档案':'← 今天';
+  go('industry');
+}
+function indBackFn(){
+  if(_indFrom==='lib'){go('pool');poolTab('archive');}
+  else go('today');
+}
+function goArch(id){goIndustry(id,'lib');}
+const h=location.hash.slice(1);if(views.includes(h)&&h!=='industry')go(h);
+if(h==='stock')goStock('中际旭创','300308','通信设备 · 光模块','452.30','+1.8%','up','−2.1%',72,'430.00','388.50',6);
+if(h==='logic'){go('pool');poolTab('logic');}
+if(h==='archive'){go('pool');poolTab('archive');}
+if(h==='industry-storage')goIndustry('storage','lib');
+if(h==='industry-fishery')goIndustry('fishery');
+
+/* ---------- 实时时钟 ---------- */
+function tick(){
+  const n=new Date();
+  const p=x=>String(x).padStart(2,'0');
+  const el=document.getElementById('clock');
+  if(el)el.textContent=p(n.getHours())+':'+p(n.getMinutes())+':'+p(n.getSeconds());
+  const day=n.getDay(),hm=n.getHours()*60+n.getMinutes();
+  const b=document.getElementById('mktBadge');
+  if(b){
+    const open=(day>=1&&day<=5)&&((hm>=570&&hm<=690)||(hm>=780&&hm<=900));
+    b.textContent=open?'交易中':(day>=1&&day<=5?'已收盘':'非交易日');
+    b.className=open?'st b':'st o';
+  }
+}
+tick();setInterval(tick,1000);
+
+function goStock(name,code,ind,price,chg,dir,dist,ladder,buy,stop,cluster){
+  document.getElementById('sName').textContent=name;
+  document.getElementById('sCode').textContent=code+' · '+ind;
+  document.getElementById('sPrice').textContent=price;
+  const c=document.getElementById('sChg');
+  c.textContent=chg+' · 收盘确认信号为准';
+  c.className='chg '+dir;
+  document.getElementById('sDist').textContent=dist;
+  document.getElementById('sBuy').textContent=buy;
+  document.getElementById('sStop').textContent=stop;
+  document.getElementById('sCluster').textContent=cluster?cluster+' 家新高':'无';
+  document.getElementById('sCur').style.left=ladder+'%';
+  go('stock');
+}
+
+function done(id,label){
+  const el=document.getElementById(id);
+  el.querySelector('.acts').innerHTML='<span style="font-size:12.5px;color:var(--sage);font-weight:600">'+label+'</span>';
+  el.querySelector('.rs').style.textDecoration='line-through';
+  el.style.opacity='0.45';
+}
+
+function eqEdit(){
+  const wrap=document.getElementById('eqWrap');
+  const cur=document.getElementById('eqVal').textContent.replace(/[¥,]/g,'');
+  wrap.innerHTML='<input class="eqIn" id="eqIn" value="'+cur+'">';
+  const inp=document.getElementById('eqIn');inp.focus();inp.select();
+  const save=()=>{
+    let v=inp.value.replace(/[^\d]/g,'')||'0';
+    v=Number(v).toLocaleString('en-US');
+    wrap.innerHTML='<span class="v" id="eqVal">'+v+'</span>';
+    localStorage.setItem('gl_eq',v);
+  };
+  inp.onblur=save;
+  inp.onkeydown=e=>{if(e.key==='Enter')save();if(e.key==='Escape')wrap.innerHTML='<span class="v" id="eqVal">'+Number(cur).toLocaleString('en-US')+'</span>';};
+}
+const se=localStorage.getItem('gl_eq');
+if(se)document.getElementById('eqVal').textContent='¥'+se;
+</script>
+</body>
+</html>

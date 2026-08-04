@@ -1,0 +1,14 @@
+{
+  "phase": "final-equivalent-after-stop",
+  "sha256": {
+    "copy_market": "636f16e08e12798c7fdada829dd4fda344094366a1831c4e97f223ab83bd39dd",
+    "copy_s3": "2cf8b398c0d6164e705fc2e4fedd2490c05a41597ec2eb59478a565bad5deffe",
+    "copy_s8": "02a09079e2f361e54ccfadec764fd630f86b41012ac2661c3c345229814bd9e3",
+    "copy_screener": "491d1eb003ea068986bd68d66f3697ec7f522cf2634fa4fa3eae556cd6be2786",
+    "production_market": "675712874078ab49a5c00f465e5c7e8f3674b425263239024abdf90bdaba6b9e",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "production_s3": "bd4cdd55ffdd650fa70a869e5b7a3fe7c4ed2d59758635c764012b1868fa7814",
+    "production_s8": "d244f2b9e730eb55bf4b7ab6cc727b577d3b9c03fa1cb5beaaf2749592b3567b",
+    "production_screener": "97a34197ad51f237f77acc8ec0fe0139cd97970c265246e91f1996d2f91a1639"
+  }
+}

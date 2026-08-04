@@ -1,0 +1,98 @@
+{
+  "captured_at": "2026-08-01T10:36:40+08:00",
+  "environment": {
+    "url": "http://127.0.0.1:8787",
+    "launch_agent": "com.rui.stock-screener.web",
+    "production_pid": 52221,
+    "source_commit": "2118f42d53cf390885002727d646e81339b02eaa"
+  },
+  "capture_contract": {
+    "mode": "viewport",
+    "full_page_forbidden": true,
+    "desktop": {"width": 1440, "height": 900},
+    "mobile": {"width": 390, "height": 844},
+    "format": "jpeg"
+  },
+  "entries": [
+    {
+      "page": "今天", "device": "desktop", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-desktop-today#today",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "scroll_width": 1440, "scroll_height": 1930, "scroll_y": 0, "hash": "#today", "loading": false, "key_rect": {"x": 288, "y": 111.34375, "width": 1104, "height": 1729.15625}, "engineering_links": []},
+      "image": {"width": 1440, "height": 900, "format": "jpeg"},
+      "file": "今天-桌面.jpg", "bytes": 87562, "sha256": "af48fa52ee7b3914e3073c2b58dc8d98defe3b7cd4211f06abf1eb5df73283f9"
+    },
+    {
+      "page": "股票池", "device": "desktop", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-desktop-pool#pool",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "scroll_width": 1440, "scroll_height": 1567, "scroll_y": 0, "hash": "#pool", "loading": false, "key_rect": {"x": 288, "y": 111.34375, "width": 1104, "height": 1342.3671875}, "engineering_links": []},
+      "image": {"width": 1440, "height": 900, "format": "jpeg"},
+      "file": "股票池-桌面.jpg", "bytes": 56062, "sha256": "2a8ea63dac3f17107fe3ed024e7333518a0da39e90962c821b320d84687d580d"
+    },
+    {
+      "page": "我的", "device": "desktop", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-desktop-me#me",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "scroll_width": 1440, "scroll_height": 900, "scroll_y": 0, "hash": "#me", "loading": false, "key_rect": {"x": 288, "y": 111.34375, "width": 1104, "height": 587.96875}, "engineering_links": []},
+      "image": {"width": 1440, "height": 900, "format": "jpeg"},
+      "file": "我的-桌面.jpg", "bytes": 53830, "sha256": "9cadb4c33ab29f1c5444ba19be99d33d5eb864db64f9b2c5c8ee7a1aba5ac229"
+    },
+    {
+      "page": "工程模式", "device": "desktop", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-desktop-engineering#me",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "scroll_width": 1440, "scroll_height": 900, "scroll_y": 0, "hash": "#me", "loading": false, "key_rect": {"x": 850, "y": 497.984375, "width": 542, "height": 243.890625}, "engineering_links": ["池子管理", "完整日报", "交易台", "问 AI", "策略说明与回测", "设置", "历史快照"]},
+      "image": {"width": 1440, "height": 900, "format": "jpeg"},
+      "file": "工程模式-桌面.jpg", "bytes": 67629, "sha256": "27ced3ade679735d0109fb263e54102ea904f86c99b56928602b4bbab63665c9"
+    },
+    {
+      "page": "设置", "device": "desktop", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/settings?direct=20260801-desktop-settings",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "scroll_width": 1440, "scroll_height": 4093, "scroll_y": 0, "hash": "", "loading": false, "key_rect": {"x": 270, "y": 0, "width": 900, "height": 4093.2265625}, "engineering_links": []},
+      "image": {"width": 1440, "height": 900, "format": "jpeg"},
+      "file": "设置-桌面.jpg", "bytes": 64415, "sha256": "8e3deb40a78def9bb67de3feceab5e4e9603df28519e42463e713e769fdcb11a"
+    },
+    {
+      "page": "今天", "device": "mobile", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-mobile-today#today",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "scroll_width": 390, "scroll_height": 2854, "scroll_y": 0, "hash": "#today", "loading": false, "key_rect": {"x": 16, "y": 97.34375, "width": 358, "height": 2656.734375}, "engineering_links": []},
+      "image": {"width": 390, "height": 844, "format": "jpeg"},
+      "file": "今天-手机.jpg", "bytes": 36226, "sha256": "7be367deccb39eb1004dd8212d41c4f80c82f8f6e1e017c976ed074aca125dca"
+    },
+    {
+      "page": "股票池", "device": "mobile", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-mobile-pool#pool",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "scroll_width": 390, "scroll_height": 2111, "scroll_y": 0, "hash": "#pool", "loading": false, "key_rect": {"x": 16, "y": 97.34375, "width": 358, "height": 1890.1796875}, "engineering_links": []},
+      "image": {"width": 390, "height": 844, "format": "jpeg"},
+      "file": "股票池-手机.jpg", "bytes": 26623, "sha256": "0d8ab456cfa6553cdd2c3c3d73bc7818e01df8766594f5df68d0dd6842e634f8"
+    },
+    {
+      "page": "我的", "device": "mobile", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-mobile-me#me",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "scroll_width": 390, "scroll_height": 1291, "scroll_y": 0, "hash": "#me", "loading": false, "key_rect": {"x": 16, "y": 97.34375, "width": 358, "height": 1093.515625}, "engineering_links": []},
+      "image": {"width": 390, "height": 844, "format": "jpeg"},
+      "file": "我的-手机.jpg", "bytes": 25550, "sha256": "471b3d0ff15d89c3ae01299ce7d00d4af83276c4719498506e9254a1dfbee3c0"
+    },
+    {
+      "page": "工程模式", "device": "mobile", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/?direct=20260801-mobile-engineering#me",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "scroll_width": 390, "scroll_height": 1445, "scroll_y": 447, "hash": "#me", "loading": false, "key_rect": {"x": 16, "y": 560.859375, "width": 358, "height": 268.640625}, "engineering_links": ["池子管理", "完整日报", "交易台", "问 AI", "策略说明与回测", "设置", "历史快照"]},
+      "image": {"width": 390, "height": 844, "format": "jpeg"},
+      "file": "工程模式-手机.jpg", "bytes": 36101, "sha256": "fa80f66600b8743f39082cb711aed8e1ca16236ff15b6d486fadc8230254bb5a"
+    },
+    {
+      "page": "设置", "device": "mobile", "capture_mode": "viewport",
+      "url": "http://127.0.0.1:8787/settings?direct=20260801-mobile-settings",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "scroll_width": 390, "scroll_height": 8117, "scroll_y": 0, "hash": "", "loading": false, "key_rect": {"x": 0, "y": 0, "width": 390, "height": 8117.03125}, "engineering_links": []},
+      "image": {"width": 390, "height": 844, "format": "jpeg"},
+      "file": "设置-手机.jpg", "bytes": 36653, "sha256": "cd542b795d1ee7332868349d80857469d63eed87aa2dda7c28019433fe006c93"
+    }
+  ]
+}
