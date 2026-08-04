@@ -1,0 +1,21 @@
+{
+  "environment": "production",
+  "captures": [
+    {
+      "page": "today",
+      "device": "desktop",
+      "viewport": {"width": 1440, "height": 900},
+      "capture_mode": "viewport",
+      "file": "today-desktop-1440x900.jpg",
+      "sha256": "05648f12cadc8fc22833123cbf82ccb4d7396c12355c9626249696cb51a06b03"
+    },
+    {
+      "page": "today",
+      "device": "mobile",
+      "viewport": {"width": 390, "height": 844},
+      "capture_mode": "viewport",
+      "file": "today-mobile-390x844.jpg",
+      "sha256": "050a4f5235af62fc62b9461a4b824bbd5d9cd8fcfe847bec9a0c720a573cbbf6"
+    }
+  ]
+}

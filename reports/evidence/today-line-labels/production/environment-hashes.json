@@ -1,0 +1,25 @@
+{
+  "environment": "production",
+  "deployed_main_commit": "40c617ac3d63f95ab6ad4ce73b24c73507484286",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "before": {
+    "screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "s3": "cc361059a7edf72379510b28d7ea47ae4fa91dc6027619c9ef8d2365ce77abca",
+    "s8": "0d5023d63139a205d764ccc27d0c1525a08ec1485f75d0a2694afa82180b0911"
+  },
+  "after": {
+    "screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "s3": "cc361059a7edf72379510b28d7ea47ae4fa91dc6027619c9ef8d2365ce77abca",
+    "s8": "0d5023d63139a205d764ccc27d0c1525a08ec1485f75d0a2694afa82180b0911"
+  },
+  "unchanged": true,
+  "health": {
+    "ok": true,
+    "match": true,
+    "fingerprint_boot": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "fingerprint_disk": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "rule_version": 10
+  }
+}
