@@ -192,14 +192,24 @@
 
 ## 8. 一屏布局
 
-验收视口为桌面 `1440×900` 和手机 `390×844`。四个界面在普通视口截图中满足：
+验收视口为桌面 `1440×900` 和手机 `390×844`。所有主页、子页和股票池子页签在普通视口截图中满足：
 
-- `document.documentElement.scrollHeight <= window.innerHeight`
-- `document.documentElement.scrollWidth <= window.innerWidth`
+- `document.documentElement.scrollHeight === document.documentElement.clientHeight`
+- `document.documentElement.scrollWidth === document.documentElement.clientWidth`
+- 活动页壳 `scrollHeight === clientHeight`
+- 活动页壳 `scrollWidth === clientWidth`
 - 关键内容不裁切、不重叠、不逐字竖排
 - 不使用 full-page 截图掩盖溢出
 
-手机端通过缩小间距、字号和行高保持一屏；不删除真实行，不使用内部滚动区。股票池表格改为紧凑五列布局，允许次要文字省略号截断。
+手机端通过缩小间距、字号和行高保持一屏；不删除真实行。只有设计指定的档案正文区、档案卡名单、股票/连阳/S8 卡片名单可在固定页壳内内部滚动，不得撑大页面。股票池表格改为紧凑五列布局，允许次要文字省略号截断。
+
+### 8.1 全局永久零滚动规则
+
+所有主页、子页和股票池子页签在桌面 `1440×900` 和手机 `390×844` 下均不得出现页面级滚动。验收必须直接断言 document 和活动页壳 `scrollHeight === clientHeight`、`scrollWidth === clientWidth`，且页壳 `overflow-y` 不是 `auto` 或 `scroll`。任一溢出即验收失败。
+
+今后所有“查看更多”类内容一律使用独立 hash 子页承载。主页只保留单行摘要入口，不得增加可展开长列表、内部详情区或页面级滚动。子页可在固定页壳内设置指定内容区滚动，但页面容器仍不得溢出。
+
+今天页不显示全局“数据截至”页脚，数据日跟随对应子页展示。标题区的实时时钟使用固定宽度等宽数字；交易状态仅映射现有市场时钟模块结果，禁止在前端另行判定交易日。
 
 ## 9. 测试
 
@@ -216,7 +226,7 @@
 7. `/api/*` 路由集合与源码哈希前后一致；
 8. 新前端只有 `POST /api/account` 一个写请求；
 9. 账户保存后刷新保持；
-10. 桌面和手机四界面无横向或纵向滚动；
+10. 桌面和手机所有主/子页面及子页签无页面级横向或纵向滚动；
 11. 股票池点击进入详情并返回原位置；
 12. 归档文件数量和 SHA-256 清单一致。
 
