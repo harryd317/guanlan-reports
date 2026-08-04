@@ -14,7 +14,24 @@
     "s3": "cc361059a7edf72379510b28d7ea47ae4fa91dc6027619c9ef8d2365ce77abca",
     "s8": "0d5023d63139a205d764ccc27d0c1525a08ec1485f75d0a2694afa82180b0911"
   },
-  "unchanged": true,
+  "deployment_window_unchanged": true,
+  "post_restart_catchup": {
+    "observed_at": "2026-08-04T22:14:17+08:00",
+    "screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "s3": "89718e45a9421eb1b75795c72279938c91d595e3b2142cd8090c1cef9f0c0396",
+    "s8": "335cdfbb4f0215f36de349f0b3aa67ba1ef30b408cde62850f8c815212c2e6b1",
+    "reason": "normal _catchup_job after restart",
+    "integrity": {"s3": "ok", "s8": "ok"},
+    "logical_change": {
+      "industry_thermometer_snapshots_rows": "3 -> 3",
+      "industry_thermometer_generated_at": "2026-08-04T13:53:28.716533+00:00 -> 2026-08-04T14:14:11.732666+00:00",
+      "s8_signals_rows": "12 -> 12",
+      "archive_queue_rows": "21 -> 21",
+      "archive_queue_updated_at": "2026-08-04T13:53:34.726642+00:00 -> 2026-08-04T14:14:17.861430+00:00",
+      "s8_shadow_ledger_rows": "0 -> 0"
+    }
+  },
   "health": {
     "ok": true,
     "match": true,
