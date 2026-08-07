@@ -78,7 +78,7 @@
 - Prompt 版本为 `industry-archive-v2.2-web`。
 - 动物保健Ⅱ队列状态是 `skeleton_ready`，前端显示“研究中”；`prompt_version/channel/model` 均为空，证明改后稿未写入生产队列、未发布。
 - 全路由零滚动 36/36；生产双视口截图 10/10；控制台 0 错误。
-- `market.db`、`industry_thermometer_sidecar.db` 和生产 plist 部署前后字节 SHA-256 一致。
+- `market.db`、`industry_thermometer_sidecar.db` 和生产 plist 在部署前/部署后门禁时字节 SHA-256 一致。随后全量测试关闭 SQLite 连接时将 `market.db-wal` 的既有页检查点回主文件，使主文件哈希变为 `fa4ebb4b…`。已用主键逐行 `SQLite IS` 比较部署前逻辑快照与当前库：6 张表的行数、每个字段和每一行全部一致，`all_tables_identical=true`；这是物理 checkpoint，没有业务数据写入。
 - `screener.db` 原始文件哈希从 `9fc0abb1…` 变为 `8e21c748…`，但部署前快照与部署后生产库的表结构、行数和逐表内容哈希全部一致；变化仅限 SQLite 物理页。
 - `S8_research.db` 原始文件哈希从 `9b7d9a10…` 变为 `08600e58…`；唯一逻辑变化是已批准可写表 `archive_queue` 增加 7 个生成/审校/审计字段。表行数部署前后都为 21，无业务行增删；其他表无变化。
 
