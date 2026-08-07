@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-08-07T08:28:52.984315+00:00",
+  "checks": {
+    "archive_v2_ok": true,
+    "channel_is_kimi": true,
+    "core_stock_count_at_most_5": true,
+    "dated_sources_present": true,
+    "real_web_search_observed": true,
+    "web_search_declared_every_round": true
+  },
+  "environment": "production-equivalent-read-only",
+  "generation": {
+    "channel": "kimi",
+    "model": "kimi-k2.6",
+    "prompt_version": "industry-archive-v2.1-web",
+    "request_rounds": 2,
+    "trace": [
+      {
+        "authorization_header_present": true,
+        "declared_tools": ["$web_search"],
+        "endpoint_host": "api.moonshot.cn",
+        "endpoint_path": "/v1/chat/completions",
+        "finish_reason": "tool_calls",
+        "message_roles": ["system", "user"],
+        "model": "kimi-k2.6",
+        "round": 1,
+        "tool_calls": ["$web_search"]
+      },
+      {
+        "authorization_header_present": true,
+        "declared_tools": ["$web_search"],
+        "endpoint_host": "api.moonshot.cn",
+        "endpoint_path": "/v1/chat/completions",
+        "finish_reason": "stop",
+        "message_roles": ["system", "user", "assistant", "tool", "user"],
+        "model": "kimi-k2.6",
+        "round": 2,
+        "tool_calls": []
+      }
+    ],
+    "web_search_tool_call_count": 1
+  },
+  "industry": {
+    "code": "801018.SI",
+    "data_date": "2026-08-03",
+    "member_count": 12,
+    "name": "动物保健Ⅱ",
+    "queue_status_before": "skeleton_ready"
+  },
+  "schema": "guanlan-kimi-live-integration/v1",
+  "secret_value_recorded": false,
+  "sources": {
+    "date_markers": [
+      "2023-11-15",
+      "2024-05-15",
+      "2025",
+      "2025-04-08",
+      "2025-07-21",
+      "2034"
+    ],
+    "domains": [
+      "mp.weixin.qq.com",
+      "pdf.dfcfw.com",
+      "quote.eastmoney.com",
+      "www.fortunebusinessinsights.com",
+      "www.fxbaogao.com"
+    ],
+    "url_count": 6
+  },
+  "validation": {
+    "core_stock_count": 5,
+    "errors": [],
+    "missing_sections": [],
+    "non_whitespace_length": 5643,
+    "ok": true,
+    "reference_length": 3063
+  }
+}

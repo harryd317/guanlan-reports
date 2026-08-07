@@ -1,0 +1,1027 @@
+{
+  "s8": {
+    "after": {
+      "freelist_count": 0,
+      "page_count": 64,
+      "schema": {
+        "archive_queue": "CREATE TABLE archive_queue(\n    industry_code TEXT PRIMARY KEY,\n    industry_name TEXT NOT NULL,\n    trigger_date TEXT NOT NULL,\n    previous_heat TEXT,\n    current_heat TEXT,\n    status TEXT NOT NULL,\n    skeleton_json TEXT,\n    ai_draft TEXT,\n    human_note TEXT,\n    cold_days INTEGER NOT NULL DEFAULT 0,\n    archive_id TEXT,\n    created_at TEXT NOT NULL,\n    updated_at TEXT NOT NULL\n, lifecycle_date TEXT, review_period TEXT, mirror_commit_hash TEXT, draft_mirrored_at TEXT, reviewed_at TEXT, prompt_version TEXT, generation_channel TEXT, generation_model TEXT, generation_started_at TEXT, generation_error TEXT, review_json TEXT, audit_log_json TEXT)",
+        "s8_shadow_ledger": "CREATE TABLE s8_shadow_ledger(\n    ledger_id TEXT PRIMARY KEY,\n    signal_id TEXT NOT NULL UNIQUE,\n    ts_code TEXT NOT NULL,\n    industry_code TEXT NOT NULL,\n    planned_entry_date TEXT,\n    entry_date TEXT,\n    entry_price REAL,\n    signal_ma250 REAL,\n    risk_distance REAL,\n    account_size REAL NOT NULL,\n    risk_budget REAL NOT NULL,\n    shares INTEGER NOT NULL DEFAULT 0,\n    virtual_amount REAL NOT NULL DEFAULT 0,\n    status TEXT NOT NULL,\n    below_ma250_days INTEGER NOT NULL DEFAULT 0,\n    last_close REAL,\n    last_ma250 REAL,\n    exit_date TEXT,\n    exit_price REAL,\n    exit_reason TEXT,\n    return_pct REAL,\n    review_card_json TEXT,\n    created_at TEXT NOT NULL,\n    updated_at TEXT NOT NULL,\n    FOREIGN KEY(signal_id) REFERENCES s8_signals(signal_id)\n)",
+        "s8_signals": "CREATE TABLE s8_signals(\n    signal_id TEXT PRIMARY KEY,\n    trade_date TEXT NOT NULL,\n    kind TEXT NOT NULL CHECK(kind IN ('stock','industry')),\n    ts_code TEXT,\n    name TEXT,\n    industry_code TEXT NOT NULL,\n    industry_name TEXT NOT NULL,\n    market_cap_yi REAL,\n    market_cap_tier TEXT,\n    window_type TEXT NOT NULL,\n    lights_json TEXT NOT NULL,\n    metrics_json TEXT NOT NULL,\n    reason TEXT NOT NULL,\n    falsification TEXT,\n    archive_id TEXT,\n    review_date TEXT,\n    disclaimer TEXT NOT NULL,\n    status TEXT NOT NULL,\n    formula_version TEXT NOT NULL,\n    push_state TEXT NOT NULL DEFAULT 'pending',\n    created_at TEXT NOT NULL,\n    review_card_json TEXT\n)"
+      },
+      "tables": {
+        "archive_queue": {
+          "columns": [
+            "industry_code",
+            "industry_name",
+            "trigger_date",
+            "previous_heat",
+            "current_heat",
+            "status",
+            "skeleton_json",
+            "ai_draft",
+            "human_note",
+            "cold_days",
+            "archive_id",
+            "created_at",
+            "updated_at",
+            "lifecycle_date",
+            "review_period",
+            "mirror_commit_hash",
+            "draft_mirrored_at",
+            "reviewed_at",
+            "prompt_version",
+            "generation_channel",
+            "generation_model",
+            "generation_started_at",
+            "generation_error",
+            "review_json",
+            "audit_log_json"
+          ],
+          "rows": 21,
+          "sha256": "134afcdd9da6e636b2d62bce8ceaf3d788b27c424a1bff3ac28a0790906d62fb"
+        },
+        "s8_shadow_ledger": {
+          "columns": [
+            "ledger_id",
+            "signal_id",
+            "ts_code",
+            "industry_code",
+            "planned_entry_date",
+            "entry_date",
+            "entry_price",
+            "signal_ma250",
+            "risk_distance",
+            "account_size",
+            "risk_budget",
+            "shares",
+            "virtual_amount",
+            "status",
+            "below_ma250_days",
+            "last_close",
+            "last_ma250",
+            "exit_date",
+            "exit_price",
+            "exit_reason",
+            "return_pct",
+            "review_card_json",
+            "created_at",
+            "updated_at"
+          ],
+          "rows": 0,
+          "sha256": "eb076e023ed6be58bda190957c9e70e5f229a486639c4cf98141b6fc6dc783fa"
+        },
+        "s8_signals": {
+          "columns": [
+            "signal_id",
+            "trade_date",
+            "kind",
+            "ts_code",
+            "name",
+            "industry_code",
+            "industry_name",
+            "market_cap_yi",
+            "market_cap_tier",
+            "window_type",
+            "lights_json",
+            "metrics_json",
+            "reason",
+            "falsification",
+            "archive_id",
+            "review_date",
+            "disclaimer",
+            "status",
+            "formula_version",
+            "push_state",
+            "created_at",
+            "review_card_json"
+          ],
+          "rows": 12,
+          "sha256": "4503a2437cd3f698efcd7cdd46972772413629942ebd77b95ab71cdff0296514"
+        }
+      }
+    },
+    "before": {
+      "freelist_count": 0,
+      "page_count": 64,
+      "schema": {
+        "archive_queue": "CREATE TABLE archive_queue(\n    industry_code TEXT PRIMARY KEY,\n    industry_name TEXT NOT NULL,\n    trigger_date TEXT NOT NULL,\n    previous_heat TEXT,\n    current_heat TEXT,\n    status TEXT NOT NULL,\n    skeleton_json TEXT,\n    ai_draft TEXT,\n    human_note TEXT,\n    cold_days INTEGER NOT NULL DEFAULT 0,\n    archive_id TEXT,\n    created_at TEXT NOT NULL,\n    updated_at TEXT NOT NULL\n, lifecycle_date TEXT, review_period TEXT, mirror_commit_hash TEXT, draft_mirrored_at TEXT, reviewed_at TEXT)",
+        "s8_shadow_ledger": "CREATE TABLE s8_shadow_ledger(\n    ledger_id TEXT PRIMARY KEY,\n    signal_id TEXT NOT NULL UNIQUE,\n    ts_code TEXT NOT NULL,\n    industry_code TEXT NOT NULL,\n    planned_entry_date TEXT,\n    entry_date TEXT,\n    entry_price REAL,\n    signal_ma250 REAL,\n    risk_distance REAL,\n    account_size REAL NOT NULL,\n    risk_budget REAL NOT NULL,\n    shares INTEGER NOT NULL DEFAULT 0,\n    virtual_amount REAL NOT NULL DEFAULT 0,\n    status TEXT NOT NULL,\n    below_ma250_days INTEGER NOT NULL DEFAULT 0,\n    last_close REAL,\n    last_ma250 REAL,\n    exit_date TEXT,\n    exit_price REAL,\n    exit_reason TEXT,\n    return_pct REAL,\n    review_card_json TEXT,\n    created_at TEXT NOT NULL,\n    updated_at TEXT NOT NULL,\n    FOREIGN KEY(signal_id) REFERENCES s8_signals(signal_id)\n)",
+        "s8_signals": "CREATE TABLE s8_signals(\n    signal_id TEXT PRIMARY KEY,\n    trade_date TEXT NOT NULL,\n    kind TEXT NOT NULL CHECK(kind IN ('stock','industry')),\n    ts_code TEXT,\n    name TEXT,\n    industry_code TEXT NOT NULL,\n    industry_name TEXT NOT NULL,\n    market_cap_yi REAL,\n    market_cap_tier TEXT,\n    window_type TEXT NOT NULL,\n    lights_json TEXT NOT NULL,\n    metrics_json TEXT NOT NULL,\n    reason TEXT NOT NULL,\n    falsification TEXT,\n    archive_id TEXT,\n    review_date TEXT,\n    disclaimer TEXT NOT NULL,\n    status TEXT NOT NULL,\n    formula_version TEXT NOT NULL,\n    push_state TEXT NOT NULL DEFAULT 'pending',\n    created_at TEXT NOT NULL,\n    review_card_json TEXT\n)"
+      },
+      "tables": {
+        "archive_queue": {
+          "columns": [
+            "industry_code",
+            "industry_name",
+            "trigger_date",
+            "previous_heat",
+            "current_heat",
+            "status",
+            "skeleton_json",
+            "ai_draft",
+            "human_note",
+            "cold_days",
+            "archive_id",
+            "created_at",
+            "updated_at",
+            "lifecycle_date",
+            "review_period",
+            "mirror_commit_hash",
+            "draft_mirrored_at",
+            "reviewed_at"
+          ],
+          "rows": 21,
+          "sha256": "b9381a35aa83bb8db598c3025b7322e707cbbc55e55f63f269fa173ee9ea3bb1"
+        },
+        "s8_shadow_ledger": {
+          "columns": [
+            "ledger_id",
+            "signal_id",
+            "ts_code",
+            "industry_code",
+            "planned_entry_date",
+            "entry_date",
+            "entry_price",
+            "signal_ma250",
+            "risk_distance",
+            "account_size",
+            "risk_budget",
+            "shares",
+            "virtual_amount",
+            "status",
+            "below_ma250_days",
+            "last_close",
+            "last_ma250",
+            "exit_date",
+            "exit_price",
+            "exit_reason",
+            "return_pct",
+            "review_card_json",
+            "created_at",
+            "updated_at"
+          ],
+          "rows": 0,
+          "sha256": "eb076e023ed6be58bda190957c9e70e5f229a486639c4cf98141b6fc6dc783fa"
+        },
+        "s8_signals": {
+          "columns": [
+            "signal_id",
+            "trade_date",
+            "kind",
+            "ts_code",
+            "name",
+            "industry_code",
+            "industry_name",
+            "market_cap_yi",
+            "market_cap_tier",
+            "window_type",
+            "lights_json",
+            "metrics_json",
+            "reason",
+            "falsification",
+            "archive_id",
+            "review_date",
+            "disclaimer",
+            "status",
+            "formula_version",
+            "push_state",
+            "created_at",
+            "review_card_json"
+          ],
+          "rows": 12,
+          "sha256": "4503a2437cd3f698efcd7cdd46972772413629942ebd77b95ab71cdff0296514"
+        }
+      }
+    },
+    "schema_added": [],
+    "schema_changed": [
+      "archive_queue"
+    ],
+    "schema_removed": [],
+    "table_changes": {
+      "archive_queue": {
+        "after": {
+          "columns": [
+            "industry_code",
+            "industry_name",
+            "trigger_date",
+            "previous_heat",
+            "current_heat",
+            "status",
+            "skeleton_json",
+            "ai_draft",
+            "human_note",
+            "cold_days",
+            "archive_id",
+            "created_at",
+            "updated_at",
+            "lifecycle_date",
+            "review_period",
+            "mirror_commit_hash",
+            "draft_mirrored_at",
+            "reviewed_at",
+            "prompt_version",
+            "generation_channel",
+            "generation_model",
+            "generation_started_at",
+            "generation_error",
+            "review_json",
+            "audit_log_json"
+          ],
+          "rows": 21,
+          "sha256": "134afcdd9da6e636b2d62bce8ceaf3d788b27c424a1bff3ac28a0790906d62fb"
+        },
+        "before": {
+          "columns": [
+            "industry_code",
+            "industry_name",
+            "trigger_date",
+            "previous_heat",
+            "current_heat",
+            "status",
+            "skeleton_json",
+            "ai_draft",
+            "human_note",
+            "cold_days",
+            "archive_id",
+            "created_at",
+            "updated_at",
+            "lifecycle_date",
+            "review_period",
+            "mirror_commit_hash",
+            "draft_mirrored_at",
+            "reviewed_at"
+          ],
+          "rows": 21,
+          "sha256": "b9381a35aa83bb8db598c3025b7322e707cbbc55e55f63f269fa173ee9ea3bb1"
+        }
+      }
+    }
+  },
+  "screener": {
+    "after": {
+      "freelist_count": 0,
+      "page_count": 634,
+      "schema": {
+        "ai_docs": "CREATE TABLE ai_docs (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                code       TEXT NOT NULL,\n                d          TEXT NOT NULL,      -- 生成日(ISO)\n                kind       TEXT NOT NULL,      -- industry_deep / ...\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                UNIQUE(code, d, kind)\n            )",
+        "ai_usage": "CREATE TABLE ai_usage (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                ts          TEXT NOT NULL,       -- 调用时刻\n                purpose     TEXT NOT NULL,       -- thesis/event_read/weekly/review\n                code        TEXT,\n                tokens_in   INTEGER,\n                tokens_out  INTEGER,\n                cost_est    REAL,                -- 估算费用(元,可空)\n                created_at  TEXT NOT NULL\n            )",
+        "app_state": "CREATE TABLE app_state (\n                key         TEXT PRIMARY KEY,    -- 运行状态位(推送去重/待投标记等)\n                value       TEXT,                -- 与 settings 分开:这里不是参数,\n                updated_at  TEXT                 -- 不走 set_params 审计,程序自用\n            )",
+        "daily_reports": "CREATE TABLE daily_reports (\n                d           TEXT PRIMARY KEY,    -- 交易日\n                payload_json TEXT NOT NULL,      -- 完整日报JSON(任务3)\n                created_at  TEXT NOT NULL\n            )",
+        "equity": "CREATE TABLE equity (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                date       TEXT NOT NULL,      -- 平仓日\n                equity     REAL NOT NULL,      -- 账户净值(初始 1.0,按 pnl/账户总额 累积)\n                trade_id   INTEGER,            -- 触发本条净值的交易\n                created_at TEXT NOT NULL\n            )",
+        "events": "CREATE TABLE events (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                code        TEXT NOT NULL,\n                ts          TEXT NOT NULL,       -- 事件时间(公告日/采集时刻)\n                type        TEXT NOT NULL,       -- announcement/earnings/news/tech_shift/industry_shift\n                title       TEXT NOT NULL,\n                payload     TEXT,                -- 详情JSON(可选)\n                source_url  TEXT,\n                dedup_hash  TEXT NOT NULL,       -- sha256(title+ts+code)[:16]\n                claude_read TEXT,                -- Claude 解读结论(任务3填)\n                created_at  TEXT NOT NULL,\n                UNIQUE(dedup_hash)\n            )",
+        "falsify_conditions": "CREATE TABLE falsify_conditions (\n                id       INTEGER PRIMARY KEY AUTOINCREMENT,\n                code     TEXT NOT NULL,\n                seq      INTEGER NOT NULL,               -- 条件序号(1起)\n                text     TEXT NOT NULL,\n                status   TEXT NOT NULL DEFAULT 'active', -- active / dead(勾选核验已死)\n                source   TEXT NOT NULL DEFAULT 'ai',     -- ai(自动草拟)/ user(人工)\n                created  TEXT NOT NULL,\n                updated  TEXT NOT NULL,\n                edit_log TEXT                            -- 修改留痕(JSON数组,只追加)\n            )",
+        "idx_events_code": "CREATE INDEX idx_events_code ON events(code, ts)",
+        "idx_falsify_code": "CREATE INDEX idx_falsify_code ON falsify_conditions(code, seq)",
+        "idx_pool_active": "CREATE UNIQUE INDEX idx_pool_active\n            ON pool(code) WHERE state NOT IN ('removed')",
+        "ladder_shadow": "CREATE TABLE ladder_shadow (\n                id              INTEGER PRIMARY KEY AUTOINCREMENT,\n                code            TEXT NOT NULL,\n                name            TEXT,\n                entry_date      TEXT,            -- 真实仓入场日(与池行 entry_date 同口径)\n                entry_price     REAL NOT NULL,   -- 真实仓入场价(假想结局的统一分母)\n                unlock_date     TEXT NOT NULL,   -- 解锁日(收盘浮盈首达 +50% 的交易日)\n                unlock_close    REAL NOT NULL,   -- 解锁日收盘价\n                unlock_gain_pct REAL,            -- 解锁日浮盈 %\n                peak_close      REAL,            -- 解锁后最高收盘(full_dd30 的回撤基准)\n                variants_json   TEXT NOT NULL,   -- 三变体推进状态(含幂等守卫 last_advance)\n                capacity_json   TEXT,            -- 登记当时的容量判定快照(T1 公式)\n                status          TEXT NOT NULL DEFAULT 'tracking',  -- tracking / closed\n                created         TEXT NOT NULL,\n                updated         TEXT NOT NULL\n            )",
+        "lessons": "CREATE TABLE lessons (\n                code        TEXT NOT NULL,\n                d           TEXT NOT NULL,       -- 生成对应的交易日(data.today_cn())\n                content_json TEXT NOT NULL,      -- {industry,technical,fundamental,low_confidence}\n                created_at  TEXT NOT NULL,\n                UNIQUE(code, d)\n            )",
+        "memory_log": "CREATE TABLE memory_log (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                changed_at TEXT NOT NULL,\n                content    TEXT NOT NULL       -- 追加进 MEMORY.md 的增量文本\n            )",
+        "outside_buy_controls": "CREATE TABLE outside_buy_controls (\n                position_id       INTEGER PRIMARY KEY,\n                buy_date          TEXT NOT NULL,\n                exit_due_date     TEXT,\n                mistake_condition TEXT,\n                stop_price        REAL,\n                buy_basis         TEXT,\n                completed_at      TEXT,\n                last_reminded_on  TEXT,\n                created_at        TEXT NOT NULL\n            )",
+        "outside_chats": "CREATE TABLE outside_chats (\n                code       TEXT NOT NULL,\n                chat_date  TEXT NOT NULL,\n                seq        INTEGER NOT NULL,\n                role       TEXT NOT NULL,\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                PRIMARY KEY (code, chat_date, seq)\n            )",
+        "override_shadow": "CREATE TABLE override_shadow (\n                id              INTEGER PRIMARY KEY AUTOINCREMENT,\n                code            TEXT NOT NULL,\n                name            TEXT,\n                qty             REAL,             -- 纪律仓不存股数,可空(如实留空不猜)\n                sell_date       TEXT NOT NULL,    -- 实际(提前)卖出日\n                sell_price      REAL NOT NULL,\n                entry_price     REAL,             -- 假想跟踪快照:原仓入场价\n                stop_price      REAL,             -- 假想跟踪快照:原仓止损价\n                entry_date      TEXT,             -- 假想跟踪快照:原仓入场日\n                last_advance    TEXT,             -- 幂等守卫:同一根K线只推进一次\n                rule_exit_date  TEXT,             -- 假想规则出场日(闭环时填)\n                rule_exit_price REAL,\n                diff_pct        REAL,             -- 规则出场价 vs 实际卖出价 差额%\n                status          TEXT NOT NULL DEFAULT 'tracking',  -- tracking / closed\n                created         TEXT NOT NULL,\n                updated         TEXT NOT NULL\n            )",
+        "pool": "CREATE TABLE pool (\n                id            INTEGER PRIMARY KEY AUTOINCREMENT,\n                code          TEXT NOT NULL,     -- 股票代码\n                name          TEXT,              -- 股票名称\n                state         TEXT NOT NULL,     -- candidate/research/watchlist/holding/cooldown/removed\n                first_seen    TEXT NOT NULL,     -- 首次进候选日期(ISO)\n                state_since   TEXT NOT NULL,     -- 进入当前状态的日期(过期/倒计时基准)\n                expire_at     TEXT,              -- 候选过期日(first_seen+10交易日,由编排层算)\n                research_due  TEXT,              -- 研究中72h倒计时截止时刻\n                platform_price REAL,             -- 突破平台价(止损参考)\n                stop_price    REAL,              -- 当前止损价\n                entry_price   REAL,              -- 实际入场价(holding 填)\n                entry_date    TEXT,              -- 实际入场日\n                position_amt  REAL,              -- 持仓金额(元)\n                cooldown_until TEXT,             -- 冷却期截止日\n                sort_score    REAL,              -- 排序分(七因子分×技术状态,池满替换建议用)\n                note          TEXT,              -- 自由备注\n                created_at    TEXT NOT NULL,\n                updated_at    TEXT NOT NULL\n            , anchor_close REAL, anchor_date TEXT, strategy TEXT, industry TEXT, ladder_stage TEXT, ladder_start_date TEXT)",
+        "position_books": "CREATE TABLE position_books (\n                position_id INTEGER PRIMARY KEY,\n                book_type   TEXT NOT NULL CHECK(book_type IN ('speculative','investment')),\n                origin      TEXT NOT NULL,\n                created_at  TEXT NOT NULL\n            )",
+        "position_books_no_relabel": "CREATE TRIGGER position_books_no_relabel\n            BEFORE UPDATE OF book_type ON position_books\n            WHEN NEW.book_type <> OLD.book_type\n            BEGIN\n                SELECT RAISE(ABORT, 'position book label is immutable');\n            END",
+        "positions": "CREATE TABLE positions (\n                id           INTEGER PRIMARY KEY AUTOINCREMENT,\n                code         TEXT NOT NULL,\n                name         TEXT,\n                buy_date     TEXT NOT NULL,\n                buy_price    REAL NOT NULL,\n                stop_price   REAL,            -- 止损价(通常=平台价),规则5与盘中距止损用\n                amount       REAL,            -- 买入金额(元);csv 导入的旧仓可为空,统计会提示补填\n                rule_version INTEGER NOT NULL DEFAULT 1,  -- 录入时的规则版本(统计口径切换用)\n                status       TEXT NOT NULL DEFAULT 'open',   -- open / closed\n                created_at   TEXT NOT NULL\n            , signal_type TEXT, strategy TEXT, industry TEXT, qty REAL)",
+        "review_chats": "CREATE TABLE review_chats (\n                chat_date  TEXT NOT NULL,     -- 对话所属日期(按日一会话,次日新开)\n                seq        INTEGER NOT NULL,  -- 当日内消息序号\n                role       TEXT NOT NULL,     -- user / assistant\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                PRIMARY KEY (chat_date, seq)\n            )",
+        "rule_changes": "CREATE TABLE rule_changes (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                changed_at TEXT NOT NULL,\n                param      TEXT NOT NULL,\n                old_value  TEXT,\n                new_value  TEXT,\n                reason     TEXT,\n                source     TEXT NOT NULL,      -- 用户手改 / AI提案 / 恢复默认\n                applied    INTEGER NOT NULL DEFAULT 1,   -- 1=生效 0=驳回(提案被拒也留痕)\n                version    INTEGER NOT NULL    -- 生效后的规则版本号(驳回记当前版本)\n            )",
+        "settings": "CREATE TABLE settings (\n                key TEXT PRIMARY KEY, value TEXT NOT NULL\n            )",
+        "snapshots": "CREATE TABLE snapshots (\n                trade_date  TEXT PRIMARY KEY,   -- 快照对应的已收盘交易日\n                created_at  TEXT NOT NULL,      -- 本次筛选完成时刻\n                payload     TEXT NOT NULL       -- 整份快照 JSON(index/groups/持仓提醒/失败清单等)\n            )",
+        "strategy_switches": "CREATE TABLE strategy_switches(\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            judged_date TEXT NOT NULL UNIQUE,\n            mode TEXT NOT NULL,             -- shadow(影子)/live(评审后才可能出现)\n            regime TEXT NOT NULL,\n            decision TEXT NOT NULL,         -- keep|would_switch\n            active_card TEXT NOT NULL,      -- 现任(影子期恒=mid)\n            suggest_card TEXT,              -- would_switch 时的目标卡\n            reason TEXT NOT NULL,           -- 白话:为什么(无背书/带宽不足/任期未满…)\n            engine_ver TEXT NOT NULL,\n            created_at TEXT NOT NULL)",
+        "thesis": "CREATE TABLE thesis (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                pool_id     INTEGER NOT NULL,    -- 关联 pool.id\n                code        TEXT NOT NULL,\n                created_at  TEXT NOT NULL,       -- 入池/立项时刻\n                content_json TEXT NOT NULL,      -- 七因子逐项+空头报告三路径(JSON)\n                version     INTEGER NOT NULL DEFAULT 1, score_ver TEXT, evidence_n INTEGER,  -- 重做立项时版本递增\n                FOREIGN KEY (pool_id) REFERENCES pool(id)\n            )",
+        "trades": "CREATE TABLE trades (\n                id           INTEGER PRIMARY KEY AUTOINCREMENT,\n                position_id  INTEGER,          -- 来源持仓(导入的历史交易可为空)\n                code         TEXT NOT NULL,\n                name         TEXT,\n                buy_date     TEXT, buy_price REAL, amount REAL,\n                sell_date    TEXT NOT NULL, sell_price REAL NOT NULL,\n                reason       TEXT NOT NULL,    -- 止损破平台|破MA20|破前低|主动止盈|其他\n                note         TEXT,             -- 一句话复盘\n                pnl          REAL,             -- 盈亏金额(元);amount 缺失时为空\n                pnl_pct      REAL,             -- 盈亏 %(卖价/买价-1)\n                rule_version INTEGER NOT NULL DEFAULT 1,\n                created_at   TEXT NOT NULL\n            , signal_type TEXT, strategy TEXT, ladder_leg TEXT)",
+        "user_actions": "CREATE TABLE user_actions (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                trade_date  TEXT NOT NULL,     -- 卡片所属日报日\n                code        TEXT NOT NULL,\n                action      TEXT NOT NULL,     -- skip(这次不买)/ack(看过了)/dismiss\n                card_kind   TEXT,              -- 卡类型(buy/sell/trim/review/new)\n                price       REAL,              -- 行为发生时的参考价(可空)\n                created_at  TEXT NOT NULL\n            )"
+      },
+      "tables": {
+        "ai_docs": {
+          "columns": [
+            "id",
+            "code",
+            "d",
+            "kind",
+            "content",
+            "created_at"
+          ],
+          "rows": 14,
+          "sha256": "07ba72d14a18667cf787dba30a6a76172b0e3ac23817d86397d872484d7a7daf"
+        },
+        "ai_usage": {
+          "columns": [
+            "id",
+            "ts",
+            "purpose",
+            "code",
+            "tokens_in",
+            "tokens_out",
+            "cost_est",
+            "created_at"
+          ],
+          "rows": 260,
+          "sha256": "8bd7d24307db76ec674b9fc7ca70a4bc32187faa718c520bc43c2bf943d0dd42"
+        },
+        "app_state": {
+          "columns": [
+            "key",
+            "value",
+            "updated_at"
+          ],
+          "rows": 5,
+          "sha256": "b6c08df33f36088fbe0710863fef8b97727a03092125ccfe8dee17559bd9a0e4"
+        },
+        "daily_reports": {
+          "columns": [
+            "d",
+            "payload_json",
+            "created_at"
+          ],
+          "rows": 25,
+          "sha256": "dea8ceafd808d7019b7df1c1da6ab5510d4dafd2df64a573b89b095ebbc8c8fb"
+        },
+        "equity": {
+          "columns": [
+            "id",
+            "date",
+            "equity",
+            "trade_id",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "63efd50ca5c778abc98123de6eb0ae098f49dba2f73ccfed7802e7628a367e88"
+        },
+        "events": {
+          "columns": [
+            "id",
+            "code",
+            "ts",
+            "type",
+            "title",
+            "payload",
+            "source_url",
+            "dedup_hash",
+            "claude_read",
+            "created_at"
+          ],
+          "rows": 943,
+          "sha256": "7cfcd0b75deb56243008b531c77b9030fbc7513e1fd679a10350aae7dfe96ea3"
+        },
+        "falsify_conditions": {
+          "columns": [
+            "id",
+            "code",
+            "seq",
+            "text",
+            "status",
+            "source",
+            "created",
+            "updated",
+            "edit_log"
+          ],
+          "rows": 0,
+          "sha256": "d61a8103f880b88621cca3d25b71c0752ffdf508dc6627c32bf7a013f5e4c96b"
+        },
+        "ladder_shadow": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "entry_date",
+            "entry_price",
+            "unlock_date",
+            "unlock_close",
+            "unlock_gain_pct",
+            "peak_close",
+            "variants_json",
+            "capacity_json",
+            "status",
+            "created",
+            "updated"
+          ],
+          "rows": 0,
+          "sha256": "9307d561152f2233c4956f65319b7c0168308883b21e02da35b765a9d1bf0d5d"
+        },
+        "lessons": {
+          "columns": [
+            "code",
+            "d",
+            "content_json",
+            "created_at"
+          ],
+          "rows": 48,
+          "sha256": "713ceef4bda6c1bcabef801cf23c88e90abbab00d379a2029d0fe0a97f5d037b"
+        },
+        "memory_log": {
+          "columns": [
+            "id",
+            "changed_at",
+            "content"
+          ],
+          "rows": 0,
+          "sha256": "a07a328005f6e1bfd8293f3392432d5f04f0e050279b0e37995001dc1666085c"
+        },
+        "outside_buy_controls": {
+          "columns": [
+            "position_id",
+            "buy_date",
+            "exit_due_date",
+            "mistake_condition",
+            "stop_price",
+            "buy_basis",
+            "completed_at",
+            "last_reminded_on",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "bde3e7d59f21aa901b1f144a55857bb111f04ac95f3a3c33552b05085dbb0c5e"
+        },
+        "outside_chats": {
+          "columns": [
+            "code",
+            "chat_date",
+            "seq",
+            "role",
+            "content",
+            "created_at"
+          ],
+          "rows": 6,
+          "sha256": "a222f9b2c0d660bdac06fd14854b811de30066bc8ad79788b72ca98324e566b8"
+        },
+        "override_shadow": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "qty",
+            "sell_date",
+            "sell_price",
+            "entry_price",
+            "stop_price",
+            "entry_date",
+            "last_advance",
+            "rule_exit_date",
+            "rule_exit_price",
+            "diff_pct",
+            "status",
+            "created",
+            "updated"
+          ],
+          "rows": 0,
+          "sha256": "0623a3a4fb25aa81220d6b74ff24761bca694fd816a345205e4a4c6ca1d93582"
+        },
+        "pool": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "state",
+            "first_seen",
+            "state_since",
+            "expire_at",
+            "research_due",
+            "platform_price",
+            "stop_price",
+            "entry_price",
+            "entry_date",
+            "position_amt",
+            "cooldown_until",
+            "sort_score",
+            "note",
+            "created_at",
+            "updated_at",
+            "anchor_close",
+            "anchor_date",
+            "strategy",
+            "industry",
+            "ladder_stage",
+            "ladder_start_date"
+          ],
+          "rows": 23,
+          "sha256": "ff0464db29c1b5fe40b28ba7ab217b66388388fd451a047f32a53cb34461b73a"
+        },
+        "position_books": {
+          "columns": [
+            "position_id",
+            "book_type",
+            "origin",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "b3cb62efeab551283a07d4d38cd461376ec6d78f6c63fd93ec587bda99c0413b"
+        },
+        "positions": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "buy_date",
+            "buy_price",
+            "stop_price",
+            "amount",
+            "rule_version",
+            "status",
+            "created_at",
+            "signal_type",
+            "strategy",
+            "industry",
+            "qty"
+          ],
+          "rows": 0,
+          "sha256": "364d52ae6d16b057a261c7a74113b960668291eb348c095a2c074ac7e4df3535"
+        },
+        "review_chats": {
+          "columns": [
+            "chat_date",
+            "seq",
+            "role",
+            "content",
+            "created_at"
+          ],
+          "rows": 80,
+          "sha256": "33cca5050867baddcb59ae7ce7b8a6a5b18835e38e751e1d3bc2f26234934898"
+        },
+        "rule_changes": {
+          "columns": [
+            "id",
+            "changed_at",
+            "param",
+            "old_value",
+            "new_value",
+            "reason",
+            "source",
+            "applied",
+            "version"
+          ],
+          "rows": 13,
+          "sha256": "e7258c174a496716d502395ae4fb8ee4259b66c7eb92b34e388d00e6b5fd2278"
+        },
+        "settings": {
+          "columns": [
+            "key",
+            "value"
+          ],
+          "rows": 12,
+          "sha256": "447db4114cbaf0e753f884407ab8f9a3346fac047ea0706fd91883b6cb8ab2ce"
+        },
+        "snapshots": {
+          "columns": [
+            "trade_date",
+            "created_at",
+            "payload"
+          ],
+          "rows": 21,
+          "sha256": "9eec98425fd9e8ce51bfc19d528e1d93d278ed25d75e63e28067d5ccc0b4e41e"
+        },
+        "strategy_switches": {
+          "columns": [
+            "id",
+            "judged_date",
+            "mode",
+            "regime",
+            "decision",
+            "active_card",
+            "suggest_card",
+            "reason",
+            "engine_ver",
+            "created_at"
+          ],
+          "rows": 19,
+          "sha256": "010bd71d23bc03635d155c4c65bb252107bf65307cd1099f9a4c0fcbfeac191d"
+        },
+        "thesis": {
+          "columns": [
+            "id",
+            "pool_id",
+            "code",
+            "created_at",
+            "content_json",
+            "version",
+            "score_ver",
+            "evidence_n"
+          ],
+          "rows": 22,
+          "sha256": "e626c9efbfc42839b95c6ddf61af81390429d6f615cbb7513d71cdaa5672bf2a"
+        },
+        "trades": {
+          "columns": [
+            "id",
+            "position_id",
+            "code",
+            "name",
+            "buy_date",
+            "buy_price",
+            "amount",
+            "sell_date",
+            "sell_price",
+            "reason",
+            "note",
+            "pnl",
+            "pnl_pct",
+            "rule_version",
+            "created_at",
+            "signal_type",
+            "strategy",
+            "ladder_leg"
+          ],
+          "rows": 0,
+          "sha256": "585f83d7bfd68ae37e478cfb49de447985a150a24cdb27d2186ea0a371b8d216"
+        },
+        "user_actions": {
+          "columns": [
+            "id",
+            "trade_date",
+            "code",
+            "action",
+            "card_kind",
+            "price",
+            "created_at"
+          ],
+          "rows": 7,
+          "sha256": "4ec44d27bd60534e364da00a6d58722ad221d6e7d6a5760a33c55c0ea7af0568"
+        }
+      }
+    },
+    "before": {
+      "freelist_count": 0,
+      "page_count": 634,
+      "schema": {
+        "ai_docs": "CREATE TABLE ai_docs (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                code       TEXT NOT NULL,\n                d          TEXT NOT NULL,      -- 生成日(ISO)\n                kind       TEXT NOT NULL,      -- industry_deep / ...\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                UNIQUE(code, d, kind)\n            )",
+        "ai_usage": "CREATE TABLE ai_usage (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                ts          TEXT NOT NULL,       -- 调用时刻\n                purpose     TEXT NOT NULL,       -- thesis/event_read/weekly/review\n                code        TEXT,\n                tokens_in   INTEGER,\n                tokens_out  INTEGER,\n                cost_est    REAL,                -- 估算费用(元,可空)\n                created_at  TEXT NOT NULL\n            )",
+        "app_state": "CREATE TABLE app_state (\n                key         TEXT PRIMARY KEY,    -- 运行状态位(推送去重/待投标记等)\n                value       TEXT,                -- 与 settings 分开:这里不是参数,\n                updated_at  TEXT                 -- 不走 set_params 审计,程序自用\n            )",
+        "daily_reports": "CREATE TABLE daily_reports (\n                d           TEXT PRIMARY KEY,    -- 交易日\n                payload_json TEXT NOT NULL,      -- 完整日报JSON(任务3)\n                created_at  TEXT NOT NULL\n            )",
+        "equity": "CREATE TABLE equity (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                date       TEXT NOT NULL,      -- 平仓日\n                equity     REAL NOT NULL,      -- 账户净值(初始 1.0,按 pnl/账户总额 累积)\n                trade_id   INTEGER,            -- 触发本条净值的交易\n                created_at TEXT NOT NULL\n            )",
+        "events": "CREATE TABLE events (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                code        TEXT NOT NULL,\n                ts          TEXT NOT NULL,       -- 事件时间(公告日/采集时刻)\n                type        TEXT NOT NULL,       -- announcement/earnings/news/tech_shift/industry_shift\n                title       TEXT NOT NULL,\n                payload     TEXT,                -- 详情JSON(可选)\n                source_url  TEXT,\n                dedup_hash  TEXT NOT NULL,       -- sha256(title+ts+code)[:16]\n                claude_read TEXT,                -- Claude 解读结论(任务3填)\n                created_at  TEXT NOT NULL,\n                UNIQUE(dedup_hash)\n            )",
+        "falsify_conditions": "CREATE TABLE falsify_conditions (\n                id       INTEGER PRIMARY KEY AUTOINCREMENT,\n                code     TEXT NOT NULL,\n                seq      INTEGER NOT NULL,               -- 条件序号(1起)\n                text     TEXT NOT NULL,\n                status   TEXT NOT NULL DEFAULT 'active', -- active / dead(勾选核验已死)\n                source   TEXT NOT NULL DEFAULT 'ai',     -- ai(自动草拟)/ user(人工)\n                created  TEXT NOT NULL,\n                updated  TEXT NOT NULL,\n                edit_log TEXT                            -- 修改留痕(JSON数组,只追加)\n            )",
+        "idx_events_code": "CREATE INDEX idx_events_code ON events(code, ts)",
+        "idx_falsify_code": "CREATE INDEX idx_falsify_code ON falsify_conditions(code, seq)",
+        "idx_pool_active": "CREATE UNIQUE INDEX idx_pool_active\n            ON pool(code) WHERE state NOT IN ('removed')",
+        "ladder_shadow": "CREATE TABLE ladder_shadow (\n                id              INTEGER PRIMARY KEY AUTOINCREMENT,\n                code            TEXT NOT NULL,\n                name            TEXT,\n                entry_date      TEXT,            -- 真实仓入场日(与池行 entry_date 同口径)\n                entry_price     REAL NOT NULL,   -- 真实仓入场价(假想结局的统一分母)\n                unlock_date     TEXT NOT NULL,   -- 解锁日(收盘浮盈首达 +50% 的交易日)\n                unlock_close    REAL NOT NULL,   -- 解锁日收盘价\n                unlock_gain_pct REAL,            -- 解锁日浮盈 %\n                peak_close      REAL,            -- 解锁后最高收盘(full_dd30 的回撤基准)\n                variants_json   TEXT NOT NULL,   -- 三变体推进状态(含幂等守卫 last_advance)\n                capacity_json   TEXT,            -- 登记当时的容量判定快照(T1 公式)\n                status          TEXT NOT NULL DEFAULT 'tracking',  -- tracking / closed\n                created         TEXT NOT NULL,\n                updated         TEXT NOT NULL\n            )",
+        "lessons": "CREATE TABLE lessons (\n                code        TEXT NOT NULL,\n                d           TEXT NOT NULL,       -- 生成对应的交易日(data.today_cn())\n                content_json TEXT NOT NULL,      -- {industry,technical,fundamental,low_confidence}\n                created_at  TEXT NOT NULL,\n                UNIQUE(code, d)\n            )",
+        "memory_log": "CREATE TABLE memory_log (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                changed_at TEXT NOT NULL,\n                content    TEXT NOT NULL       -- 追加进 MEMORY.md 的增量文本\n            )",
+        "outside_buy_controls": "CREATE TABLE outside_buy_controls (\n                position_id       INTEGER PRIMARY KEY,\n                buy_date          TEXT NOT NULL,\n                exit_due_date     TEXT,\n                mistake_condition TEXT,\n                stop_price        REAL,\n                buy_basis         TEXT,\n                completed_at      TEXT,\n                last_reminded_on  TEXT,\n                created_at        TEXT NOT NULL\n            )",
+        "outside_chats": "CREATE TABLE outside_chats (\n                code       TEXT NOT NULL,\n                chat_date  TEXT NOT NULL,\n                seq        INTEGER NOT NULL,\n                role       TEXT NOT NULL,\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                PRIMARY KEY (code, chat_date, seq)\n            )",
+        "override_shadow": "CREATE TABLE override_shadow (\n                id              INTEGER PRIMARY KEY AUTOINCREMENT,\n                code            TEXT NOT NULL,\n                name            TEXT,\n                qty             REAL,             -- 纪律仓不存股数,可空(如实留空不猜)\n                sell_date       TEXT NOT NULL,    -- 实际(提前)卖出日\n                sell_price      REAL NOT NULL,\n                entry_price     REAL,             -- 假想跟踪快照:原仓入场价\n                stop_price      REAL,             -- 假想跟踪快照:原仓止损价\n                entry_date      TEXT,             -- 假想跟踪快照:原仓入场日\n                last_advance    TEXT,             -- 幂等守卫:同一根K线只推进一次\n                rule_exit_date  TEXT,             -- 假想规则出场日(闭环时填)\n                rule_exit_price REAL,\n                diff_pct        REAL,             -- 规则出场价 vs 实际卖出价 差额%\n                status          TEXT NOT NULL DEFAULT 'tracking',  -- tracking / closed\n                created         TEXT NOT NULL,\n                updated         TEXT NOT NULL\n            )",
+        "pool": "CREATE TABLE pool (\n                id            INTEGER PRIMARY KEY AUTOINCREMENT,\n                code          TEXT NOT NULL,     -- 股票代码\n                name          TEXT,              -- 股票名称\n                state         TEXT NOT NULL,     -- candidate/research/watchlist/holding/cooldown/removed\n                first_seen    TEXT NOT NULL,     -- 首次进候选日期(ISO)\n                state_since   TEXT NOT NULL,     -- 进入当前状态的日期(过期/倒计时基准)\n                expire_at     TEXT,              -- 候选过期日(first_seen+10交易日,由编排层算)\n                research_due  TEXT,              -- 研究中72h倒计时截止时刻\n                platform_price REAL,             -- 突破平台价(止损参考)\n                stop_price    REAL,              -- 当前止损价\n                entry_price   REAL,              -- 实际入场价(holding 填)\n                entry_date    TEXT,              -- 实际入场日\n                position_amt  REAL,              -- 持仓金额(元)\n                cooldown_until TEXT,             -- 冷却期截止日\n                sort_score    REAL,              -- 排序分(七因子分×技术状态,池满替换建议用)\n                note          TEXT,              -- 自由备注\n                created_at    TEXT NOT NULL,\n                updated_at    TEXT NOT NULL\n            , anchor_close REAL, anchor_date TEXT, strategy TEXT, industry TEXT, ladder_stage TEXT, ladder_start_date TEXT)",
+        "position_books": "CREATE TABLE position_books (\n                position_id INTEGER PRIMARY KEY,\n                book_type   TEXT NOT NULL CHECK(book_type IN ('speculative','investment')),\n                origin      TEXT NOT NULL,\n                created_at  TEXT NOT NULL\n            )",
+        "position_books_no_relabel": "CREATE TRIGGER position_books_no_relabel\n            BEFORE UPDATE OF book_type ON position_books\n            WHEN NEW.book_type <> OLD.book_type\n            BEGIN\n                SELECT RAISE(ABORT, 'position book label is immutable');\n            END",
+        "positions": "CREATE TABLE positions (\n                id           INTEGER PRIMARY KEY AUTOINCREMENT,\n                code         TEXT NOT NULL,\n                name         TEXT,\n                buy_date     TEXT NOT NULL,\n                buy_price    REAL NOT NULL,\n                stop_price   REAL,            -- 止损价(通常=平台价),规则5与盘中距止损用\n                amount       REAL,            -- 买入金额(元);csv 导入的旧仓可为空,统计会提示补填\n                rule_version INTEGER NOT NULL DEFAULT 1,  -- 录入时的规则版本(统计口径切换用)\n                status       TEXT NOT NULL DEFAULT 'open',   -- open / closed\n                created_at   TEXT NOT NULL\n            , signal_type TEXT, strategy TEXT, industry TEXT, qty REAL)",
+        "review_chats": "CREATE TABLE review_chats (\n                chat_date  TEXT NOT NULL,     -- 对话所属日期(按日一会话,次日新开)\n                seq        INTEGER NOT NULL,  -- 当日内消息序号\n                role       TEXT NOT NULL,     -- user / assistant\n                content    TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                PRIMARY KEY (chat_date, seq)\n            )",
+        "rule_changes": "CREATE TABLE rule_changes (\n                id         INTEGER PRIMARY KEY AUTOINCREMENT,\n                changed_at TEXT NOT NULL,\n                param      TEXT NOT NULL,\n                old_value  TEXT,\n                new_value  TEXT,\n                reason     TEXT,\n                source     TEXT NOT NULL,      -- 用户手改 / AI提案 / 恢复默认\n                applied    INTEGER NOT NULL DEFAULT 1,   -- 1=生效 0=驳回(提案被拒也留痕)\n                version    INTEGER NOT NULL    -- 生效后的规则版本号(驳回记当前版本)\n            )",
+        "settings": "CREATE TABLE settings (\n                key TEXT PRIMARY KEY, value TEXT NOT NULL\n            )",
+        "snapshots": "CREATE TABLE snapshots (\n                trade_date  TEXT PRIMARY KEY,   -- 快照对应的已收盘交易日\n                created_at  TEXT NOT NULL,      -- 本次筛选完成时刻\n                payload     TEXT NOT NULL       -- 整份快照 JSON(index/groups/持仓提醒/失败清单等)\n            )",
+        "strategy_switches": "CREATE TABLE strategy_switches(\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            judged_date TEXT NOT NULL UNIQUE,\n            mode TEXT NOT NULL,             -- shadow(影子)/live(评审后才可能出现)\n            regime TEXT NOT NULL,\n            decision TEXT NOT NULL,         -- keep|would_switch\n            active_card TEXT NOT NULL,      -- 现任(影子期恒=mid)\n            suggest_card TEXT,              -- would_switch 时的目标卡\n            reason TEXT NOT NULL,           -- 白话:为什么(无背书/带宽不足/任期未满…)\n            engine_ver TEXT NOT NULL,\n            created_at TEXT NOT NULL)",
+        "thesis": "CREATE TABLE thesis (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                pool_id     INTEGER NOT NULL,    -- 关联 pool.id\n                code        TEXT NOT NULL,\n                created_at  TEXT NOT NULL,       -- 入池/立项时刻\n                content_json TEXT NOT NULL,      -- 七因子逐项+空头报告三路径(JSON)\n                version     INTEGER NOT NULL DEFAULT 1, score_ver TEXT, evidence_n INTEGER,  -- 重做立项时版本递增\n                FOREIGN KEY (pool_id) REFERENCES pool(id)\n            )",
+        "trades": "CREATE TABLE trades (\n                id           INTEGER PRIMARY KEY AUTOINCREMENT,\n                position_id  INTEGER,          -- 来源持仓(导入的历史交易可为空)\n                code         TEXT NOT NULL,\n                name         TEXT,\n                buy_date     TEXT, buy_price REAL, amount REAL,\n                sell_date    TEXT NOT NULL, sell_price REAL NOT NULL,\n                reason       TEXT NOT NULL,    -- 止损破平台|破MA20|破前低|主动止盈|其他\n                note         TEXT,             -- 一句话复盘\n                pnl          REAL,             -- 盈亏金额(元);amount 缺失时为空\n                pnl_pct      REAL,             -- 盈亏 %(卖价/买价-1)\n                rule_version INTEGER NOT NULL DEFAULT 1,\n                created_at   TEXT NOT NULL\n            , signal_type TEXT, strategy TEXT, ladder_leg TEXT)",
+        "user_actions": "CREATE TABLE user_actions (\n                id          INTEGER PRIMARY KEY AUTOINCREMENT,\n                trade_date  TEXT NOT NULL,     -- 卡片所属日报日\n                code        TEXT NOT NULL,\n                action      TEXT NOT NULL,     -- skip(这次不买)/ack(看过了)/dismiss\n                card_kind   TEXT,              -- 卡类型(buy/sell/trim/review/new)\n                price       REAL,              -- 行为发生时的参考价(可空)\n                created_at  TEXT NOT NULL\n            )"
+      },
+      "tables": {
+        "ai_docs": {
+          "columns": [
+            "id",
+            "code",
+            "d",
+            "kind",
+            "content",
+            "created_at"
+          ],
+          "rows": 14,
+          "sha256": "07ba72d14a18667cf787dba30a6a76172b0e3ac23817d86397d872484d7a7daf"
+        },
+        "ai_usage": {
+          "columns": [
+            "id",
+            "ts",
+            "purpose",
+            "code",
+            "tokens_in",
+            "tokens_out",
+            "cost_est",
+            "created_at"
+          ],
+          "rows": 260,
+          "sha256": "8bd7d24307db76ec674b9fc7ca70a4bc32187faa718c520bc43c2bf943d0dd42"
+        },
+        "app_state": {
+          "columns": [
+            "key",
+            "value",
+            "updated_at"
+          ],
+          "rows": 5,
+          "sha256": "b6c08df33f36088fbe0710863fef8b97727a03092125ccfe8dee17559bd9a0e4"
+        },
+        "daily_reports": {
+          "columns": [
+            "d",
+            "payload_json",
+            "created_at"
+          ],
+          "rows": 25,
+          "sha256": "dea8ceafd808d7019b7df1c1da6ab5510d4dafd2df64a573b89b095ebbc8c8fb"
+        },
+        "equity": {
+          "columns": [
+            "id",
+            "date",
+            "equity",
+            "trade_id",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "63efd50ca5c778abc98123de6eb0ae098f49dba2f73ccfed7802e7628a367e88"
+        },
+        "events": {
+          "columns": [
+            "id",
+            "code",
+            "ts",
+            "type",
+            "title",
+            "payload",
+            "source_url",
+            "dedup_hash",
+            "claude_read",
+            "created_at"
+          ],
+          "rows": 943,
+          "sha256": "7cfcd0b75deb56243008b531c77b9030fbc7513e1fd679a10350aae7dfe96ea3"
+        },
+        "falsify_conditions": {
+          "columns": [
+            "id",
+            "code",
+            "seq",
+            "text",
+            "status",
+            "source",
+            "created",
+            "updated",
+            "edit_log"
+          ],
+          "rows": 0,
+          "sha256": "d61a8103f880b88621cca3d25b71c0752ffdf508dc6627c32bf7a013f5e4c96b"
+        },
+        "ladder_shadow": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "entry_date",
+            "entry_price",
+            "unlock_date",
+            "unlock_close",
+            "unlock_gain_pct",
+            "peak_close",
+            "variants_json",
+            "capacity_json",
+            "status",
+            "created",
+            "updated"
+          ],
+          "rows": 0,
+          "sha256": "9307d561152f2233c4956f65319b7c0168308883b21e02da35b765a9d1bf0d5d"
+        },
+        "lessons": {
+          "columns": [
+            "code",
+            "d",
+            "content_json",
+            "created_at"
+          ],
+          "rows": 48,
+          "sha256": "713ceef4bda6c1bcabef801cf23c88e90abbab00d379a2029d0fe0a97f5d037b"
+        },
+        "memory_log": {
+          "columns": [
+            "id",
+            "changed_at",
+            "content"
+          ],
+          "rows": 0,
+          "sha256": "a07a328005f6e1bfd8293f3392432d5f04f0e050279b0e37995001dc1666085c"
+        },
+        "outside_buy_controls": {
+          "columns": [
+            "position_id",
+            "buy_date",
+            "exit_due_date",
+            "mistake_condition",
+            "stop_price",
+            "buy_basis",
+            "completed_at",
+            "last_reminded_on",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "bde3e7d59f21aa901b1f144a55857bb111f04ac95f3a3c33552b05085dbb0c5e"
+        },
+        "outside_chats": {
+          "columns": [
+            "code",
+            "chat_date",
+            "seq",
+            "role",
+            "content",
+            "created_at"
+          ],
+          "rows": 6,
+          "sha256": "a222f9b2c0d660bdac06fd14854b811de30066bc8ad79788b72ca98324e566b8"
+        },
+        "override_shadow": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "qty",
+            "sell_date",
+            "sell_price",
+            "entry_price",
+            "stop_price",
+            "entry_date",
+            "last_advance",
+            "rule_exit_date",
+            "rule_exit_price",
+            "diff_pct",
+            "status",
+            "created",
+            "updated"
+          ],
+          "rows": 0,
+          "sha256": "0623a3a4fb25aa81220d6b74ff24761bca694fd816a345205e4a4c6ca1d93582"
+        },
+        "pool": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "state",
+            "first_seen",
+            "state_since",
+            "expire_at",
+            "research_due",
+            "platform_price",
+            "stop_price",
+            "entry_price",
+            "entry_date",
+            "position_amt",
+            "cooldown_until",
+            "sort_score",
+            "note",
+            "created_at",
+            "updated_at",
+            "anchor_close",
+            "anchor_date",
+            "strategy",
+            "industry",
+            "ladder_stage",
+            "ladder_start_date"
+          ],
+          "rows": 23,
+          "sha256": "ff0464db29c1b5fe40b28ba7ab217b66388388fd451a047f32a53cb34461b73a"
+        },
+        "position_books": {
+          "columns": [
+            "position_id",
+            "book_type",
+            "origin",
+            "created_at"
+          ],
+          "rows": 0,
+          "sha256": "b3cb62efeab551283a07d4d38cd461376ec6d78f6c63fd93ec587bda99c0413b"
+        },
+        "positions": {
+          "columns": [
+            "id",
+            "code",
+            "name",
+            "buy_date",
+            "buy_price",
+            "stop_price",
+            "amount",
+            "rule_version",
+            "status",
+            "created_at",
+            "signal_type",
+            "strategy",
+            "industry",
+            "qty"
+          ],
+          "rows": 0,
+          "sha256": "364d52ae6d16b057a261c7a74113b960668291eb348c095a2c074ac7e4df3535"
+        },
+        "review_chats": {
+          "columns": [
+            "chat_date",
+            "seq",
+            "role",
+            "content",
+            "created_at"
+          ],
+          "rows": 80,
+          "sha256": "33cca5050867baddcb59ae7ce7b8a6a5b18835e38e751e1d3bc2f26234934898"
+        },
+        "rule_changes": {
+          "columns": [
+            "id",
+            "changed_at",
+            "param",
+            "old_value",
+            "new_value",
+            "reason",
+            "source",
+            "applied",
+            "version"
+          ],
+          "rows": 13,
+          "sha256": "e7258c174a496716d502395ae4fb8ee4259b66c7eb92b34e388d00e6b5fd2278"
+        },
+        "settings": {
+          "columns": [
+            "key",
+            "value"
+          ],
+          "rows": 12,
+          "sha256": "447db4114cbaf0e753f884407ab8f9a3346fac047ea0706fd91883b6cb8ab2ce"
+        },
+        "snapshots": {
+          "columns": [
+            "trade_date",
+            "created_at",
+            "payload"
+          ],
+          "rows": 21,
+          "sha256": "9eec98425fd9e8ce51bfc19d528e1d93d278ed25d75e63e28067d5ccc0b4e41e"
+        },
+        "strategy_switches": {
+          "columns": [
+            "id",
+            "judged_date",
+            "mode",
+            "regime",
+            "decision",
+            "active_card",
+            "suggest_card",
+            "reason",
+            "engine_ver",
+            "created_at"
+          ],
+          "rows": 19,
+          "sha256": "010bd71d23bc03635d155c4c65bb252107bf65307cd1099f9a4c0fcbfeac191d"
+        },
+        "thesis": {
+          "columns": [
+            "id",
+            "pool_id",
+            "code",
+            "created_at",
+            "content_json",
+            "version",
+            "score_ver",
+            "evidence_n"
+          ],
+          "rows": 22,
+          "sha256": "e626c9efbfc42839b95c6ddf61af81390429d6f615cbb7513d71cdaa5672bf2a"
+        },
+        "trades": {
+          "columns": [
+            "id",
+            "position_id",
+            "code",
+            "name",
+            "buy_date",
+            "buy_price",
+            "amount",
+            "sell_date",
+            "sell_price",
+            "reason",
+            "note",
+            "pnl",
+            "pnl_pct",
+            "rule_version",
+            "created_at",
+            "signal_type",
+            "strategy",
+            "ladder_leg"
+          ],
+          "rows": 0,
+          "sha256": "585f83d7bfd68ae37e478cfb49de447985a150a24cdb27d2186ea0a371b8d216"
+        },
+        "user_actions": {
+          "columns": [
+            "id",
+            "trade_date",
+            "code",
+            "action",
+            "card_kind",
+            "price",
+            "created_at"
+          ],
+          "rows": 7,
+          "sha256": "4ec44d27bd60534e364da00a6d58722ad221d6e7d6a5760a33c55c0ea7af0568"
+        }
+      }
+    },
+    "schema_added": [],
+    "schema_changed": [],
+    "schema_removed": [],
+    "table_changes": {}
+  }
+}

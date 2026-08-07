@@ -1,0 +1,16 @@
+{
+  "phase": "before",
+  "sha256": {
+    "copy_market": "e64df683026faff032d4254a3a3a66bec2edbd1e653a29067279ac765dd27da7",
+    "copy_s3": "ded6b72e5a2d55e7551f24d1ba8276989726a0abed050fb04457d0ea09594a4e",
+    "copy_s8": "8c8bbed659bd7c68a865252e2d398f63c0c16e18d87267a3ed7447762fe5ddc0",
+    "copy_screener": "a0d0925765dca4d2cc3d22550533192188a69f4d480305438ffe991413a47278",
+    "copy_thermometer": "ded6b72e5a2d55e7551f24d1ba8276989726a0abed050fb04457d0ea09594a4e",
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "production_s3": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "production_s8": "9b7d9a108da28e76b80a8f8993104bcd742b44bb1dd2ee038330ea43dbf2d76f",
+    "production_screener": "9fc0abb19c63cb18602b80fb65a8ad43ba73ef17fa46f1bfb73b3172fbb9957e",
+    "production_thermometer": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b"
+  }
+}

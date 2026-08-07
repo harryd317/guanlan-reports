@@ -1,0 +1,19 @@
+{
+  "source": "production industry_thermometer_sidecar.db opened read-only",
+  "database_in_mirror": false,
+  "trade_date": "2026-08-04",
+  "industry_code": "801018.SI",
+  "industry_name": "动物保健Ⅱ",
+  "heat": "warm",
+  "light_count": 2,
+  "lights": {
+    "cluster": false,
+    "volume": true,
+    "turnover_share": true,
+    "leader_strength": false
+  },
+  "volume_ratio": 1.0326508831015957,
+  "volume_rank": 38,
+  "volume_top5": false,
+  "database_sha256": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b"
+}
