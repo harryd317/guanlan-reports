@@ -1,0 +1,34 @@
+{
+  "schema": "guanlan-kimi-equivalent-s8-logical-diff/v1",
+  "tables": {
+    "s8_signals": {
+      "source_rows": 12,
+      "writer_rows": 12,
+      "source_sha256": "78e99fb38965e648dff48498b3dc936e434b65c0279d5cb55593c4299fc4c7be",
+      "writer_sha256": "78e99fb38965e648dff48498b3dc936e434b65c0279d5cb55593c4299fc4c7be",
+      "unchanged": true
+    },
+    "s8_shadow_ledger": {
+      "source_rows": 0,
+      "writer_rows": 0,
+      "source_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "writer_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "unchanged": true
+    },
+    "archive_queue": {
+      "source_rows": 21,
+      "writer_rows": 21,
+      "source_sha256": "2725118eeb5dc12ebe61619824d8ef844fb9f3d8a0b0743d6ce80c98b2ef90b4",
+      "writer_sha256": "427e6a49b337c2ca22a1f4179bbcf6394164698e10ca13bbd8aa0e9b47db6279",
+      "unchanged": false
+    }
+  },
+  "archive_queue_changed_primary_keys": [
+    "801018.SI"
+  ],
+  "checks": {
+    "signals_unchanged": true,
+    "shadow_ledger_unchanged": true,
+    "only_animal_health_queue_row_changed": true
+  }
+}

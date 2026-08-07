@@ -1,0 +1,25 @@
+{
+  "schema": "guanlan-kimi-production-failure-equivalent-hashes/v1",
+  "phase": "before",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "production": {
+    "screener": "8e21c748cee8ef9bee3e7ff0fecbd1d8afba114cbb15f3cf19b0efb433d4c4ff",
+    "market": "fa4ebb4ba936f2d14f546f9e5b65328054a0322877bc05799a471eca455bfd27",
+    "thermometer": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "s8": "08600e580c4024c26fff308d5b5116bda19a0011467f0165d46b4f7323dff144"
+  },
+  "protected_readonly_copies": {
+    "screener": "a0d0925765dca4d2cc3d22550533192188a69f4d480305438ffe991413a47278",
+    "market": "e64df683026faff032d4254a3a3a66bec2edbd1e653a29067279ac765dd27da7",
+    "thermometer": "ded6b72e5a2d55e7551f24d1ba8276989726a0abed050fb04457d0ea09594a4e",
+    "s8": "dd5eb3605635cd739f1aa07297b7f107a4ceae719c9f3ed956d210352455e5dc"
+  },
+  "disposable_s8_writer_sha256": "dd5eb3605635cd739f1aa07297b7f107a4ceae719c9f3ed956d210352455e5dc",
+  "equivalent": {
+    "label": "com.rui.stock-screener.web.kimi-equivalent",
+    "port": 18809,
+    "working_directory": "~/云慧养/zmu_gitee/screener",
+    "start_script": "~/云慧养/zmu_gitee/screener/start.sh",
+    "s8_writer": "~/云慧养/zmu_gitee/screener/.runtime/kimi-production-failure-20260808/writable/S8_research.db"
+  }
+}
