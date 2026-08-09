@@ -1,0 +1,13 @@
+{
+  "all_copy_hashes_match_before": true,
+  "environment": "production-equivalent-read-only",
+  "phase": "after",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "sha256": {
+    "market": "d7e3c8a6de31c1423f36adcef94d4a4d2f0c7cc9ea585f5b8f8da80b915b35a3",
+    "s8": "8c8bbed659bd7c68a865252e2d398f63c0c16e18d87267a3ed7447762fe5ddc0",
+    "screener": "9c7966815f7fa7d8328fa18b93854bdbdcb34a80e62aa3a70530d2231c9780e9",
+    "thermometer_sidecar": "3a8f532176f7dc9d4ecae84dd0a2107fde3419baec4530fa56c45267991a0b6d",
+    "t1_s3_reference": "5f292ef743043bd1c21a4de82e936c4c0b967e6db36692e511b01c8ef20236a3"
+  }
+}

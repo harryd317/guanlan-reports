@@ -1,0 +1,21 @@
+{
+  "schema": "guanlan-kimi-k3-tool-choice-required/v1",
+  "model": "kimi-k3",
+  "tool_choice": "required",
+  "declared_tools": ["$web_search"],
+  "authorization_header_present": true,
+  "api_key_value_recorded": false,
+  "http_status_category": "2xx",
+  "finish_reason": "tool_calls",
+  "returned_tools": ["$web_search"],
+  "search_result_tokens_reported": [8543],
+  "usage": {
+    "prompt_tokens": 155,
+    "completion_tokens": 1,
+    "total_tokens": 156
+  },
+  "accepted": true,
+  "elapsed_seconds": 2.1,
+  "enabled_in_current_adapter": false,
+  "decision_reason": "首轮参数可用，但现有 Chat Completions 内建工具续接协议对 K3 返回 HTTP 400；required 不能修复续接，且若用于成稿轮会强制再次调用工具。"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "guanlan-kimi-k3-safe-config-check/v1",
+  "launchagent_context": true,
+  "before": {
+    "home_resolved": true,
+    "config_source": "default_external_file",
+    "config_exists": true,
+    "config_readable": true,
+    "config_mode": "0600",
+    "parse_ok": true,
+    "api_key_read": true,
+    "api_key_character_length": 51,
+    "model": "kimi-k2.6"
+  },
+  "after": {
+    "home_resolved": true,
+    "config_source": "default_external_file",
+    "config_exists": true,
+    "config_readable": true,
+    "config_mode": "0600",
+    "parse_ok": true,
+    "api_key_read": true,
+    "api_key_character_length": 51,
+    "model": "kimi-k2.6"
+  },
+  "config_write_performed": false,
+  "failure_rule_applied": "K3 gate failed; retain K2.6",
+  "api_key_value_recorded": false
+}

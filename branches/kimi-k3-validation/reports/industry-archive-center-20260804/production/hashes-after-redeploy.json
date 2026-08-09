@@ -1,0 +1,13 @@
+{
+  "phase": "production-after-redeploy",
+  "sha256": {
+    "market": "675712874078ab49a5c00f465e5c7e8f3674b425263239024abdf90bdaba6b9e",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "s3": "bd4cdd55ffdd650fa70a869e5b7a3fe7c4ed2d59758635c764012b1868fa7814",
+    "s8": "d244f2b9e730eb55bf4b7ab6cc727b577d3b9c03fa1cb5beaaf2749592b3567b",
+    "screener": "97a34197ad51f237f77acc8ec0fe0139cd97970c265246e91f1996d2f91a1639",
+    "service": "069262a5bd58e3d3e3aff2730dc0a5469aaea000c479c3b76742cbe4984c1268",
+    "static_home": "601387ca7994a7a350bcf6f5c24664e13c06973919ce5b997f35609217285f38"
+  },
+  "target_commit": "f836c99e20a815071d57c131270394ee8b22e668"
+}

@@ -1,0 +1,32 @@
+{
+  "artifact": "review/动物保健Ⅱ-改后待再审初稿.md",
+  "status": "changes_applied_awaiting_re_review",
+  "published": false,
+  "prompt_version": "industry-archive-v2.2-web",
+  "validation": {
+    "ok": true,
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 5326,
+    "reference_length": 3063
+  },
+  "probes": {
+    "has_actual_thermometer": true,
+    "separates_bk1254_sw": true,
+    "no_latest_index": true,
+    "no_20d_single_day_conflict": true,
+    "self_competitor_fixed": true,
+    "duplicate_competitor_fixed": true,
+    "three_cycle_gaps": true,
+    "source_tiers": true,
+    "self_media_limited": true,
+    "unpublished_warning": true
+  },
+  "protected_hashes": {
+    "industry_thermometer_sidecar_before": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "industry_thermometer_sidecar_after": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "S8_research_before": "9b7d9a108da28e76b80a8f8993104bcd742b44bb1dd2ee038330ea43dbf2d76f",
+    "S8_research_after": "9b7d9a108da28e76b80a8f8993104bcd742b44bb1dd2ee038330ea43dbf2d76f"
+  }
+}

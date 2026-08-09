@@ -1,0 +1,23 @@
+{
+  "environment": "production-equivalent",
+  "port": 18806,
+  "global_zero_scroll": {
+    "route_count": 12,
+    "viewport_count": 3,
+    "entry_count": 36,
+    "pass_count": 36,
+    "full_reload_per_route": true,
+    "console_error_count": 0
+  },
+  "screenshots": [
+    {"file": "screenshots/today-1280x900.png", "width": 1280, "height": 900, "sha256": "7193347f6950fdffb11c31705d44b642ce240e1f58f3a84df10069f897de1b67"},
+    {"file": "screenshots/today-393x852.png", "width": 393, "height": 852, "sha256": "24292081a38a32096a8e9723ee406115dd6a7f0c8be910687453cee1a97eafc7"},
+    {"file": "screenshots/streak-393x852.png", "width": 393, "height": 852, "sha256": "3d84c7bd61639794eaed6eb32e72ff39fa6ffd5bfe4aa9e8ef51746a769bd9d7"},
+    {"file": "screenshots/archive-1280x900.png", "width": 1280, "height": 900, "sha256": "e7b5bffd17bcee27f4ab7d75b1626400a4ff9015d15ec1f6ac629d48f93eb881"},
+    {"file": "screenshots/archive-393x852.png", "width": 393, "height": 852, "sha256": "6a895c934ad4665e39646bf8e021a4787c8c7d7e10642f2928cd912dc0b90aea"},
+    {"file": "screenshots/industry-published-1280x900.png", "width": 1280, "height": 900, "sha256": "7dad7da14b1da547fdb41fae8bd81ea40eabbde80b7b1d06eea723b0d41e1b38"},
+    {"file": "screenshots/industry-published-393x852.png", "width": 393, "height": 852, "sha256": "664186d155ae810ade68ae1fdc88e309cd66b932c14a78cffd619eea46802857"},
+    {"file": "screenshots/industry-research-1280x900.png", "width": 1280, "height": 900, "sha256": "24415919b73d598087b1814796a4a3ba0b7d8f85b46c227e05de5ff51f362777"},
+    {"file": "screenshots/industry-research-393x852.png", "width": 393, "height": 852, "sha256": "94f992ad5c0b2153a5c9fbbc02af67233bf212084ea6aa32385de2ef2c91d723"}
+  ]
+}

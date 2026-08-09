@@ -1,0 +1,73 @@
+{
+  "accepted_at": "2026-08-02T22:10:00+08:00",
+  "branch": "main",
+  "commit": "c5f168b9859facafc321a1983ca61fcf904afc90",
+  "merge_commit": "9751c103eb28d2fd55a9dffbf155cfd6bd9f2327",
+  "feature_commit": "d8acbf4195fdd6fa7a608676a5954587ad627a86",
+  "tests": {
+    "unittest": {"passed": 254, "total": 254},
+    "rules": {"passed": 8, "total": 8},
+    "rules_mid": {"passed": 20, "total": 20},
+    "regime": {"passed": 9, "total": 9},
+    "web": {"passed": 838, "total": 838},
+    "all": {"passed": 1129, "total": 1129}
+  },
+  "health": {
+    "ok": true,
+    "match": true,
+    "fingerprint_boot": "f89907d0e550edcacc2042a9b50c55250aba67c8",
+    "fingerprint_disk": "f89907d0e550edcacc2042a9b50c55250aba67c8",
+    "rule_version": 10
+  },
+  "hashes": {
+    "screener_db_before": "5506b509f717a5e69b7214ce5de8a8c9ee1dc4c0732bcc727d0bd707aff911d4",
+    "screener_db_after": "354737ff29fea274ceeeb487bd4812d5e563e12d77f312d2a1d8883cedfd8e19",
+    "market_db_before": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "market_db_after": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "thermometer_before": "4be79ecb364a76469eb011af735b52bee455e8c4fb9922296be0e143c2c1d338",
+    "thermometer_after": "3d1b7e5f19d432d732ab9c65d04d33d9922b47d97a1d78bd1db02d0319eea671",
+    "s8_after": "99aa9e1093c9f3ce9248e6fb64150cfdfded3942ed3f1221ebf9ca85fdb698b7",
+    "production_plist_before": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "production_plist_after": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc"
+  },
+  "s2_retirement": {
+    "ids": [2, 9, 11, 13, 19, 20, 21, 22, 23],
+    "active_rows": 9,
+    "legacy_rows": 9,
+    "changed_columns": ["note", "strategy"],
+    "unexpected_changes": 0
+  },
+  "s8_database": {
+    "tables": ["archive_queue", "s8_shadow_ledger", "s8_signals"],
+    "counts": {"archive_queue": 10, "s8_shadow_ledger": 0, "s8_signals": 0},
+    "quick_check": "ok"
+  },
+  "thermometer": {
+    "data_date": "2026-07-31",
+    "formula_version": "industry-thermometer-v1",
+    "industries": 124,
+    "quick_check": "ok"
+  },
+  "browser": {
+    "desktop": {"width": 1440, "height": 900, "overflow": 0},
+    "mobile": {"width": 390, "height": 844, "overflow": 0},
+    "pool_rows": 9,
+    "s2_legacy_rows": 9,
+    "archive_queue_rows": 10,
+    "industry_pills_including_all": 125,
+    "archive_rows": 2,
+    "console_logs": 0
+  },
+  "screenshots": {
+    "s8_today_desktop": "f43058d1d6167747528a9c95ca4e27c3c321040c28220100834ac1b6168e66cd",
+    "s8_today_mobile": "7b67e2f9754e01a05f7728128f1347e86f088be2af0b038bd027ad7634edfbbc",
+    "s8_pool_desktop": "681f6881f083c2f93bfe7003e97da5c58666cfa98d4d72e1734532655eeaedf6",
+    "s8_pool_mobile": "47a09a35396fab2b85cac34d655241012245987d95a57aae40e89cf810230972",
+    "archive_queue_desktop": "24e0bbc20dd67c6ff6764bae1fac90c98fad4956d721c02760ab10e24b2abd0a",
+    "archive_queue_mobile": "a49168356abe55bb98e3ec760ebfdeee23904a03ab904d4ee8488cac7ed237e9"
+  },
+  "rollback": {
+    "triggered": false,
+    "backup_dir": "/private/tmp/s8-deploy-20260802-c5f168b"
+  }
+}

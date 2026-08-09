@@ -1,0 +1,27 @@
+{
+  "schema": "guanlan-kimi-k3-equivalent-hashes/v1",
+  "phase": "after",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "production": {
+    "screener": "8e21c748cee8ef9bee3e7ff0fecbd1d8afba114cbb15f3cf19b0efb433d4c4ff",
+    "market": "fa4ebb4ba936f2d14f546f9e5b65328054a0322877bc05799a471eca455bfd27",
+    "thermometer": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "s8": "f6ed48a1e29f803ff9a450ff443699271c8f6b83fc747136972b3cc62bc76f21"
+  },
+  "protected_readonly_copies": {
+    "screener": "a0d0925765dca4d2cc3d22550533192188a69f4d480305438ffe991413a47278",
+    "market": "e64df683026faff032d4254a3a3a66bec2edbd1e653a29067279ac765dd27da7",
+    "thermometer": "ded6b72e5a2d55e7551f24d1ba8276989726a0abed050fb04457d0ea09594a4e",
+    "s8": "86f3ff1ea0e419d4650a9186674c34ae33a3e4f5b444307e5e2471eb7ffe4819"
+  },
+  "disposable_s8_writer_sha256": "de8b72f2c97424d024d180f65a7972379f2f960a07591eaa340eb67905c5502b",
+  "production_and_protected_match_before": true,
+  "production_health": {
+    "ok": true,
+    "fingerprint_match": true,
+    "rule_version": 10
+  },
+  "equivalent_clone_stopped": true,
+  "equivalent_port_18812_listening": false,
+  "api_key_value_recorded": false
+}

@@ -1,0 +1,428 @@
+{
+  "environment": "production-equivalent",
+  "base_url": "http://127.0.0.1:18804",
+  "checked_at": "2026-08-04T13:11:35.844Z",
+  "entries": [
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-today",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "today",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "pool-list",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "pool-logic",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "pool-archive",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-streak-list",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "streak-list",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-s8-focus-list",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "s8-focus-list",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-stock",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "stock",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "industry-published",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "industry-research",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 840,
+        "id": "view-me",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "device": "desktop",
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "page": "me",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-today",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "today",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "pool-list",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "pool-logic",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "pool-archive",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-streak-list",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "streak-list",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-s8-focus-list",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "s8-focus-list",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-stock",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "stock",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "industry-published",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "industry-research",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    },
+    {
+      "active_page": {
+        "client_height": 784,
+        "id": "view-me",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "device": "mobile",
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "page": "me",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "console_errors": []
+    }
+  ],
+  "console_errors": []
+}

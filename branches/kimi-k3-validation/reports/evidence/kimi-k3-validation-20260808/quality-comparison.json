@@ -1,0 +1,40 @@
+{
+  "schema": "guanlan-kimi-k3-quality-comparison/v1",
+  "comparison_status": "not_comparable_no_k3_draft",
+  "k2_6": {
+    "generation_success": true,
+    "seven_sections_ok": true,
+    "core_stock_count": 5,
+    "non_whitespace_length": 4814,
+    "source_link_count": 6,
+    "dated_https_source_count": 5,
+    "missing_data_marker_count": 17,
+    "elapsed_seconds": null,
+    "usage": null,
+    "note": "上轮证据未记录耗时与 token，不作推断。"
+  },
+  "k3": {
+    "generation_success": false,
+    "seven_sections_ok": false,
+    "draft_length": 0,
+    "core_stock_count": null,
+    "dated_https_source_count": 0,
+    "skeleton_build_seconds": 7.613,
+    "generation_seconds": 6.818,
+    "total_seconds": 14.439,
+    "usage_before_failure": {
+      "prompt_tokens": 732,
+      "completion_tokens": 1,
+      "total_tokens": 733,
+      "search_result_tokens_reported": 1965
+    }
+  },
+  "shared_inputs": {
+    "skeleton_sha256_match": true,
+    "prompt_version_match": true,
+    "thermometer_snapshot_injected": true,
+    "cycle_indicators_injected": true
+  },
+  "quality_difference": "K3 在成稿前因协议失败，无法评价来源权威性、事实纪律、周期深度、证伪条件、内部一致性或文风；不得据此声称 K3 优于或劣于 K2.6。",
+  "winner_selected": false
+}

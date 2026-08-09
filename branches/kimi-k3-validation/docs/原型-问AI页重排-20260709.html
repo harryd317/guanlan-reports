@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>原型:问AI页重排(未实现,仅供拍板)</title>
+<style>
+:root{--bg:#F5F5F7;--card:#FFFFFF;--card2:#F5F5F7;--text:#1D1D1F;--mut:#6E6E73;
+  --line:#E5E5EA;--blue:#0A84FF;--amber:#B54708;--red:#E03131;--green:#2F9E44;
+  --radius:16px;--shadow:0 1px 3px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.65;
+  font-family:-apple-system,"SF Pro","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;max-width:640px;margin:0 auto;padding:20px 16px 60px}
+.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:22px;font-weight:700;margin-bottom:2px}
+
+/* ── 原型说明用样式(非页面内容) ── */
+.proto-h{background:#1D1D1F;color:#fff;border-radius:12px;padding:14px 16px;margin:24px 0 8px;font-size:15px;font-weight:700}
+.proto-h small{display:block;font-weight:400;color:#C7C7CC;font-size:13px;margin-top:2px;line-height:1.6}
+.ask{background:var(--card);border-left:5px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:12px 0;font-size:14px}
+.ask h3{font-size:15px;margin-bottom:6px}
+.ask .opt{margin:4px 0 4px 14px}
+.plansel{display:flex;gap:10px;margin:14px 0;position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0}
+.plansel button{flex:1;border:2px solid var(--line);border-radius:14px;padding:12px 8px;font-size:15px;
+  font-weight:700;font-family:inherit;background:var(--card);color:var(--mut);cursor:pointer}
+.plansel button.on{border-color:var(--blue);color:var(--blue);background:#EAF4FF}
+.phone{border:2px dashed #C7C7CC;border-radius:24px;padding:16px 12px;margin-bottom:8px;background:var(--bg)}
+.phone-cap{text-align:center;color:var(--mut);font-size:12px;margin:-6px 0 12px}
+.pros{font-size:13px;color:var(--mut);line-height:1.8;margin:8px 2px 0}
+.pros b.good{color:var(--green)}.pros b.bad{color:var(--red)}
+
+/* ── 以下复刻 /ask 页面样式(与 static/ask.html 同源) ── */
+.topbar{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.tab{flex:1;text-align:center;padding:13px 0;border-radius:14px;font-size:17px;font-weight:600;
+  background:var(--card);color:var(--mut);box-shadow:var(--shadow);border:none;font-family:inherit;text-decoration:none}
+.tab.on{background:var(--blue);color:#fff}
+.gear{flex:none;width:46px;height:46px;border-radius:14px;background:var(--card);border:none;
+  box-shadow:var(--shadow);font-size:20px}
+.pgtitle{font-size:24px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:14px}
+
+/* 子导航(方案B核心) */
+.subtabs{display:flex;gap:8px;margin-bottom:16px}
+.sT{flex:1;border:none;border-radius:14px;padding:12px 4px;font-size:15px;font-weight:600;
+  font-family:inherit;background:var(--card);color:var(--mut);box-shadow:var(--shadow);cursor:pointer;line-height:1.35}
+.sT.on{background:var(--blue);color:#fff}
+.sT small{display:block;font-size:11px;font-weight:400;opacity:.75}
+
+/* 分区标题(方案A核心)——统一规范:图标+17px粗体+13px灰说明 */
+.sechead{margin:26px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.sechead:first-of-type{border-top:none;padding-top:0;margin-top:16px}
+.sechead b{font-size:17px;display:block}
+.sechead span{font-size:13px;color:var(--mut)}
+
+/* 股票池横条 */
+.poolbar{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px}
+.stk{flex:none;background:var(--card);border:2px solid transparent;border-radius:14px;
+  box-shadow:var(--shadow);padding:10px 16px;font-size:15px;font-weight:600;cursor:pointer;
+  font-family:inherit;text-align:left;line-height:1.4}
+.stk span{display:block;font-size:12px;font-weight:400;color:var(--mut)}
+.stk.on{border-color:var(--blue);background:#EAF4FF}
+
+/* 课文卡 */
+.lesson{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.lesson .title{font-size:19px;font-weight:700;margin-bottom:6px}
+.lesson .tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.lesson .tag{font-size:12px;background:var(--card2);border-radius:99px;padding:3px 10px;color:var(--mut)}
+.lesson h4{font-size:15px;margin:10px 0 6px}
+.lesson p{font-size:15px;color:#3A3A3C;margin-bottom:10px}
+.kline{background:var(--card2);border-radius:12px;height:120px;display:flex;
+  align-items:center;justify-content:center;color:var(--mut);font-size:13px;margin:8px 0}
+.legend{font-size:12px;color:var(--mut);margin:-4px 0 10px;padding:0 2px}
+
+/* 聊天 */
+.chat{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.msg{margin-bottom:14px;max-width:88%}
+.msg.user{margin-left:auto;background:var(--blue);color:#fff;border-radius:16px 16px 4px 16px;padding:10px 14px;font-size:15px}
+.msg.ai{background:var(--card2);border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:15px}
+.msg.ai .who{font-size:12px;color:var(--mut);margin-bottom:4px}
+.inputbar{display:flex;gap:8px}
+.inputbar input{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:var(--card)}
+.inputbar button{border:none;background:var(--blue);color:#fff;border-radius:12px;padding:0 22px;font-size:15px;font-family:inherit}
+
+/* 查任意票 */
+.searchbar{display:flex;gap:8px;margin-bottom:14px}
+.searchbar input{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:16px;font-family:inherit;background:var(--card)}
+.searchbar button{border:none;border-radius:12px;padding:12px 22px;font-size:15px;
+  font-weight:600;font-family:inherit;background:var(--blue);color:#fff}
+.checkup{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.checkup h3{font-size:16px;margin-bottom:8px}
+.statebadge{display:inline-block;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px;
+  background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3);margin-left:6px}
+.statebadge.off{background:#F1F3F5;color:var(--mut);border:1px solid var(--line)}
+.facts{background:var(--card2);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:14px}
+.facts .row{display:flex;justify-content:space-between;padding:3px 0;gap:10px}
+.facts .row span:first-child{color:var(--mut);flex:none}
+.checkup table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.checkup th{text-align:left;color:var(--mut);font-size:12px;padding:5px 6px;border-bottom:1px solid var(--line)}
+.checkup td{padding:6px;border-bottom:1px solid var(--line)}
+.checkup tr:last-child td{border-bottom:none}
+.up{color:var(--red);font-weight:600}.dn{color:var(--green);font-weight:600}
+.note{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.6}
+
+/* 快捷键(随便问) */
+.quick{display:flex;gap:10px;margin-bottom:14px}
+.quick button{flex:1;background:var(--card);border:none;border-radius:14px;
+  box-shadow:var(--shadow);padding:14px 10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+.quick button span{display:block;font-size:12px;color:var(--mut);font-weight:400;margin-top:3px}
+</style>
+</head>
+<body>
+
+<h1>原型:问AI页重排</h1>
+<div style="color:var(--mut);font-size:14px;line-height:1.7">
+  针对三个痛点重排:<b>①入口重复</b>(顶部体检框 vs 底部"池外的票也能查",两个入口干同一件事)
+  <b>②顺序别扭</b>(快捷键沉底、体检框抢顶)<b>③视觉不统一</b>。<br>
+  已定行为:查任意票 = 体检卡 + K线 + AI白话解读<b>一条龙全出</b>。功能一个不减,只动摆法。
+</div>
+
+<div class="plansel">
+  <button id="selA" onclick="showPlan('A')">方案A · 单页三区</button>
+  <button id="selB" class="on" onclick="showPlan('B')">方案B · 分区子页 ★推荐</button>
+</div>
+
+<!-- ═══════════════ 方案B ═══════════════ -->
+<div id="planB">
+<div class="proto-h">方案B · 分区子页(推荐)
+  <small>页头三个分区按钮,每屏只做一件事:学池子里的票 / 查任意票 / 随便问。
+  查任意票只剩一个入口;快捷键不再沉底。下面的分区按钮<b>可以点</b>,切着看三屏。</small></div>
+
+<div class="phone">
+  <div class="topbar"><a class="tab">今日</a><button class="tab on">问AI</button><button class="gear">⚙️</button></div>
+  <div class="pgtitle">问AI</div>
+  <div class="sub">学池子里的票、查任意一只票,或者随便聊。</div>
+
+  <div class="subtabs">
+    <button class="sT on" id="sT-learn" onclick="showSub('learn')">📚 我的课堂<small>池子里的票</small></button>
+    <button class="sT" id="sT-check" onclick="showSub('check')">🔍 查任意票<small>输代码体检</small></button>
+    <button class="sT" id="sT-chat" onclick="showSub('chat')">💬 随便问<small>行业·概念</small></button>
+  </div>
+
+  <!-- 屏1:我的课堂 -->
+  <div id="sub-learn">
+    <div class="poolbar">
+      <button class="stk on">沪电股份<span>持有中 +6.2%</span></button>
+      <button class="stk">中际旭创<span>等买点</span></button>
+      <button class="stk">宁德时代<span>研究中</span></button>
+    </div>
+    <div class="lesson">
+      <div class="title">沪电股份 <span class="num" style="color:var(--mut);font-size:13px">002463</span> 这一课</div>
+      <div class="tags"><span class="tag">持有中</span><span class="tag">AI研究评分 26/35</span></div>
+      <h4>① 它是做什么的,行业怎么样</h4>
+      <p>做高端印制电路板(PCB),AI 服务器和交换机的主力供货商,行业正处在算力扩产周期……(样例文字)</p>
+      <h4>② 技术面怎么看它</h4>
+      <div class="kline">K线图(买点、突破位、止损线画在图上)</div>
+      <p>6月中旬放量突破 122.54 的平台,之后缩量回踩不破,是教科书式的突破确认……(样例)</p>
+      <h4>③ 基本面怎么看它</h4>
+      <p>一季度营收同比 +48%,毛利率抬升……(样例)</p>
+    </div>
+    <div class="chat">
+      <div class="msg user">为什么止损挂在 116.41?</div>
+      <div class="msg ai"><div class="who">AI 助教 · 正在聊:沪电股份</div>止损 = 平台价 122.54 × 0.95。规则的意思是:跌破平台还不止住,说明突破失败……(样例)</div>
+      <div class="inputbar"><input placeholder="就这只票追问,不懂就问…"><button>发送</button></div>
+    </div>
+  </div>
+
+  <!-- 屏2:查任意票 -->
+  <div id="sub-check" style="display:none">
+    <div class="searchbar">
+      <input value="600519" inputmode="numeric" placeholder="输入任意6位股票代码,如 600519">
+      <button>查一下</button>
+    </div>
+    <div class="checkup">
+      <h3>贵州茅台 <span class="num">600519</span><span class="statebadge off">无信号</span></h3>
+      <div class="facts">
+        <div class="row"><span>收盘价</span><b class="num">1408.00(7月9日)</b></div>
+        <div class="row"><span>状态说明</span><b>未形成平台突破形态,规则不看它</b></div>
+      </div>
+      <h3 style="margin-top:14px">新规则五年回放</h3>
+      <table>
+        <tr><th>买入日</th><th>买入价</th><th>卖出日</th><th>卖出价</th><th>盈亏</th><th>出场</th></tr>
+        <tr><td class="num">2023-11-06</td><td class="num">1682.00</td><td class="num">2023-12-01</td><td class="num">1598.40</td><td class="dn">-5.0%</td><td>E1 止损</td></tr>
+      </table>
+      <div class="note">近5年触发 1 笔;实时判断是"如果现在收盘"的即时口径,正式结论以 16:30 收盘筛选为准。</div>
+    </div>
+    <div class="kline">K线图(池外票只有原始K线,无专属标注)</div>
+    <div class="chat">
+      <div class="msg ai"><div class="who">AI 助教 · 白话解读(自动出,不用点)</div>茅台是白酒龙头,但按您的规则它现在没有买点:没放量、没突破平台。它不适合您这套打法,不代表它不好……(样例)</div>
+      <div class="inputbar"><input placeholder="就这只票追问…"><button>发送</button></div>
+    </div>
+    <div class="note" style="margin-top:-4px">· 输入的如果是<b>池子里的票</b>,自动跳回「我的课堂」并选中它,不出重复内容。<br>· 原顶部体检框、原"池外的票也能查"快捷键,都合并成这一个入口。</div>
+  </div>
+
+  <!-- 屏3:随便问 -->
+  <div id="sub-chat" style="display:none">
+    <div class="quick">
+      <button>🏭 分析一个行业<span>景气度与逻辑</span></button>
+      <button>🎓 教我一个概念<span>零基础白话课</span></button>
+    </div>
+    <div class="chat">
+      <div class="msg user">【概念教学】用我的规则当教材讲讲:什么是锁盈?</div>
+      <div class="msg ai"><div class="who">AI 助教</div>锁盈就是"赚到一定程度就把利润袋子扎紧"。您的规则里 E3 锁盈线是 +18%……(样例)</div>
+      <div class="inputbar"><input placeholder="行业、概念、随便聊…"><button>发送</button></div>
+    </div>
+  </div>
+</div>
+<div class="phone-cap">↑ 640px 手机宽度预览,分区按钮可点</div>
+<div class="pros">
+  <b class="good">✓</b> 每屏一件事、一个输入框,不会按错地方;
+  <b class="good">✓</b> 入口天然合并,顺序问题消失;
+  <b class="good">✓</b> 从今日页点票跳过来,自动落在「我的课堂」。<br>
+  <b class="bad">✗</b> 功能藏进分区,比一眼全见多一次点击。
+</div>
+</div>
+
+<!-- ═══════════════ 方案A ═══════════════ -->
+<div id="planA" style="display:none">
+<div class="proto-h">方案A · 单页三区
+  <small>不加子页,还是一页滚到底,但按「课堂 → 查票 → 随便问」重排,
+  每区加统一的分区标题;体检框不再抢顶,池外查询快捷键并入查票区。</small></div>
+
+<div class="phone">
+  <div class="topbar"><a class="tab">今日</a><button class="tab on">问AI</button><button class="gear">⚙️</button></div>
+  <div class="pgtitle">问AI</div>
+  <div class="sub">学池子里的票、查任意一只票,或者随便聊。</div>
+
+  <div class="sechead"><b>📚 我的课堂</b><span>池子里的票,点一只听课</span></div>
+  <div class="poolbar">
+    <button class="stk on">沪电股份<span>持有中 +6.2%</span></button>
+    <button class="stk">中际旭创<span>等买点</span></button>
+    <button class="stk">宁德时代<span>研究中</span></button>
+  </div>
+  <div class="lesson">
+    <div class="title">沪电股份 <span class="num" style="color:var(--mut);font-size:13px">002463</span> 这一课</div>
+    <div class="tags"><span class="tag">持有中</span><span class="tag">AI研究评分 26/35</span></div>
+    <h4>① 它是做什么的,行业怎么样</h4>
+    <p>做高端印制电路板(PCB)……(样例,同方案B)</p>
+    <h4>② 技术面怎么看它</h4>
+    <div class="kline">K线图(买点、突破位、止损线画在图上)</div>
+    <h4>③ 基本面怎么看它</h4>
+    <p>一季度营收同比 +48%……(样例)</p>
+  </div>
+  <div class="chat">
+    <div class="msg user">为什么止损挂在 116.41?</div>
+    <div class="msg ai"><div class="who">AI 助教 · 正在聊:沪电股份</div>止损 = 平台价 × 0.95……(样例)</div>
+    <div class="inputbar"><input placeholder="就这只票追问…"><button>发送</button></div>
+  </div>
+
+  <div class="sechead"><b>🔍 查任意票</b><span>输代码:体检 + K线 + AI解读一次出齐</span></div>
+  <div class="searchbar">
+    <input inputmode="numeric" placeholder="输入任意6位股票代码,如 600519">
+    <button>查一下</button>
+  </div>
+  <div class="note" style="margin:-6px 0 10px">结果与方案B完全相同(体检卡+回放+K线+AI白话解读),此处省略。</div>
+
+  <div class="sechead"><b>💬 随便问</b><span>行业、概念、随便聊</span></div>
+  <div class="quick">
+    <button>🏭 分析一个行业<span>景气度与逻辑</span></button>
+    <button>🎓 教我一个概念<span>零基础白话课</span></button>
+  </div>
+  <div class="chat">
+    <div class="msg ai"><div class="who">AI 助教</div>想聊什么都行,我用您的交易规则当教材。(样例)</div>
+    <div class="inputbar"><input placeholder="行业、概念、随便聊…"><button>发送</button></div>
+  </div>
+</div>
+<div class="phone-cap">↑ 640px 手机宽度预览(一页滚到底)</div>
+<div class="pros">
+  <b class="good">✓</b> 所有功能一眼全见,不用点分区;
+  <b class="good">✓</b> 改动比方案B小。<br>
+  <b class="bad">✗</b> 整页约 4 屏长,查票、随便问要滚很久;
+  <b class="bad">✗</b> 一页里有 3 个输入框,还是容易按错地方。
+</div>
+</div>
+
+<!-- ═══════════════ 两案通用:视觉统一规范 ═══════════════ -->
+<div class="proto-h">两案通用 · 视觉统一(不管选谁都做)
+  <small>解决"看着不像一家人"的问题,全按同一套规范收口:</small></div>
+<div class="ask" style="border-left-color:#2F9E44">
+  <div class="opt">① <b>卡片统一</b>:所有卡片圆角16、同一阴影、内边距18,不再有各写各的;</div>
+  <div class="opt">② <b>标题统一</b>:分区标题=图标+17px粗体+13px灰说明,一个体系;</div>
+  <div class="opt">③ <b>输入框统一</b>:圆角12、字号16(顺带修掉 iPhone 点输入框自动放大页面的毛病);</div>
+  <div class="opt">④ <b>徽章/表格统一</b>:体检卡的状态徽章、回放表样式与今日页消息卡对齐;</div>
+  <div class="opt">⑤ <b>删除</b>:顶部独立体检框、"池外的票也能查"快捷键(合并进「查任意票」)。</div>
+</div>
+
+<!-- ═══════════════ 拍板 ═══════════════ -->
+<div class="ask">
+  <h3>请拍板</h3>
+  <div class="opt">1. 选 <b>方案A(单页三区)</b> 还是 <b>方案B(分区子页,推荐)</b>?</div>
+  <div class="opt">2. 「查任意票」输入池内票代码时自动跳回「我的课堂」选中该票——可以吗?</div>
+  <div class="opt">3. 三个分区的名字(我的课堂 / 查任意票 / 随便问)顺不顺口?要改随时说。</div>
+</div>
+
+<script>
+function showPlan(p){
+  document.getElementById("planA").style.display = p==="A" ? "" : "none";
+  document.getElementById("planB").style.display = p==="B" ? "" : "none";
+  document.getElementById("selA").classList.toggle("on", p==="A");
+  document.getElementById("selB").classList.toggle("on", p==="B");
+}
+function showSub(k){
+  ["learn","check","chat"].forEach(x=>{
+    document.getElementById("sub-"+x).style.display = x===k ? "" : "none";
+    document.getElementById("sT-"+x).classList.toggle("on", x===k);
+  });
+}
+</script>
+</body>
+</html>

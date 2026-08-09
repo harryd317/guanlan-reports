@@ -1,0 +1,27 @@
+{
+  "schema": "guanlan-kimi-k3-s8-logical-diff/v1",
+  "protected_vs_disposable": {
+    "s8_signals": {"writer_only": 0, "protected_only": 0},
+    "s8_shadow_ledger": {"writer_only": 0, "protected_only": 0},
+    "archive_queue": {"writer_only": 1, "protected_only": 1}
+  },
+  "only_changed_row": "archive_queue.801018.SI",
+  "before": {
+    "status": "skeleton_ready",
+    "prompt_version": null,
+    "generation_channel": null,
+    "generation_model": null,
+    "generation_error": null,
+    "draft_length": 0
+  },
+  "after": {
+    "status": "skeleton_ready",
+    "prompt_version": "industry-archive-v2.2-web",
+    "generation_channel": null,
+    "generation_model": null,
+    "generation_error": "stage=api_rejected;code=http_other",
+    "draft_length": 0
+  },
+  "production_archive_queue_changed": false,
+  "production_generation_triggered": false
+}

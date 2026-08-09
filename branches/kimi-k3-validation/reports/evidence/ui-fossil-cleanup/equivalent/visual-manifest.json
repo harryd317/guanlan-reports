@@ -1,0 +1,15 @@
+{
+  "environment": "production-equivalent",
+  "console_errors": [],
+  "screenshots": [
+    {"file": "today-desktop-1440x900.png", "width": 1440, "height": 900, "sha256": "a935f8f6af2da1836042a07a293264783952237c7731a5bc314cfcbdd3609dd5"},
+    {"file": "today-mobile-390x844.png", "width": 390, "height": 844, "sha256": "3b1f39c38aefc3110fb3a3ffce6e2795f26a87bf3a1fede9db3713762c62363c"},
+    {"file": "pool-list-desktop-1440x900.png", "width": 1440, "height": 900, "sha256": "70359b70578deb11a8fb65cfe119ee0963417eed776dc2a5b59c1a7bdf550364"},
+    {"file": "pool-list-mobile-390x844.png", "width": 390, "height": 844, "sha256": "c0d47e04692fa4b1e067c2e3dc3f55c9a4b99158556700e553814dc4a9a5b674"},
+    {"file": "pool-legacy-expanded-desktop-1440x900.png", "width": 1440, "height": 900, "sha256": "b6a5b416601c13ee1ce2e0fe0d37cb79d374bd0392720397b326d7b2340c6256"},
+    {"file": "pool-logic-desktop-1440x900.png", "width": 1440, "height": 900, "sha256": "1f4b0164121a60411958941c6c39c1684228fdf8bde6343decce3b26fe405f67"},
+    {"file": "pool-logic-mobile-390x844.png", "width": 390, "height": 844, "sha256": "c9217f0b10c6da6ad7d0707f16ceceed3e396973480db6b75ea65921be638855"},
+    {"file": "streak-list-desktop-1440x900.png", "width": 1440, "height": 900, "sha256": "4ec212889367afdef21a000deeac4a4d6b8302a15c01d7572c937505e01417dd"},
+    {"file": "streak-list-mobile-390x844.png", "width": 390, "height": 844, "sha256": "90b6e14d5bab022e6e8343a1d87001e50a703d142ea4a88c37164c7e9da94a63"}
+  ]
+}

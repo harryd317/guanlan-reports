@@ -1,0 +1,41 @@
+{
+  "schema": "guanlan-kimi-k3-protocol-diagnosis/v1",
+  "result": "failed",
+  "failure_stage": "chat_completions_builtin_tool_continuation",
+  "observed_http_category": "400",
+  "safe_service_error": "stage=api_rejected;code=http_other",
+  "minimal_replays": [
+    {
+      "variant": "preserve_empty_assistant_content",
+      "first_round": "2xx_tool_calls_$web_search",
+      "second_round": "400",
+      "elapsed_seconds": 1.964
+    },
+    {
+      "variant": "tool_result_is_last_message",
+      "first_round": "2xx_tool_calls_$web_search",
+      "second_round": "400",
+      "elapsed_seconds": 2.598
+    },
+    {
+      "variant": "verbatim_tool_arguments",
+      "first_round": "2xx_tool_calls_$web_search",
+      "second_round": "400",
+      "elapsed_seconds": 4.471
+    }
+  ],
+  "ruled_out": [
+    "配置缺失",
+    "首轮 HTTP 传输失败",
+    "首轮未触发 $web_search",
+    "骨架或 Prompt 与 K2.6 不一致",
+    "assistant.content 空字符串被删除",
+    "工具结果后追加成稿指令",
+    "工具参数 JSON 重新序列化"
+  ],
+  "root_cause": "现有 K2.6 Chat Completions builtin_function 回环不能作为 K3 官方工具的完整续接协议。K3 官方工具需改用 Formula API 的工具目录、tool_call、fibers 回传与续接链。",
+  "formula_adapter_implemented": false,
+  "reason_not_implemented": "本批是模型切换验证；用户冻结失败路径为保留 K2.6。新协议适配需要独立 TDD、等效验收与部署批次。",
+  "response_bodies_recorded": false,
+  "api_key_value_recorded": false
+}

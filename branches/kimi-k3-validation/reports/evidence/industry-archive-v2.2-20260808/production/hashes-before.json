@@ -1,0 +1,11 @@
+{
+  "main_commit": "1fc05d51da952b4ccbb3e57e22d125d22102aa2b",
+  "phase": "before-deploy",
+  "sha256": {
+    "market_db": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "s8_db": "9b7d9a108da28e76b80a8f8993104bcd742b44bb1dd2ee038330ea43dbf2d76f",
+    "screener_db": "9fc0abb19c63cb18602b80fb65a8ad43ba73ef17fa46f1bfb73b3172fbb9957e",
+    "thermometer_db": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b"
+  }
+}

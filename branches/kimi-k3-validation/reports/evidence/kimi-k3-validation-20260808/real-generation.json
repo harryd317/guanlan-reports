@@ -1,0 +1,87 @@
+{
+  "schema": "guanlan-kimi-k3-real-generation/v1",
+  "environment": "production-launchagent-clone-equivalent-disposable-s8",
+  "industry": {
+    "code": "801018.SI",
+    "name": "动物保健Ⅱ"
+  },
+  "model": "kimi-k3",
+  "prompt_version": "industry-archive-v2.2-web",
+  "prompt_system_sha256": "d7a380dfe9d745abcbc3ba3d407f92b09e5fae28e57588bbfb63a657a50812e1",
+  "skeleton": {
+    "data_date": "2026-08-04",
+    "member_count": 12,
+    "keys": [
+      "cycle_indicators",
+      "data_date",
+      "existing_research",
+      "industry_code",
+      "industry_name",
+      "members",
+      "profit_margin_source",
+      "thermometer_snapshot"
+    ],
+    "sha256": "4d1168c7edbfaff5b2551d0f153ebce28a86d6f9733fd722b50f20921ed256a6",
+    "k2_6_sha256": "4d1168c7edbfaff5b2551d0f153ebce28a86d6f9733fd722b50f20921ed256a6",
+    "matches_k2_6": true
+  },
+  "generation": {
+    "request_rounds": 2,
+    "trace": [
+      {
+        "round": 1,
+        "declared_tools": ["$web_search"],
+        "tool_choice": "omitted_auto",
+        "http_status_category": "2xx",
+        "finish_reason": "tool_calls",
+        "returned_tools": ["$web_search"],
+        "search_result_tokens_reported": [1965],
+        "usage": {
+          "prompt_tokens": 732,
+          "completion_tokens": 1,
+          "total_tokens": 733
+        },
+        "elapsed_seconds": 6.634
+      },
+      {
+        "round": 2,
+        "generation_prompt_injected": true,
+        "http_status_category": "400",
+        "elapsed_seconds": 0.175
+      }
+    ],
+    "usage_totals": {
+      "prompt_tokens": 732,
+      "completion_tokens": 1,
+      "total_tokens": 733
+    },
+    "search_result_tokens_reported_total": 1965
+  },
+  "timing": {
+    "skeleton_build_seconds": 7.613,
+    "generation_seconds": 6.818,
+    "total_seconds": 14.439
+  },
+  "queue_after": {
+    "status": "skeleton_ready",
+    "prompt_version": "industry-archive-v2.2-web",
+    "generation_channel": null,
+    "generation_model": null,
+    "generation_error": "stage=api_rejected;code=http_other",
+    "draft_length": 0
+  },
+  "checks": {
+    "real_web_search_observed": true,
+    "search_continuation_completed": false,
+    "seven_sections_ok": false,
+    "core_stock_limit_evaluable": false,
+    "dated_https_sources_present": false,
+    "thermometer_snapshot_injected": true,
+    "cycle_indicators_injected": true,
+    "prompt_version_matches_k2_6": true,
+    "skeleton_hash_matches_k2_6": true,
+    "draft_warning_present": false,
+    "api_key_value_recorded": false
+  },
+  "success": false
+}
