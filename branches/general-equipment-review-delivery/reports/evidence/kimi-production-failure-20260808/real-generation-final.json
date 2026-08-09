@@ -1,0 +1,69 @@
+{
+  "schema": "guanlan-kimi-production-equivalent-real-generation/v1",
+  "environment": "launchagent-clone-equivalent-disposable-s8",
+  "industry": {
+    "code": "801018.SI",
+    "name": "动物保健Ⅱ"
+  },
+  "response": {
+    "ok": true,
+    "status": "awaiting_review",
+    "prompt_version": "industry-archive-v2.2-web",
+    "generation_channel": "kimi",
+    "generation_model": "kimi-k2.6",
+    "notice": "AI 生成初稿 · 未经审校/终审不作为核心股依据"
+  },
+  "queue": {
+    "status": "awaiting_review",
+    "prompt_version": "industry-archive-v2.2-web",
+    "generation_channel": "kimi",
+    "generation_model": "kimi-k2.6",
+    "generation_error_safe": "",
+    "draft_persisted": true
+  },
+  "generation": {
+    "request_rounds": 2,
+    "trace": [
+      {
+        "round": 1,
+        "authorization_header_present": true,
+        "declared_tools": [
+          "$web_search"
+        ],
+        "model": "kimi-k2.6",
+        "finish_reason": "tool_calls",
+        "returned_tools": [
+          "$web_search"
+        ]
+      },
+      {
+        "round": 2,
+        "authorization_header_present": true,
+        "declared_tools": [
+          "$web_search"
+        ],
+        "model": "kimi-k2.6",
+        "finish_reason": "stop",
+        "returned_tools": []
+      }
+    ],
+    "real_web_search_observed": true,
+    "web_search_declared_every_round": true
+  },
+  "validation": {
+    "ok": true,
+    "prompt_version": "industry-archive-v2.2-web",
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 4814,
+    "reference_length": 3063
+  },
+  "checks": {
+    "seven_sections_ok": true,
+    "core_stock_count_at_most_5": true,
+    "dated_https_sources_present": true,
+    "draft_warning_present": true,
+    "secret_value_recorded": false
+  }
+}

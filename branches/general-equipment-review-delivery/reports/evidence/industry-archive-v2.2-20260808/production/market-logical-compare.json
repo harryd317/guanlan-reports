@@ -1,0 +1,42 @@
+{
+  "all_tables_identical": true,
+  "method": "primary-key row-by-row SQLite IS comparison",
+  "tables": {
+    "adj_factors": {
+      "before_rows": 12094337,
+      "current_rows": 12094337,
+      "mismatch": false,
+      "seconds": 5.492
+    },
+    "fill_progress": {
+      "before_rows": 2817,
+      "current_rows": 2817,
+      "mismatch": false,
+      "seconds": 0.001
+    },
+    "index_daily": {
+      "before_rows": 3543,
+      "current_rows": 3543,
+      "mismatch": false,
+      "seconds": 0.005
+    },
+    "market_daily": {
+      "before_rows": 11581732,
+      "current_rows": 11581732,
+      "mismatch": false,
+      "seconds": 7.559
+    },
+    "regime_history": {
+      "before_rows": 2817,
+      "current_rows": 2817,
+      "mismatch": false,
+      "seconds": 0.001
+    },
+    "universe_snap": {
+      "before_rows": 10916,
+      "current_rows": 10916,
+      "mismatch": false,
+      "seconds": 0.004
+    }
+  }
+}

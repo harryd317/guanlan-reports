@@ -1,0 +1,666 @@
+{
+  "environment": "production-equivalent",
+  "base_url": "http://127.0.0.1:18805/",
+  "entries": [
+    {
+      "page": "today",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-today",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 42,
+        "width": 60,
+        "x": 242,
+        "y": 33
+      },
+      "labels": {
+        "market_gate": true,
+        "old_market_gate": false,
+        "s8_subtitle": true,
+        "s8_title": true
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-list",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-logic",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-archive",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "streak-list",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-streak-list",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "s8-focus-list",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-s8-focus-list",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "stock",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-stock",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "industry-published",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "industry-research",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "me",
+      "device": "desktop",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1440,
+        "scroll_height": 900,
+        "scroll_width": 1440
+      },
+      "active_page": {
+        "client_height": 840,
+        "id": "view-me",
+        "overflow_y": "hidden",
+        "scroll_height": 840
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "today",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-today",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 32.5,
+        "width": 46,
+        "x": 12,
+        "y": 53.75
+      },
+      "labels": {
+        "market_gate": true,
+        "old_market_gate": false,
+        "s8_subtitle": true,
+        "s8_title": true
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-list",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-logic",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "pool-archive",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-pool",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "streak-list",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-streak-list",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "s8-focus-list",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-s8-focus-list",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "stock",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-stock",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "industry-published",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "industry-research",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-industry",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    },
+    {
+      "page": "me",
+      "device": "mobile",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "document": {
+        "client_height": 844,
+        "client_width": 390,
+        "scroll_height": 844,
+        "scroll_width": 390
+      },
+      "active_page": {
+        "client_height": 784,
+        "id": "view-me",
+        "overflow_y": "hidden",
+        "scroll_height": 784
+      },
+      "key_rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "labels": {
+        "market_gate": false,
+        "old_market_gate": false,
+        "s8_subtitle": false,
+        "s8_title": false
+      },
+      "console_errors": []
+    }
+  ]
+}

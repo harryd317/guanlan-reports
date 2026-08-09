@@ -1,0 +1,35 @@
+{
+  "environment": "production-equivalent",
+  "port": 18805,
+  "launch_agent_label": "com.rui.stock-screener.web.ui-today-line-labels",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "clone_plist_sha256": "037bace9652c4620d1cc5d625d67cfeba0e27560cbe088d281bdf528dff7564d",
+  "copy_permissions": "0444",
+  "before": {
+    "production_screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_s3": "cc361059a7edf72379510b28d7ea47ae4fa91dc6027619c9ef8d2365ce77abca",
+    "production_s8": "0d5023d63139a205d764ccc27d0c1525a08ec1485f75d0a2694afa82180b0911",
+    "copy_screener": "b138fce95e46feb91dcbcd090813fd0e140586b9a945bf383ba2b120d59a47de",
+    "copy_market": "1ae600667f0b7f05e1e4707cc9eeb1d46d765deddfa7170b2bce62151e40210f",
+    "copy_s3": "aa43c04cfd3581a763f7d079dc419cbf4ef6cf43f624bad47ef41c4ee5fa35b5",
+    "copy_s8": "11a9ab51888472de2b3ab66b76fc6215b9d88d3c79067b9db421f56554156b1a"
+  },
+  "after": {
+    "production_screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_s3": "cc361059a7edf72379510b28d7ea47ae4fa91dc6027619c9ef8d2365ce77abca",
+    "production_s8": "0d5023d63139a205d764ccc27d0c1525a08ec1485f75d0a2694afa82180b0911",
+    "copy_screener": "b138fce95e46feb91dcbcd090813fd0e140586b9a945bf383ba2b120d59a47de",
+    "copy_market": "1ae600667f0b7f05e1e4707cc9eeb1d46d765deddfa7170b2bce62151e40210f",
+    "copy_s3": "aa43c04cfd3581a763f7d079dc419cbf4ef6cf43f624bad47ef41c4ee5fa35b5",
+    "copy_s8": "11a9ab51888472de2b3ab66b76fc6215b9d88d3c79067b9db421f56554156b1a"
+  },
+  "unchanged": true,
+  "health": {
+    "ok": true,
+    "match": true,
+    "fingerprint_boot": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "fingerprint_disk": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "guanlan-frontend-deployment/v1",
+  "status": "pass",
+  "deployed_at": "2026-08-01T18:01:19+08:00",
+  "merge_commit": "b2aed798a654926c32180820fbe998abd99c3600",
+  "tested_source_commit": "a4ded0e",
+  "acceptance_evidence_commit": "90a2acb6b45d98417f3600dbe5e10e678f182828",
+  "production": {
+    "launcher": "com.rui.stock-screener.web",
+    "pid": 71357,
+    "health": {
+      "ok": true,
+      "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+      "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+      "match": true,
+      "rule_version": 10
+    },
+    "probes": {
+      "/": 200,
+      "/api/health": 200,
+      "/api/pool": 200,
+      "/pro": 404,
+      "/daily": 404,
+      "/stock/600000": 404,
+      "/page/pool": 404
+    }
+  },
+  "api_source_boundary": {
+    "status": "pass",
+    "unchanged_functions": 68
+  },
+  "database_gate": {
+    "status": "pass",
+    "note": "The first restart checkpointed pre-existing WAL state into the main file. Logical SHA3 content stayed identical. A second standard restart used the stable checkpointed file as its pre-deploy baseline and preserved every raw SHA-256.",
+    "first_restart": {
+      "screener_raw_before": "d3c201779835a7b65fdff70dbf25c0ab84e824786e7367f39d34f56410ecfac1",
+      "screener_raw_after_checkpoint": "ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370",
+      "logical_sha3_before": "493d8ccb7d4b1c04d322992c891ae42e5eab0db609b8dc95feeaef81",
+      "logical_sha3_after": "493d8ccb7d4b1c04d322992c891ae42e5eab0db609b8dc95feeaef81",
+      "logical_content_unchanged": true
+    },
+    "stable_deployment": {
+      "raw_hashes_unchanged": true,
+      "sha256_before": {
+        "screener": "ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370",
+        "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+        "s3": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b",
+        "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac"
+      },
+      "sha256_after": {
+        "screener": "ecfb06f626a5003518c335dbbb919469bb700e6398d34a68540e3a74e5f2f370",
+        "market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+        "s3": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b",
+        "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac"
+      }
+    }
+  },
+  "production_browser_smoke": {
+    "status": "pass",
+    "desktop": {
+      "viewport": "1440x900",
+      "today_no_overflow": true,
+      "pool_no_overflow": true,
+      "stock_no_overflow": true,
+      "pool_detail_back": true
+    },
+    "mobile": {
+      "viewport": "390x844",
+      "today_no_overflow": true,
+      "pool_no_overflow": true,
+      "stock_no_overflow": true,
+      "me_no_overflow": true,
+      "pool_detail_back": true
+    }
+  }
+}

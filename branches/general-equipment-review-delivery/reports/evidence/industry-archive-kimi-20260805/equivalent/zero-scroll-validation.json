@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-08-05",
+  "source": "global-zero-scroll.json",
+  "full_reload_per_route": true,
+  "viewport_count": 3,
+  "route_count": 12,
+  "entry_count": 36,
+  "document_dimension_gate": {
+    "status": "pass",
+    "passed": 36,
+    "total": 36,
+    "assertion": "scrollHeight === clientHeight && scrollWidth === clientWidth"
+  },
+  "supplementary_render_probe": {
+    "status": "partial",
+    "passed": 29,
+    "total": 36,
+    "note": "This supplementary probe is not the zero-scroll dimension gate. Six today/streak rows observed stale-origin API errors; one published archive row was sampled before two loading placeholders cleared."
+  }
+}

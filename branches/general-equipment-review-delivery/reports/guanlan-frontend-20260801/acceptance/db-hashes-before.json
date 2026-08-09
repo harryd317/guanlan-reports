@@ -1,0 +1,12 @@
+{
+  "phase": "before-acceptance",
+  "sha256": {
+    "copy_market": "4ee29aa68fdc116bec07de56a1b258eab3437e87568aadfa1f2d84d46bd9ca1c",
+    "copy_s3": "e38deb016eb48bdabcb5113d1f5198d8c8eb82fc0e4d7fd76ff883275bdaedd1",
+    "copy_screener": "94c99dbfaaeaa507362d95837cdd7ee2b9c7f403adfca45d690706582f5894ff",
+    "production_market": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1",
+    "production_plist": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac",
+    "production_s3": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b",
+    "production_screener": "d3c201779835a7b65fdff70dbf25c0ab84e824786e7367f39d34f56410ecfac1"
+  }
+}

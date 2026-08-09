@@ -1,0 +1,36 @@
+{
+  "schema": "guanlan-industry-archive-review-submission/v1",
+  "industry": {
+    "code": "801072.SI",
+    "name": "通用设备"
+  },
+  "status": "awaiting_external_review",
+  "artifact_commit": "faea5c7a34afc5449834c0bc28a12ee61c22437d",
+  "source_code_commit": "c332d23d68696caae99b6b5420c2b23a59b09247",
+  "branch": "codex/general-equipment-review-delivery",
+  "mirror_destination": "branches/general-equipment-review-delivery/reports/evidence/industry-archive-review-20260809",
+  "files": [
+    {
+      "path": "reports/evidence/industry-archive-review-20260809/通用设备-801072.SI-kimi-v2.2-初稿.md",
+      "sha256": "5132f8dcfd22896aeaeeb85a65f0056737c90b0233834feb19a83a20ac3dd015"
+    },
+    {
+      "path": "reports/evidence/industry-archive-review-20260809/thermometer-snapshot-801072.SI.json",
+      "sha256": "2c53a22ba803016e5616cf2e930636861db742a8b141715dde2365c8616f4e01"
+    },
+    {
+      "path": "reports/evidence/industry-archive-review-20260809/generation-evidence-801072.SI.json",
+      "sha256": "64bc522afe66c443c5fe6266dc4a9fde6772b3a6ad1823727f4f8a476334de0a"
+    }
+  ],
+  "review_callback": {
+    "endpoint": "/api/s8/archive-queue/801072.SI/review",
+    "required_mirror_field": "mirror_commit_hash",
+    "production_write_performed_by_submission": false
+  },
+  "notes": [
+    "The artifact commit identifies the exact three-file review payload before this manifest was added.",
+    "The mirror commit is reported after fresh-clone verification and should be used by the external review callback.",
+    "Token counts are null in generation evidence because the historical adapter did not persist response usage."
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schema": "guanlan-frontend-acceptance/v1",
+  "status": "pass",
+  "source_commit": "a4ded0e",
+  "environment": {
+    "mode": "production-equivalent-read-only",
+    "port": 18787,
+    "working_directory": "~/云慧养/zmu_gitee/screener/.worktrees/guanlan-frontend-rewrite",
+    "data_as_of": "2026-07-31"
+  },
+  "probes": {
+    "/": 200,
+    "/api/health": 200,
+    "/api/pool": 200,
+    "/pro": 404,
+    "/daily": 404,
+    "/stock/600000": 404,
+    "/page/pool": 404
+  },
+  "interactions": {
+    "pool_detail_back": {
+      "status": "pass",
+      "code": "002156",
+      "before": {
+        "hash": "#pool",
+        "tab": "list",
+        "scroll_top": 0
+      },
+      "detail_hash": "#stock/002156",
+      "after": {
+        "hash": "#pool",
+        "tab": "list",
+        "scroll_top": 0,
+        "list_hidden": false
+      }
+    },
+    "account_persistence": {
+      "status": "pass",
+      "evidence": "account-persistence.json"
+    }
+  },
+  "validation": {
+    "entry_count": 8,
+    "ordinary_viewport_only": true,
+    "all_no_overflow": true,
+    "all_console_errors_empty": true,
+    "all_screenshot_hashes_verified": true
+  },
+  "entries": [
+    {
+      "page": "today",
+      "device": "desktop",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 242, "y": 30, "width": 1016, "height": 840}},
+      "image": {"format": "jpeg", "width": 1440, "height": 900},
+      "screenshot": "screenshots/today-desktop.jpg",
+      "screenshot_sha256": "df76df5f2c29ec582b95f4fc0c3388cf66f67877d32a74d125e76616b54a35df",
+      "console_errors": []
+    },
+    {
+      "page": "pool",
+      "device": "desktop",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 242, "y": 30, "width": 1016, "height": 840}},
+      "image": {"format": "jpeg", "width": 1440, "height": 900},
+      "screenshot": "screenshots/pool-desktop.jpg",
+      "screenshot_sha256": "e9cd21beefc64cacbf2c0ad440c10b0cb0d44bc71158c4c89e8c3d752b30ed04",
+      "console_errors": []
+    },
+    {
+      "page": "stock",
+      "device": "desktop",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 242, "y": 30, "width": 1016, "height": 840}},
+      "image": {"format": "jpeg", "width": 1440, "height": 900},
+      "screenshot": "screenshots/stock-desktop.jpg",
+      "screenshot_sha256": "bdde65cde1adb64bfb621b33fc99c0b4d09c09412965169cb3f76176fd61fe36",
+      "console_errors": []
+    },
+    {
+      "page": "me",
+      "device": "desktop",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 242, "y": 30, "width": 1016, "height": 840}},
+      "image": {"format": "jpeg", "width": 1440, "height": 900},
+      "screenshot": "screenshots/me-desktop.jpg",
+      "screenshot_sha256": "873a8b981ad6fcf57c3069f732b1cf32a9b85e8dffdb9d4bf39914f2e5fe55a1",
+      "console_errors": []
+    },
+    {
+      "page": "today",
+      "device": "mobile",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 12, "y": 51, "width": 366, "height": 784}},
+      "image": {"format": "jpeg", "width": 390, "height": 844},
+      "screenshot": "screenshots/today-mobile.jpg",
+      "screenshot_sha256": "a2dc1d8e5e1824b3fac32be989952242890c8d360c6711f842c7b1e79eaa0a81",
+      "console_errors": []
+    },
+    {
+      "page": "pool",
+      "device": "mobile",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 12, "y": 51, "width": 366, "height": 784}},
+      "image": {"format": "jpeg", "width": 390, "height": 844},
+      "screenshot": "screenshots/pool-mobile.jpg",
+      "screenshot_sha256": "620b162cd9b447698a0db23c27f4db8a39709637f4896a6bedd866965d434952",
+      "console_errors": []
+    },
+    {
+      "page": "stock",
+      "device": "mobile",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 12, "y": 51, "width": 366, "height": 784}},
+      "image": {"format": "jpeg", "width": 390, "height": 844},
+      "screenshot": "screenshots/stock-mobile.jpg",
+      "screenshot_sha256": "0d4d9b1842f4ebe96b99f341282270f2591902a91d9bad11ff74d59054e96f0f",
+      "console_errors": []
+    },
+    {
+      "page": "me",
+      "device": "mobile",
+      "status": "pass",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 12, "y": 51, "width": 366, "height": 784}},
+      "image": {"format": "jpeg", "width": 390, "height": 844},
+      "screenshot": "screenshots/me-mobile.jpg",
+      "screenshot_sha256": "1f6dd0405a49b0f6e61084b31e0ce4a03a3807d0ecb114dcad0de48af3ebb739",
+      "console_errors": []
+    }
+  ]
+}
