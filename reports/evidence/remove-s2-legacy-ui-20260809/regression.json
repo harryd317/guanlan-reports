@@ -1,0 +1,15 @@
+{
+  "implementation_commit": "425d361",
+  "scope": "merged main verification",
+  "results": {
+    "frontend_focused": {"passed": 45, "failed": 0},
+    "test_web": {"passed": 838, "failed": 0},
+    "test_rules": {"passed": 8, "failed": 0},
+    "test_rules_mid": {"passed": 20, "failed": 0},
+    "test_regime": {"passed": 9, "failed": 0},
+    "test_report_mirror_sync": {"passed": 28, "failed": 0},
+    "test_production_equivalent": {"passed": 29, "failed": 0},
+    "git_diff_check": {"exit_code": 0}
+  },
+  "status": "pass"
+}

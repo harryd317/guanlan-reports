@@ -1,0 +1,26 @@
+{
+  "active_frontend": "static/home.html",
+  "removed_visible_tokens": [
+    "S2遗产（到期自动退出）",
+    "当前无 S2 遗产"
+  ],
+  "removed_dom_and_code": [
+    "pool-legacy",
+    "pool-legacy-count",
+    "pool-legacy-body",
+    "pool-legacy-summary",
+    "legacy partition",
+    "formatExpiryCountdown",
+    "expireAt display field",
+    "expiry CSS"
+  ],
+  "active_frontend_matches": 0,
+  "retained_non_ui": [
+    "scripts/retire_s2.py retirement and natural-expiry markers",
+    "service.py natural-expiry log",
+    "today-page s2_legacy exclusion guards"
+  ],
+  "data_or_engine_files_changed": false,
+  "database_migration": false,
+  "status": "pass"
+}
