@@ -1,0 +1,41 @@
+{
+  "schema": "guanlan-industry-archive-review-submission/v1",
+  "industry": {
+    "code": "801014.SI",
+    "name": "饲料"
+  },
+  "status": "awaiting_external_review",
+  "artifact_commit": "73ab487980a2fd00ff377b6ee77e29e3cb5010a2",
+  "source_code_commit_at_generation": "56ed282419a07f5fc72a9917c7048edc2fd5e36a",
+  "branch": "codex/general-equipment-review-delivery",
+  "mirror_destination": "reports/evidence/industry-archive-review-801014-20260812",
+  "files": [
+    {
+      "path": "reports/evidence/industry-archive-review-801014-20260812/饲料-801014.SI-kimi-v2.2-初稿.md",
+      "sha256": "9759ce2c32cc382c686d8938e68aa62f911a3faec4465b3d70d45d9c3f3d4506"
+    },
+    {
+      "path": "reports/evidence/industry-archive-review-801014-20260812/thermometer-snapshot-801014.SI.json",
+      "sha256": "5b0c8201796bbc2cf7254ff7558dd2eb6ca83c916f439b220e566c12eaf90dd0"
+    },
+    {
+      "path": "reports/evidence/industry-archive-review-801014-20260812/generation-evidence-801014.SI.json",
+      "sha256": "3edf3d9d1755e700b20efb8753a63cbc00a4c03cce3da0d58e45bf040860b2d8"
+    }
+  ],
+  "review_callback": {
+    "endpoint": "/api/s8/archive-queue/801014.SI/review",
+    "required_mirror_field": "mirror_commit_hash",
+    "production_write_performed_by_submission": false
+  },
+  "production_boundaries": {
+    "database_read_only": true,
+    "generation_triggered": false,
+    "queue_status_changed": false
+  },
+  "notes": [
+    "The artifact commit identifies the exact draft, snapshot and generation evidence before this manifest was added.",
+    "The final mirror commit is reported after fresh-clone verification and should be used by the external review callback.",
+    "Token counts are null because the production adapter did not persist response usage metadata."
+  ]
+}

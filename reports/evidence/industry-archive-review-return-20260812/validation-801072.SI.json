@@ -1,0 +1,25 @@
+{
+  "validated_at": "2026-08-12T01:17:07+08:00",
+  "validator": "s8_research.archives.validate_archive_v2",
+  "prompt_version": "industry-archive-v2.2-web",
+  "result": {
+    "ok": true,
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 6081,
+    "reference_length": 3063
+  },
+  "frozen_inputs": {
+    "section_one_original_sha256": "99bc0bf24734eb4ae163c366375602f33f26beed2dd05b5733f424d2b2ec99ca",
+    "section_one_revised_sha256": "99bc0bf24734eb4ae163c366375602f33f26beed2dd05b5733f424d2b2ec99ca",
+    "section_one_byte_identical": true,
+    "skeleton_json_before_sha256": "31a3b78a562084f11feb596b96f359433bb8c1a1964e5b4ea1d891a825bbed36",
+    "skeleton_json_after_sha256": "31a3b78a562084f11feb596b96f359433bb8c1a1964e5b4ea1d891a825bbed36",
+    "skeleton_json_byte_identical": true
+  },
+  "artifacts": {
+    "original_sha256": "5132f8dcfd22896aeaeeb85a65f0056737c90b0233834feb19a83a20ac3dd015",
+    "revised_sha256": "cecea28c3dc4fc5fc369f33f5a4770ea2f396e89369a86a0623509c729a12883"
+  }
+}
