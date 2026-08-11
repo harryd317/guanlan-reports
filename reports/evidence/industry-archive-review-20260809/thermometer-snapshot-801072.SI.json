@@ -1,0 +1,48 @@
+{
+  "trade_date": "2026-08-04",
+  "formula_version": "industry-thermometer-v1",
+  "generated_at": "2026-08-04T15:44:15.062796+00:00",
+  "source_sidecar_sha256": "5cb274388c8c87a1455f7ea0b6945b1538a7a13cfc23545074aa10231d1bf37d",
+  "coverage": {
+    "heat_counts": {
+      "cold": 19,
+      "hot": 2,
+      "scorching": 5,
+      "warm": 98
+    },
+    "industries_complete": 124,
+    "industries_total": 124,
+    "rs_eligible_stocks": 5450,
+    "volume_ranked_industries": 124
+  },
+  "industry": {
+    "cluster_hits": 1,
+    "complete": true,
+    "heat": "hot",
+    "industry_code": "801072.SI",
+    "industry_name": "通用设备",
+    "leader": {
+      "name": "000811.SZ",
+      "return_120d": 1.2827728750820708,
+      "rs_percentile": 99.39449541284404,
+      "ts_code": "000811.SZ"
+    },
+    "light_count": 3,
+    "lights": {
+      "cluster": false,
+      "leader_strength": true,
+      "turnover_share": true,
+      "volume": true
+    },
+    "turnover_shares": [
+      0.02505132036992544,
+      0.025526328237660663,
+      0.026011384148533233,
+      0.029353262192141075,
+      0.030953604079104385
+    ],
+    "volume_rank": 17,
+    "volume_ratio": 1.2430682679834342,
+    "volume_top5": false
+  }
+}
