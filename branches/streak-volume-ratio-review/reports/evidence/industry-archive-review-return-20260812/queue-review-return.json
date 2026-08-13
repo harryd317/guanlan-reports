@@ -1,0 +1,36 @@
+{
+  "review_mirror_commit": "75c31d8e6cb6bb9d202650e3bdf63acb7590ddb0",
+  "review_source_sha256": "9138145b0b3b654d215762e15db6a8e7383dec43c92fff946c289cf7766a8e2c",
+  "review_api": {
+    "ok": true,
+    "actor": "Kimi",
+    "time": "2026-08-12T01:14:54+08:00",
+    "action": "external_review"
+  },
+  "return_api": {
+    "ok": true,
+    "actor": "段睿授权返修",
+    "time": "2026-08-12T01:15:02+08:00",
+    "action": "return",
+    "reason": "Kimi 四尺审校结论：改后再审；仅执行四项返修，温度计①节与骨架不动。"
+  },
+  "database_sha256_after_review_return": "04d15e79e16577848d37cc7b941b2b84bee2113ef3e18827c9b015783778f4cb",
+  "row_after_return": {
+    "industry_code": "801072.SI",
+    "status": "draft_ready",
+    "draft_length": 6415,
+    "mirror_commit_hash": null,
+    "draft_mirrored_at": null,
+    "reviewed_at": null,
+    "has_review": false,
+    "audit_count": 2,
+    "audit_actions": [
+      "external_review",
+      "return"
+    ],
+    "archive_id": null,
+    "published": false,
+    "updated_at": "2026-08-11T17:15:02.288819+00:00"
+  },
+  "write_scope": "archive_queue row 801072.SI only"
+}

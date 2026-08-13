@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-08-12T01:14:13+08:00",
+  "database": {
+    "path_class": "production S8 research database",
+    "sha256": "077230e4f9fbdd958308e5ed92cce65d0d07e730122cd1a1f48fbd96034baadc"
+  },
+  "row": {
+    "industry_code": "801072.SI",
+    "industry_name": "通用设备",
+    "status": "awaiting_review",
+    "draft_length": 6415,
+    "prompt_version": "industry-archive-v2.2-web",
+    "generation_channel": "kimi",
+    "generation_model": "kimi-k2.6",
+    "generation_error": null,
+    "mirror_commit_hash": null,
+    "draft_mirrored_at": null,
+    "reviewed_at": null,
+    "has_review": false,
+    "audit_count": 0,
+    "last_audit_action": null,
+    "human_note": null,
+    "archive_id": null,
+    "updated_at": "2026-08-11T09:57:20.605707+00:00"
+  },
+  "read_mode": "sqlite read-only with PRAGMA query_only=ON"
+}

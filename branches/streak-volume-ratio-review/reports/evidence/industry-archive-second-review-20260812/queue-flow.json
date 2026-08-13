@@ -1,0 +1,69 @@
+{
+  "captured_at": "2026-08-12T01:48:00+08:00",
+  "review_delivery": {
+    "source_commit": "ded31b810bb0891525c948b9550377886d505aa3",
+    "mirror_commit": "575ee8cb67ee972f9bb80ee84abfb21091dd49c4",
+    "fresh_clone_verified": true,
+    "files": {
+      "review/通用设备-复尺意见-20260812.md": "635efeda0312461015dba1a2c304d583e0a4d7a631ad112144e5759820903a1f",
+      "review/饲料-四尺审校意见-20260812.md": "4868b84d0ce549015a83a8bfed48facd980ebe136e710754f9d1f456bb914097"
+    }
+  },
+  "general_equipment": {
+    "industry_code": "801072.SI",
+    "review_action": {
+      "actor": "Kimi",
+      "time": "2026-08-12T01:41:48+08:00",
+      "action": "external_review"
+    },
+    "status": "awaiting_review",
+    "ui_meaning": "awaiting Duan Rui final review",
+    "mirror_commit_hash": "575ee8cb67ee972f9bb80ee84abfb21091dd49c4",
+    "has_review": true,
+    "conclusion": "结论：通过，可进入段睿终审。",
+    "audit_count": 3,
+    "reviewed_at": null,
+    "archive_id": null,
+    "published": false
+  },
+  "feed": {
+    "industry_code": "801014.SI",
+    "review_action": {
+      "actor": "Kimi",
+      "time": "2026-08-12T01:43:38+08:00",
+      "action": "external_review"
+    },
+    "return_action": {
+      "actor": "段睿授权返修",
+      "time": "2026-08-12T01:43:38+08:00",
+      "action": "return",
+      "reason": "Kimi 四尺审校结论：改后再审（3条小修）；仅修改过期预测、海外市占率主语与量比精度。"
+    },
+    "revision_source_commit": "70a9b16c8fde8956839082b199f2086fc69a4061",
+    "revision_mirror_commit": "911903e8ad83ebc3855b1fdb5f600b6ce18584ad",
+    "revision_mirror_fresh_clone_verified": true,
+    "status": "awaiting_review",
+    "mirror_commit_hash": "911903e8ad83ebc3855b1fdb5f600b6ce18584ad",
+    "has_review": false,
+    "audit_count": 2,
+    "reviewed_at": null,
+    "archive_id": null,
+    "published": false,
+    "draft_length": 6414,
+    "revised_draft_sha256": "0f51e7bdbba36a702b490e81d5297a27b38c793ec21fa87371abc50bdf02b2ef",
+    "validation_ok": true
+  },
+  "production_hashes": {
+    "s8_database_before_task": "03a6d969c9d7a8a60f4511494007d387d46c3e5ba88cffb0ce47d4bc9cc06a53",
+    "s8_database_after_equipment_review": "efe1116e4a3f51c3a75b25245989b31a3c63e4f3c4cb39eca48cb1715fb7b174",
+    "s8_database_after_all_queue_updates": "d7e12951dffb88ed986c12eed6a2f19f1acb1766d68219422d4d249fe5ce381a",
+    "thermometer_sidecar_before": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+    "thermometer_sidecar_after": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e"
+  },
+  "write_scope": [
+    "archive_queue row 801072.SI: external review only",
+    "archive_queue row 801014.SI: external review, return, revised draft, mirror verification"
+  ],
+  "publication_action_called": false,
+  "generation_triggered": false
+}

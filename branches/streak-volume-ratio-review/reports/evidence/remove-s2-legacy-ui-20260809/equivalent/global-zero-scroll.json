@@ -1,0 +1,1159 @@
+{
+  "environment": "production-equivalent",
+  "port": 18812,
+  "full_reload_per_route": true,
+  "results": [
+    {
+      "page": "today",
+      "device": "mobile393",
+      "route": "#today",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#today",
+      "title": "观澜 · 今天",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-list",
+      "device": "mobile393",
+      "route": "#pool",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#pool",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-logic",
+      "device": "mobile393",
+      "route": "#logic",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#logic",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-archive",
+      "device": "mobile393",
+      "route": "#archive",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#archive",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "streak",
+      "device": "mobile393",
+      "route": "#streak",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#streak",
+      "title": "观澜 · 连阳名单",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "s8-focus-list",
+      "device": "mobile393",
+      "route": "#s8-focus-list",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#s8-focus-list",
+      "title": "观澜 · S8 关注",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "stock",
+      "device": "mobile393",
+      "route": "#stock/600219",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#stock/600219",
+      "title": "观澜 · 个股详情",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-published",
+      "device": "mobile393",
+      "route": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-research",
+      "device": "mobile393",
+      "route": "#industry/queue/801104.SI",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/801104.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-awaiting-review",
+      "device": "mobile393",
+      "route": "#industry/queue/core%3A03",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/core%3A03",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-thermometer",
+      "device": "mobile393",
+      "route": "#industry/thermometer/801125.SI",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/thermometer/801125.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "me",
+      "device": "mobile393",
+      "route": "#me",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "active_page": {
+        "client_height": 792,
+        "client_width": 369,
+        "overflow_y": "auto",
+        "scroll_height": 792,
+        "scroll_width": 369
+      },
+      "document": {
+        "client_height": 852,
+        "client_width": 393,
+        "scroll_height": 852,
+        "scroll_width": 393
+      },
+      "inner": {
+        "height": 852,
+        "width": 393
+      },
+      "loading_count": 0,
+      "resolved_hash": "#me",
+      "title": "观澜 · 我的",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "today",
+      "device": "mobile430",
+      "route": "#today",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#today",
+      "title": "观澜 · 今天",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-list",
+      "device": "mobile430",
+      "route": "#pool",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#pool",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-logic",
+      "device": "mobile430",
+      "route": "#logic",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#logic",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-archive",
+      "device": "mobile430",
+      "route": "#archive",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#archive",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "streak",
+      "device": "mobile430",
+      "route": "#streak",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#streak",
+      "title": "观澜 · 连阳名单",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "s8-focus-list",
+      "device": "mobile430",
+      "route": "#s8-focus-list",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#s8-focus-list",
+      "title": "观澜 · S8 关注",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "stock",
+      "device": "mobile430",
+      "route": "#stock/600219",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#stock/600219",
+      "title": "观澜 · 个股详情",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-published",
+      "device": "mobile430",
+      "route": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-research",
+      "device": "mobile430",
+      "route": "#industry/queue/801104.SI",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/801104.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-awaiting-review",
+      "device": "mobile430",
+      "route": "#industry/queue/core%3A03",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/core%3A03",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-thermometer",
+      "device": "mobile430",
+      "route": "#industry/thermometer/801125.SI",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/thermometer/801125.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "me",
+      "device": "mobile430",
+      "route": "#me",
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 840,
+        "client_width": 406,
+        "overflow_y": "auto",
+        "scroll_height": 840,
+        "scroll_width": 406
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 430,
+        "scroll_height": 900,
+        "scroll_width": 430
+      },
+      "inner": {
+        "height": 900,
+        "width": 430
+      },
+      "loading_count": 0,
+      "resolved_hash": "#me",
+      "title": "观澜 · 我的",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "today",
+      "device": "desktop1280",
+      "route": "#today",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#today",
+      "title": "观澜 · 今天",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-list",
+      "device": "desktop1280",
+      "route": "#pool",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#pool",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-logic",
+      "device": "desktop1280",
+      "route": "#logic",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#logic",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "pool-archive",
+      "device": "desktop1280",
+      "route": "#archive",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#archive",
+      "title": "观澜 · 股票池",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "streak",
+      "device": "desktop1280",
+      "route": "#streak",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#streak",
+      "title": "观澜 · 连阳名单",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "s8-focus-list",
+      "device": "desktop1280",
+      "route": "#s8-focus-list",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#s8-focus-list",
+      "title": "观澜 · S8 关注",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "stock",
+      "device": "desktop1280",
+      "route": "#stock/600219",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#stock/600219",
+      "title": "观澜 · 个股详情",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-published",
+      "device": "desktop1280",
+      "route": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/archive/%E4%BA%A7%E4%B8%9A%E6%A1%A3%E6%A1%88-%E5%AD%98%E5%82%A8%E4%B8%8E%E7%AE%97%E5%8A%9B%E7%A1%AC%E4%BB%B6%E9%93%BE",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-research",
+      "device": "desktop1280",
+      "route": "#industry/queue/801104.SI",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/801104.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-awaiting-review",
+      "device": "desktop1280",
+      "route": "#industry/queue/core%3A03",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/queue/core%3A03",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "industry-thermometer",
+      "device": "desktop1280",
+      "route": "#industry/thermometer/801125.SI",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#industry/thermometer/801125.SI",
+      "title": "观澜 · 产业档案",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    },
+    {
+      "page": "me",
+      "device": "desktop1280",
+      "route": "#me",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "active_page": {
+        "client_height": 832,
+        "client_width": 992,
+        "overflow_y": "auto",
+        "scroll_height": 832,
+        "scroll_width": 992
+      },
+      "document": {
+        "client_height": 900,
+        "client_width": 1280,
+        "scroll_height": 900,
+        "scroll_width": 1280
+      },
+      "inner": {
+        "height": 900,
+        "width": 1280
+      },
+      "loading_count": 0,
+      "resolved_hash": "#me",
+      "title": "观澜 · 我的",
+      "visible_error_count": 0,
+      "console_errors": [],
+      "status": "pass"
+    }
+  ]
+}

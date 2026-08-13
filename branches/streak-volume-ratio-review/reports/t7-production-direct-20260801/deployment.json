@@ -1,0 +1,38 @@
+{
+  "date": "2026-08-01",
+  "result": "deployed",
+  "authorization": "user explicitly waived the raw database file hash gate",
+  "source_commit": "2118f42d53cf390885002727d646e81339b02eaa",
+  "runtime_fingerprint": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+  "command": "./restart.sh",
+  "production_pid_before": 45869,
+  "production_pid_after": 52221,
+  "health": {
+    "ok": true,
+    "match": true,
+    "rule_version": 10,
+    "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+    "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424"
+  },
+  "routes": {
+    "/": 200,
+    "/pool": 200,
+    "/trade": 200,
+    "/strategy": 200,
+    "/settings": 200
+  },
+  "database_hash_observation": {
+    "gate_waived": true,
+    "screener_db_before": "ece7a893cbd61fb788da7b6850630524caef877b62d1e2fd4cf1ddf15076b8b9",
+    "screener_db_after": "d3c201779835a7b65fdff70dbf25c0ab84e824786e7367f39d34f56410ecfac1",
+    "triggered_rollback": false
+  },
+  "visual_result": {
+    "pages": 5,
+    "viewports": 2,
+    "screenshots": 10,
+    "horizontal_overflow_count": 0,
+    "engineering_links_desktop": 7,
+    "engineering_links_mobile": 7
+  }
+}

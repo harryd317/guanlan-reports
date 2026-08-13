@@ -1,0 +1,39 @@
+{
+  "captured_at": "2026-08-12T01:22:53+08:00",
+  "production_s8_database_sha256_after_revision": "03a6d969c9d7a8a60f4511494007d387d46c3e5ba88cffb0ce47d4bc9cc06a53",
+  "production_thermometer_database_sha256": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+  "general_equipment": {
+    "industry_code": "801072.SI",
+    "status": "awaiting_review",
+    "draft_length": 6484,
+    "generation_channel": "kimi",
+    "generation_model": "kimi-k2.6",
+    "prompt_version": "industry-archive-v2.2-web",
+    "mirror_commit_hash": "a63c4740826b1f1fdd902a40827d8affd79f9b5f",
+    "draft_mirrored_at": "2026-08-11T17:22:37.419927+00:00",
+    "reviewed_at": null,
+    "has_review": false,
+    "audit_count": 2,
+    "human_note": "Kimi 四尺审校结论：改后再审；仅执行四项返修，温度计①节与骨架不动。",
+    "archive_id": null,
+    "published": false,
+    "revised_draft_file_sha256": "cecea28c3dc4fc5fc369f33f5a4770ea2f396e89369a86a0623509c729a12883",
+    "section_one_sha256": "99bc0bf24734eb4ae163c366375602f33f26beed2dd05b5733f424d2b2ec99ca",
+    "skeleton_json_sha256": "31a3b78a562084f11feb596b96f359433bb8c1a1964e5b4ea1d891a825bbed36",
+    "validation_ok": true
+  },
+  "feed": {
+    "industry_code": "801014.SI",
+    "status": "awaiting_review",
+    "draft_length": 6413,
+    "mirror_commit_hash": null,
+    "reviewed_at": null,
+    "has_review": false,
+    "audit_count": 0,
+    "archive_id": null,
+    "updated_at": "2026-08-11T10:27:57.875863+00:00",
+    "unchanged_by_this_task": true
+  },
+  "write_scope": "archive_queue row 801072.SI only; no publish action",
+  "production_generation_triggered": false
+}

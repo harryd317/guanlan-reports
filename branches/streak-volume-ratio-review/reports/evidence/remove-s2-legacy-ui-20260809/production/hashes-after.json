@@ -1,0 +1,13 @@
+{
+  "phase": "after-restart-and-acceptance",
+  "sha256": {
+    "production_market": "fa4ebb4ba936f2d14f546f9e5b65328054a0322877bc05799a471eca455bfd27",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "production_s3": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "production_s8": "f8c6d42d3923a7d344c29a6da7a890f3337ceaf1a9d90941cc3fcd9b00d1909a",
+    "production_screener": "8e21c748cee8ef9bee3e7ff0fecbd1d8afba114cbb15f3cf19b0efb433d4c4ff",
+    "production_thermometer": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "static_home": "fbe42a5008b6ed986d621b5fb372040aec7f4a72b6e3c6e13dcfa6f3e8d7c344"
+  },
+  "source_commit": "425d361"
+}

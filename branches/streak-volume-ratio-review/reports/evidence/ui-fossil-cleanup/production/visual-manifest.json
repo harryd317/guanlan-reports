@@ -1,0 +1,23 @@
+{
+  "schema": "guanlan-visual-evidence/v1",
+  "environment": "production",
+  "base_url": "http://127.0.0.1:8787",
+  "captured_at": "2026-08-04T21:25:50+08:00",
+  "zero_scroll": {
+    "file": "global-zero-scroll.json",
+    "sha256": "15513d50a8aa286ac1f77f0c90e9449c458dcf6b60c1954003fa83a7b9b6cdef",
+    "entry_count": 20,
+    "failure_count": 0
+  },
+  "screenshots": [
+    {"file": "today-desktop-1440x900.jpg", "width": 1440, "height": 900, "sha256": "0ba9d6f67c7635318ccd6d3a35032b50f43cbc31e047fb8e4076477fbbe83a6b"},
+    {"file": "today-mobile-390x844.jpg", "width": 390, "height": 844, "sha256": "81e34156a058e2aded326d750e0dd1977f6abc754d65dea4a833afd93d1d1cb1"},
+    {"file": "pool-list-desktop-1440x900.jpg", "width": 1440, "height": 900, "sha256": "18960465c2fac7addfc0a5d194d9726e94fab1b39fa7c1e4db1024c686ee2d83"},
+    {"file": "pool-list-mobile-390x844.jpg", "width": 390, "height": 844, "sha256": "c0d47e04692fa4b1e067c2e3dc3f55c9a4b99158556700e553814dc4a9a5b674"},
+    {"file": "pool-legacy-expanded-desktop-1440x900.jpg", "width": 1440, "height": 900, "sha256": "b6a5b416601c13ee1ce2e0fe0d37cb79d374bd0392720397b326d7b2340c6256"},
+    {"file": "pool-logic-desktop-1440x900.jpg", "width": 1440, "height": 900, "sha256": "1f4b0164121a60411958941c6c39c1684228fdf8bde6343decce3b26fe405f67"},
+    {"file": "pool-logic-mobile-390x844.jpg", "width": 390, "height": 844, "sha256": "c9217f0b10c6da6ad7d0707f16ceceed3e396973480db6b75ea65921be638855"},
+    {"file": "streak-list-desktop-1440x900.jpg", "width": 1440, "height": 900, "sha256": "4ec212889367afdef21a000deeac4a4d6b8302a15c01d7572c937505e01417dd"},
+    {"file": "streak-list-mobile-390x844.jpg", "width": 390, "height": 844, "sha256": "90b6e14d5bab022e6e8343a1d87001e50a703d142ea4a88c37164c7e9da94a63"}
+  ]
+}

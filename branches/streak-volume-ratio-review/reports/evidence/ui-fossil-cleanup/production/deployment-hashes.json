@@ -1,0 +1,35 @@
+{
+  "schema": "guanlan-ui-fossil-deployment-evidence/v1",
+  "production_commit": "d81b408e7c061435caaf52b2a672b8418fe72b9a",
+  "health": {
+    "ok": true,
+    "fingerprint_boot": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "fingerprint_disk": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "match": true,
+    "rule_version": 10
+  },
+  "pre_deploy_sha256": {
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "screener_db": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market_db": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "industry_thermometer_sidecar_db": "182d437488903493e732d738c9e2b9f5ec2e705545800b7c67b80b62f85bfca0",
+    "s8_research_db": "f86f119aa6c644e3aac39a78b457a30031d6089a61d510af774fcb1faf5c3d31"
+  },
+  "immediate_post_restart_sha256": {
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "screener_db": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market_db": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "industry_thermometer_sidecar_db": "182d437488903493e732d738c9e2b9f5ec2e705545800b7c67b80b62f85bfca0",
+    "s8_research_db": "f86f119aa6c644e3aac39a78b457a30031d6089a61d510af774fcb1faf5c3d31"
+  },
+  "post_scheduled_refresh": {
+    "captured_at": "2026-08-04T21:26:12+08:00",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "screener_db": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "market_db": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "industry_thermometer_sidecar_db": "7d7c470f0b7365e6a4e535ee38643822b23e5412dd84593cdbf6812ab4470084",
+    "s8_research_db": "908f185faaedb42e937064f4d70c8326b05e9f554cb180e46c8314a3512ce8a1",
+    "cause_evidence": "logs/web.log: 2026-08-04 21:23:17,294 INFO s8_research.hook S8 complete date=2026-08-04 cards=0 exclusions=5529 entries=0 exits=0",
+    "assessment": "The pre-deploy and immediate post-restart hashes are identical. The later sidecar-only change followed the existing scheduled S8 production refresh; screener.db, market.db, and the production plist remained unchanged."
+  }
+}

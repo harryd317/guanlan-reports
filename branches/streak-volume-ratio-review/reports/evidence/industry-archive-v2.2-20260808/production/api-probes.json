@@ -1,0 +1,62 @@
+{
+  "health": {
+    "ok": true,
+    "fingerprint_boot": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "fingerprint_disk": "a0e60fc76e51b5f3ba1410be419ec7e2d43ac094",
+    "match": true,
+    "rule_version": 10
+  },
+  "prompt_version": "industry-archive-v2.2-web",
+  "thermometer": {
+    "ok": true,
+    "data_date": "2026-08-04",
+    "generated_at": "2026-08-04T15:44:15.062796+00:00",
+    "latest_trade_date": "2026-08-07",
+    "is_stale": true,
+    "animal_health": {
+      "cluster_hits": 0,
+      "complete": true,
+      "heat": "warm",
+      "industry_code": "801018.SI",
+      "industry_name": "动物保健Ⅱ",
+      "leader": {
+        "name": "300119.SZ",
+        "return_120d": -0.050561139141765854,
+        "rs_percentile": 73.85321100917432,
+        "ts_code": "300119.SZ"
+      },
+      "light_count": 2,
+      "lights": {
+        "cluster": false,
+        "leader_strength": false,
+        "turnover_share": true,
+        "volume": true
+      },
+      "turnover_shares": [
+        0.00023416312927812929,
+        0.00028068568139572974,
+        0.0003300577675908205,
+        0.0003347462471556522,
+        0.00037425391152584375
+      ],
+      "volume_rank": 38,
+      "volume_ratio": 1.0326508831015957,
+      "volume_top5": false
+    }
+  },
+  "archive_queue": {
+    "ok": true,
+    "data_date": "2026-08-04",
+    "animal_health": [
+      {
+        "industry_code": "801018.SI",
+        "industry_name": "动物保健Ⅱ",
+        "status": "skeleton_ready",
+        "prompt_version": null,
+        "generation_channel": null,
+        "generation_model": null,
+        "display_status": "研究中"
+      }
+    ]
+  }
+}

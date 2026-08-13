@@ -1,0 +1,58 @@
+{
+  "schema": "guanlan-production-kimi-failure-diagnosis/v1",
+  "investigated_at": "2026-08-08",
+  "industry": {
+    "code": "801018.SI",
+    "name": "动物保健Ⅱ"
+  },
+  "production_observation": {
+    "service_log_safe_error_found": false,
+    "archive_queue": {
+      "status": "skeleton_ready",
+      "generation_error": null,
+      "generation_channel": null,
+      "generation_model": null,
+      "generation_started_at": null,
+      "updated_at": "2026-08-04T09:58:13.862346+00:00"
+    },
+    "inference": "the request failed before the generation claim; the old endpoint did not log or persist pre-claim diagnostics"
+  },
+  "safe_reproduction": {
+    "context": "exact production LaunchAgent clone, same working directory and start script",
+    "failure_stage": "skeleton_preflight",
+    "failure_code": "market_date_mismatch",
+    "thermometer_snapshot_date": "2026-08-04",
+    "market_latest_date": "2026-08-07",
+    "kimi_http_request_started": false,
+    "api_status_category": null,
+    "specification_validation_started": false
+  },
+  "launchagent_config_chain": {
+    "home_resolved": true,
+    "config_path_source": "default",
+    "config_path": "$HOME/.config/guanlan/kimi.env",
+    "config_exists": true,
+    "config_readable": true,
+    "config_mode": "0600",
+    "config_owner_matches_process": true,
+    "config_parse_ok": true,
+    "api_key_read": true,
+    "api_key_character_length": 51,
+    "api_key_value_recorded": false,
+    "load_timing": "per_request"
+  },
+  "environment_comparison": {
+    "production_has_home": true,
+    "production_has_kimi_config_path": false,
+    "production_has_kimi_api_key_environment_variable": false,
+    "production_plist_has_home": false,
+    "production_plist_has_kimi_config_path": false,
+    "production_plist_has_kimi_api_key": false,
+    "equivalent_uses_same_default_config_path": true,
+    "startup_secret_content_cache": false,
+    "difference_explaining_failure": "none"
+  },
+  "root_cause": "archive skeleton reconstruction reused the strict daily-engine latest-market alignment check even though it intentionally reconstructs from the last complete thermometer snapshot",
+  "production_configuration_changed": false,
+  "production_generation_triggered_by_validation_script": false
+}

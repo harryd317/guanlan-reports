@@ -1,0 +1,49 @@
+{
+  "run_at": "2026-08-12T01:47:49+08:00",
+  "suites": [
+    {
+      "command": ".venv/bin/python test_rules.py",
+      "result": "passed",
+      "count": "8/8"
+    },
+    {
+      "command": ".venv/bin/python test_rules_mid.py",
+      "result": "passed",
+      "count": "20/20"
+    },
+    {
+      "command": ".venv/bin/python test_regime.py",
+      "result": "passed",
+      "count": "6/6",
+      "note": "The suite reported that its three data-machine-only historical cases were skipped because market.db is absent in the isolated worktree."
+    },
+    {
+      "command": ".venv/bin/python test_industry_archive_center.py",
+      "result": "passed",
+      "count": "35/35"
+    },
+    {
+      "command": ".venv/bin/python test_report_mirror_sync.py",
+      "result": "passed",
+      "count": "30/30"
+    },
+    {
+      "command": ".venv/bin/python test_web.py",
+      "result": "passed",
+      "count": "838/838",
+      "execution_root": "~/云慧养/zmu_gitee/screener"
+    }
+  ],
+  "archive_validation": {
+    "industry_code": "801014.SI",
+    "ok": true,
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5
+  },
+  "production_health": {
+    "ok": true,
+    "fingerprint_match": true,
+    "rule_version": 10
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "coverage": {
+    "historical_heat_validation": {
+      "first_100_mismatches": [],
+      "joined_rows": 33232,
+      "mismatch_rows": 0,
+      "missing_reconstructed_rows": 0,
+      "old_dates": 268,
+      "old_rows": 33232,
+      "status": "pass"
+    },
+    "reconstructed_signal_end": "2025-12-31",
+    "requested_signal_end": "2026-08-12",
+    "snapshot_audit": {
+      "explanation": "The saved acceptance JSON records only a date, count, and formula version; it cannot support daily-by-stock overlap comparison.",
+      "overlap_dates": 0,
+      "overlap_rows": 0,
+      "qualified_row_level_snapshots": 0,
+      "saved_evidence": [
+        {
+          "count": 124,
+          "data_date": "2026-07-31",
+          "file": "s9-streak-watchlist-equivalent-20260802.json",
+          "formula_version": "s8-streak-watchlist-v1.0",
+          "has_row_level_records": false
+        },
+        {
+          "count": 124,
+          "data_date": "2026-07-31",
+          "file": "s9-streak-watchlist-production-20260802.json",
+          "formula_version": "s8-streak-watchlist-v1.0",
+          "has_row_level_records": false
+        }
+      ],
+      "status": "unavailable_missing_row_level_fields"
+    },
+    "uncovered_interval": [
+      "2026-01-01",
+      "2026-08-12"
+    ],
+    "uncovered_reason": "Frozen local daily_basic/market-cap eligibility ends on 2025-12-31; the no-network predeclaration forbids filling 2026 after freeze."
+  },
+  "decision": {
+    "conclusion": "没有稳定单调关系；‘量比越低胜率越高’和‘量比越高越好’都不支持。",
+    "significant_buckets": [
+      {
+        "bucket_n": 19909,
+        "horizon": 1,
+        "p_adjusted": 0.003195521329775312,
+        "p_raw": 0.00022825152355537942,
+        "rate_difference": 0.014564259253942335,
+        "rest_n": 77286,
+        "scope": "all",
+        "verdict": "higher",
+        "volume_bucket": "ge_1_5",
+        "z_value": 3.6855028547330564
+      },
+      {
+        "bucket_n": 32331,
+        "horizon": 20,
+        "p_adjusted": 1.0724899328512734e-06,
+        "p_raw": 6.703062080320459e-08,
+        "rate_difference": 0.01835741159711496,
+        "rest_n": 64864,
+        "scope": "all",
+        "verdict": "higher",
+        "volume_bucket": "1_0_to_1_5",
+        "z_value": 5.398953827705592
+      },
+      {
+        "bucket_n": 25536,
+        "horizon": 20,
+        "p_adjusted": 0.00013891153236362912,
+        "p_raw": 9.26076882424194e-06,
+        "rate_difference": -0.01613885546018018,
+        "rest_n": 71659,
+        "scope": "all",
+        "verdict": "lower",
+        "volume_bucket": "lt_0_8",
+        "z_value": -4.433750741830405
+      },
+      {
+        "bucket_n": 11444,
+        "horizon": 10,
+        "p_adjusted": 0.008635149339481717,
+        "p_raw": 0.0006167963813915512,
+        "rate_difference": 0.018663135787249818,
+        "rest_n": 31708,
+        "scope": "within_one_pct",
+        "verdict": "higher",
+        "volume_bucket": "1_0_to_1_5",
+        "z_value": 3.424118856003475
+      },
+      {
+        "bucket_n": 11444,
+        "horizon": 20,
+        "p_adjusted": 1.1399931500777087e-06,
+        "p_raw": 7.12495718798568e-08,
+        "rate_difference": 0.029365312989946213,
+        "rest_n": 31708,
+        "scope": "within_one_pct",
+        "verdict": "higher",
+        "volume_bucket": "1_0_to_1_5",
+        "z_value": 5.387991119619346
+      },
+      {
+        "bucket_n": 18083,
+        "horizon": 20,
+        "p_adjusted": 0.0007618373231181028,
+        "p_raw": 5.0789154874540185e-05,
+        "rate_difference": -0.019758005647045385,
+        "rest_n": 25069,
+        "scope": "within_one_pct",
+        "verdict": "lower",
+        "volume_bucket": "lt_0_8",
+        "z_value": -4.0519655036212985
+      }
+    ],
+    "stable_monotonicity": {
+      "all": "none",
+      "within_one_pct": "none"
+    },
+    "supports_higher_volume_better": false,
+    "supports_lower_volume_higher_win_rate": false,
+    "trend_results": [
+      {
+        "direction": "non_monotonic",
+        "horizon": 1,
+        "p_adjusted": 0.0017347892206140982,
+        "p_raw": 0.0005782630735380327,
+        "raw_monotonic": 0,
+        "scope": "all",
+        "significant": 0,
+        "z_value": 3.441610108251004
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 5,
+        "p_adjusted": 0.0032741472957167677,
+        "p_raw": 0.0016370736478583839,
+        "raw_monotonic": 0,
+        "scope": "all",
+        "significant": 0,
+        "z_value": 3.1492191753264915
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 10,
+        "p_adjusted": 0.02519723840789962,
+        "p_raw": 0.02519723840789962,
+        "raw_monotonic": 0,
+        "scope": "all",
+        "significant": 0,
+        "z_value": 2.238365369798884
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 20,
+        "p_adjusted": 9.77831570107196e-05,
+        "p_raw": 2.44457892526799e-05,
+        "raw_monotonic": 0,
+        "scope": "all",
+        "significant": 0,
+        "z_value": 4.219856480662042
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 1,
+        "p_adjusted": 0.3839447103900672,
+        "p_raw": 0.3839447103900672,
+        "raw_monotonic": 0,
+        "scope": "within_one_pct",
+        "significant": 0,
+        "z_value": 0.8706510555157052
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 5,
+        "p_adjusted": 0.2475056000101051,
+        "p_raw": 0.12375280000505255,
+        "raw_monotonic": 0,
+        "scope": "within_one_pct",
+        "significant": 0,
+        "z_value": 1.5392109714863957
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 10,
+        "p_adjusted": 0.011996107568182266,
+        "p_raw": 0.003998702522727422,
+        "raw_monotonic": 0,
+        "scope": "within_one_pct",
+        "significant": 0,
+        "z_value": 2.878264075752695
+      },
+      {
+        "direction": "non_monotonic",
+        "horizon": 20,
+        "p_adjusted": 0.00039502500225403763,
+        "p_raw": 9.875625056350941e-05,
+        "raw_monotonic": 0,
+        "scope": "within_one_pct",
+        "significant": 0,
+        "z_value": 3.893627520017338
+      }
+    ]
+  },
+  "run": {
+    "artifact_hashes_json": null,
+    "command_json": "[\"streak_volume_review_cli.py\", \"run\", \"--research-db\", \"streak_volume_review.local.db\", \"--market-db\", \"../../market.db\", \"--sidecar-db\", \"../../industry_thermometer_sidecar.db\", \"--s7-db\", \"../s7-streak-signal-measurement/S7_research.local.db\", \"--t1-db\", \"../s3-stage1-data-clusters/S3_research.db\", \"--s9-validation-db\", \"../s9-s8-streak-measurement/S9_measurement.local.db\", \"--snapshot\", \"reports/s9-streak-watchlist-equivalent-20260802.json\", \"--snapshot\", \"reports/s9-streak-watchlist-production-20260802.json\"]",
+    "completed_at": "2026-08-13T06:28:43.433752+00:00",
+    "config_fingerprint": "ef6b53bfa0303800294aa993203969f9a58efbd733755a260830722009cb41c3",
+    "error": null,
+    "input_hashes_after_json": "{\"market_db\": \"8c50885900b37ac720994372fdc181df172181c07228001dee3a670c20f2541d\", \"s7_db\": \"8b4f495ddc3be8424424f94aa2e7de02006a3adf6a8131706626fc22425e3ddb\", \"s9_validation_db\": \"dd906103fb5e6171671df33575a09d261c627faad6a856714c1e9c735add48d1\", \"saved_snapshot_1\": \"b3aea4adc2ff22bee3938373ef86df80cee93b8de9c451e5677111922a8ed30c\", \"saved_snapshot_2\": \"6082104d91834634806d0f6969f79c2ef6a047a81f0e5b4cc4fe32a1a87b0314\", \"sidecar_db\": \"70bc126f9e2423f8301f86898435159ffadd33eed940b56f783b422321e2f10d\", \"t1_db\": \"111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5\"}",
+    "input_hashes_before_json": "{\"market_db\": \"8c50885900b37ac720994372fdc181df172181c07228001dee3a670c20f2541d\", \"s7_db\": \"8b4f495ddc3be8424424f94aa2e7de02006a3adf6a8131706626fc22425e3ddb\", \"s9_validation_db\": \"dd906103fb5e6171671df33575a09d261c627faad6a856714c1e9c735add48d1\", \"saved_snapshot_1\": \"b3aea4adc2ff22bee3938373ef86df80cee93b8de9c451e5677111922a8ed30c\", \"saved_snapshot_2\": \"6082104d91834634806d0f6969f79c2ef6a047a81f0e5b4cc4fe32a1a87b0314\", \"sidecar_db\": \"70bc126f9e2423f8301f86898435159ffadd33eed940b56f783b422321e2f10d\", \"t1_db\": \"111f2017d476e87dfdc68d3541d7678630d466d410a91f4ab37d8bcb9ce049d5\"}",
+    "predeclaration_commit": "c933587",
+    "run_id": "streak-volume-ratio-review-20260813",
+    "started_at": "2026-08-13T06:25:23.670743+00:00",
+    "status": "complete",
+    "table_counts_json": "{\"historical_heat\": {\"dates\": 2674, \"rows\": 331576}, \"integrity_check\": \"ok\", \"measurements\": {\"rows\": 388780, \"samples\": 97195, \"valid\": 388780}, \"statistics\": {\"bucket_tests\": 32, \"group_rows\": 80, \"joined_valid_rows\": 388780, \"trend_rows\": 8}, \"stock_features\": {\"candidate_keys\": 115106, \"materialized\": 115106}, \"watchlist\": {\"dates\": 2276, \"rows\": 97195, \"volume_missing\": 0}}"
+  },
+  "scripts_sha256": {
+    "streak_volume_review/__init__.py": "f62d6723098687860516d70066635fb00c9dfac344c75f09e7daa9d58be5ca28",
+    "streak_volume_review/config.py": "0f9a251ed171ffd1ce4fb172eb16c262f3927be5e56da1f9203a498ffb8bc422",
+    "streak_volume_review/db.py": "16b02049f251bcba3599257691e69df326751656a62836cc667717dd63521d3d",
+    "streak_volume_review/measurement.py": "9792a7a333d33750f75cca0072aab29ac3f2ea54f77f549a55c34b30215881c4",
+    "streak_volume_review/pipeline.py": "1f71ee5ff6b18aba2a0d2abeb57a1529368c632bd0b790aa53e1c722ee20ebd7",
+    "streak_volume_review/reconstruction.py": "f8f892923b02ed715ac4440a2b349cd80703b5d653ace7196163034a0865ed09",
+    "streak_volume_review/report.py": "fb5a93bc48e05d6a40eb732b6a7828f949af84cded826cc44155f1b99558b610",
+    "streak_volume_review/statistics.py": "99fbb8cf4ec3fea40c7029f424f6e977dc2a01b84763ab48910c16668b9febec",
+    "streak_volume_review_cli.py": "5ff0bede9ee476953f16b31edadd3c7ddf0c0dc745281c7c031d961a3846bf95"
+  },
+  "table_counts": {
+    "bucket_tests": 32,
+    "detail_csv_rows": 97195,
+    "groups": 80,
+    "groups_csv_rows": 80,
+    "measurements": 388780,
+    "trend_results": 8,
+    "watchlist": 97195
+  }
+}

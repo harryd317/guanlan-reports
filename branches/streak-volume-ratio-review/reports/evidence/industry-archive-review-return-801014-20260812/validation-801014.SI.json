@@ -1,0 +1,46 @@
+{
+  "captured_at": "2026-08-12T01:44:00+08:00",
+  "validator": "s8_research.archives.validate_archive_v2",
+  "prompt_version": "industry-archive-v2.2-web",
+  "result": {
+    "ok": true,
+    "prompt_version": "industry-archive-v2.2-web",
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 5888,
+    "reference_length": 3063
+  },
+  "diff_contract": {
+    "changed_content_lines": 3,
+    "allowed_changes": [
+      "section 1 volume_ratio precision",
+      "section 2 Haid Group subject for Vietnam/Indonesia shares",
+      "section 3 expired H2 price prediction removal"
+    ],
+    "section_one_except_ratio_before_sha256": "023f7b9a6f75d1db724fe8e49093cecdfbf4d8c399bbc5cb33439a445edad7af",
+    "section_one_except_ratio_after_sha256": "023f7b9a6f75d1db724fe8e49093cecdfbf4d8c399bbc5cb33439a445edad7af",
+    "section_one_except_ratio_identical": true,
+    "full_precision_ratio_present": true,
+    "expired_prediction_absent_from_section_three": true,
+    "haida_subject_present": true
+  },
+  "hashes": {
+    "original_file_sha256": "9759ce2c32cc382c686d8938e68aa62f911a3faec4465b3d70d45d9c3f3d4506",
+    "revised_file_sha256": "0f51e7bdbba36a702b490e81d5297a27b38c793ec21fa87371abc50bdf02b2ef",
+    "skeleton_json_before_sha256": "b59c07708b3961d8b8c428625329947dd1fc24674f2e119d22ad3aafd09f1bc6",
+    "skeleton_json_after_sha256": "b59c07708b3961d8b8c428625329947dd1fc24674f2e119d22ad3aafd09f1bc6",
+    "skeleton_json_identical": true,
+    "thermometer_sidecar_before_sha256": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+    "thermometer_sidecar_after_sha256": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+    "thermometer_sidecar_identical": true
+  },
+  "production_queue_after_revision_before_mirror": {
+    "status": "draft_ready",
+    "draft_matches_file_after_trailing_whitespace_normalization": true,
+    "mirror_commit_hash": null,
+    "has_review": false,
+    "audit_count": 2,
+    "archive_id": null
+  }
+}

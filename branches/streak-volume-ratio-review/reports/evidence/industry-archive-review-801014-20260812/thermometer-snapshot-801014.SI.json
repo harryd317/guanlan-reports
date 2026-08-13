@@ -1,0 +1,48 @@
+{
+  "trade_date": "2026-08-11",
+  "formula_version": "industry-thermometer-v1",
+  "generated_at": "2026-08-11T16:22:13.953404+00:00",
+  "source_sidecar_sha256": "7b1a4801e07f8c5297b77c37cea7c69995a0558acdec3247b067a90ef244e9c0",
+  "coverage": {
+    "heat_counts": {
+      "cold": 17,
+      "hot": 5,
+      "scorching": 6,
+      "warm": 96
+    },
+    "industries_complete": 124,
+    "industries_total": 124,
+    "rs_eligible_stocks": 5451,
+    "volume_ranked_industries": 124
+  },
+  "industry": {
+    "cluster_hits": 0,
+    "complete": true,
+    "heat": "warm",
+    "industry_code": "801014.SI",
+    "industry_name": "饲料",
+    "leader": {
+      "name": "688156.SH",
+      "return_120d": 0.07720020586721543,
+      "rs_percentile": 82.9389102916896,
+      "ts_code": "688156.SH"
+    },
+    "light_count": 1,
+    "lights": {
+      "cluster": false,
+      "leader_strength": false,
+      "turnover_share": false,
+      "volume": true
+    },
+    "turnover_shares": [
+      0.001091427592851396,
+      0.0009945169918679489,
+      0.0009897219665247774,
+      0.0014286264364895792,
+      0.0012023555335378135
+    ],
+    "volume_rank": 35,
+    "volume_ratio": 0.9852181371622244,
+    "volume_top5": false
+  }
+}

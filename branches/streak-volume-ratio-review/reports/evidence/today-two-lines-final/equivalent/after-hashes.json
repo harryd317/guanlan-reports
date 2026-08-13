@@ -1,0 +1,14 @@
+{
+  "phase": "after",
+  "sha256": {
+    "copy_market": "1ae600667f0b7f05e1e4707cc9eeb1d46d765deddfa7170b2bce62151e40210f",
+    "copy_s3": "9efdb5516055bc37a31719d24b8ad2305e2190d3cf07072bf44f833d7d990f07",
+    "copy_s8": "8c8bbed659bd7c68a865252e2d398f63c0c16e18d87267a3ed7447762fe5ddc0",
+    "copy_screener": "b138fce95e46feb91dcbcd090813fd0e140586b9a945bf383ba2b120d59a47de",
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_plist": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+    "production_s3": "5a1e2cf540bcae70645925a819b30b88dd586fd2ed20f98a9ea2672d1e2a1e23",
+    "production_s8": "9b7d9a108da28e76b80a8f8993104bcd742b44bb1dd2ee038330ea43dbf2d76f",
+    "production_screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e"
+  }
+}

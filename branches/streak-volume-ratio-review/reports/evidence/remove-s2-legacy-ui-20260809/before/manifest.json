@@ -1,0 +1,26 @@
+{
+  "environment": "baseline-static-artifact",
+  "port": 18808,
+  "purpose": "prove the removed DOM and copy existed before the change; not production-equivalent acceptance",
+  "api_data_connected": false,
+  "results": [
+    {
+      "device": "desktop",
+      "viewport": {"width": 1440, "height": 900},
+      "legacy_dom": true,
+      "legacy_text": "S2遗产（到期自动退出）0 只当前无 S2 遗产",
+      "document": {"scroll_height": 900, "client_height": 900, "scroll_width": 1440, "client_width": 1440},
+      "screenshot": "pool-desktop-1440x900.jpg",
+      "screenshot_sha256": "a39a6ffb882aebe89cad3cf5809e65ead87ab12db31c1d46b4e2006751656137"
+    },
+    {
+      "device": "mobile",
+      "viewport": {"width": 390, "height": 844},
+      "legacy_dom": true,
+      "legacy_text": "S2遗产（到期自动退出）0 只当前无 S2 遗产",
+      "document": {"scroll_height": 844, "client_height": 844, "scroll_width": 390, "client_width": 390},
+      "screenshot": "pool-mobile-390x844.jpg",
+      "screenshot_sha256": "ae69928f6b1e112101c8620760fe7e76adf3232a97ee640a6de960c9f49212c7"
+    }
+  ]
+}

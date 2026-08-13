@@ -1,0 +1,365 @@
+{
+  "environment": "production-equivalent",
+  "entries": [
+    {
+      "page": "today",
+      "device": "mobile",
+      "route": "#today",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "dom": {
+        "body_sample": "今天\n8月8日 周六\n01:37:41\n非交易日\n市况\n开仓门 关 · 第—天 · 沪深300距60日线 −2.3% · 净新高 +8\n中性市场状态 · 不属于任何线 · 7月31日收盘\n投资线 · S8 关注\n产业核心股研究信号 · 供学习 · 非交易建议\n通用设备\n热\n排队 15/20 · 待建档 ›\n软件开发\n温\n排队 16/20 · 待建档 ›\n保险Ⅱ\n温\n排队 17/20 · 待建档 ›\n综合Ⅱ\n温\n排队 18/20 · 待建档 ›\n影视院线\n温\n排队 19/20 · 待建档 ›\n出版\n温\n排队 20/20 · 待建档 ›\n查看个股与复核 ›\n投机线 · 连阳观察\n买法已证伪 · 仅观察学习 · 非交易建议\n温度计与行情日期未对齐，名单暂不展示\n怎么读：N连阳=连续N天收涨 · 末根涨幅=最后一根阳线涨多少（温和为好） · 量比=当天成交÷近5日均量，>1放量 <1缩量 · 仅观",
+        "client_height": 852,
+        "client_width": 393,
+        "inner_height": 852,
+        "inner_width": 393,
+        "key_rect": {
+          "height": 792,
+          "width": 369,
+          "x": 12,
+          "y": 51
+        },
+        "resolved_hash": "#today",
+        "scroll_height": 852,
+        "scroll_width": 393,
+        "title": "观澜 · 今天"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 393,
+        "height": 852
+      },
+      "screenshot_sha256": "c436d839133bf04191a771308bff1e96e3e2bef91ed5f8d6a9013b08b5fd317d",
+      "console_errors": [],
+      "status": "pass",
+      "file": "today-mobile.jpg"
+    },
+    {
+      "page": "pool",
+      "device": "mobile",
+      "route": "#pool",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "dom": {
+        "body_sample": "股票池\n名单\n选股逻辑\n产业档案\nS8观察池\n0 只\n当前暂无 S8 观察标的\n人工观察\n0 只\n当前暂无人工观察标的\nS2遗产（到期自动退出）\n0 只",
+        "client_height": 852,
+        "client_width": 393,
+        "inner_height": 852,
+        "inner_width": 393,
+        "key_rect": {
+          "height": 792,
+          "width": 369,
+          "x": 12,
+          "y": 51
+        },
+        "resolved_hash": "#pool",
+        "scroll_height": 852,
+        "scroll_width": 393,
+        "title": "观澜 · 股票池"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 393,
+        "height": 852
+      },
+      "screenshot_sha256": "31ec6344fe09e390ea2f1932e09990db8eec8f82913c4ebdd3daaea18ef26bc1",
+      "console_errors": [],
+      "status": "pass",
+      "file": "pool-mobile.jpg"
+    },
+    {
+      "page": "stock",
+      "device": "mobile",
+      "route": "#stock/600219",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "dom": {
+        "body_sample": "← 返回\n正在读取\n600219\n未标注\n—\n—\n止损 —\n买点 —\n现价\n关键数字\n距买点\n—\n若买入 · 计划风险\n—\n相对强度\n—\n板块联动\n—\n状态\n候选\n研究中\n等买点\n持有\n移出\n暂无补充依据",
+        "client_height": 852,
+        "client_width": 393,
+        "inner_height": 852,
+        "inner_width": 393,
+        "key_rect": {
+          "height": 792,
+          "width": 369,
+          "x": 12,
+          "y": 51
+        },
+        "resolved_hash": "#stock/600219",
+        "scroll_height": 852,
+        "scroll_width": 393,
+        "title": "观澜 · 个股详情"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 393,
+        "height": 852
+      },
+      "screenshot_sha256": "35a393f1f0c4d7447085a3c9eb98ee98dfcdc6b0afab41ccb20b64eab3eff13c",
+      "console_errors": [],
+      "status": "pass",
+      "file": "stock-mobile.jpg"
+    },
+    {
+      "page": "me",
+      "device": "mobile",
+      "route": "#me",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "dom": {
+        "body_sample": "我的\n账户权益 · 直接录入\n账户权益 点击金额直接修改\n¥310,000\n保存后会写入账户设置；不改变其他路径\n投机仓\n0 仓 · ¥0\n仓别按真实账本统计\n投资仓\n0 仓 · ¥0\n已建 0/5 批 · 下次 2026-08-12 ¥14,000\n实盘验证期\n0 / 20 笔平仓\n攢满 20 笔前，继续按已确认纪律执行",
+        "client_height": 852,
+        "client_width": 393,
+        "inner_height": 852,
+        "inner_width": 393,
+        "key_rect": {
+          "height": 792,
+          "width": 369,
+          "x": 12,
+          "y": 51
+        },
+        "resolved_hash": "#me",
+        "scroll_height": 852,
+        "scroll_width": 393,
+        "title": "观澜 · 我的"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 393,
+        "height": 852
+      },
+      "screenshot_sha256": "cf571074b0e1735fccb57edd15e45faddede34b055a9772df6bbc34d156545cb",
+      "console_errors": [],
+      "status": "pass",
+      "file": "me-mobile.jpg"
+    },
+    {
+      "page": "industry-awaiting-review",
+      "device": "mobile",
+      "route": "#industry/queue/core%3A03",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "dom": {
+        "body_sample": "← 返回\n待更新\n研究中\n排队 2/20\n光模块\n\n行业升温已确认，档案建成前不推个股，建成后本页即为档案正文\n\n生成本篇深度研究初稿\nAI接口 + 联网搜索 + 真实数据骨架 · 初稿经审校与终审后才发布\n行业升温已确认，档案建成前不推个股，建成后本页即为档案正文\n①温度计读数与数据日期\n②产业是什么：链条结构+利润地图\n③周期与位置：关键指标现值与阈值\n④资金逻辑：驱动与证伪信号\n⑤核心股票≤5：生意档案/证伪条件/随身三问\n⑥风险与诚实边界\n⑦证据与来源：全部数据带日期\n行业速览\n名称\t代码\t总市值\t20日涨幅\n当前骨架尚无成员数据\n\n原始数据按市值排序，未经档案审核，非核心股推荐",
+        "client_height": 852,
+        "client_width": 393,
+        "inner_height": 852,
+        "inner_width": 393,
+        "key_rect": {
+          "height": 792,
+          "width": 369,
+          "x": 12,
+          "y": 51
+        },
+        "resolved_hash": "#industry/queue/core%3A03",
+        "scroll_height": 852,
+        "scroll_width": 393,
+        "title": "观澜 · 产业档案"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 393,
+        "height": 852
+      },
+      "screenshot_sha256": "8d0503dbcb5d8a9c459f25c2c2638418c22a82fd40f80d784fed736c79437550",
+      "console_errors": [],
+      "status": "pass",
+      "file": "industry-awaiting-review-mobile.jpg"
+    },
+    {
+      "page": "today",
+      "device": "desktop",
+      "route": "#today",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dom": {
+        "body_sample": "今天\n8月8日 周六\n01:37:54\n非交易日\n数据日 7月31日\n市况\n开仓门 关 · 第—天 · 沪深300距60日线 −2.3% · 净新高 +8\n中性市场状态 · 不属于任何线 · 7月31日收盘\n投资线 · S8 关注\n产业核心股研究信号 · 供学习 · 非交易建议\n通用设备\n热\n排队 15/20 · 待建档 ›\n软件开发\n温\n排队 16/20 · 待建档 ›\n保险Ⅱ\n温\n排队 17/20 · 待建档 ›\n综合Ⅱ\n温\n排队 18/20 · 待建档 ›\n影视院线\n温\n排队 19/20 · 待建档 ›\n出版\n温\n排队 20/20 · 待建档 ›\n查看个股与复核 ›\n投机线 · 连阳观察\n买法已证伪 · 仅观察学习 · 非交易建议\n温度计与行情日期未对齐，名单暂不展示\n怎么读：N连阳=连续N天收涨 · 末根涨幅=最后一根阳线涨多少（温和为好） · 量比=当天成交÷近5日均量，>1放量",
+        "client_height": 900,
+        "client_width": 1280,
+        "inner_height": 900,
+        "inner_width": 1280,
+        "key_rect": {
+          "height": 832,
+          "width": 992,
+          "x": 244,
+          "y": 34
+        },
+        "resolved_hash": "#today",
+        "scroll_height": 900,
+        "scroll_width": 1280,
+        "title": "观澜 · 今天"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1280,
+        "height": 900
+      },
+      "screenshot_sha256": "701d09c644bfa69caffbb57a7e92baf21967004abf604bd681418ce4ace8be77",
+      "console_errors": [],
+      "status": "pass",
+      "file": "today-desktop.jpg"
+    },
+    {
+      "page": "pool",
+      "device": "desktop",
+      "route": "#pool",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dom": {
+        "body_sample": "股票池\n名单\n选股逻辑\n产业档案\nS8观察池\n0 只\n当前暂无 S8 观察标的\n人工观察\n0 只\n当前暂无人工观察标的\nS2遗产（到期自动退出）\n0 只",
+        "client_height": 900,
+        "client_width": 1280,
+        "inner_height": 900,
+        "inner_width": 1280,
+        "key_rect": {
+          "height": 832,
+          "width": 992,
+          "x": 244,
+          "y": 34
+        },
+        "resolved_hash": "#pool",
+        "scroll_height": 900,
+        "scroll_width": 1280,
+        "title": "观澜 · 股票池"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1280,
+        "height": 900
+      },
+      "screenshot_sha256": "21261726b68bf96e34a2ac54da5f0038e402406fbeb788e7921c4102cd87b1fa",
+      "console_errors": [],
+      "status": "pass",
+      "file": "pool-desktop.jpg"
+    },
+    {
+      "page": "stock",
+      "device": "desktop",
+      "route": "#stock/600219",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dom": {
+        "body_sample": "← 返回\n600219\n600219\n未标注\n—\n600219 不在严选池中\n止损 —\n买点 —\n现价\n关键数字\n距买点\n—\n若买入 · 计划风险\n—\n相对强度\n—\n板块联动\n—\n状态\n候选\n研究中\n等买点\n持有\n移出\n暂无补充依据",
+        "client_height": 900,
+        "client_width": 1280,
+        "inner_height": 900,
+        "inner_width": 1280,
+        "key_rect": {
+          "height": 832,
+          "width": 992,
+          "x": 244,
+          "y": 34
+        },
+        "resolved_hash": "#stock/600219",
+        "scroll_height": 900,
+        "scroll_width": 1280,
+        "title": "观澜 · 个股详情"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1280,
+        "height": 900
+      },
+      "screenshot_sha256": "6a3e6315dc18a17282325a26d8bc17d285641f1c22de9dbed2da8dafcdd48888",
+      "console_errors": [],
+      "status": "pass",
+      "file": "stock-desktop.jpg"
+    },
+    {
+      "page": "me",
+      "device": "desktop",
+      "route": "#me",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dom": {
+        "body_sample": "我的\n账户权益 · 直接录入\n账户权益 点击金额直接修改\n¥310,000\n保存后会写入账户设置；不改变其他路径\n投机仓\n0 仓 · ¥0\n仓别按真实账本统计\n投资仓\n0 仓 · ¥0\n已建 0/5 批 · 下次 2026-08-12 ¥14,000\n实盘验证期\n0 / 20 笔平仓\n攢满 20 笔前，继续按已确认纪律执行",
+        "client_height": 900,
+        "client_width": 1280,
+        "inner_height": 900,
+        "inner_width": 1280,
+        "key_rect": {
+          "height": 832,
+          "width": 992,
+          "x": 244,
+          "y": 34
+        },
+        "resolved_hash": "#me",
+        "scroll_height": 900,
+        "scroll_width": 1280,
+        "title": "观澜 · 我的"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1280,
+        "height": 900
+      },
+      "screenshot_sha256": "eea6829d8e5bbdde5baca59ef0e61d690be188a59c7bc432f0be04e8ee0485a2",
+      "console_errors": [],
+      "status": "pass",
+      "file": "me-desktop.jpg"
+    },
+    {
+      "page": "industry-awaiting-review",
+      "device": "desktop",
+      "route": "#industry/queue/core%3A03",
+      "capture_mode": "viewport",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dom": {
+        "body_sample": "← 返回\n待更新\n研究中\n排队 2/20\n光模块\n\n行业升温已确认，档案建成前不推个股，建成后本页即为档案正文\n\n生成本篇深度研究初稿\nAI接口 + 联网搜索 + 真实数据骨架 · 初稿经审校与终审后才发布\n行业升温已确认，档案建成前不推个股，建成后本页即为档案正文\n①温度计读数与数据日期\n②产业是什么：链条结构+利润地图\n③周期与位置：关键指标现值与阈值\n④资金逻辑：驱动与证伪信号\n⑤核心股票≤5：生意档案/证伪条件/随身三问\n⑥风险与诚实边界\n⑦证据与来源：全部数据带日期\n行业速览\n名称\t代码\t总市值\t20日涨幅\n当前骨架尚无成员数据\n\n原始数据按市值排序，未经档案审核，非核心股推荐",
+        "client_height": 900,
+        "client_width": 1280,
+        "inner_height": 900,
+        "inner_width": 1280,
+        "key_rect": {
+          "height": 832,
+          "width": 992,
+          "x": 244,
+          "y": 34
+        },
+        "resolved_hash": "#industry/queue/core%3A03",
+        "scroll_height": 900,
+        "scroll_width": 1280,
+        "title": "观澜 · 产业档案"
+      },
+      "image": {
+        "format": "jpeg",
+        "width": 1280,
+        "height": 900
+      },
+      "screenshot_sha256": "a8d3e44a100a3ec7b998be2a8b75ad5a0bb1e5248f1c48f23a8bdefab03ba8af",
+      "console_errors": [],
+      "status": "pass",
+      "file": "industry-awaiting-review-desktop.jpg"
+    }
+  ]
+}

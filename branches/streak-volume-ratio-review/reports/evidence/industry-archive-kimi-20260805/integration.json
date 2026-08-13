@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-08-07T15:04:44+08:00",
+  "status": "skipped",
+  "reason": "未执行：缺 KIMI_API_KEY",
+  "configured": false,
+  "channel": "kimi",
+  "default_model": "kimi-k3",
+  "default_base_url": "https://api.moonshot.cn/v1",
+  "prompt_version": "industry-archive-v2.1-web",
+  "config_sources_checked": [
+    "process environment",
+    "external config path from KIMI_CONFIG_PATH",
+    "~/.config/guanlan/kimi.env"
+  ],
+  "secret_value_recorded": false
+}

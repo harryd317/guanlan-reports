@@ -1,0 +1,63 @@
+{
+  "environment": "production-equivalent",
+  "port": 18812,
+  "source_commit": "425d361",
+  "results": [
+    {
+      "page": "pool",
+      "device": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "legacy_dom": false,
+      "legacy_visible_text": false,
+      "s8_visible": true,
+      "manual_visible": true,
+      "document": {
+        "clientHeight": 900,
+        "clientWidth": 1440,
+        "scrollHeight": 900,
+        "scrollWidth": 1440
+      },
+      "active_page": {
+        "clientHeight": 832,
+        "clientWidth": 1012,
+        "overflowY": "auto",
+        "scrollHeight": 832,
+        "scrollWidth": 1012
+      },
+      "screenshot": "pool-desktop-1440x900.jpg",
+      "screenshot_sha256": "24eeebb5ef85fd77cf5ade29e19d769a95e3c942146f933032491a966b7acf82",
+      "status": "pass"
+    },
+    {
+      "page": "pool",
+      "device": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "legacy_dom": false,
+      "legacy_visible_text": false,
+      "s8_visible": true,
+      "manual_visible": true,
+      "document": {
+        "clientHeight": 844,
+        "clientWidth": 390,
+        "scrollHeight": 844,
+        "scrollWidth": 390
+      },
+      "active_page": {
+        "clientHeight": 784,
+        "clientWidth": 366,
+        "overflowY": "auto",
+        "scrollHeight": 784,
+        "scrollWidth": 366
+      },
+      "screenshot": "pool-mobile-390x844.jpg",
+      "screenshot_sha256": "57ef8a1dc993bd4d2cf918eed4e22da39fb300881ad355a510aca4daee0716b5",
+      "status": "pass"
+    }
+  ]
+}

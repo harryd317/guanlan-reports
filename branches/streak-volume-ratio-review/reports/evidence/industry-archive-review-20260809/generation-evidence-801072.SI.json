@@ -1,0 +1,76 @@
+{
+  "schema": "guanlan-industry-archive-generation-evidence/v1",
+  "evidence_created_at": "2026-08-09",
+  "industry": {
+    "code": "801072.SI",
+    "name": "通用设备"
+  },
+  "production_queue_record": {
+    "status": "awaiting_review",
+    "trigger_date": "2026-08-04",
+    "previous_heat": "warm",
+    "current_heat": "hot",
+    "generation_started_at": "2026-08-07T23:34:47.604545+00:00",
+    "generation_completed_at": "2026-08-07T23:36:38.163474+00:00",
+    "generation_error": null,
+    "draft_length_in_database": 6415
+  },
+  "generation": {
+    "channel": "kimi",
+    "actual_model": "kimi-k2.6",
+    "prompt_version": "industry-archive-v2.2-web",
+    "source_code_commit": "c332d23d68696caae99b6b5420c2b23a59b09247",
+    "queue_wall_seconds": 110.558,
+    "queue_wall_scope": "begin_archive_generation through validated draft persistence; not API-only latency",
+    "token_usage": {
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "total_tokens": null,
+      "status": "not_persisted_by_existing_adapter",
+      "note": "The production K2.6 adapter discarded response usage metadata. No request id or raw response was persisted, so token counts cannot be recovered without inventing data."
+    }
+  },
+  "web_search": {
+    "tool": "$web_search",
+    "triggered": true,
+    "trace_type": "fail_closed_admission_invariant",
+    "raw_request_trace_persisted": false,
+    "round_count": null,
+    "basis": [
+      "At source commit c332d23, _ask_kimi_archive sets used_web_search only after accepting a returned $web_search tool_call.",
+      "The adapter rejects a stop response when used_web_search is false and returns draft content only after the flag is true.",
+      "archive_queue 801072.SI contains a non-empty admitted draft with generation_channel=kimi, generation_model=kimi-k2.6 and no generation_error."
+    ],
+    "honesty_note": "This proves the fail-closed search gate was crossed. It is not a raw per-round HTTP trace, because that metadata was not persisted for this historical production request."
+  },
+  "validation": {
+    "validator": "s8_research.archives.validate_archive_v2",
+    "rerun_against_persisted_draft": true,
+    "ok": true,
+    "prompt_version": "industry-archive-v2.2-web",
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 6016,
+    "reference_length": 3063,
+    "draft_warning_present": true,
+    "source_link_count": 10,
+    "https_source_count": 7
+  },
+  "artifacts": {
+    "draft_path": "reports/evidence/industry-archive-review-20260809/通用设备-801072.SI-kimi-v2.2-初稿.md",
+    "draft_sha256": "5132f8dcfd22896aeaeeb85a65f0056737c90b0233834feb19a83a20ac3dd015",
+    "draft_matches_production_after_trailing_newline_normalization": true,
+    "thermometer_snapshot_path": "reports/evidence/industry-archive-review-20260809/thermometer-snapshot-801072.SI.json",
+    "thermometer_snapshot_sha256": "2c53a22ba803016e5616cf2e930636861db742a8b141715dde2365c8616f4e01"
+  },
+  "source_boundaries": {
+    "production_s8_database_sha256_at_extraction": "f8c6d42d3923a7d344c29a6da7a890f3337ceaf1a9d90941cc3fcd9b00d1909a",
+    "production_thermometer_database_sha256_at_extraction": "62a7ff053407d7fe070fc8d6ea3203a0c04b17864191182c65494dee657e864b",
+    "snapshot_source_sidecar_sha256": "5cb274388c8c87a1455f7ea0b6945b1538a7a13cfc23545074aa10231d1bf37d",
+    "production_database_write_performed": false,
+    "production_generation_triggered": false,
+    "api_key_value_recorded": false,
+    "raw_response_body_recorded": false
+  }
+}

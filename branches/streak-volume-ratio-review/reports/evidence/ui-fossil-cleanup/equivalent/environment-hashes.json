@@ -1,0 +1,26 @@
+{
+  "environment": "production-equivalent",
+  "production_plist_sha256": "4546524c15d5391442c3b74acaf567147f2fe12af6207c23fc3ca7bee9de01cc",
+  "clone_plist_sha256": "3e1d722054ca5adb4209014537c6537db2d8fef6a3e866231d82e00a3d841b18",
+  "before": {
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_s3": "182d437488903493e732d738c9e2b9f5ec2e705545800b7c67b80b62f85bfca0",
+    "production_s8": "f86f119aa6c644e3aac39a78b457a30031d6089a61d510af774fcb1faf5c3d31",
+    "production_screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "copy_market": "1ae600667f0b7f05e1e4707cc9eeb1d46d765deddfa7170b2bce62151e40210f",
+    "copy_s3": "255fe180588b749c613487a0c1603ddadd65f8249e0c1f234e767339e10ced58",
+    "copy_s8": "1f4acff062a5da9bf2e42806cac3e0cb57bb39eb626fab941ba961af1f1a4119",
+    "copy_screener": "b138fce95e46feb91dcbcd090813fd0e140586b9a945bf383ba2b120d59a47de"
+  },
+  "after": {
+    "production_market": "00a88007ac8a7ea31cafef9532d278dad644bde3daec6daf27664f999dac90a9",
+    "production_s3": "182d437488903493e732d738c9e2b9f5ec2e705545800b7c67b80b62f85bfca0",
+    "production_s8": "f86f119aa6c644e3aac39a78b457a30031d6089a61d510af774fcb1faf5c3d31",
+    "production_screener": "3e9eaa5c5501bfa4859cabaeb98d07951ab24ef77526e96bf549754405d27c1e",
+    "copy_market": "1ae600667f0b7f05e1e4707cc9eeb1d46d765deddfa7170b2bce62151e40210f",
+    "copy_s3": "255fe180588b749c613487a0c1603ddadd65f8249e0c1f234e767339e10ced58",
+    "copy_s8": "1f4acff062a5da9bf2e42806cac3e0cb57bb39eb626fab941ba961af1f1a4119",
+    "copy_screener": "b138fce95e46feb91dcbcd090813fd0e140586b9a945bf383ba2b120d59a47de"
+  },
+  "unchanged": true
+}

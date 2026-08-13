@@ -1,0 +1,31 @@
+{
+  "stage": "after-repeat-restart-and-ten-production-screenshots",
+  "captured_at": "2026-08-01T02:40:30+08:00",
+  "main_commit": "8d96e39282fbb89ef23cfa1243024964cf27ca58",
+  "production_pid": 45097,
+  "health": {
+    "ok": true,
+    "match": true,
+    "rule_version": 10,
+    "fingerprint_boot": "9b2db1af10049e486be89fb6e79c5e607e5ec424",
+    "fingerprint_disk": "9b2db1af10049e486be89fb6e79c5e607e5ec424"
+  },
+  "files": [
+    {"path": "~/Library/LaunchAgents/com.rui.stock-screener.web.plist", "bytes": 1049, "sha256": "93e862839f8a54ee25d2aefc704742eb82ba106cd7b5239342b5245fc2a42dac", "matches_before": true},
+    {"path": "S3_research.db", "bytes": 135168, "sha256": "bf7aef744b05a69a16416c32f10663865a798f77ad828f93de54e6421018fb7b", "matches_before": true},
+    {"path": "bt_cache.db", "bytes": 92753920, "sha256": "d8679bfe45aa350d272b24bb3120a78f4b722a6948a148973bb8899bb78ef47e", "matches_before": true},
+    {"path": "market.db", "bytes": 2212179968, "sha256": "a504f873eb204bee722082b1d6fec92b04e950cbae16842d4c4917a820c75fc1", "matches_before": true},
+    {"path": "market.db-shm", "bytes": 32768, "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb", "matches_before": true},
+    {"path": "market.db-wal", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "matches_before": true},
+    {"path": "screener.db", "bytes": 2596864, "sha256": "ece7a893cbd61fb788da7b6850630524caef877b62d1e2fd4cf1ddf15076b8b9", "matches_before": false},
+    {"path": "screener.db-shm", "bytes": 32768, "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb", "matches_before": true},
+    {"path": "screener.db-wal", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "matches_before": true}
+  ],
+  "matches_before": false,
+  "mismatch": {
+    "path": "screener.db",
+    "before_sha256": "8c52821caefacc0134e25f36ee7071d6421ae33f48bff5fab45c3212e10fe839",
+    "after_sha256": "ece7a893cbd61fb788da7b6850630524caef877b62d1e2fd4cf1ddf15076b8b9",
+    "observed_mtime": "2026-08-01T02:40:01+08:00"
+  }
+}

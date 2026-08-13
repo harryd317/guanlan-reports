@@ -1,0 +1,54 @@
+{
+  "run_at": "2026-08-12T01:26:49+08:00",
+  "source_tree_commit_before_final_report": "7b915e1b7388ecaf6b62172c5dbef53529a33012",
+  "suites": [
+    {
+      "command": ".venv/bin/python test_rules.py",
+      "result": "passed",
+      "count": "8/8"
+    },
+    {
+      "command": ".venv/bin/python test_rules_mid.py",
+      "result": "passed",
+      "count": "20/20"
+    },
+    {
+      "command": ".venv/bin/python test_regime.py",
+      "result": "passed",
+      "count": "6/6",
+      "note": "market.db historical cases were skipped by the suite because that database is absent in the isolated worktree."
+    },
+    {
+      "command": ".venv/bin/python test_report_mirror_sync.py",
+      "result": "passed",
+      "count": "30/30",
+      "note": "Includes exact-path incremental publication tests that preserve every unselected remote file and reject directories or uncommitted paths."
+    },
+    {
+      "command": ".venv/bin/python test_industry_archive_center.py",
+      "result": "passed",
+      "count": "35/35"
+    },
+    {
+      "command": ".venv/bin/python test_web.py",
+      "result": "passed",
+      "count": "838/838",
+      "execution_root": "~/云慧养/zmu_gitee/screener",
+      "honesty_note": "The first isolated-worktree run reached the final golden-master subprocess and then failed because that worktree had no local .venv/bin/python path. The same source commit was rerun from the main worktree, where the project virtual environment exists, and passed 838/838. No assertion failure was hidden."
+    }
+  ],
+  "archive_validation": {
+    "801072.SI": {
+      "ok": true,
+      "missing_sections": [],
+      "errors": [],
+      "core_stock_count": 5
+    },
+    "801014.SI": {
+      "ok": true,
+      "missing_sections": [],
+      "errors": [],
+      "core_stock_count": 5
+    }
+  }
+}

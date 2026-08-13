@@ -1,0 +1,80 @@
+{
+  "schema": "guanlan-industry-archive-generation-evidence/v1",
+  "evidence_created_at": "2026-08-12T01:19:38+08:00",
+  "industry": {
+    "code": "801014.SI",
+    "name": "饲料"
+  },
+  "production_queue_record": {
+    "status": "awaiting_review",
+    "trigger_date": "2026-08-11",
+    "previous_heat": "cold",
+    "current_heat": "warm",
+    "generation_started_at": "2026-08-11T10:26:27.130101+00:00",
+    "generation_persisted_at": "2026-08-11T10:27:57.875863+00:00",
+    "generation_error": null,
+    "draft_length_in_database": 6413
+  },
+  "generation": {
+    "channel": "kimi",
+    "actual_model": "kimi-k2.6",
+    "prompt_version": "industry-archive-v2.2-web",
+    "deployed_source_commit_at_generation": "56ed282419a07f5fc72a9917c7048edc2fd5e36a",
+    "queue_wall_seconds": 90.746,
+    "queue_wall_scope": "generation_started_at through validated draft persistence; not API-only latency",
+    "token_usage": {
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "total_tokens": null,
+      "status": "not_persisted_by_existing_adapter",
+      "note": "The production K2.6 adapter did not persist response usage metadata. No token value was estimated or invented."
+    }
+  },
+  "web_search": {
+    "tool": "$web_search",
+    "triggered": true,
+    "trace_type": "fail_closed_admission_invariant",
+    "raw_request_trace_persisted": false,
+    "round_count": null,
+    "basis": [
+      "At deployed source commit 56ed282, _ask_kimi_archive accepts a draft only after observing a returned $web_search tool_call.",
+      "The adapter rejects a stop response when used_web_search is false.",
+      "archive_queue 801014.SI contains an admitted draft with generation_channel=kimi, generation_model=kimi-k2.6 and no generation_error."
+    ],
+    "honesty_note": "This proves the fail-closed search gate was crossed. It is not a raw per-round HTTP trace because that metadata was not persisted."
+  },
+  "validation": {
+    "validator": "s8_research.archives.validate_archive_v2",
+    "rerun_against_persisted_draft": true,
+    "ok": true,
+    "prompt_version": "industry-archive-v2.2-web",
+    "missing_sections": [],
+    "errors": [],
+    "core_stock_count": 5,
+    "non_whitespace_length": 5887,
+    "reference_length": 3063,
+    "draft_warning_present": true,
+    "source_link_count": 10,
+    "https_source_count": 8
+  },
+  "artifacts": {
+    "draft_path": "reports/evidence/industry-archive-review-801014-20260812/饲料-801014.SI-kimi-v2.2-初稿.md",
+    "draft_stored_sha256": "381c4ded17bcd9aeddceab352f50e3820958b5304d3255853c3758f854af3301",
+    "draft_file_sha256": "9759ce2c32cc382c686d8938e68aa62f911a3faec4465b3d70d45d9c3f3d4506",
+    "draft_matches_production_after_trailing_newline_normalization": true,
+    "thermometer_snapshot_path": "reports/evidence/industry-archive-review-801014-20260812/thermometer-snapshot-801014.SI.json",
+    "thermometer_snapshot_sha256": "5b0c8201796bbc2cf7254ff7558dd2eb6ca83c916f439b220e566c12eaf90dd0",
+    "thermometer_snapshot_matches_sidecar": true
+  },
+  "source_boundaries": {
+    "production_s8_database_sha256_before_extraction": "04d15e79e16577848d37cc7b941b2b84bee2113ef3e18827c9b015783778f4cb",
+    "production_s8_database_sha256_after_extraction": "04d15e79e16577848d37cc7b941b2b84bee2113ef3e18827c9b015783778f4cb",
+    "production_thermometer_database_sha256_before_extraction": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+    "production_thermometer_database_sha256_after_extraction": "e4ea0f2354180c5f815e1b996be9dba935f21bd95d547baf817c4e9cb27f794e",
+    "snapshot_source_sidecar_sha256": "7b1a4801e07f8c5297b77c37cea7c69995a0558acdec3247b067a90ef244e9c0",
+    "production_database_write_performed": false,
+    "production_generation_triggered": false,
+    "api_key_value_recorded": false,
+    "raw_response_body_recorded": false
+  }
+}

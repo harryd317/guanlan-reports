@@ -1,0 +1,23 @@
+{
+  "artifacts_sha256": {
+    "docs/测量报告-投机线连阳名单胜率与量比关系-20260813.md": "341944d75c77313d12d8fcb1c4a2bf2f863fd76b26a5f3810384c0f893b17de8",
+    "docs/验收-投机线连阳名单胜率与量比关系-20260813.md": "fb8ed403d86408209f3c5f5cf10fd8571deabc66c5496afcce4d54a681bda479",
+    "reports/streak-volume-ratio-detail-20260813.csv": "8afd1d2cd187b926d94e87ee5c9ebb498ca65a9581f46e34c2f42540d2ea1f87",
+    "reports/streak-volume-ratio-groups-20260813.csv": "e69522b7be15aa3dca92af9b54deb7a94328f7c4ea8e711737956e79a6f3bb2f",
+    "reports/streak-volume-ratio-overlap-20260813.json": "2387069c4b5bfdd2fa51d5018b86f908f808bf1052d1ffadcfbd3143ab593d01",
+    "reports/streak-volume-ratio-run-manifest-20260813.json": "ea6d007a94869a2d835b538b7bf0d51780736361a13713ca33b36915a610b0e8"
+  },
+  "config_fingerprint": "ef6b53bfa0303800294aa993203969f9a58efbd733755a260830722009cb41c3",
+  "scripts_sha256": {
+    "streak_volume_review/__init__.py": "f62d6723098687860516d70066635fb00c9dfac344c75f09e7daa9d58be5ca28",
+    "streak_volume_review/config.py": "0f9a251ed171ffd1ce4fb172eb16c262f3927be5e56da1f9203a498ffb8bc422",
+    "streak_volume_review/db.py": "16b02049f251bcba3599257691e69df326751656a62836cc667717dd63521d3d",
+    "streak_volume_review/measurement.py": "9792a7a333d33750f75cca0072aab29ac3f2ea54f77f549a55c34b30215881c4",
+    "streak_volume_review/pipeline.py": "1f71ee5ff6b18aba2a0d2abeb57a1529368c632bd0b790aa53e1c722ee20ebd7",
+    "streak_volume_review/reconstruction.py": "f8f892923b02ed715ac4440a2b349cd80703b5d653ace7196163034a0865ed09",
+    "streak_volume_review/report.py": "fb5a93bc48e05d6a40eb732b6a7828f949af84cded826cc44155f1b99558b610",
+    "streak_volume_review/statistics.py": "99fbb8cf4ec3fea40c7029f424f6e977dc2a01b84763ab48910c16668b9febec",
+    "streak_volume_review_cli.py": "5ff0bede9ee476953f16b31edadd3c7ddf0c0dc745281c7c031d961a3846bf95"
+  },
+  "self_hash_omitted_reason": "A hash manifest cannot contain its own final SHA-256 without recursion."
+}

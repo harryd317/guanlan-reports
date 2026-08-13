@@ -1,0 +1,41 @@
+{
+  "historical_heat_validation": {
+    "first_100_mismatches": [],
+    "joined_rows": 33232,
+    "mismatch_rows": 0,
+    "missing_reconstructed_rows": 0,
+    "old_dates": 268,
+    "old_rows": 33232,
+    "status": "pass"
+  },
+  "reconstructed_signal_end": "2025-12-31",
+  "requested_signal_end": "2026-08-12",
+  "snapshot_audit": {
+    "explanation": "The saved acceptance JSON records only a date, count, and formula version; it cannot support daily-by-stock overlap comparison.",
+    "overlap_dates": 0,
+    "overlap_rows": 0,
+    "qualified_row_level_snapshots": 0,
+    "saved_evidence": [
+      {
+        "count": 124,
+        "data_date": "2026-07-31",
+        "file": "s9-streak-watchlist-equivalent-20260802.json",
+        "formula_version": "s8-streak-watchlist-v1.0",
+        "has_row_level_records": false
+      },
+      {
+        "count": 124,
+        "data_date": "2026-07-31",
+        "file": "s9-streak-watchlist-production-20260802.json",
+        "formula_version": "s8-streak-watchlist-v1.0",
+        "has_row_level_records": false
+      }
+    ],
+    "status": "unavailable_missing_row_level_fields"
+  },
+  "uncovered_interval": [
+    "2026-01-01",
+    "2026-08-12"
+  ],
+  "uncovered_reason": "Frozen local daily_basic/market-cap eligibility ends on 2025-12-31; the no-network predeclaration forbids filling 2026 after freeze."
+}
