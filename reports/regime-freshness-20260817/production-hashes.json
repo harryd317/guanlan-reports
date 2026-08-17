@@ -1,0 +1,68 @@
+{
+  "deployment": {
+    "source_commit": "803c3b6362a75d6e1bb64bc0ecdc62d1b4248471",
+    "method": "./restart.sh",
+    "direct_database_writes": [],
+    "normal_background_jobs_after_restart": true
+  },
+  "before_restart": {
+    "market.db": {
+      "sha256": "e8f5b9a7d9ae506251512d8bd82cdcabe6b22d34b22274c47dd27bd8ccee7fe1",
+      "bytes": 2220630016
+    },
+    "screener.db": {
+      "sha256": "3af59fc7a73240f97c2b161bf3a1a558c9e228cc22a8f5ce8a77de686de9c219",
+      "bytes": 2605056
+    },
+    "industry_thermometer_sidecar.db": {
+      "sha256": "6adedb5fd79da258126b949e47d0f6ae241dac75d5a46d47b86a260b9bf0048d",
+      "bytes": 1899155456
+    },
+    "S8_research.db": {
+      "sha256": "df23da3dce6106fc2aeda6bc918f30c58273aeb5c91b5ce8411a6478d5b296f2",
+      "bytes": 778240
+    }
+  },
+  "after_restart_and_acceptance": {
+    "market.db": {
+      "sha256": "20681effb2e43e05a373af1f0e91caf1605b97f0ea1174c67fa4e16860b03097",
+      "bytes": 2222743552
+    },
+    "screener.db": {
+      "sha256": "3af59fc7a73240f97c2b161bf3a1a558c9e228cc22a8f5ce8a77de686de9c219",
+      "bytes": 2605056
+    },
+    "industry_thermometer_sidecar.db": {
+      "sha256": "9373702fe216d6ffd88a501f85f17a39fd44ad1ab2ffe3c54f17b5a01adf5aba",
+      "bytes": 1899220992
+    },
+    "S8_research.db": {
+      "sha256": "3a6b172b034926da0d74b759c0bc472a914305d8398de2f419831e899e862814",
+      "bytes": 778240
+    }
+  },
+  "logical_state_after_restart": {
+    "market_daily": {
+      "max_trade_date": "2026-08-17",
+      "rows": 11614967
+    },
+    "index_daily_000300_SH": {
+      "max_trade_date": "2026-08-17",
+      "rows": 3549
+    },
+    "regime_history": {
+      "max_judged_date": "2026-08-17",
+      "rows": 2823,
+      "max_computed_at": "2026-08-17 16:34:08"
+    },
+    "breadth_daily": {
+      "max_trade_date": "2026-08-17",
+      "rows": 2819
+    },
+    "sidecar_latest_job_run": {
+      "id": 59,
+      "status": "success"
+    }
+  },
+  "interpretation": "No repair code or operator wrote production databases. Existing background jobs and SQLite checkpointing resumed after the required production restart; therefore file hashes for market, sidecar, and S8 changed. The market/index/regime/breadth logical latest dates and row counts used by this repair remained aligned at 2026-08-17. screener.db remained byte-identical."
+}

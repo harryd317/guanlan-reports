@@ -1,0 +1,10 @@
+{
+  "source_commit": "803c3b6362a75d6e1bb64bc0ecdc62d1b4248471",
+  "files": {
+    "market_status.py": "00e79be0b0d0289891a3bb67f94b4f379d597f95fef428b6390b4c72d090ee9a",
+    "service.py": "a5d77cfa01bc3dc9d96f10b65e9842c24fa51a1d7e4f48635c6a44580e955818",
+    "static/home.html": "5475d0e4da660f410d45566c4cb3da43db3865ebacb34a2e7dea1a88297ca69b",
+    "test_market_status.py": "41fb82953e10f9976117b5f5bfce249ddfd2d9ca10188cefb1db6cd8505ca95d",
+    "test_web.py": "cf0b7c796ac145bde65fd86203aaa943d3a27f1891d18c6e195fa27187c3e36f"
+  }
+}

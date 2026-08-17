@@ -1,0 +1,27 @@
+{
+  "environment": "production-equivalent",
+  "desktop": {
+    "viewport": "1440x900",
+    "document": "1440x900",
+    "scroll": false,
+    "market_card_data_date": "2026-08-17",
+    "streak_list_data_date": "2026-08-17",
+    "market_facts": "开仓门 关 · 第29天 · 沪深300距60日线 −1.0% · 净新高 +27",
+    "market_tail": "冲高有险 · 不属于任何线 · 8月17日收盘",
+    "browser_console_errors": 0
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "document": "390x844",
+    "scroll": false,
+    "market_card_data_date": "2026-08-17",
+    "streak_list_data_date": "2026-08-17",
+    "browser_console_errors": 0
+  },
+  "screenshots": {
+    "today_desktop.png": "59e1e3c225cccbd75fbe24ca6c806311af7ed00a3f1f03407e61f7a6a65c446d",
+    "today_mobile.png": "959ba9a52fb8b00c377fc785d51a2597ce3c1e6b4e7717102991a55ba50268ad",
+    "streak_desktop.png": "3c604c4ce6f86b7d53c93a8f164e88391e3b6c91497622bb3ce4fde64b7b8b80",
+    "streak_mobile.png": "2c7fa17099818b985bcecaa6bf75b654aae3397181f584695a9ed6cb4e1a0bd8"
+  }
+}

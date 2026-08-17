@@ -1,0 +1,22 @@
+{
+  "source_commit": "803c3b6362a75d6e1bb64bc0ecdc62d1b4248471",
+  "result": "pass",
+  "total": 951,
+  "passed": 951,
+  "failed": 0,
+  "suites": [
+    {"name": "test_market_status.py", "passed": 8, "total": 8},
+    {"name": "test_guanlan_frontend.py", "passed": 42, "total": 42},
+    {"name": "test_production_equivalent.py", "passed": 29, "total": 29},
+    {"name": "test_rules.py", "passed": 8, "total": 8},
+    {"name": "test_rules_mid.py", "passed": 20, "total": 20},
+    {"name": "test_regime.py", "passed": 6, "total": 6},
+    {"name": "test_web.py", "passed": 838, "total": 838}
+  ],
+  "review": {
+    "result": "PASS",
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  }
+}
