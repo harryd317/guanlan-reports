@@ -1,0 +1,68 @@
+{
+  "environment": "production-equivalent-and-production",
+  "capture_mode": "viewport",
+  "entries": [
+    {
+      "page": "pending-review-auto-publish",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "image": {"file": "pending-desktop-1440x900.jpg", "format": "jpeg", "width": 1440, "height": 900, "sha256": "7c63c9e324600408772e48dd6889ab74b1aa7fcc80b1205acc3dc54ba8f49b09"},
+      "screenshot_sha256": "7c63c9e324600408772e48dd6889ab74b1aa7fcc80b1205acc3dc54ba8f49b09",
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 271, "y": 514.5, "width": 958, "height": 130.64}},
+      "console_errors": []
+    },
+    {
+      "page": "pending-review-auto-publish",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "image": {"file": "pending-mobile-390x844.jpg", "format": "jpeg", "width": 390, "height": 844, "sha256": "c478e85ad3a48852b0544c8e5bd05ee937e86c099017224f67fcd68e87d2f40f"},
+      "screenshot_sha256": "c478e85ad3a48852b0544c8e5bd05ee937e86c099017224f67fcd68e87d2f40f",
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 26, "y": 682, "width": 338, "height": 166.28}},
+      "console_errors": []
+    },
+    {
+      "page": "withdrawn-archive",
+      "device": "desktop",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "image": {"file": "withdrawn-desktop-1440x900.jpg", "format": "jpeg", "width": 1440, "height": 900, "sha256": "e45cefd9a8f8567ea596a073714c7f1637f4e0d082a17846e7e973f2fcf79ee7"},
+      "screenshot_sha256": "e45cefd9a8f8567ea596a073714c7f1637f4e0d082a17846e7e973f2fcf79ee7",
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 271, "y": 224.5, "width": 958, "height": 102.14}},
+      "console_errors": []
+    },
+    {
+      "page": "withdrawn-archive",
+      "device": "mobile",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "image": {"file": "withdrawn-mobile-390x844.jpg", "format": "jpeg", "width": 390, "height": 844, "sha256": "75dd7e6aa895354e5967baaf41c1fdcf28bb562233d1cc11eae452025ae5395d"},
+      "screenshot_sha256": "75dd7e6aa895354e5967baaf41c1fdcf28bb562233d1cc11eae452025ae5395d",
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 26, "y": 189.5, "width": 338, "height": 119.96}},
+      "console_errors": []
+    },
+    {
+      "page": "published-feed-archive",
+      "device": "desktop",
+      "environment": "production",
+      "capture_mode": "viewport",
+      "viewport": {"width": 1440, "height": 900},
+      "image": {"file": "production-feed-published-desktop-1440x900.jpg", "format": "jpeg", "width": 1440, "height": 900, "sha256": "2bd94a804b9f61846b031de41516399f3da0bb382e5c891c844dea6500072c88"},
+      "screenshot_sha256": "2bd94a804b9f61846b031de41516399f3da0bb382e5c891c844dea6500072c88",
+      "dom": {"inner_width": 1440, "inner_height": 900, "client_width": 1440, "client_height": 900, "scroll_width": 1440, "scroll_height": 900, "key_rect": {"x": 244, "y": 62, "width": 1012, "height": 129.5}},
+      "console_errors": []
+    },
+    {
+      "page": "published-feed-archive",
+      "device": "mobile",
+      "environment": "production",
+      "capture_mode": "viewport",
+      "viewport": {"width": 390, "height": 844},
+      "image": {"file": "production-feed-published-mobile-390x844.jpg", "format": "jpeg", "width": 390, "height": 844, "sha256": "7e12fe5e92e298f13e4991bddb976d3c701f580a1e2588b087857aef4dc6ba98"},
+      "screenshot_sha256": "7e12fe5e92e298f13e4991bddb976d3c701f580a1e2588b087857aef4dc6ba98",
+      "dom": {"inner_width": 390, "inner_height": 844, "client_width": 390, "client_height": 844, "scroll_width": 390, "scroll_height": 844, "key_rect": {"x": 12, "y": 73, "width": 366, "height": 96.5}},
+      "console_errors": []
+    }
+  ]
+}
